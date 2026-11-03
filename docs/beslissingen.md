@@ -16,7 +16,7 @@ Format: datum · beslissing · waarom · door wie · status
 | 10 | 2026-11-03 | Node.js 22 LTS lokaal geïnstalleerd in `~/.local/node` (checksum gecontroleerd) | was niet aanwezig; geen beheerdersrechten nodig | Adriaan (akkoord) | uitgevoerd |
 | 11 | 2026-11-03 | Elke kostenpost wordt op centen afgerond; het totaal is de som van de getoonde posten | uitklapbare berekening telt altijd precies op | Claude | uitgevoerd |
 | 12 | 2026-11-03 | BPM voor brandstofauto's nog niet in de engine; alleen EV-bedrag €687. Catalogusprijs (incl. BPM) is leidend | bronnen over de CO₂-schijven 2026 spreken elkaar tegen | Claude | open: opnemen zodra de wetstekst is geverifieerd |
-| 13 | 2026-11-03 | MRB-opcenten over de eigen grondslag van art. 222 Provinciewet (niet over het rijksdeel) | twee consistente bronnen + rekenvoorbeelden kloppen; wetstekst nog te bevestigen | Claude | wacht op controle Belastingdienst-rekentool |
+| 13 | 2026-11-03 | MRB-opcenten over de eigen grondslag van art. 222 Provinciewet (niet over het rijksdeel) | twee consistente bronnen + rekenvoorbeelden kloppen | Claude | bevestigd: 1.631/1.632 gelijk aan Belastingdienst-rekentool (3-11) |
 | 14 | 2026-11-03 | ZZP-berekening rekent met een opgegeven effectief tarief; hulpfunctie voor MKB-winstvrijstelling + aftrekbeperking aanwezig; heffingskortingen nog niet | eenvoudig na te rekenen; volledige IB-berekening hoort bij Fase 4 | Claude | uitgevoerd |
 | 15 | 2026-11-03 | DGA/bv in v1 als "light" (bijtelling + pseudo-eindheffing + km-vergoeding) | bevestigd door Adriaan (vraag 4) | Adriaan | besloten |
 | 16 | 2026-11-03 | V1 met gewone doorverwijslinks, zonder gebruikersdata. Echte leads (gegevens doorsturen) pas later, en alleen met een AFM-vergunning of een vergunde partner, na juridisch advies | Wft: gegevens doorsturen = bemiddelen | Adriaan | besloten |
@@ -24,3 +24,4 @@ Format: datum · beslissing · waarom · door wie · status
 | 18 | 2026-11-03 | Restwaarde in v1 via eigen schattingen (gelabeld); offertes voor een licentie worden opgevraagd voor een later besluit | geen budget nu, wel optie houden | Adriaan | besloten |
 | 19 | 2026-11-03 | Zakelijk in v1: ZZP'er en leaserijder volledig, DGA/bv licht | haalbaar zonder fiscalist; volledige bv-doorrekening later | Adriaan | besloten |
 | 20 | 2026-11-03 | Occasions in v1: dezelfde 40–60 modellen tot ca. 10 jaar oud, plus kentekencheck via RDW (gewicht, APK, terugroepacties) | concrete auto's beter doorgerekend; RDW-data is gratis | Adriaan | besloten |
+| 21 | 2026-11-03 | Opcenten in de MRB niet tussentijds op centen afronden; alleen het kwartaaltotaal naar beneden | zo komt de engine overeen met de Belastingdienst (12 afwijkingen van €1 verdwenen) | Claude | uitgevoerd |

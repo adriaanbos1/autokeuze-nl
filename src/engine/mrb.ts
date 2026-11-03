@@ -64,15 +64,17 @@ export function mrbPersonenauto(invoer: MrbInvoer): MrbUitkomst {
       : 0;
 
   const opcentenPct = regels.mrb.opcenten2026.waarde[invoer.provincie];
-  const opcenten = rond2((staffelBedrag(regels.mrb.opcentenGrondslag.waarde, m) * opcentenPct) / 100);
+  // Opcenten niet tussentijds afronden: de Belastingdienst rondt pas het totaal af
+  // (gecontroleerd tegen de rekentool, zie tests/mrb-belastingdienst.test.ts).
+  const opcentenExact = (staffelBedrag(regels.mrb.opcentenGrondslag.waarde, m) * opcentenPct) / 100;
 
   const emissievrij = invoer.brandstof === "elektrisch" || invoer.brandstof === "waterstof";
   const kortingFactor = emissievrij ? emissievrijFactor(invoer.jaar) : 1;
 
-  const perKwartaal = Math.floor((rijksdeel + brandstoftoeslag + fijnstoftoeslag + opcenten) * kortingFactor + 1e-9);
+  const perKwartaal = Math.floor((rijksdeel + brandstoftoeslag + fijnstoftoeslag + opcentenExact) * kortingFactor + 1e-9);
   return {
     perKwartaal,
     perJaar: perKwartaal * 4,
-    posten: { rijksdeel, brandstoftoeslag, fijnstoftoeslag, opcenten, kortingFactor },
+    posten: { rijksdeel, brandstoftoeslag, fijnstoftoeslag, opcenten: rond2(opcentenExact), kortingFactor },
   };
 }

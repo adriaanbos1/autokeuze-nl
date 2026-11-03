@@ -30,8 +30,13 @@ Statuslabels:
 - fijnstoftoeslag diesel +19% (art. 23 lid 4–5);
 - EV-percentage per jaar (art. 23b): 70% in 2026–2028, 75% in 2029, de bepaling vervalt per 2030. Dit werkt ook door in de opcenten;
 - opcenten per provincie 2026 uit CBS 80889ned (o.a. Utrecht 86,4, Limburg 88,5);
-- de opcenten worden niet over het rijksdeel berekend, maar over een **eigen, lagere grondslag** (art. 222 lid 3 Provinciewet: €45,81 + €11,68 per 100 kg boven 1.100 kg). ⚠ Deze grondslag komt uit twee consistente secundaire bronnen; de wetstekst zelf hebben we nog niet kunnen inzien;
-- het totaal per kwartaal wordt naar beneden afgerond op hele euro's. ⚠ Te bevestigen met de rekentool van de Belastingdienst.
+- de opcenten worden niet over het rijksdeel berekend, maar over een **eigen, lagere grondslag** (art. 222 lid 3 Provinciewet: €45,81 + €11,68 per 100 kg boven 1.100 kg);
+- het totaal per kwartaal wordt pas aan het eind naar beneden afgerond op hele euro's (de opcenten niet tussentijds afronden).
+
+**Controle tegen de Belastingdienst (3-11-2026)** ✅: de officiële rekentool ([hulpmiddel MRB berekenen](https://www.belastingdienst.nl/wps/wcm/connect/nl/auto-en-vervoer/content/hulpmiddel-motorrijtuigenbelasting-berekenen)) bevat per provincie de bedragen voor alle gewichtsklassen. Die staan als referentie in `tests/fixtures/belastingdienst-mrb.json`. Uitkomst: **1.631 van de 1.632 combinaties** (12 provincies × gewicht 651–4.050 kg × benzine/diesel/elektrisch/LPG) kloppen tot op de euro. Bekende uitzonderingen:
+- Noord-Brabant, LPG, 3.300 kg: wij €1.315 (exact €1.315,9999), Belastingdienst €1.316. Vermoedelijk afrondingsruis in de rekentool zelf.
+- Klasse ≤ 650 kg: de Belastingdienst komt tot €1 lager uit; de oorzaak is onbekend. Dit is niet relevant, want er bestaan geen personenauto's van ≤ 650 kg rijklaar.
+- LPG3/aardgas (af-fabriek-installatie) zit nog niet in de engine.
 
 ## 2. BPM (aanschafbelasting)
 

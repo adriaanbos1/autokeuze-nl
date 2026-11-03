@@ -24,7 +24,7 @@ Alternatief bij krappe kosten: Cloudflare Pages (gratis, ook commercieel). Overs
 ## 2. Fases
 
 ### Fase 1: Reken-engine (TCO + 4 financieringsvormen + fiscaal), met tests
-> **Status 3-11-2026: gebouwd.** 58 tests groen. Nog open: BPM brandstofauto's, controle van de MRB-bedragen met de Belastingdienst-rekentool, heffingskortingen.
+> **Status 3-11-2026: gebouwd.** 58 tests groen. MRB gecontroleerd tegen de Belastingdienst (1.631/1.632 exact). Nog open: BPM brandstofauto's, heffingskortingen.
 
 - **Doel:** een pure rekenmodule: TCO, contant / lening / financial lease met slottermijn / private lease; MRB, BPM, bijtelling (incl. 60-maandenregel, cap, eigen bijdrage), ZZP zakelijk vs. privé, btw-correctie, pseudo-eindheffing. Plus het configbestand `regels-nl` met bron en `geldig_vanaf` voor elke waarde. MRB-tabellen worden overgenomen uit de wet en getoetst tegen de Belastingdienst-rekentool.
 - **Wat jij kunt testen:** `npm test` toont groene vinkjes per rekenvoorbeeld. De drie persona's uit `methodiek.md` zijn tests met precies dezelfde getallen. Daarnaast een simpele rekenpagina (geen opmaak) waar je zelf waarden invult.

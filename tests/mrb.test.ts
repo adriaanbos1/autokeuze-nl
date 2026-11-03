@@ -1,6 +1,6 @@
 // MRB-voorbeelden. Bron van de verwachte bedragen: rekenvoorbeelden op
 // wegenbelastingwijzer.nl en allesberekenen.nl (tarieven vanaf 1-7-2026).
-// ⚠ Nog te bevestigen met de rekentool van de Belastingdienst.
+// Volledige controle tegen de Belastingdienst: tests/mrb-belastingdienst.test.ts.
 import { describe, expect, it } from "vitest";
 import { mrbPersonenauto, rondMassa } from "@/engine";
 

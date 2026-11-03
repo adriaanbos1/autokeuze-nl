@@ -126,12 +126,12 @@ export const regels = {
         ],
         lineair: [{ vanaf: 1100, basis: 45.81, perHonderdKg: 11.68 }],
       } satisfies Staffel,
-      status: "onzeker",
-      bron: "https://mijnkentekenchecker.nl/scanners/wegenbelasting (verwijst naar art. 222 lid 3 Provinciewet); bevestigd door https://www.wegenbelastingwijzer.nl/wegenbelasting-tarieven-2026",
+      status: "vastgesteld",
+      bron: "art. 222 lid 3 Provinciewet, via https://mijnkentekenchecker.nl/scanners/wegenbelasting; gecontroleerd tegen de MRB-rekentool van de Belastingdienst (tests/mrb-belastingdienst.test.ts)",
       geldigVanaf: "2026-07-01",
       peildatum: PEIL,
       toelichting:
-        "Secundaire bronnen (twee, onderling consistent). Wetstekst Provinciewet nog niet direct ingezien. Geen aparte regel bekend boven 3.400 kg. Opcenten gaan niet over de brandstoftoeslag.",
+        "Wetstekst zelf niet ingezien, maar de uitkomst klopt voor 1.631 van 1.632 combinaties (12 provincies × gewicht 651–4.050 kg × 4 brandstoffen) met de Belastingdienst. Klasse ≤ 650 kg wijkt hooguit €1 af. Opcenten gaan niet over de brandstoftoeslag.",
     } as Regel<Staffel>,
 
     /** Opcenten per provincie 2026. */
