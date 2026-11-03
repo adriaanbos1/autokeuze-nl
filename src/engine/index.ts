@@ -8,3 +8,4 @@ export * from "./tco";
 export * from "./bijtelling";
 export * from "./belasting";
 export * from "./zakelijk";
+export * from "./betrouwbaarheid";

@@ -38,7 +38,7 @@ Voorbeelden van ankers (concept, worden openbaar gepubliceerd):
 |---|---|---|
 | TCO €/maand | 2× jouw budget | ½× jouw budget |
 | Restwaarde na 5 jr | 25% | 65% |
-| BETR: gebrekenratio t.o.v. gemiddelde voor die leeftijd | 2,0× | 0,5× |
+| BETR: gebrekenratio t.o.v. gemiddelde voor die leeftijd | 2,0× | 0,5× (logaritmische schaal, zie §2.2) |
 | Euro NCAP | 2 sterren | 5 sterren (actueel protocol) |
 
 - **TCO is relatief aan jóuw budget**, zodat de schaal past bij een student én bij een directeur.
@@ -82,10 +82,28 @@ km_norm(t) = 15.000 × t
 - `b` = correctie per 10.000 km boven of onder normaal (typisch 1–2%).
 - Restwaarde over de looptijd = waarde(t_eind, km_eind) − waarde(t_nu, km_nu).
 
-### 2.2 Betrouwbaarheid
-- Uit RDW: gebrekenratio per APK voor model × bouwjaar, gedeeld door het **landelijk gemiddelde voor die leeftijd**. Zo straffen we oudere auto's niet dubbel.
-- Minimaal 200 APK's per model × bouwjaar; anders samenvoegen met naburige bouwjaren of "onvoldoende data".
-- Terugroepacties: aantal en ernst (RDW-risicoklasse), alleen als die nog relevant zijn.
+### 2.2 Betrouwbaarheid (gebouwd in Fase 2b)
+
+**Wat we meten:** welk deel van de reguliere APK-keuringen minstens één **technisch gebrek** had, vergeleken met auto's van hetzelfde bouwjaar en dezelfde leeftijd.
+
+1. **Bron:** RDW Open Data: APK-meldingen (`sgfe-77wx`), geconstateerde gebreken (`a34c-vvps`) en de gebrekencatalogus (`hx2c-gt7k`). Licentie: publiek domein.
+2. **Welke gebreken tellen mee** (`src/data/gebreken.ts`): technische gebreken uit de APK-regeling, zoals remmen, ophanging, stuurinrichting, roest, banden, verlichting, ruiten, uitlaat en lekkages. **Niet mee:** adviespunten (bijvoorbeeld bandprofiel 1,6–2,5 mm), administratieve punten (kentekenregister, tellerstand, VIN), afmetingen, LPG-documentatie en tachograaf.
+3. **Keuringen:** "APK Lichte voertuigen", soort "periodieke controle", in de laatste 24 maanden. Een herkeuring op dezelfde dag telt één keer.
+4. **Steekproef:** per model × bouwjaar (2014–2022) 600 kentekens, gelot met een vaste hash (SHA-256) van het kenteken: willekeurig, maar elke keer dezelfde uitkomst. Het landelijk gemiddelde: per bouwjaar 3.000 kentekens, op dezelfde manier gelot uit alle personenauto's van dat bouwjaar. Dezelfde regel geldt voor elk merk.
+5. **Leeftijdscorrectie (indirecte standaardisatie):** per bouwjaar en leeftijd bij keuring rekenen we uit hoeveel keuringen met gebrek je zou *verwachten* als het model precies gemiddeld was:
+   `verwacht = Σ keuringen_model × (landelijk aandeel met gebrek, zelfde bouwjaar en leeftijd)`.
+   `verhouding = werkelijk / verwacht`.
+6. **Score** (logaritmisch, zodat "half zo vaak" even ver boven gemiddeld ligt als "twee keer zo vaak" eronder):
+   `score = 100 × (1 − log₂(verhouding)) / 2`, begrensd op 0–100. Dus 0,5× = 100, 1× = 50 en 2× = 0.
+7. **Minimale aantallen:** een cel (bouwjaar × leeftijd) telt alleen mee bij ≥ 30 keuringen. Een model krijgt alleen een score bij ≥ 200 keuringen in totaal, anders "onvoldoende data". De **zekerheid** volgt het aantal waargenomen gebreken: ≥ 100 hoog, ≥ 40 middel, anders laag.
+8. **Voor een occasion** gebruiken we dezelfde berekening, maar alleen voor de bouwjaren rond die auto (filter op bouwjaar).
+
+**Beperkingen (eerlijk benoemd):**
+- APK-gebreken meten slijtage en onderhoudsstaat, niet alleen ontwerpkwaliteit. Een model dat veel door intensieve gebruikers wordt gereden (lease, veel km) kan slechter scoren. Kilometerstand per keuring zit niet in de open data.
+- De score geldt per model, nog niet per aandrijving.
+- Een steekproef van 600 per model × bouwjaar geeft statistische ruis; daarom tonen we de zekerheid naast de score.
+- Pech onderweg (ADAC) en ervaringen van eigenaren (Consumentenbond) zitten er niet in; zie `databronnen.md`.
+- Terugroepacties tellen niet mee in de score, maar tonen we apart per kenteken.
 
 ### 2.3 Onderhoud & reparatie
 ```

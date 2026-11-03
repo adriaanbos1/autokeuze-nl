@@ -6,8 +6,9 @@ import { mrbPersonenauto } from "@/engine";
 import { regels, type Provincie } from "@/regels/regels-nl";
 import selectie from "../../data/modelselectie.json";
 import { Nav } from "../nav";
+import { betrouwbaarheidModel } from "@/data/betrouwbaarheid-data";
 
-const inDataset = new Set(selectie.modellen.map((m) => `${m.merk}|${m.model}`));
+const modelId = new Map(selectie.modellen.map((m) => [`${m.merk}|${m.model}`, m.id]));
 const provincies = Object.keys(regels.mrb.opcenten2026.waarde) as Provincie[];
 const eur = (x: number) => x.toLocaleString("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 const risico: Record<string, string> = { ERN: "ernstig", HOOG: "hoog", MID: "middel", LAAG: "laag" };
@@ -80,7 +81,7 @@ export default function Kentekencheck() {
             {info.merk} {info.handelsbenaming}
           </h2>
           <p className="uitleg">
-            {inDataset.has(info.modelSleutel)
+            {modelId.has(info.modelSleutel)
               ? "Dit model zit in onze dataset."
               : "Dit model zit (nog) niet in onze dataset van de 50 meest geregistreerde modellen; we rekenen met de gegevens van dit kenteken."}
           </p>
@@ -99,7 +100,7 @@ export default function Kentekencheck() {
               </table>
             </div>
             <div className="kaart">
-              <h3>Energie (WLTP)</h3>
+              <h3>Energie ({info.meetmethode}{info.meetmethode === "NEDC" ? ", oude test: lager dan in de praktijk" : ""})</h3>
               <table>
                 <tbody>
                   {info.aandrijving === "plug-in hybride" ? (
@@ -120,6 +121,27 @@ export default function Kentekencheck() {
                 </tbody>
               </table>
             </div>
+            {(() => {
+              const id = modelId.get(info.modelSleutel);
+              if (!id) return null;
+              const b = betrouwbaarheidModel(id, [info.bouwjaar - 1, info.bouwjaar, info.bouwjaar + 1]);
+              return (
+                <div className="kaart">
+                  <h3>Betrouwbaarheid (APK)</h3>
+                  {b ? (
+                    <>
+                      <div className="groot">{b.score}</div>
+                      <div className="uitleg">
+                        van 100 (50 = gemiddeld) voor dit model, bouwjaar {info.bouwjaar - 1}–{info.bouwjaar + 1}: {b.verhouding.toLocaleString("nl-NL")}× zo
+                        vaak een technisch APK-gebrek als gemiddeld voor die leeftijd ({b.keuringen} keuringen, zekerheid {b.zekerheid}).
+                      </div>
+                    </>
+                  ) : (
+                    <div className="uitleg">Onvoldoende APK-gegevens voor dit model rond bouwjaar {info.bouwjaar}.</div>
+                  )}
+                </div>
+              );
+            })()}
             {mrb && (
               <div className="kaart">
                 <h3>Motorrijtuigenbelasting</h3>

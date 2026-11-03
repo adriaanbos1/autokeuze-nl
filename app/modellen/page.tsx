@@ -2,6 +2,7 @@ import selectie from "../../data/modelselectie.json";
 import rdw from "../../data/modellen-rdw.json";
 import type { ModelRdw, UitvoeringRdw } from "@/data/types";
 import { Nav } from "../nav";
+import { apkHerkomst, betrouwbaarheidModel } from "@/data/betrouwbaarheid-data";
 
 const modellen = rdw.modellen as ModelRdw[];
 const eur = (x: number | null) => (x === null ? "—" : x.toLocaleString("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }));
@@ -18,7 +19,7 @@ const criteria: [string, string][] = [
   ["Specificaties (RDW)", "gevuld"],
   ["Catalogusprijs (RDW)", "gevuld"],
   ["Verbruik / CO₂ / actieradius (RDW, WLTP)", "gevuld (plug-in hybride zonder accu: ontbreekt)"],
-  ["Betrouwbaarheid (RDW APK-gebreken)", "volgende stap"],
+  ["Betrouwbaarheid (RDW APK-gebreken, bouwjaar 2014–2022)", "gevuld"],
   ["Euro NCAP", "nog te doen"],
   ["Onderhoud, banden, verzekering", "nog te doen (eigen dataset)"],
   ["Restwaarde / occasion-curves", "nog te doen (schatting)"],
@@ -61,11 +62,13 @@ export default function Modellen() {
               <th className="b">Actieradius</th>
               <th className="b">Trekgewicht</th>
               <th className="b">Steekproef</th>
+              <th className="b">Betrouwbaarheid</th>
             </tr>
           </thead>
           <tbody>
-            {modellen.flatMap((m) =>
-              m.uitvoeringen.map((u, i) => (
+            {modellen.flatMap((m) => {
+              const b = betrouwbaarheidModel(m.id);
+              return m.uitvoeringen.map((u, i) => (
                 <tr key={`${m.id}-${u.aandrijving}`} className={i === 0 ? "nieuw-model" : ""}>
                   <td>{i === 0 ? m.rang : ""}</td>
                   <td>{i === 0 ? `${m.merk} ${m.model}` : ""}</td>
@@ -78,15 +81,27 @@ export default function Modellen() {
                   <td className="b uitleg">
                     {u.steekproef} · {u.periode[0] === u.periode[1] ? u.periode[0] : `${u.periode[0]}–${u.periode[1]}`}
                   </td>
+                  <td className="b">
+                    {i > 0 ? "" : b ? (
+                      <span title={`${b.werkelijk} keuringen met gebrek, ${b.verwacht} verwacht (${b.keuringen} keuringen)`}>
+                        {b.score} <span className="uitleg">({b.verhouding.toLocaleString("nl-NL")}× · {b.zekerheid})</span>
+                      </span>
+                    ) : (
+                      <span className="uitleg">onvoldoende data</span>
+                    )}
+                  </td>
                 </tr>
-              )),
-            )}
+              ));
+            })}
           </tbody>
         </table>
       </div>
       <p className="disclaimer">
         Catalogusprijs is incl. btw en BPM en inclusief de fabrieksopties van de geregistreerde auto&apos;s, dus geen vanafprijs. WLTP-verbruik is
         een laboratoriumwaarde; in de praktijk ligt het verbruik meestal hoger. &quot;Hybride&quot; omvat ook mild-hybrides (RDW-klasse NOVC-HEV).
+        Betrouwbaarheid: score 0–100 (50 = gemiddeld) uit APK-gebreken t.o.v. auto&apos;s van hetzelfde bouwjaar en dezelfde leeftijd; tussen haakjes
+        de verhouding (1× = gemiddeld) en de statistische zekerheid. APK-venster {apkHerkomst.venster.vanaf}–{apkHerkomst.venster.tot}; methode in
+        docs/methodiek.md §2.2. Score geldt per model, niet per aandrijving.
       </p>
     </main>
   );

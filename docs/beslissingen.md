@@ -29,3 +29,7 @@ Format: datum · beslissing · waarom · door wie · status
 | 23 | 2026-11-03 | Specificaties per aandrijving = mediaan van de 400 meest recente kentekens; catalogusprijs incl. opties | weerspiegelt wat er werkelijk verkocht wordt; officiële bron | Claude | uitgevoerd |
 | 24 | 2026-11-03 | Brandstofverbruik plug-in hybride met lege accu niet invullen met een schatting zolang er geen bron is | RDW publiceert het niet; geen waarden uit het geheugen | Claude | open (stap 2c) |
 | 25 | 2026-11-03 | Kentekencheck draait volledig in de browser, rechtstreeks naar RDW | privacy: geen eigen server, geen opslag | Claude | uitgevoerd |
+| 26 | 2026-11-03 | Betrouwbaarheid = aandeel APK's met ≥ 1 technisch gebrek, leeftijdsgecorrigeerd (werkelijk/verwacht), logaritmische score 0,5× = 100 / 1× = 50 / 2× = 0 | eerlijk tussen jonge en oude modellen; symmetrisch; volledig uit open data | Claude | uitgevoerd |
+| 27 | 2026-11-03 | Adviespunten en administratieve APK-punten tellen niet mee | zeggen niets over de auto zelf | Claude | uitgevoerd |
+| 28 | 2026-11-03 | Steekproef via SHA-256-loting uit alle kentekens (niet alfabetisch, niet op kentekenformaat) | alfabetisch en op laatste teken bleken scheef (importreeksen, nieuwe kentekenformaten) | Claude | uitgevoerd |
+| 29 | 2026-11-03 | Bekende vertekening: duurdere modellen scoren mogelijk beter door beter onderhoud (dealer/lease). Benoemd in de methodiek, niet gecorrigeerd | geen open data over onderhoud of km-stand per keuring | Claude | open: later aanvullen met tweede bron (ADAC/Consumentenbond) |

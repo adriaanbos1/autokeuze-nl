@@ -59,6 +59,17 @@ describe("kentekencheck", () => {
     });
   });
 
+  it("oudere auto zonder WLTP valt terug op NEDC-waarden", async () => {
+    const info = await haalKenteken(
+      "AB123C",
+      nepRdw({
+        "m9d7-ebf2": [{ ...voertuig, merk: "VOLKSWAGEN", handelsbenaming: "GOLF", datum_eerste_toelating: "20180601" }],
+        "8ys7-d773": [{ brandstof_omschrijving: "Benzine", brandstofverbruik_gecombineerd: "5.00", co2_uitstoot_gecombineerd: "115" }],
+      }),
+    );
+    expect(info).toMatchObject({ verbruikWltp: 5, co2Wltp: 115, meetmethode: "NEDC" });
+  });
+
   it("elektrische auto met openstaande terugroepactie", async () => {
     const info = await haalKenteken(
       "AB123C",

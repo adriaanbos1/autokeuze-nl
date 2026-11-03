@@ -23,6 +23,7 @@ npm run dev      # rekenpagina op http://localhost:3000
 ```bash
 node scripts/selecteer-modellen.ts 50   # kiest de 50 meest geregistreerde modellen
 node scripts/haal-specs.ts              # haalt de officiële specificaties op
+node scripts/haal-apk.ts                # APK-gebreken voor de betrouwbaarheidsscore (~15 min)
 ```
 
 ## Structuur

@@ -148,6 +148,13 @@ Legenda kosten: 🟢 gratis · 🟡 gratis met voorwaarden / op aanvraag · 🔴
 - `src/data/kenteken.ts` haalt per kenteken op: voertuiggegevens (`m9d7-ebf2`), brandstof (`8ys7-d773`), status van terugroepacties (`t49b-isb7`) en details van openstaande acties (`af5r-44mf`).
 - RDW staat verzoeken vanuit de browser toe (CORS `*`). Het kenteken gaat daardoor **rechtstreeks van de gebruiker naar RDW**, zonder eigen server of opslag (privacy-eis).
 
+### 5.4 Betrouwbaarheid uit APK-gebreken (Fase 2b)
+- Script `scripts/haal-apk.ts` → `data/apk-gebreken.json`. Bronnen: APK-meldingen (`sgfe-77wx`, vanaf juni 2022, ca. 25 miljoen), geconstateerde gebreken (`a34c-vvps`) en de gebrekencatalogus (`hx2c-gt7k`). Licentie: publiek domein.
+- Steekproef: per model × bouwjaar (2014–2022) 600 kentekens, gelot met een SHA-256-hash; landelijk 3.000 per bouwjaar uit alle personenauto's. Venster: reguliere APK's van de laatste 24 maanden.
+- Les uit de bouw: een eerste versie loste het landelijk gemiddelde binnen "kenteken eindigt op 7". Nieuwere kentekens eindigen echter op een letter, waardoor recente bouwjaren wegvielen. Selecties mogen daarom nooit afhangen van het kentekenformaat.
+- Duur: ongeveer 15 minuten (een paar duizend API-verzoeken). Alleen het landelijk gemiddelde opnieuw ophalen kan met `--alleen-landelijk`.
+- Oudere auto's (vóór ca. september 2018) hebben in RDW alleen **NEDC**-verbruik en -CO₂ (oude test, lager dan WLTP). De kentekencheck gebruikt die dan, met het label "NEDC".
+
 ## 6. Open punten
 - ⚠ Licenties per RDW-dataset bevestigen (alles CC-0?).
 - ⚠ Euro NCAP: mag "5 sterren (2024)" als feit commercieel genoemd worden? Toestemming vragen.

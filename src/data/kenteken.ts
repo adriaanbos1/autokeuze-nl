@@ -44,6 +44,8 @@ export interface KentekenInfo {
   elektrischVerbruikWltp: number | null;
   co2Wltp: number | null;
   actieradiusWltpKm: number | null;
+  /** "WLTP", of "NEDC" bij oudere auto's (vóór 2018) waarvoor RDW alleen de oude testwaarden heeft. */
+  meetmethode: "WLTP" | "NEDC";
   apkVervaldatum: string | null; // ISO
   terugroepacties: Terugroepactie[];
   bron: string;
@@ -102,7 +104,12 @@ export async function haalKenteken(invoer: string, f: Fetch = (u) => fetch(u)): 
     trekgewichtGeremd: num(v.maximum_trekken_massa_geremd) ?? 0,
     aandrijving,
     mrbBrandstof: mrbBrandstof(brandstoffen),
-    verbruikWltp: aandrijving === "elektrisch" ? (evVerbruik === null ? null : evVerbruik / 10) : num(hoofd?.brandstof_verbruik_gecombineerd_wltp),
+    verbruikWltp:
+      aandrijving === "elektrisch"
+        ? evVerbruik === null
+          ? null
+          : evVerbruik / 10
+        : num(hoofd?.brandstof_verbruik_gecombineerd_wltp) ?? num(hoofd?.brandstofverbruik_gecombineerd),
     verbruikGewogenWltp: aandrijving === "plug-in hybride" ? num(hoofd?.brandstof_verbruik_gewogen_gecombineerd_wltp) : null,
     elektrischVerbruikWltp:
       aandrijving === "plug-in hybride"
@@ -111,7 +118,9 @@ export async function haalKenteken(invoer: string, f: Fetch = (u) => fetch(u)): 
             return x === null ? null : x / 10;
           })()
         : null,
-    co2Wltp: aandrijving === "elektrisch" ? 0 : num(hoofd?.emissie_co2_gecombineerd_wltp ?? hoofd?.emis_co2_gewogen_gecombineerd_wltp),
+    co2Wltp:
+      aandrijving === "elektrisch" ? 0 : num(hoofd?.emissie_co2_gecombineerd_wltp ?? hoofd?.emis_co2_gewogen_gecombineerd_wltp) ?? num(hoofd?.co2_uitstoot_gecombineerd),
+    meetmethode: hoofd?.brandstof_verbruik_gecombineerd_wltp || hoofd?.emissie_co2_gecombineerd_wltp || aandrijving === "elektrisch" ? "WLTP" : hoofd?.brandstofverbruik_gecombineerd ? "NEDC" : "WLTP",
     actieradiusWltpKm: num(elek?.actie_radius_enkel_elektrisch_wltp ?? brandstoffen.map((b) => b.actie_radius_extern_opladen_wltp).find(Boolean)),
     apkVervaldatum: iso(v.vervaldatum_apk),
     terugroepacties: open.map((s, i) => {
