@@ -23,9 +23,15 @@ Statuslabels:
 | Gewichtscorrectie voor EV-accu | onduidelijk | onderzoek naar andere grondslag dan gewicht | ⚠ bronnen spreken elkaar tegen | [AutoScout24](https://www.autoscout24.nl/informeren/advies/kosten-en-wetgeving/wegenbelasting-elektrische-auto-wat-je-moet-weten/), ANWB |
 | Plug-in hybride (≤50 g/km) | **geen korting meer** (volledig tarief) | idem | ✅ | ANWB |
 | Bestelauto ondernemer / lichte vracht tijdelijke korting | loopt | vervalt per 1-1-2027 | 🟡 | Athlon |
-| Provinciale opcenten | 82,1 (N-Holland) t/m 104,4 (Z-Holland); max 143,9 | jaarlijks vastgesteld | ✅ | [CBS 80889ned](https://www.cbs.nl/nl-nl/cijfers/detail/80889ned) |
+| Provinciale opcenten | 82,1 (N-Holland) t/m 104,4 (Z-Holland); max 143,9; over een eigen grondslag (art. 222 Provinciewet) | jaarlijks vastgesteld | ✅ | [CBS 80889ned](https://www.cbs.nl/nl-nl/cijfers/detail/80889ned) |
 
-**Implementatie:** de exacte tarieftabellen (per gewichtsklasse, dieseltoeslag, opcenten) nemen we in Fase 1 letterlijk over uit de Wet MRB 1994 (art. 23 e.v.) en de opcentenbesluiten. We testen ze tegen de officiële rekentool van de Belastingdienst met minimaal 10 voorbeeldauto's. ⚠ Die tabellen zijn in Fase 0 nog niet overgenomen.
+**Implementatie (Fase 1, gedaan):** in `src/regels/regels-nl.ts` staan:
+- rijksdeel, dieseltoeslag en toeslag overige brandstoffen, letterlijk uit art. 23 Wet MRB 1994 (versie vanaf 1-7-2026). **Sinds 1 juli 2026 gaat de MRB uit van de massa rijklaar** (afgerond op 100 kg, precies 50 kg naar beneden), daarvoor van de eigen massa (rijklaar − 100 kg);
+- fijnstoftoeslag diesel +19% (art. 23 lid 4–5);
+- EV-percentage per jaar (art. 23b): 70% in 2026–2028, 75% in 2029, de bepaling vervalt per 2030. Dit werkt ook door in de opcenten;
+- opcenten per provincie 2026 uit CBS 80889ned (o.a. Utrecht 86,4, Limburg 88,5);
+- de opcenten worden niet over het rijksdeel berekend, maar over een **eigen, lagere grondslag** (art. 222 lid 3 Provinciewet: €45,81 + €11,68 per 100 kg boven 1.100 kg). ⚠ Deze grondslag komt uit twee consistente secundaire bronnen; de wetstekst zelf hebben we nog niet kunnen inzien;
+- het totaal per kwartaal wordt naar beneden afgerond op hele euro's. ⚠ Te bevestigen met de rekentool van de Belastingdienst.
 
 ## 2. BPM (aanschafbelasting)
 

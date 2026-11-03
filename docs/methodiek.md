@@ -145,7 +145,9 @@ Lease-TCO in de app = leaseprijs + energie + verwacht eigen risico (aanname: 0,1
 
 ## 4. Uitgewerkte rekenvoorbeelden
 
-> **Let op:** de auto's hieronder zijn **fictieve voorbeeldauto's** ("Auto A") met ronde bedragen. Zo is alles met de hand na te rekenen en speelt geen enkel merk een rol. Bedragen voor MRB, verzekering en onderhoud zijn hier **ingevoerde voorbeeldwaarden**, nog niet berekend uit de tabellen. Fase 1 zet deze voorbeelden 1-op-1 om in unit tests.
+> **Afronding:** elke post wordt op centen afgerond; het totaal is de som van de getoonde posten (zo telt de uitklapbare berekening altijd precies op).
+>
+> **Let op:** de auto's hieronder zijn **fictieve voorbeeldauto's** ("Auto A") met ronde bedragen. Zo is alles met de hand na te rekenen en speelt geen enkel merk een rol. Bedragen voor MRB, verzekering en onderhoud zijn hier **ingevoerde voorbeeldwaarden**, nog niet berekend uit de tabellen. Deze voorbeelden staan 1-op-1 als unit tests in `tests/persona-*.test.ts`.
 
 Gemeenschappelijke aannames: benzine €2,30/l · stroom thuis €0,27/kWh, publiek €0,55/kWh · rendement op spaargeld 2,5%/jr.
 
@@ -201,17 +203,17 @@ Annuïteit nagerekend: r = 7,5%/12 = 0,00625; termijn = 25.000 × 0,00625 / (1 �
 **Variant 1: auto zakelijk (bedragen excl. btw, want de btw is aftrekbaar)**
 | Post per jaar | Z1 (EV) | Z2 (hybride) |
 |---|---|---|
-| Afschrijving (ex btw) | (33.058 − 13.223)/5 = 3.967,00 | (31.405 − 14.132)/5 = 3.454,55 |
+| Afschrijving (ex btw) | (40.000 − 16.000) / 1,21 / 5 = 3.966,94 | (38.000 − 17.100) / 1,21 / 5 = 3.454,55 |
 | Energie (ex btw) | 4.250 kWh × 0,326 / 1,21 = 1.145,04 | 1.250 l × 2,30 / 1,21 = 2.376,03 |
 | MRB | 480,00 | 660,00 |
 | Verzekering | 1.100,00 | 1.050,00 |
 | Onderhoud (ex btw) | 578,51 | 661,16 |
-| **Autokosten (aftrekbaar)** | **7.270,55** | **8.201,74** |
-| Bijtelling | 18% × 30.000 + 22% × 10.000 = 7.600 → **begrensd tot kosten: 7.270,55** | 22% × 38.000 = 8.360 → **begrensd: 8.201,74** |
+| **Autokosten (aftrekbaar)** | **7.270,49** | **8.201,74** |
+| Bijtelling | 18% × 30.000 + 22% × 10.000 = 7.600 → **begrensd tot kosten: 7.270,49** | 22% × 38.000 = 8.360 → **begrensd: 8.201,74** |
 | Fiscaal voordeel (kosten − bijtelling) × 35% | **€0** | **€0** |
 | Btw-correctie privégebruik 2,7% × catalogus | 1.080,00 | 1.026,00 |
-| **Netto kosten per jaar** | **8.350,55** | **9.227,74** |
-| **Per maand** | **€695,88** | **€768,98** |
+| **Netto kosten per jaar** | **8.350,49** | **9.227,74** |
+| **Per maand** | **€695,87** | **€768,98** |
 
 **Variant 2: auto privé + €0,25/km voor zakelijke ritten (bedragen incl. btw)**
 | Post per jaar | Z1 (EV) | Z2 (hybride) |
@@ -224,9 +226,9 @@ Annuïteit nagerekend: r = 7,5%/12 = 0,00625; termijn = 25.000 × 0,00625 / (1 �
 | **Netto kosten per jaar** | **6.715,50** | **7.815,00** |
 | **Per maand** | **€559,63** | **€651,25** |
 
-*Uitleg:* "In dit scenario is de auto privé houden €136,25/mnd (EV) goedkoper dan zakelijk. Dat komt doordat je 5.000 km privé rijdt: de bijtelling is dan net zo hoog als alle autokosten, en je betaalt bovendien de btw-correctie."
+*Uitleg:* "In dit scenario is de auto privé houden €136,24/mnd (EV) goedkoper dan zakelijk. Dat komt doordat je 5.000 km privé rijdt: de bijtelling is dan net zo hoog als alle autokosten, en je betaalt bovendien de btw-correctie."
 
-*Gevoeligheid (zelfde EV, maar ≤ 500 km privé, dus geen bijtelling en nagenoeg geen btw-correctie):* netto 7.270,55 − 35% × 7.270,55 = 7.270,55 − 2.544,69 = **€4.725,86/jr = €393,82/mnd**. Dan is zakelijk duidelijk goedkoper. Daarom laat de app de privé-km als schuifje zien. Let op: woon-werk telt voor de inkomstenbelasting als zakelijk, voor de btw als privé.
+*Gevoeligheid (zelfde EV, maar ≤ 500 km privé, dus geen bijtelling en nagenoeg geen btw-correctie):* netto 7.270,49 − 35% × 7.270,49 = 7.270,49 − 2.544,67 = **€4.725,82/jr = €393,82/mnd**. Dan is zakelijk duidelijk goedkoper. Daarom laat de app de privé-km als schuifje zien. Let op: woon-werk telt voor de inkomstenbelasting als zakelijk, voor de btw als privé.
 
 ### 4.3 Persona 3: leaserijder (auto van de zaak)
 *Werknemer, kiest binnen een leasebudget, auto met eerste toelating in 2026. Marginaal tarief: aanname 49,5% (⚠ te verifiëren 2026). De werkgever betaalt de leaseprijs.*
