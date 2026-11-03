@@ -21,6 +21,7 @@ import {
   type Post,
 } from "@/engine";
 import { regels, type Provincie } from "@/regels/regels-nl";
+import { Nav } from "./nav";
 
 const eur = (x: number) => x.toLocaleString("nl-NL", { style: "currency", currency: "EUR" });
 const eurKm = (x: number) => x.toLocaleString("nl-NL", { style: "currency", currency: "EUR", minimumFractionDigits: 3 });
@@ -157,6 +158,7 @@ export default function Rekenpagina() {
 
   return (
     <main>
+      <Nav />
       <h1>AutoKeuze NL: rekenpagina</h1>
       <p className="sub">Testversie van de reken-engine (Fase 1). Vul waarden in en klap per bedrag de berekening open.</p>
 

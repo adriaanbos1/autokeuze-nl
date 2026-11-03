@@ -1,0 +1,2256 @@
+{
+  "peildatum": "2026-11-03",
+  "modellen": [
+    {
+      "id": "volkswagen-polo",
+      "merk": "VOLKSWAGEN",
+      "model": "POLO",
+      "rang": 1,
+      "registratiesSinds2019": 73627,
+      "uitvoeringen": [
+        {
+          "aandrijving": "benzine",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 31500,
+          "massaRijklaar": 1173,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1000,
+          "lengteCm": 407,
+          "vermogenKw": 70,
+          "verbruikWltp": 5.2,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 118,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "kia-niro",
+      "merk": "KIA",
+      "model": "NIRO",
+      "rang": 2,
+      "registratiesSinds2019": 68599,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 397,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 41120,
+          "massaRijklaar": 1524,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1010,
+          "lengteCm": 443,
+          "vermogenKw": 75,
+          "verbruikWltp": 4.6,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 104,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "volvo-xc40",
+      "merk": "VOLVO",
+      "model": "XC40",
+      "rang": 3,
+      "registratiesSinds2019": 64440,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 399,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 59998,
+          "massaRijklaar": 1688,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 2000,
+          "lengteCm": 444,
+          "vermogenKw": 145,
+          "verbruikWltp": 6.7,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 152,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "kia-picanto",
+      "merk": "KIA",
+      "model": "PICANTO",
+      "rang": 4,
+      "registratiesSinds2019": 64184,
+      "uitvoeringen": [
+        {
+          "aandrijving": "benzine",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 21290,
+          "massaRijklaar": 1018,
+          "zitplaatsen": 4,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 361,
+          "vermogenKw": 50,
+          "verbruikWltp": 5.2,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 118,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "volkswagen-golf",
+      "merk": "VOLKSWAGEN",
+      "model": "GOLF",
+      "rang": 5,
+      "registratiesSinds2019": 60799,
+      "uitvoeringen": [
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 298,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 42567,
+          "massaRijklaar": 1642,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1700,
+          "lengteCm": 428,
+          "vermogenKw": 110,
+          "verbruikWltp": null,
+          "verbruikGewogenWltp": 1.2,
+          "elektrischVerbruikWltp": 12.3,
+          "co2Wltp": 26,
+          "actieradiusWltpKm": 129
+        },
+        {
+          "aandrijving": "hybride",
+          "steekproef": 74,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 47811,
+          "massaRijklaar": 1392,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1400,
+          "lengteCm": 464,
+          "vermogenKw": 98,
+          "verbruikWltp": 5.3,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 121,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "benzine",
+          "steekproef": 28,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 41648,
+          "massaRijklaar": 1367,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1300,
+          "lengteCm": 429,
+          "vermogenKw": 85,
+          "verbruikWltp": 5.5,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 126,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "peugeot-208",
+      "merk": "PEUGEOT",
+      "model": "208",
+      "rang": 6,
+      "registratiesSinds2019": 60217,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 275,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 32375,
+          "massaRijklaar": 1295,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1200,
+          "lengteCm": 406,
+          "vermogenKw": 74,
+          "verbruikWltp": 4.5,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 102,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 111,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 32749,
+          "massaRijklaar": 1530,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 406,
+          "vermogenKw": 115,
+          "verbruikWltp": 14.4,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 424
+        },
+        {
+          "aandrijving": "benzine",
+          "steekproef": 14,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 29199,
+          "massaRijklaar": 1196,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1200,
+          "lengteCm": 406,
+          "vermogenKw": 74,
+          "verbruikWltp": 5.1,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 116,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "tesla-model-y",
+      "merk": "TESLA",
+      "model": "MODEL Y",
+      "rang": 7,
+      "registratiesSinds2019": 58467,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 42640,
+          "massaRijklaar": 1981,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1600,
+          "lengteCm": 479,
+          "vermogenKw": 220,
+          "verbruikWltp": 13.1,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 534
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "toyota-yaris",
+      "merk": "TOYOTA",
+      "model": "YARIS",
+      "rang": 8,
+      "registratiesSinds2019": 58265,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 30747,
+          "massaRijklaar": 1190,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 450,
+          "lengteCm": 396,
+          "vermogenKw": 68,
+          "verbruikWltp": 4,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 91,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "renault-captur",
+      "merk": "RENAULT",
+      "model": "CAPTUR",
+      "rang": 9,
+      "registratiesSinds2019": 54049,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 393,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 37777,
+          "massaRijklaar": 1441,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1000,
+          "lengteCm": 423,
+          "vermogenKw": 80,
+          "verbruikWltp": 4.4,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 100,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "tesla-model-3",
+      "merk": "TESLA",
+      "model": "MODEL 3",
+      "rang": 10,
+      "registratiesSinds2019": 52275,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 46290,
+          "massaRijklaar": 1822,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1000,
+          "lengteCm": 472,
+          "vermogenKw": 235,
+          "verbruikWltp": 13,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 691
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "volkswagen-t-roc",
+      "merk": "VOLKSWAGEN",
+      "model": "T-ROC",
+      "rang": 11,
+      "registratiesSinds2019": 48676,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 40486,
+          "massaRijklaar": 1465,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1300,
+          "lengteCm": 437,
+          "vermogenKw": 85,
+          "verbruikWltp": 5.6,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 127,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "opel-corsa",
+      "merk": "OPEL",
+      "model": "CORSA",
+      "rang": 12,
+      "registratiesSinds2019": 47611,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 207,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 33027,
+          "massaRijklaar": 1267,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1200,
+          "lengteCm": 406,
+          "vermogenKw": 74,
+          "verbruikWltp": 4.5,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 103,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 111,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 33747,
+          "massaRijklaar": 1544,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 406,
+          "vermogenKw": 115,
+          "verbruikWltp": 14.4,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 423
+        },
+        {
+          "aandrijving": "benzine",
+          "steekproef": 82,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 27996,
+          "massaRijklaar": 1180,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1200,
+          "lengteCm": 406,
+          "vermogenKw": 74,
+          "verbruikWltp": 5.2,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 116,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "volkswagen-tiguan",
+      "merk": "VOLKSWAGEN",
+      "model": "TIGUAN",
+      "rang": 13,
+      "registratiesSinds2019": 47236,
+      "uitvoeringen": [
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 396,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 57897,
+          "massaRijklaar": 1866,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1800,
+          "lengteCm": 454,
+          "vermogenKw": 110,
+          "verbruikWltp": null,
+          "verbruikGewogenWltp": 1.6,
+          "elektrischVerbruikWltp": 13.9,
+          "co2Wltp": 37,
+          "actieradiusWltpKm": 118
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "renault-clio",
+      "merk": "RENAULT",
+      "model": "CLIO",
+      "rang": 14,
+      "registratiesSinds2019": 46890,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 357,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 32159,
+          "massaRijklaar": 1346,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 900,
+          "lengteCm": 412,
+          "vermogenKw": 80,
+          "verbruikWltp": 4,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 91,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "benzine",
+          "steekproef": 43,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 28895,
+          "massaRijklaar": 1230,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 900,
+          "lengteCm": 412,
+          "vermogenKw": 84,
+          "verbruikWltp": 5.1,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 115,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "peugeot-2008",
+      "merk": "PEUGEOT",
+      "model": "2008",
+      "rang": 15,
+      "registratiesSinds2019": 45663,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 344,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 39050,
+          "massaRijklaar": 1372,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1100,
+          "lengteCm": 430,
+          "vermogenKw": 100,
+          "verbruikWltp": 4.9,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 111,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 51,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 38449,
+          "massaRijklaar": 1623,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 430,
+          "vermogenKw": 115,
+          "verbruikWltp": 15.5,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 400
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "toyota-yaris-cross",
+      "merk": "TOYOTA",
+      "model": "YARIS CROSS",
+      "rang": 16,
+      "registratiesSinds2019": 44736,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 36577,
+          "massaRijklaar": 1275,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 750,
+          "lengteCm": 417,
+          "vermogenKw": 68,
+          "verbruikWltp": 4.4,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 101,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "ford-kuga",
+      "merk": "FORD",
+      "model": "KUGA",
+      "rang": 17,
+      "registratiesSinds2019": 44214,
+      "uitvoeringen": [
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 388,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 50987,
+          "massaRijklaar": 1837,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 2100,
+          "lengteCm": 465,
+          "vermogenKw": 111,
+          "verbruikWltp": null,
+          "verbruikGewogenWltp": 3,
+          "elektrischVerbruikWltp": 10.4,
+          "co2Wltp": 58,
+          "actieradiusWltpKm": 67
+        },
+        {
+          "aandrijving": "hybride",
+          "steekproef": 12,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 45894,
+          "massaRijklaar": 1689,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1600,
+          "lengteCm": 460,
+          "vermogenKw": 111,
+          "verbruikWltp": 5.3,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 122,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "hyundai-kona",
+      "merk": "HYUNDAI",
+      "model": "KONA",
+      "rang": 18,
+      "registratiesSinds2019": 43843,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 201,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 36295,
+          "massaRijklaar": 1773,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 750,
+          "lengteCm": 436,
+          "vermogenKw": 150,
+          "verbruikWltp": 14.7,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 508
+        },
+        {
+          "aandrijving": "hybride",
+          "steekproef": 199,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 42465,
+          "massaRijklaar": 1485,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1110,
+          "lengteCm": 435,
+          "vermogenKw": 75,
+          "verbruikWltp": 4.7,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 108,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "ford-focus",
+      "merk": "FORD",
+      "model": "FOCUS",
+      "rang": 19,
+      "registratiesSinds2019": 43640,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 400,
+          "periode": [
+            2025,
+            2026
+          ],
+          "catalogusprijs": 38689,
+          "massaRijklaar": 1479,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1500,
+          "lengteCm": 469,
+          "vermogenKw": 114,
+          "verbruikWltp": 5.4,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 122,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "toyota-corolla",
+      "merk": "TOYOTA",
+      "model": "COROLLA",
+      "rang": 20,
+      "registratiesSinds2019": 42594,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 42667,
+          "massaRijklaar": 1455,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 750,
+          "lengteCm": 446,
+          "vermogenKw": 72,
+          "verbruikWltp": 5,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 113,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "toyota-aygo-x",
+      "merk": "TOYOTA",
+      "model": "AYGO X",
+      "rang": 21,
+      "registratiesSinds2019": 37038,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 25622,
+          "massaRijklaar": 1165,
+          "zitplaatsen": 4,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 378,
+          "vermogenKw": 68,
+          "verbruikWltp": 3.8,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 87,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "volvo-xc60",
+      "merk": "VOLVO",
+      "model": "XC60",
+      "rang": 22,
+      "registratiesSinds2019": 36617,
+      "uitvoeringen": [
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 79497,
+          "massaRijklaar": 2150,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 2250,
+          "lengteCm": 471,
+          "vermogenKw": 184,
+          "verbruikWltp": null,
+          "verbruikGewogenWltp": 3,
+          "elektrischVerbruikWltp": 12.7,
+          "co2Wltp": 68,
+          "actieradiusWltpKm": 81
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "nissan-qashqai",
+      "merk": "NISSAN",
+      "model": "QASHQAI",
+      "rang": 23,
+      "registratiesSinds2019": 36599,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 45624,
+          "massaRijklaar": 1624,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 770,
+          "lengteCm": 443,
+          "vermogenKw": 116,
+          "verbruikWltp": 4.5,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 101,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "lynk-co-01",
+      "merk": "LYNK&CO",
+      "model": "01",
+      "rang": 24,
+      "registratiesSinds2019": 36445,
+      "uitvoeringen": [
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 46022,
+          "massaRijklaar": 1935,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1800,
+          "lengteCm": 455,
+          "vermogenKw": 102,
+          "verbruikWltp": null,
+          "verbruikGewogenWltp": 0.9,
+          "elektrischVerbruikWltp": 19.2,
+          "co2Wltp": 20,
+          "actieradiusWltpKm": 75
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "fiat-500",
+      "merk": "FIAT",
+      "model": "500",
+      "rang": 25,
+      "registratiesSinds2019": 33999,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 283,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 33598,
+          "massaRijklaar": 1365,
+          "zitplaatsen": 4,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 363,
+          "vermogenKw": 87,
+          "verbruikWltp": 14.2,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 315
+        },
+        {
+          "aandrijving": "hybride",
+          "steekproef": 117,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 29517,
+          "massaRijklaar": 1130,
+          "zitplaatsen": 4,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 363,
+          "vermogenKw": 48,
+          "verbruikWltp": 5.3,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 120,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "skoda-octavia",
+      "merk": "SKODA",
+      "model": "OCTAVIA",
+      "rang": 26,
+      "registratiesSinds2019": 33875,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 348,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 42696,
+          "massaRijklaar": 1405,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1300,
+          "lengteCm": 470,
+          "vermogenKw": 85,
+          "verbruikWltp": 5.1,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 117,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "benzine",
+          "steekproef": 52,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 37636,
+          "massaRijklaar": 1377,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1300,
+          "lengteCm": 470,
+          "vermogenKw": 85,
+          "verbruikWltp": 5.4,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 123,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "toyota-c-hr",
+      "merk": "TOYOTA",
+      "model": "C-HR",
+      "rang": 27,
+      "registratiesSinds2019": 31017,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 332,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 43655,
+          "massaRijklaar": 1960,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 750,
+          "lengteCm": 453,
+          "vermogenKw": 167,
+          "verbruikWltp": 13.4,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 607
+        },
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 41,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 45815,
+          "massaRijklaar": 1725,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 725,
+          "lengteCm": 436,
+          "vermogenKw": 113,
+          "verbruikWltp": null,
+          "verbruikGewogenWltp": 2.3,
+          "elektrischVerbruikWltp": 10.9,
+          "co2Wltp": 52,
+          "actieradiusWltpKm": 68
+        },
+        {
+          "aandrijving": "hybride",
+          "steekproef": 27,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 40789,
+          "massaRijklaar": 1510,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 725,
+          "lengteCm": 436,
+          "vermogenKw": 72,
+          "verbruikWltp": 4.7,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 107,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "hyundai-i10",
+      "merk": "HYUNDAI",
+      "model": "I10",
+      "rang": 28,
+      "registratiesSinds2019": 30823,
+      "uitvoeringen": [
+        {
+          "aandrijving": "benzine",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 22025,
+          "massaRijklaar": 999,
+          "zitplaatsen": 4,
+          "trekgewichtGeremd": 310,
+          "lengteCm": 367,
+          "vermogenKw": 46,
+          "verbruikWltp": 4.8,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 109,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "audi-a3",
+      "merk": "AUDI",
+      "model": "A3",
+      "rang": 29,
+      "registratiesSinds2019": 30791,
+      "uitvoeringen": [
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 274,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 46400,
+          "massaRijklaar": 1675,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1400,
+          "lengteCm": 435,
+          "vermogenKw": 110,
+          "verbruikWltp": null,
+          "verbruikGewogenWltp": 1.2,
+          "elektrischVerbruikWltp": 12.5,
+          "co2Wltp": 27,
+          "actieradiusWltpKm": 140
+        },
+        {
+          "aandrijving": "hybride",
+          "steekproef": 126,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 42828,
+          "massaRijklaar": 1390,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1300,
+          "lengteCm": 435,
+          "vermogenKw": 85,
+          "verbruikWltp": 5.3,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 120,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "ford-puma",
+      "merk": "FORD",
+      "model": "PUMA",
+      "rang": 30,
+      "registratiesSinds2019": 30602,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 229,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 37415,
+          "massaRijklaar": 1353,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 900,
+          "lengteCm": 423,
+          "vermogenKw": 92,
+          "verbruikWltp": 5.6,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 128,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 171,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 33445,
+          "massaRijklaar": 1566,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 750,
+          "lengteCm": 421,
+          "vermogenKw": 124,
+          "verbruikWltp": 13.9,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 401
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "mini-cooper",
+      "merk": "MINI",
+      "model": "COOPER",
+      "rang": 31,
+      "registratiesSinds2019": 30357,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 277,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 41360,
+          "massaRijklaar": 1680,
+          "zitplaatsen": 4,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 386,
+          "vermogenKw": 160,
+          "verbruikWltp": 14.4,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 386
+        },
+        {
+          "aandrijving": "benzine",
+          "steekproef": 123,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 47827,
+          "massaRijklaar": 1395,
+          "zitplaatsen": 4,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 388,
+          "vermogenKw": 115,
+          "verbruikWltp": 6.3,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 141,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "bmw-3-serie",
+      "merk": "BMW",
+      "model": "3 SERIE",
+      "rang": 32,
+      "registratiesSinds2019": 29504,
+      "uitvoeringen": [
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 314,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 68270,
+          "massaRijklaar": 1970,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1500,
+          "lengteCm": 471,
+          "vermogenKw": 135,
+          "verbruikWltp": null,
+          "verbruikGewogenWltp": 2.7,
+          "elektrischVerbruikWltp": 15.9,
+          "co2Wltp": 60,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "benzine",
+          "steekproef": 81,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 72213,
+          "massaRijklaar": 1650,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1300,
+          "lengteCm": 471,
+          "vermogenKw": 115,
+          "verbruikWltp": 6.8,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 153,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "volkswagen-t-cross",
+      "merk": "VOLKSWAGEN",
+      "model": "T-CROSS",
+      "rang": 33,
+      "registratiesSinds2019": 28404,
+      "uitvoeringen": [
+        {
+          "aandrijving": "benzine",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 38500,
+          "massaRijklaar": 1276,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1100,
+          "lengteCm": 413,
+          "vermogenKw": 85,
+          "verbruikWltp": 5.7,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 130,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "ford-fiesta",
+      "merk": "FORD",
+      "model": "FIESTA",
+      "rang": 34,
+      "registratiesSinds2019": 27647,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 379,
+          "periode": [
+            2023,
+            2025
+          ],
+          "catalogusprijs": 27426,
+          "massaRijklaar": 1233,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1000,
+          "lengteCm": 409,
+          "vermogenKw": 92,
+          "verbruikWltp": 5,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 114,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "benzine",
+          "steekproef": 21,
+          "periode": [
+            2024,
+            2024
+          ],
+          "catalogusprijs": 28918,
+          "massaRijklaar": 1201,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 750,
+          "lengteCm": 409,
+          "vermogenKw": 74,
+          "verbruikWltp": 6.7,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 125,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "skoda-kodiaq",
+      "merk": "SKODA",
+      "model": "KODIAQ",
+      "rang": 35,
+      "registratiesSinds2019": 27102,
+      "uitvoeringen": [
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 380,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 51757,
+          "massaRijklaar": 1911,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1800,
+          "lengteCm": 476,
+          "vermogenKw": 110,
+          "verbruikWltp": null,
+          "verbruikGewogenWltp": 1.7,
+          "elektrischVerbruikWltp": 14.1,
+          "co2Wltp": 38,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "hybride",
+          "steekproef": 19,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 54897,
+          "massaRijklaar": 1695,
+          "zitplaatsen": 7,
+          "trekgewichtGeremd": 1800,
+          "lengteCm": 476,
+          "vermogenKw": 110,
+          "verbruikWltp": 6.1,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 140,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "peugeot-3008",
+      "merk": "PEUGEOT",
+      "model": "3008",
+      "rang": 36,
+      "registratiesSinds2019": 26297,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 188,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 49575,
+          "massaRijklaar": 2183,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1250,
+          "lengteCm": 454,
+          "vermogenKw": 157,
+          "verbruikWltp": 17,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 523
+        },
+        {
+          "aandrijving": "hybride",
+          "steekproef": 169,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 48550,
+          "massaRijklaar": 1622,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1000,
+          "lengteCm": 454,
+          "vermogenKw": 100,
+          "verbruikWltp": 5.4,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 121,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 43,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 51901,
+          "massaRijklaar": 1953,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1550,
+          "lengteCm": 454,
+          "vermogenKw": 110,
+          "verbruikWltp": null,
+          "verbruikGewogenWltp": 2.5,
+          "elektrischVerbruikWltp": 14.4,
+          "co2Wltp": 57,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "volvo-v60",
+      "merk": "VOLVO",
+      "model": "V60",
+      "rang": 37,
+      "registratiesSinds2019": 25979,
+      "uitvoeringen": [
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 365,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 63019,
+          "massaRijklaar": 2070,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 2000,
+          "lengteCm": 478,
+          "vermogenKw": 132,
+          "verbruikWltp": null,
+          "verbruikGewogenWltp": 2.1,
+          "elektrischVerbruikWltp": 12.2,
+          "co2Wltp": 48,
+          "actieradiusWltpKm": 90
+        },
+        {
+          "aandrijving": "hybride",
+          "steekproef": 35,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 52503,
+          "massaRijklaar": 1734,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1800,
+          "lengteCm": 478,
+          "vermogenKw": 145,
+          "verbruikWltp": 6.2,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 142,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "kia-ceed",
+      "merk": "KIA",
+      "model": "CEED",
+      "rang": 38,
+      "registratiesSinds2019": 25739,
+      "uitvoeringen": [
+        {
+          "aandrijving": "benzine",
+          "steekproef": 273,
+          "periode": [
+            2025,
+            2026
+          ],
+          "catalogusprijs": 34890,
+          "massaRijklaar": 1335,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1010,
+          "lengteCm": 461,
+          "vermogenKw": 74,
+          "verbruikWltp": 5.4,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 123,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "hybride",
+          "steekproef": 126,
+          "periode": [
+            2025,
+            2026
+          ],
+          "catalogusprijs": 36885,
+          "massaRijklaar": 1409,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 710,
+          "lengteCm": 461,
+          "vermogenKw": 74,
+          "verbruikWltp": 5.6,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 126,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "volkswagen-id.3",
+      "merk": "VOLKSWAGEN",
+      "model": "ID.3",
+      "rang": 39,
+      "registratiesSinds2019": 25438,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 37950,
+          "massaRijklaar": 1888,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 427,
+          "vermogenKw": 140,
+          "verbruikWltp": 14,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 490
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "volkswagen-up-",
+      "merk": "VOLKSWAGEN",
+      "model": "UP!",
+      "rang": 40,
+      "registratiesSinds2019": 25248,
+      "uitvoeringen": [
+        {
+          "aandrijving": "benzine",
+          "steekproef": 303,
+          "periode": [
+            2024,
+            2025
+          ],
+          "catalogusprijs": 20394,
+          "massaRijklaar": 991,
+          "zitplaatsen": 4,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 360,
+          "vermogenKw": 48,
+          "verbruikWltp": 5.1,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 115,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 97,
+          "periode": [
+            2024,
+            2025
+          ],
+          "catalogusprijs": 28874,
+          "massaRijklaar": 1248,
+          "zitplaatsen": 4,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 360,
+          "vermogenKw": 61,
+          "verbruikWltp": 14.4,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 259
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "skoda-enyaq",
+      "merk": "SKODA",
+      "model": "ENYAQ",
+      "rang": 41,
+      "registratiesSinds2019": 24978,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 51245,
+          "massaRijklaar": 2150,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 2000,
+          "lengteCm": 466,
+          "vermogenKw": 210,
+          "verbruikWltp": 15.5,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 568
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "suzuki-swift",
+      "merk": "SUZUKI",
+      "model": "SWIFT",
+      "rang": 42,
+      "registratiesSinds2019": 24603,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 24898,
+          "massaRijklaar": 994,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1000,
+          "lengteCm": 386,
+          "vermogenKw": 60,
+          "verbruikWltp": 4.4,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 99,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "hyundai-tucson",
+      "merk": "HYUNDAI",
+      "model": "TUCSON",
+      "rang": 43,
+      "registratiesSinds2019": 24475,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 209,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 51900,
+          "massaRijklaar": 1647,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1510,
+          "lengteCm": 454,
+          "vermogenKw": 132,
+          "verbruikWltp": 5.8,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 131,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 191,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 47450,
+          "massaRijklaar": 1832,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1210,
+          "lengteCm": 453,
+          "vermogenKw": 132,
+          "verbruikWltp": null,
+          "verbruikGewogenWltp": 2.8,
+          "elektrischVerbruikWltp": 10.9,
+          "co2Wltp": 64,
+          "actieradiusWltpKm": 68
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "mercedes-benz-a-klasse",
+      "merk": "MERCEDES-BENZ",
+      "model": "A-KLASSE",
+      "rang": 44,
+      "registratiesSinds2019": 24271,
+      "uitvoeringen": [
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 314,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 45228,
+          "massaRijklaar": 1705,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1600,
+          "lengteCm": 445,
+          "vermogenKw": 120,
+          "verbruikWltp": null,
+          "verbruikGewogenWltp": 2.7,
+          "elektrischVerbruikWltp": 13,
+          "co2Wltp": 62,
+          "actieradiusWltpKm": 77
+        },
+        {
+          "aandrijving": "hybride",
+          "steekproef": 86,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 44838,
+          "massaRijklaar": 1440,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1400,
+          "lengteCm": 445,
+          "vermogenKw": 100,
+          "verbruikWltp": 6,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 135,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "toyota-aygo",
+      "merk": "TOYOTA",
+      "model": "AYGO",
+      "rang": 45,
+      "registratiesSinds2019": 23741,
+      "uitvoeringen": [
+        {
+          "aandrijving": "benzine",
+          "steekproef": 400,
+          "periode": [
+            2022,
+            2022
+          ],
+          "catalogusprijs": 15235,
+          "massaRijklaar": 930,
+          "zitplaatsen": 4,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 347,
+          "vermogenKw": 53,
+          "verbruikWltp": 4.9,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 111,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "seat-ibiza",
+      "merk": "SEAT",
+      "model": "IBIZA",
+      "rang": 46,
+      "registratiesSinds2019": 22981,
+      "uitvoeringen": [
+        {
+          "aandrijving": "benzine",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 24765,
+          "massaRijklaar": 1139,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1000,
+          "lengteCm": 407,
+          "vermogenKw": 70,
+          "verbruikWltp": 5,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 114,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "bmw-x1",
+      "merk": "BMW",
+      "model": "X1",
+      "rang": 47,
+      "registratiesSinds2019": 22695,
+      "uitvoeringen": [
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 323,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 66626,
+          "massaRijklaar": 1930,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1700,
+          "lengteCm": 450,
+          "vermogenKw": 100,
+          "verbruikWltp": 2.5,
+          "verbruikGewogenWltp": 2.7,
+          "elektrischVerbruikWltp": 13.6,
+          "co2Wltp": 60,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "hybride",
+          "steekproef": 68,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 58736,
+          "massaRijklaar": 1625,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1800,
+          "lengteCm": 450,
+          "vermogenKw": 115,
+          "verbruikWltp": 5.9,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 132,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "kia-sportage",
+      "merk": "KIA",
+      "model": "SPORTAGE",
+      "rang": 48,
+      "registratiesSinds2019": 22598,
+      "uitvoeringen": [
+        {
+          "aandrijving": "hybride",
+          "steekproef": 276,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 49920,
+          "massaRijklaar": 1660,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1510,
+          "lengteCm": 454,
+          "vermogenKw": 132,
+          "verbruikWltp": 5.7,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 129,
+          "actieradiusWltpKm": null
+        },
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 124,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 48900,
+          "massaRijklaar": 1842,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1210,
+          "lengteCm": 454,
+          "vermogenKw": 132,
+          "verbruikWltp": null,
+          "verbruikGewogenWltp": 2.8,
+          "elektrischVerbruikWltp": 10.8,
+          "co2Wltp": 63,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "opel-crossland",
+      "merk": "OPEL",
+      "model": "CROSSLAND",
+      "rang": 49,
+      "registratiesSinds2019": 21835,
+      "uitvoeringen": [
+        {
+          "aandrijving": "benzine",
+          "steekproef": 399,
+          "periode": [
+            2024,
+            2025
+          ],
+          "catalogusprijs": 30431,
+          "massaRijklaar": 1290,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 840,
+          "lengteCm": 423,
+          "vermogenKw": 81,
+          "verbruikWltp": 5.9,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 132,
+          "actieradiusWltpKm": null
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "volkswagen-id.4",
+      "merk": "VOLKSWAGEN",
+      "model": "ID.4",
+      "rang": 50,
+      "registratiesSinds2019": 21622,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 44720,
+          "massaRijklaar": 2135,
+          "zitplaatsen": 5,
+          "trekgewichtGeremd": 1000,
+          "lengteCm": 458,
+          "vermogenKw": 210,
+          "verbruikWltp": 16.2,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 549
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-03",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    }
+  ]
+}

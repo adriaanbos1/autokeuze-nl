@@ -44,3 +44,18 @@ td { padding: 2px 0; vertical-align: top; }
 td.b { text-align: right; white-space: nowrap; padding-left: 8px; }
 .uitleg { color: var(--muted); font-size: 0.78rem; }
 .disclaimer { margin-top: 40px; font-size: 0.8rem; color: var(--muted); border-top: 1px solid var(--rand); padding-top: 16px; }
+.nav { display: flex; gap: 16px; margin-bottom: 16px; font-size: 0.9rem; }
+.nav a { color: var(--accent); text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+button {
+  font: inherit; color: var(--bg); background: var(--accent); border: 0; border-radius: 6px;
+  padding: 7px 14px; cursor: pointer;
+}
+button:disabled { opacity: 0.5; cursor: default; }
+.melding { background: var(--vlak); border-left: 3px solid var(--accent); padding: 8px 12px; }
+.tabel-scroll { overflow-x: auto; }
+table.dataset { font-size: 0.85rem; min-width: 760px; }
+table.dataset th { text-align: left; font-weight: 600; border-bottom: 1px solid var(--rand); padding: 4px 6px 4px 0; }
+table.dataset th.b { text-align: right; }
+table.dataset td { padding: 3px 6px 3px 0; }
+tr.nieuw-model td { border-top: 1px solid var(--rand); }

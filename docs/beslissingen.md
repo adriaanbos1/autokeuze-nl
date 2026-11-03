@@ -25,3 +25,7 @@ Format: datum · beslissing · waarom · door wie · status
 | 19 | 2026-11-03 | Zakelijk in v1: ZZP'er en leaserijder volledig, DGA/bv licht | haalbaar zonder fiscalist; volledige bv-doorrekening later | Adriaan | besloten |
 | 20 | 2026-11-03 | Occasions in v1: dezelfde 40–60 modellen tot ca. 10 jaar oud, plus kentekencheck via RDW (gewicht, APK, terugroepacties) | concrete auto's beter doorgerekend; RDW-data is gratis | Adriaan | besloten |
 | 21 | 2026-11-03 | Opcenten in de MRB niet tussentijds op centen afronden; alleen het kwartaaltotaal naar beneden | zo komt de engine overeen met de Belastingdienst (12 afwijkingen van €1 verdwenen) | Claude | uitgevoerd |
+| 22 | 2026-11-03 | Modelselectie: top 50 modelfamilies op RDW-registraties sinds 2019, met openbare normalisatieregels | objectief en controleerbaar; geen handmatige keuze | Claude | uitgevoerd |
+| 23 | 2026-11-03 | Specificaties per aandrijving = mediaan van de 400 meest recente kentekens; catalogusprijs incl. opties | weerspiegelt wat er werkelijk verkocht wordt; officiële bron | Claude | uitgevoerd |
+| 24 | 2026-11-03 | Brandstofverbruik plug-in hybride met lege accu niet invullen met een schatting zolang er geen bron is | RDW publiceert het niet; geen waarden uit het geheugen | Claude | open (stap 2c) |
+| 25 | 2026-11-03 | Kentekencheck draait volledig in de browser, rechtstreeks naar RDW | privacy: geen eigen server, geen opslag | Claude | uitgevoerd |

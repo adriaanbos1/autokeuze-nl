@@ -129,7 +129,26 @@ Legenda kosten: 🟢 gratis · 🟡 gratis met voorwaarden / op aanvraag · 🔴
 
 **Waarom een eigen dataset verantwoord is:** omdat de methodiek en alle aannames openbaar en uitklapbaar zijn, kan iedereen nagaan waar een cijfer vandaan komt. Juist met jouw achtergrond bij een importeur maakt dat het product controleerbaar neutraal. Zie `beslissingen.md`.
 
-## 4. Open punten
+## 5. Gebruikt in Fase 2 (stap 2a)
+
+### 5.1 Modelselectie (objectief)
+- Script `scripts/selecteer-modellen.ts` telt alle personenauto's in RDW met datum eerste toelating sinds 1-1-2019 (niet geëxporteerd), per merk + handelsbenaming. Resultaat: `data/modelselectie.json`.
+- Varianten worden samengevoegd tot een modelfamilie met `src/data/normaliseer.ts`. Regel: het model is het eerste woord na de merknaam. Alleen een vaste lijst tweede woorden hoort bij de naam (CROSS, AIRCROSS, X, STAR; "MODEL Y", "IONIQ 5"). Merkspecifieke regels bestaan alleen waar een merk de modelnaam in een typecode verstopt (BMW "118I" → 1 SERIE, Mercedes "A 180" → A-KLASSE). Elke regel heeft een test in `tests/normaliseer.test.ts`.
+- De **50 grootste families** gaan mee: samen 51,8% van 3,69 miljoen registraties (peildatum 3-11-2026). Bij gelijke aantallen beslist de alfabetische volgorde.
+- Gevolg: ook modellen die niet meer nieuw te koop zijn (bijv. VW up!, Ford Fiesta) zitten erin. Die zijn relevant als occasion.
+
+### 5.2 Specificaties per model en aandrijving
+- Script `scripts/haal-specs.ts` neemt per model de **400 meest recent toegelaten kentekens** en haalt per kenteken de brandstofgegevens op. Per aandrijving (minimaal 10 kentekens) berekent het de mediaan van: catalogusprijs, massa rijklaar, zitplaatsen, trekgewicht geremd (0 = niet toegestaan), lengte, vermogen, WLTP-verbruik, CO₂ en elektrische actieradius. Resultaat: `data/modellen-rdw.json`.
+- Aandrijving uit RDW: `OVC-HEV` = plug-in hybride, `NOVC-HEV` = hybride (**inclusief mild-hybride**), alleen "Elektriciteit" = elektrisch.
+- **Catalogusprijs** = RDW-catalogusprijs incl. btw en BPM, inclusief de fabrieksopties van de geregistreerde auto's. Dit is dus geen vanafprijs, maar wel wat er gemiddeld werkelijk gekocht wordt.
+- **Plug-in hybride:** RDW publiceert het elektrische verbruik, de actieradius en het *gewogen* WLTP-verbruik. Het brandstofverbruik met een lege accu ontbreekt vrijwel altijd. ⚠ Aanvullen in de eigen dataset (nodig voor eerlijke energiekosten).
+- Bekende beperking: een aandrijving die nu weinig verkocht wordt, kan uit de steekproef vallen.
+
+### 5.3 Kentekencheck
+- `src/data/kenteken.ts` haalt per kenteken op: voertuiggegevens (`m9d7-ebf2`), brandstof (`8ys7-d773`), status van terugroepacties (`t49b-isb7`) en details van openstaande acties (`af5r-44mf`).
+- RDW staat verzoeken vanuit de browser toe (CORS `*`). Het kenteken gaat daardoor **rechtstreeks van de gebruiker naar RDW**, zonder eigen server of opslag (privacy-eis).
+
+## 6. Open punten
 - ⚠ Licenties per RDW-dataset bevestigen (alles CC-0?).
 - ⚠ Euro NCAP: mag "5 sterren (2024)" als feit commercieel genoemd worden? Toestemming vragen.
 - ⚠ Steekproef van vraagprijzen: juridische check (databankenrecht / gebruiksvoorwaarden).

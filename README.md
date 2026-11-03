@@ -18,9 +18,19 @@ npm test         # alle rekentests
 npm run dev      # rekenpagina op http://localhost:3000
 ```
 
+## Data verversen (RDW)
+
+```bash
+node scripts/selecteer-modellen.ts 50   # kiest de 50 meest geregistreerde modellen
+node scripts/haal-specs.ts              # haalt de officiële specificaties op
+```
+
 ## Structuur
 
 - `src/regels/regels-nl.ts` — alle fiscale/wettelijke waarden, met bron, status en `geldigVanaf`
 - `src/engine/` — pure rekencode (TCO, financiering, MRB, bijtelling, ZZP)
 - `tests/` — unit tests; `persona-*.test.ts` volgen de rekenvoorbeelden in `docs/methodiek.md`
-- `app/` — eenvoudige rekenpagina (Fase 1)
+- `src/data/` — datamodel, modelnormalisatie, kentekencheck
+- `data/` — gegenereerde dataset (met bron en peildatum)
+- `scripts/` — scripts die de dataset uit RDW opbouwen
+- `app/` — rekenpagina, `/modellen` en `/kenteken`

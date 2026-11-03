@@ -1,0 +1,626 @@
+{
+  "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json",
+  "peildatum": "2026-11-03",
+  "regel": "Personenauto, datum eerste toelating ≥ 20190101, export_indicator = Nee; top 50 modelfamilies op aantal registraties (normalisatie: src/data/normaliseer.ts).",
+  "aantalRegistratiesGeteld": 3690175,
+  "dekkingGekozen": 51.8,
+  "modellen": [
+    {
+      "rang": 1,
+      "id": "volkswagen-polo",
+      "merk": "VOLKSWAGEN",
+      "model": "POLO",
+      "registraties": 73627,
+      "varianten": [
+        "POLO"
+      ]
+    },
+    {
+      "rang": 2,
+      "id": "kia-niro",
+      "merk": "KIA",
+      "model": "NIRO",
+      "registraties": 68599,
+      "varianten": [
+        "NIRO"
+      ]
+    },
+    {
+      "rang": 3,
+      "id": "volvo-xc40",
+      "merk": "VOLVO",
+      "model": "XC40",
+      "registraties": 64440,
+      "varianten": [
+        "XC40",
+        "XC40 T5 TWIN ENGINE",
+        "XC40 T5 Twin Engine"
+      ]
+    },
+    {
+      "rang": 4,
+      "id": "kia-picanto",
+      "merk": "KIA",
+      "model": "PICANTO",
+      "registraties": 64184,
+      "varianten": [
+        "PICANTO",
+        "Picanto"
+      ]
+    },
+    {
+      "rang": 5,
+      "id": "volkswagen-golf",
+      "merk": "VOLKSWAGEN",
+      "model": "GOLF",
+      "registraties": 60799,
+      "varianten": [
+        "GOLF",
+        "GOLF GTE",
+        "GOLF SPORTSVAN"
+      ]
+    },
+    {
+      "rang": 6,
+      "id": "peugeot-208",
+      "merk": "PEUGEOT",
+      "model": "208",
+      "registraties": 60217,
+      "varianten": [
+        "208"
+      ]
+    },
+    {
+      "rang": 7,
+      "id": "tesla-model-y",
+      "merk": "TESLA",
+      "model": "MODEL Y",
+      "registraties": 58467,
+      "varianten": [
+        "MODEL Y",
+        "Model Y"
+      ]
+    },
+    {
+      "rang": 8,
+      "id": "toyota-yaris",
+      "merk": "TOYOTA",
+      "model": "YARIS",
+      "registraties": 58265,
+      "varianten": [
+        "TOYOTA YARIS",
+        "TOYOTA YARIS HYBRID"
+      ]
+    },
+    {
+      "rang": 9,
+      "id": "renault-captur",
+      "merk": "RENAULT",
+      "model": "CAPTUR",
+      "registraties": 54049,
+      "varianten": [
+        "CAPTUR",
+        "CAPTUR E-TECH HYBRID",
+        "CAPTUR E-TECH PLUG-IN HYBRID",
+        "CAPTUR (E-TECH HYBRID)",
+        "CAPTUR (E-TECH PLUG-IN HYBRID)",
+        "CAPTUR ((E-TECH PLUG-IN HYBRID)"
+      ]
+    },
+    {
+      "rang": 10,
+      "id": "tesla-model-3",
+      "merk": "TESLA",
+      "model": "MODEL 3",
+      "registraties": 52275,
+      "varianten": [
+        "MODEL 3",
+        "Model 3"
+      ]
+    },
+    {
+      "rang": 11,
+      "id": "volkswagen-t-roc",
+      "merk": "VOLKSWAGEN",
+      "model": "T-ROC",
+      "registraties": 48676,
+      "varianten": [
+        "T-ROC"
+      ]
+    },
+    {
+      "rang": 12,
+      "id": "opel-corsa",
+      "merk": "OPEL",
+      "model": "CORSA",
+      "registraties": 47611,
+      "varianten": [
+        "CORSA"
+      ]
+    },
+    {
+      "rang": 13,
+      "id": "volkswagen-tiguan",
+      "merk": "VOLKSWAGEN",
+      "model": "TIGUAN",
+      "registraties": 47236,
+      "varianten": [
+        "TIGUAN"
+      ]
+    },
+    {
+      "rang": 14,
+      "id": "renault-clio",
+      "merk": "RENAULT",
+      "model": "CLIO",
+      "registraties": 46890,
+      "varianten": [
+        "CLIO",
+        "CLIO E-TECH HYBRID",
+        "CLIO (E-TECH HYBRID)"
+      ]
+    },
+    {
+      "rang": 15,
+      "id": "peugeot-2008",
+      "merk": "PEUGEOT",
+      "model": "2008",
+      "registraties": 45663,
+      "varianten": [
+        "2008"
+      ]
+    },
+    {
+      "rang": 16,
+      "id": "toyota-yaris-cross",
+      "merk": "TOYOTA",
+      "model": "YARIS CROSS",
+      "registraties": 44736,
+      "varianten": [
+        "TOYOTA YARIS CROSS"
+      ]
+    },
+    {
+      "rang": 17,
+      "id": "ford-kuga",
+      "merk": "FORD",
+      "model": "KUGA",
+      "registraties": 44214,
+      "varianten": [
+        "KUGA",
+        "Kuga"
+      ]
+    },
+    {
+      "rang": 18,
+      "id": "hyundai-kona",
+      "merk": "HYUNDAI",
+      "model": "KONA",
+      "registraties": 43843,
+      "varianten": [
+        "KONA"
+      ]
+    },
+    {
+      "rang": 19,
+      "id": "ford-focus",
+      "merk": "FORD",
+      "model": "FOCUS",
+      "registraties": 43640,
+      "varianten": [
+        "FOCUS",
+        "Focus"
+      ]
+    },
+    {
+      "rang": 20,
+      "id": "toyota-corolla",
+      "merk": "TOYOTA",
+      "model": "COROLLA",
+      "registraties": 42594,
+      "varianten": [
+        "TOYOTA COROLLA"
+      ]
+    },
+    {
+      "rang": 21,
+      "id": "toyota-aygo-x",
+      "merk": "TOYOTA",
+      "model": "AYGO X",
+      "registraties": 37038,
+      "varianten": [
+        "TOYOTA AYGO X"
+      ]
+    },
+    {
+      "rang": 22,
+      "id": "volvo-xc60",
+      "merk": "VOLVO",
+      "model": "XC60",
+      "registraties": 36617,
+      "varianten": [
+        "XC60",
+        "XC60 T8 TWIN ENGINE",
+        "XC60 T8 Twin Engine"
+      ]
+    },
+    {
+      "rang": 23,
+      "id": "nissan-qashqai",
+      "merk": "NISSAN",
+      "model": "QASHQAI",
+      "registraties": 36599,
+      "varianten": [
+        "NISSAN QASHQAI"
+      ]
+    },
+    {
+      "rang": 24,
+      "id": "lynk-co-01",
+      "merk": "LYNK&CO",
+      "model": "01",
+      "registraties": 36445,
+      "varianten": [
+        "LYNK & CO 01",
+        "Lynk & Co 01"
+      ]
+    },
+    {
+      "rang": 25,
+      "id": "fiat-500",
+      "merk": "FIAT",
+      "model": "500",
+      "registraties": 33999,
+      "varianten": [
+        "FIAT 500",
+        "500",
+        "500 HYBRID"
+      ]
+    },
+    {
+      "rang": 26,
+      "id": "skoda-octavia",
+      "merk": "SKODA",
+      "model": "OCTAVIA",
+      "registraties": 33875,
+      "varianten": [
+        "OCTAVIA",
+        "OCTAVIA RS"
+      ]
+    },
+    {
+      "rang": 27,
+      "id": "toyota-c-hr",
+      "merk": "TOYOTA",
+      "model": "C-HR",
+      "registraties": 31017,
+      "varianten": [
+        "TOYOTA C-HR"
+      ]
+    },
+    {
+      "rang": 28,
+      "id": "hyundai-i10",
+      "merk": "HYUNDAI",
+      "model": "I10",
+      "registraties": 30823,
+      "varianten": [
+        "I10",
+        "i10"
+      ]
+    },
+    {
+      "rang": 29,
+      "id": "audi-a3",
+      "merk": "AUDI",
+      "model": "A3",
+      "registraties": 30791,
+      "varianten": [
+        "A3 SPORTBACK",
+        "A3 LIMOUSINE",
+        "A3 40 TFSIE",
+        "A3 SPORTBACK PHEV 150",
+        "A3 45 TFSIE",
+        "A3 40 TFSIe",
+        "A3 Sportback",
+        "A3 SPORTBACK PHEV 200",
+        "A3 45 TFSIe",
+        "A3 CABRIOLET",
+        "A3 Limousine",
+        "A3 ALLSTREET PHEV 150",
+        "A3 ALLSTREET"
+      ]
+    },
+    {
+      "rang": 30,
+      "id": "ford-puma",
+      "merk": "FORD",
+      "model": "PUMA",
+      "registraties": 30602,
+      "varianten": [
+        "PUMA",
+        "Puma"
+      ]
+    },
+    {
+      "rang": 31,
+      "id": "mini-cooper",
+      "merk": "MINI",
+      "model": "COOPER",
+      "registraties": 30357,
+      "varianten": [
+        "COOPER",
+        "COOPER SE",
+        "COOPER S",
+        "COOPER E",
+        "COOPER C",
+        "Cooper SE",
+        "Cooper",
+        "Cooper S"
+      ]
+    },
+    {
+      "rang": 32,
+      "id": "bmw-3-serie",
+      "merk": "BMW",
+      "model": "3 SERIE",
+      "registraties": 29504,
+      "varianten": [
+        "330E",
+        "320I",
+        "320E",
+        "318I",
+        "330I",
+        "330E XDRIVE",
+        "330e",
+        "330e xDrive",
+        "320D",
+        "330I XDRIVE",
+        "320e",
+        "318D",
+        "320i",
+        "320E XDRIVE",
+        "318i",
+        "320I XDRIVE",
+        "330D",
+        "320D XDRIVE",
+        "330D XDRIVE",
+        "330i"
+      ]
+    },
+    {
+      "rang": 33,
+      "id": "volkswagen-t-cross",
+      "merk": "VOLKSWAGEN",
+      "model": "T-CROSS",
+      "registraties": 28404,
+      "varianten": [
+        "T-CROSS"
+      ]
+    },
+    {
+      "rang": 34,
+      "id": "ford-fiesta",
+      "merk": "FORD",
+      "model": "FIESTA",
+      "registraties": 27647,
+      "varianten": [
+        "FIESTA",
+        "Fiesta"
+      ]
+    },
+    {
+      "rang": 35,
+      "id": "skoda-kodiaq",
+      "merk": "SKODA",
+      "model": "KODIAQ",
+      "registraties": 27102,
+      "varianten": [
+        "KODIAQ"
+      ]
+    },
+    {
+      "rang": 36,
+      "id": "peugeot-3008",
+      "merk": "PEUGEOT",
+      "model": "3008",
+      "registraties": 26297,
+      "varianten": [
+        "3008"
+      ]
+    },
+    {
+      "rang": 37,
+      "id": "volvo-v60",
+      "merk": "VOLVO",
+      "model": "V60",
+      "registraties": 25979,
+      "varianten": [
+        "V60",
+        "V60 T8 TWIN ENGINE",
+        "V60 T6 TWIN ENGINE",
+        "V60 T8 Twin Engine",
+        "V60 T6 Twin Engine"
+      ]
+    },
+    {
+      "rang": 38,
+      "id": "kia-ceed",
+      "merk": "KIA",
+      "model": "CEED",
+      "registraties": 25739,
+      "varianten": [
+        "CEED",
+        "Ceed"
+      ]
+    },
+    {
+      "rang": 39,
+      "id": "volkswagen-id.3",
+      "merk": "VOLKSWAGEN",
+      "model": "ID.3",
+      "registraties": 25438,
+      "varianten": [
+        "ID.3 PRO 150 KW",
+        "ID.3 PRO S 150 KW",
+        "ID.3 PURE 125 KW",
+        "ID.3 PRO 107 KW",
+        "ID.3 PURE 110 KW",
+        "ID.3 NEO 140KW",
+        "ID.3 NEO 125KW",
+        "ID.3 NEO 170KW",
+        "ID.3 GTX PERF. 240 KW"
+      ]
+    },
+    {
+      "rang": 40,
+      "id": "volkswagen-up-",
+      "merk": "VOLKSWAGEN",
+      "model": "UP!",
+      "registraties": 25248,
+      "varianten": [
+        "UP!"
+      ]
+    },
+    {
+      "rang": 41,
+      "id": "skoda-enyaq",
+      "merk": "SKODA",
+      "model": "ENYAQ",
+      "registraties": 24978,
+      "varianten": [
+        "ENYAQ 60",
+        "ENYAQ 80",
+        "ENYAQ 85",
+        "ENYAQ RS",
+        "ENYAQ 50",
+        "ENYAQ 80X"
+      ]
+    },
+    {
+      "rang": 42,
+      "id": "suzuki-swift",
+      "merk": "SUZUKI",
+      "model": "SWIFT",
+      "registraties": 24603,
+      "varianten": [
+        "SWIFT"
+      ]
+    },
+    {
+      "rang": 43,
+      "id": "hyundai-tucson",
+      "merk": "HYUNDAI",
+      "model": "TUCSON",
+      "registraties": 24475,
+      "varianten": [
+        "TUCSON"
+      ]
+    },
+    {
+      "rang": 44,
+      "id": "mercedes-benz-a-klasse",
+      "merk": "MERCEDES-BENZ",
+      "model": "A-KLASSE",
+      "registraties": 24271,
+      "varianten": [
+        "A 180",
+        "A 250 E",
+        "A 200",
+        "A 250 e",
+        "A 160",
+        "A 220",
+        "A 180 D",
+        "A 250",
+        "A-KLASSE",
+        "A 250 4MATIC",
+        "A 220 4MATIC",
+        "A 200 D"
+      ]
+    },
+    {
+      "rang": 45,
+      "id": "toyota-aygo",
+      "merk": "TOYOTA",
+      "model": "AYGO",
+      "registraties": 23741,
+      "varianten": [
+        "TOYOTA AYGO"
+      ]
+    },
+    {
+      "rang": 46,
+      "id": "seat-ibiza",
+      "merk": "SEAT",
+      "model": "IBIZA",
+      "registraties": 22981,
+      "varianten": [
+        "IBIZA"
+      ]
+    },
+    {
+      "rang": 47,
+      "id": "bmw-x1",
+      "merk": "BMW",
+      "model": "X1",
+      "registraties": 22695,
+      "varianten": [
+        "X1 XDRIVE25E",
+        "X1 SDRIVE20I",
+        "X1 SDRIVE18I",
+        "X1 XDRIVE30E",
+        "X1 xDrive25e",
+        "X1 XDRIVE23I",
+        "X1 XDRIVE20I",
+        "X1 xDrive30e",
+        "X1 sDrive18i",
+        "X1 sDrive20i",
+        "X1 xDrive23i",
+        "X1 SDRIVE 18I",
+        "X1 XDRIVE25I",
+        "X1 SDRIVE18D",
+        "X1 M35I XDRIVE"
+      ]
+    },
+    {
+      "rang": 48,
+      "id": "kia-sportage",
+      "merk": "KIA",
+      "model": "SPORTAGE",
+      "registraties": 22598,
+      "varianten": [
+        "SPORTAGE"
+      ]
+    },
+    {
+      "rang": 49,
+      "id": "opel-crossland",
+      "merk": "OPEL",
+      "model": "CROSSLAND",
+      "registraties": 21835,
+      "varianten": [
+        "CROSSLAND X",
+        "CROSSLAND"
+      ]
+    },
+    {
+      "rang": 50,
+      "id": "volkswagen-id.4",
+      "merk": "VOLKSWAGEN",
+      "model": "ID.4",
+      "registraties": 21622,
+      "varianten": [
+        "ID.4 PRO 150 KW",
+        "ID.4 PRO 210KW",
+        "ID.4 PRO 128 KW",
+        "ID.4 PURE 109 KW",
+        "ID.4 GTX 220 KW",
+        "ID.4 PURE 125KW",
+        "ID.4 PURE 140 KW",
+        "ID.4 PURE 125 KW",
+        "ID.4 PRO 4MOTION 210KW",
+        "ID.4 GTX 250KW"
+      ]
+    }
+  ]
+}

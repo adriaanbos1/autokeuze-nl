@@ -31,6 +31,9 @@ Alternatief bij krappe kosten: Cloudflare Pages (gratis, ook commercieel). Overs
 - **Omvang:** ca. 1–2 weken (middel).
 
 ### Fase 2: Dataset v1
+> **Status 3-11-2026: stap 2a gebouwd.** Objectieve selectie van 50 modellen, officiële RDW-specificaties per aandrijving, kentekencheck (incl. MRB en terugroepacties), pagina's `/modellen` en `/kenteken`.
+> Nog te doen in Fase 2: **2b** betrouwbaarheidsscore uit APK-gebreken (RDW); **2c** Euro NCAP, onderhoud, banden, verzekering (bandbreedtes), verbruik van plug-in hybrides met lege accu; **2d** restwaarde- en occasion-curves (schatting) + offerteaanvragen restwaardedata.
+
 - **Doel:** 40–60 populaire modellen in NL (selectie op basis van RDW-registraties per segment, dus objectief en niet door ons gekozen). Per model en motorisatie: prijs, specs, verbruik, Euro NCAP, onderhoud, restwaardecurve, verzekeringsklasse. RDW-koppeling: betrouwbaarheidsscore uit APK-gebreken, terugroepacties en specs. Optioneel: kenteken invoeren voor een occasion.
 - **Wat jij kunt testen:** een tabelpagina met alle modellen, per waarde de bron en peildatum. Een "datadekking"-overzicht. Een kenteken-check van een willekeurige auto.
 - **Omvang:** ca. 2–3 weken (groot; het handwerk zit in de eigen dataset).
