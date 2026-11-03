@@ -1,0 +1,158 @@
+# Fiscale en wettelijke regels NL — AutoKeuze NL
+
+*Peildatum: 3 november 2026. Status: Fase 0.*
+
+Dit document is de **menselijke uitleg** van het latere configbestand (`config/regels-nl.ts` of `.json`). Elke waarde krijgt daar een `bron`, `geldig_vanaf` en `status`.
+
+Statuslabels:
+- ✅ **vastgesteld** — in wet of besluit, of breed bevestigd door meerdere betrouwbare bronnen
+- 🟡 **aangekondigd** — in Belastingplan/wetsvoorstel, nog niet definitief
+- ⚠ **onzeker / te verifiëren** — bronnen spreken elkaar tegen, of alleen secundaire bron
+
+> Belangrijke context: het Belastingplan 2027 (Prinsjesdag 2026) wordt behandeld door een **minderheidskabinet**. Niet alle plannen zijn zeker ([Athlon, 21-10-2026](https://www.athlon.com/nl/kennisbank/belastingplan-2027-autobelastingen-en-mobiliteit/)). Vóór livegang (en ieder jaar op 1 januari) controleren we alles opnieuw tegen de Belastingdienst en wetten.nl.
+
+---
+
+## 1. Motorrijtuigenbelasting (MRB)
+
+| Onderdeel | 2026 | 2027 | Status | Bron |
+|---|---|---|---|---|
+| Grondslag | Gewicht (rijklaar/massa ledig voertuig) + brandstofsoort, per kwartaal | idem | ✅ | Wet MRB 1994 |
+| Korting volledig elektrische personenauto | 30% van het normale tarief | 30% | ✅ (2026) / 🟡 (2027) | [ANWB](https://www.anwb.nl/auto/elektrisch-rijden/kosten/wegenbelasting-elektrische-auto), [Athlon](https://www.athlon.com/nl/kennisbank/belastingplan-2027-autobelastingen-en-mobiliteit/) |
+| Afbouw EV-korting | 2028: 30% · 2029: 25% · 2030: 0% | | 🟡 | idem |
+| Gewichtscorrectie voor EV-accu | onduidelijk | onderzoek naar andere grondslag dan gewicht | ⚠ bronnen spreken elkaar tegen | [AutoScout24](https://www.autoscout24.nl/informeren/advies/kosten-en-wetgeving/wegenbelasting-elektrische-auto-wat-je-moet-weten/), ANWB |
+| Plug-in hybride (≤50 g/km) | **geen korting meer** (volledig tarief) | idem | ✅ | ANWB |
+| Bestelauto ondernemer / lichte vracht tijdelijke korting | loopt | vervalt per 1-1-2027 | 🟡 | Athlon |
+| Provinciale opcenten | 82,1 (N-Holland) t/m 104,4 (Z-Holland); max 143,9 | jaarlijks vastgesteld | ✅ | [CBS 80889ned](https://www.cbs.nl/nl-nl/cijfers/detail/80889ned) |
+
+**Implementatie:** de exacte tarieftabellen (per gewichtsklasse, dieseltoeslag, opcenten) nemen we in Fase 1 letterlijk over uit de Wet MRB 1994 (art. 23 e.v.) en de opcentenbesluiten. We testen ze tegen de officiële rekentool van de Belastingdienst met minimaal 10 voorbeeldauto's. ⚠ Die tabellen zijn in Fase 0 nog niet overgenomen.
+
+## 2. BPM (aanschafbelasting)
+
+| Onderdeel | 2026 | Status | Bron |
+|---|---|---|---|
+| Emissievrije personenauto | vast bedrag **€687** (2025: €667); geen CO₂-deel | ✅ | [ANWB](https://www.anwb.nl/auto/autobelastingen/bpm), [Meijburg](https://www.meijburg.com/sites/default/files/2025-12/wijzigingen-belastingplan-2026_esg.pdf) |
+| Brandstofauto | vaste voet + bedrag per gram CO₂ in schijven; schijfgrenzen in 2026 aangescherpt; dieseltoeslag | ✅ structuur / ⚠ bedragen nog over te nemen | Wet BPM 1992 art. 9 |
+| Bestelauto ondernemer, emissievrij | geen BPM | ✅ | VNA-samenvatting Belastingplan 2026 |
+| Toekomst | Vervanging door tenaamstellingsbelasting gaat **niet** door; vereenvoudiging wordt onderzocht | 🟡 | Athlon |
+
+**Voor de app:** BPM zit in de catalogusprijs van een nieuwe auto. We hebben haar vooral nodig voor (a) uitleg van de prijsopbouw en (b) de cataloguswaarde voor de bijtelling (incl. btw en BPM).
+
+## 3. Bijtelling (auto van de zaak)
+
+| Onderdeel | Waarde | Status | Bron |
+|---|---|---|---|
+| Standaard | **22%** van de cataloguswaarde (incl. btw + BPM) | ✅ | [SRA advieswijzer 2026](https://www.sra.nl/nieuws/000000/advieswijzers/advieswijzer-auto-zakelijk-of-prive-2026) |
+| EV, eerste toelating 2026 | **18% tot €30.000**, 22% daarboven (max. voordeel €1.200/jr) | ✅ | SRA, [Athlon](https://www.athlon.com/nl/kennisbank/bijtelling-2026/) |
+| EV, eerste toelating 2027 | **20% tot €30.000**, 22% daarboven (max. voordeel €600/jr) | ✅ aangenomen | Athlon (21-10-2026) |
+| EV, eerste toelating vanaf 2028 | 22% over alles | ✅ | idem |
+| Waterstof / zonnecel-auto | 2026: 18% zonder cap; 2027: 20% zonder cap | ✅ | SRA |
+| 60-maandenregel | percentage ligt 60 maanden vast vanaf eerste toelating; daarna het dan geldende percentage | ✅ | SRA |
+| Youngtimer (oude auto) | 2026: oude auto's: 35% van de dagwaarde (⚠ leeftijdsgrens: bronnen noemen 15 resp. 16 jaar). 2027: grens 17 jaar, 2028: 20 jaar (eerder plan van 25 jaar vervalt) | ✅ 2026 / 🟡 2027+ (SRA noemt nog 25 jaar, Athlon de nieuwere 17/20) | SRA, Athlon |
+| "Greentimer" | vanaf 2029: 14% voor EV's van 5–8 jaar oud, max. 3 jaar | 🟡 niet definitief | Athlon |
+| Eigen bijdrage werknemer | verlaagt de bijtelling euro voor euro (niet onder nul) | ✅ (⚠ bron in config nog toevoegen) | Belastingdienst |
+| Geen bijtelling | aantoonbaar ≤ 500 km privé per kalenderjaar (rittenregistratie) of "verklaring geen privégebruik" | ✅ | SRA, [KvK](https://www.kvk.nl/geldzaken/auto-van-de-zaak-of-prive/) |
+
+### Nieuw per 2027: pseudo-eindheffing ✅ aangenomen
+- Werkgever betaalt **12% van de catalogusprijs per jaar** voor *nieuw* ter beschikking gestelde personenauto's **met CO₂-uitstoot** (benzine, diesel, (plug-in) hybride) die privé gebruikt mogen worden. Geldt ook voor de **DGA/bv**. Werkgever mag dit niet doorberekenen aan de werknemer.
+- Overgangsregeling: auto's die vóór 1-1-2027 al ter beschikking stonden, vallen er pas vanaf 2031 onder (datum ⚠: 17-9-2030 of 1-1-2031; het kabinet wil 1-1-2031).
+- **Niet** van toepassing op de eenmanszaak-ondernemer zelf.
+- Bron: [Athlon](https://www.athlon.com/nl/kennisbank/belastingplan-2027-autobelastingen-en-mobiliteit/), SRA.
+- **Gevolg voor de app:** voor de leaserijder en de DGA wordt een brandstofauto vanaf 2027 voor de werkgever/bv flink duurder. Dat beïnvloedt leasebudgetten. We tonen dit als werkgeverskosten, los van de netto bijtelling.
+
+## 4. Zakelijk rijden — ZZP'er / eenmanszaak (IB-ondernemer)
+
+| Regel | Waarde | Status |
+|---|---|---|
+| Keuze vermogen | auto zakelijk (ondernemingsvermogen) of privé, één keer per auto bij aanschaf | ✅ |
+| Verplicht zakelijk | privégebruik ≤ 500 km/jr | ✅ |
+| Verplicht privé | zakelijk gebruik < 10% | ✅ |
+| Bijtelling bij zakelijke auto | zelfde percentages als §3; **begrensd tot de werkelijke autokosten** in dat jaar (incl. afschrijving) | ✅ |
+| Woon-werkverkeer | telt voor de inkomstenbelasting als **zakelijk**; voor de btw als **privé** | ✅ |
+| Privé-auto, zakelijke km | **€0,25 per zakelijke km** aftrekbaar (2026; was €0,23) | ✅ (met terugwerkende kracht per 1-1-2026, via beleidsbesluit; wettelijk vastgelegd in Belastingplan 2027) |
+| Btw-correctie privégebruik (forfait) | **2,7%** van de catalogusprijs per jaar; **1,5%** vanaf het 5e jaar na ingebruikname, of als er geen btw is afgetrokken | ✅ |
+| Afschrijving | lineair over gebruiksduur tot restwaarde (meestal 5 jaar) | ✅ (gangbare praktijk; exacte termijn per situatie) |
+| KIA (kleinschaligheidsinvesteringsaftrek) | 2026: investeringen tussen ca. €2.901 en €392.230; **personenauto's zijn in principe uitgesloten**, behalve o.a. emissievrije personenauto's en taxi's; bestelauto's wél | ⚠ uitzondering voor emissievrije personenauto's te verifiëren · 2027 mogelijk versoberd 🟡 |
+| MIA (milieu-investeringsaftrek) 2026 | alleen nog waterstofauto (45% over 90%, max €75.000) en zonnecel-auto (36% over 90%, max €100.000); gewone EV **niet** | ✅ (SRA) |
+| Ondernemersaftrek / MKB-winstvrijstelling | bepaalt het *effectieve* belastingvoordeel van elke aftrekpost | ⚠ bedragen 2026 nog op te nemen in config |
+| Box 1-tarieven 2026 | nodig voor het marginale tarief | ⚠ nog op te nemen in config (niet uit geheugen) |
+
+Bronnen: [SRA advieswijzer 2026](https://www.sra.nl/nieuws/000000/advieswijzers/advieswijzer-auto-zakelijk-of-prive-2026), [Accountancy van Morgen, 27-5-2026](https://www.accountancyvanmorgen.nl/2026/05/27/belastingdienst-licht-verwerking-hogere-onbelaste-kilometervergoeding-in-loonaangifte-toe/), [Knab](https://bieb.knab.nl/ondernemen/zakelijk-rijden-dit-zijn-de-belastingregels?hsLang=nl), [MKB Servicedesk KIA](https://www.mkbservicedesk.nl/belastingen/aftrekposten/wat-is-de-kleinschaligheidsinvesteringsaftrek-kia).
+
+## 5. DGA / bv
+
+| Regel | Waarde | Status |
+|---|---|---|
+| Auto van de bv | privégebruik belast als loon (bijtelling via loonbelasting), zelfde percentages | ✅ |
+| Bv-auto privé maken | alleen door verkoop aan de DGA (tegen marktwaarde; btw-discussie loopt bij de Hoge Raad) | ✅ / ⚠ btw-punt |
+| DGA rijdt privéauto voor de bv | bv mag €0,25/km onbelast vergoeden | ✅ |
+| Pseudo-eindheffing vanaf 2027 | 12% per jaar voor nieuwe CO₂-auto's ter beschikking gesteld aan de DGA | ✅ aangenomen |
+| Vennootschapsbelasting-effect | autokosten aftrekbaar in de Vpb; netto voordeel hangt af van het Vpb-tarief + box 2-gevolgen | ⚠ tarieven in config |
+
+**v1-advies:** DGA eerst als "light" scenario (bijtelling + pseudo-eindheffing + km-vergoeding). Een volledige Vpb/box 2-doorrekening pas in Fase 4.
+
+## 6. Financieringsvormen (particulier)
+
+| Vorm | Wat is het juridisch | BKR | Toezicht |
+|---|---|---|---|
+| **Private lease** (zonder koopoptie) | huur/gebruik; geen eigendom | In de praktijk **altijd geregistreerd** bij leden van het Keurmerk Private Lease; zichtbaar tot 5 jaar na einde contract ([Consumentenbond](https://www.consumentenbond.nl/private-lease/leasebedrag-verlagen-voor-je-hypotheek)) | Valt nu **niet** onder de Wft; zelfregulering via Keurmerk. ⚠ **Plan om private lease onder de Wft te brengen** (implementatie CCD2, Europese deadline 20-11-2026); status van de Nederlandse wet niet bevestigd |
+| **Private lease met koopoptie/-plicht** | krediet | ja | Valt onder CCD2 → Wft 🟡 |
+| **Financial lease / huurkoop** (particulier) | koop op afbetaling; eigendom gaat over na laatste termijn (incl. eventuele **slottermijn**) | ja | Wft consumentenkrediet ✅; maximale kredietvergoeding ⚠ actuele waarde opzoeken |
+| **Persoonlijke lening** | krediet; auto direct eigendom | ja | Wft ✅ |
+| **Contant** | geen krediet | nee | — |
+
+Effect op hypotheek: geldverstrekkers rekenen een private-leasebedrag mee als maandlast (de NVB-gedragscode noemt dit expliciet). Het is goed om de gebruiker hierop te wijzen, zonder advies te geven.
+
+## 7. Zakelijke financiering
+- **Operational lease (zakelijk):** leasemaatschappij is eigenaar; vaste maandprijs incl. onderhoud/verzekering/MRB; bijtelling voor de rijder.
+- **Financial lease (zakelijk):** ondernemer is economisch eigenaar, schrijft af, trekt rente af; slottermijn mogelijk. Geen Wft (zakelijk krediet).
+- ZZP'er: btw op leasetermijnen aftrekbaar (operational) vs. btw op aanschaf in één keer (financial lease/koop). ⚠ uitwerken in Fase 4.
+
+## 8. Wft: wat mag een vergelijkingstool zonder vergunning?
+
+**Kern (Wft art. 1:1 en 2:80; AFM-interpretatie "bemiddelen"):**
+- ✅ **Mag zonder vergunning:** algemene informatie geven, doorrekenen en vergelijken op basis van gegevens die de gebruiker invult, *zolang die gegevens niet aan een aanbieder worden doorgegeven* en de tool niet meewerkt aan het afsluiten van een kredietovereenkomst.
+- ✅ **Doorverwijzen** met een gewone link, of het doorgeven van **alleen contactgegevens** (naam, adres, telefoon, e-mail), geldt volgens de AFM **niet** als bemiddelen ([Dirkzwager](https://www.dirkzwager.nl/kennis/artikelen/lead-generation-pas-op-voor-bemiddeling), [AFM interpretatie bemiddelen](https://www.afm.nl/~/profmedia/files/wet-regelgeving/beleidsuitingen/interpretaties/bemiddelen.pdf)).
+- ❌ **Wél bemiddelen (vergunningplichtig):** relevante klantgegevens inwinnen (inkomen, gewenste looptijd, kenteken, budget) **én** die doorsturen naar een kredietaanbieder, zeker als je daarvoor betaald krijgt. Betaling door de aanbieder is een aanwijzing voor bemiddeling.
+- ❌ **Advies:** een persoonlijke aanbeveling ("voor jou is lening X het beste") is advies → vergunningplichtig. Wij formuleren daarom: *"In dit scenario is X goedkoper"*.
+- ⚠ Private lease valt nu niet onder de Wft. Als de CCD2-implementatie dat verandert, gelden dezelfde regels ook daarvoor. De architectuur gaat daarom nu al uit van de strengste variant.
+
+**Gevolg voor het ontwerp (belangrijk voor het verdienmodel):**
+1. Intakegegevens blijven in de browser en worden **nooit** naar partners gestuurd.
+2. Partnerknoppen zijn platte doorverwijslinks (eventueel met een affiliate-code, zonder profieldata).
+3. Geen "aanvraag via ons" voor krediet of lease. Willen we later echte leads verkopen, dan is een **AFM-vergunning** (of een vergunde partner) nodig. Dat is een productbeslissing (zie vragen in `plan.md`).
+4. ⚠ Juridische toets door een Wft-jurist vóór livegang van de affiliatefunctie.
+
+**Concept-disclaimer (ter goedkeuring):**
+> AutoKeuze NL is een onafhankelijke rekentool. De uitkomsten zijn scenario's op basis van jouw invoer, openbare gegevens en aannames die we bij elke berekening tonen. Dit is **geen financieel advies** en geen advies in de zin van de Wet op het financieel toezicht. Wij bemiddelen niet in krediet, lease of verzekeringen. Bedragen zijn indicatief; fiscale regels kunnen wijzigen. Laat je bij een definitief besluit adviseren door een erkend adviseur. Commerciële partners hebben geen invloed op de rangschikking; links naar partners zijn als zodanig gemarkeerd en verschijnen pas ná de vergelijking. Geld lenen kost geld.
+
+("Geld lenen kost geld" is verplicht bij reclame voor krediet; we nemen het op zodra er kredietpartners zichtbaar zijn.)
+
+## 9. Zero-emissiezones (ZE-zones) en milieuzones
+
+| Voertuig | Regel | Status |
+|---|---|---|
+| Personenauto | **geen** ZE-zone-regels; wel milieuzones (diesel) in o.a. Amsterdam, Den Haag, Utrecht, Arnhem | ✅ ([KvK](https://www.kvk.nl/duurzaamheid/zero-emissiezones-kom-je-straks-de-stad-nog-in-met-je-auto/)) |
+| Bestelauto Euro 5 (overgangsregeling) | toegang tot **1-1-2027** | ✅ |
+| Bestelauto Euro 6 (overgangsregeling) | tot 1-1-2028; kabinet wil verlengen tot **1-1-2029** | 🟡 ([Eerste Kamer, brief 22-10-2026](https://www.eerstekamer.nl/brief_in/20261022/verlenging_overgangsregeling_nul/f=/vn20fauaq8hf.pdf)) |
+| Nieuwe bestelauto op fossiele brandstof (ingeschreven ≥ 2025) | geen toegang | ✅ |
+| Per gemeente | eigen invoerdatum en zonegrenzen | via [opwegnaarzes.nl](https://opwegnaarzes.nl) |
+
+**v1:** personenauto's centraal; een ZE-zone-melding alleen bij bestelauto's (relevant voor ZZP'ers, Fase 4).
+
+## 10. Overige relevante wijzigingen
+- **Accijns:** korting op benzine/diesel verlengd tot 1-1-2028, daarna verlaagd 🟡. Effect op de brandstofprijs-aanname vanaf 2028.
+- **Salderen** stopt per 1-1-2027 ✅ (laden met eigen zonnestroom wordt relatief duurder).
+- **Laadpunten:** nieuwe laadpunten moeten ISO 15118-20 ondersteunen (slim en bidirectioneel laden). Voor de app alleen informatief.
+
+## 11. Configbestand (voorstel structuur)
+```yaml
+- sleutel: mrb.ev_korting
+  waarde: { 2026: 0.30, 2027: 0.30, 2028: 0.30, 2029: 0.25, 2030: 0.0 }
+  status: vastgesteld_2026_aangekondigd_daarna
+  bron: https://www.anwb.nl/auto/elektrisch-rijden/kosten/wegenbelasting-elektrische-auto
+  geldig_vanaf: 2026-01-01
+  peildatum: 2026-11-03
+  toelichting: "Afbouw na 2028 nog niet definitief (minderheidskabinet)."
+```
+(Een voorbeeld van het formaat; nog geen code.)
