@@ -1,5 +1,5 @@
 {
-  "peildatum": "2026-11-03",
+  "peildatum": "2026-11-04",
   "modellen": [
     {
       "id": "volkswagen-polo",
@@ -22,6 +22,7 @@
           "lengteCm": 407,
           "vermogenKw": 70,
           "verbruikWltp": 5.2,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 118,
@@ -30,7 +31,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -56,6 +57,7 @@
           "lengteCm": 443,
           "vermogenKw": 75,
           "verbruikWltp": 4.6,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 104,
@@ -64,7 +66,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -90,6 +92,7 @@
           "lengteCm": 444,
           "vermogenKw": 145,
           "verbruikWltp": 6.7,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 152,
@@ -98,7 +101,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -124,6 +127,7 @@
           "lengteCm": 361,
           "vermogenKw": 50,
           "verbruikWltp": 5.2,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 118,
@@ -132,7 +136,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -157,7 +161,11 @@
           "trekgewichtGeremd": 1700,
           "lengteCm": 428,
           "vermogenKw": 110,
-          "verbruikWltp": null,
+          "verbruikWltp": 4.9,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 200
+          },
           "verbruikGewogenWltp": 1.2,
           "elektrischVerbruikWltp": 12.3,
           "co2Wltp": 26,
@@ -177,6 +185,7 @@
           "lengteCm": 464,
           "vermogenKw": 98,
           "verbruikWltp": 5.3,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 121,
@@ -196,6 +205,7 @@
           "lengteCm": 429,
           "vermogenKw": 85,
           "verbruikWltp": 5.5,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 126,
@@ -204,7 +214,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -230,6 +240,7 @@
           "lengteCm": 406,
           "vermogenKw": 74,
           "verbruikWltp": 4.5,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 102,
@@ -249,6 +260,7 @@
           "lengteCm": 406,
           "vermogenKw": 115,
           "verbruikWltp": 14.4,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 0,
@@ -268,6 +280,7 @@
           "lengteCm": 406,
           "vermogenKw": 74,
           "verbruikWltp": 5.1,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 116,
@@ -276,7 +289,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -302,6 +315,7 @@
           "lengteCm": 479,
           "vermogenKw": 220,
           "verbruikWltp": 13.1,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 0,
@@ -310,7 +324,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -336,6 +350,7 @@
           "lengteCm": 396,
           "vermogenKw": 68,
           "verbruikWltp": 4,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 91,
@@ -344,7 +359,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -370,6 +385,7 @@
           "lengteCm": 423,
           "vermogenKw": 80,
           "verbruikWltp": 4.4,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 100,
@@ -378,7 +394,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -404,6 +420,7 @@
           "lengteCm": 472,
           "vermogenKw": 235,
           "verbruikWltp": 13,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 0,
@@ -412,7 +429,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -438,6 +455,7 @@
           "lengteCm": 437,
           "vermogenKw": 85,
           "verbruikWltp": 5.6,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 127,
@@ -446,7 +464,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -472,6 +490,7 @@
           "lengteCm": 406,
           "vermogenKw": 74,
           "verbruikWltp": 4.5,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 103,
@@ -491,6 +510,7 @@
           "lengteCm": 406,
           "vermogenKw": 115,
           "verbruikWltp": 14.4,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 0,
@@ -510,6 +530,7 @@
           "lengteCm": 406,
           "vermogenKw": 74,
           "verbruikWltp": 5.2,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 116,
@@ -518,7 +539,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -543,7 +564,11 @@
           "trekgewichtGeremd": 1800,
           "lengteCm": 454,
           "vermogenKw": 110,
-          "verbruikWltp": null,
+          "verbruikWltp": 5.7,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 200
+          },
           "verbruikGewogenWltp": 1.6,
           "elektrischVerbruikWltp": 13.9,
           "co2Wltp": 37,
@@ -552,7 +577,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -578,6 +603,7 @@
           "lengteCm": 412,
           "vermogenKw": 80,
           "verbruikWltp": 4,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 91,
@@ -597,6 +623,7 @@
           "lengteCm": 412,
           "vermogenKw": 84,
           "verbruikWltp": 5.1,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 115,
@@ -605,7 +632,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -631,6 +658,7 @@
           "lengteCm": 430,
           "vermogenKw": 100,
           "verbruikWltp": 4.9,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 111,
@@ -650,6 +678,7 @@
           "lengteCm": 430,
           "vermogenKw": 115,
           "verbruikWltp": 15.5,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 0,
@@ -658,7 +687,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -684,6 +713,7 @@
           "lengteCm": 417,
           "vermogenKw": 68,
           "verbruikWltp": 4.4,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 101,
@@ -692,7 +722,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -717,7 +747,11 @@
           "trekgewichtGeremd": 2100,
           "lengteCm": 465,
           "vermogenKw": 111,
-          "verbruikWltp": null,
+          "verbruikWltp": 6.3,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 1,
+            "afgeleid": 199
+          },
           "verbruikGewogenWltp": 3,
           "elektrischVerbruikWltp": 10.4,
           "co2Wltp": 58,
@@ -737,6 +771,7 @@
           "lengteCm": 460,
           "vermogenKw": 111,
           "verbruikWltp": 5.3,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 122,
@@ -745,7 +780,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -771,6 +806,7 @@
           "lengteCm": 436,
           "vermogenKw": 150,
           "verbruikWltp": 14.7,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 0,
@@ -790,6 +826,7 @@
           "lengteCm": 435,
           "vermogenKw": 75,
           "verbruikWltp": 4.7,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 108,
@@ -798,7 +835,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -824,6 +861,7 @@
           "lengteCm": 469,
           "vermogenKw": 114,
           "verbruikWltp": 5.4,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 122,
@@ -832,7 +870,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -858,6 +896,7 @@
           "lengteCm": 446,
           "vermogenKw": 72,
           "verbruikWltp": 5,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 113,
@@ -866,7 +905,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -892,6 +931,7 @@
           "lengteCm": 378,
           "vermogenKw": 68,
           "verbruikWltp": 3.8,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 87,
@@ -900,7 +940,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -925,7 +965,11 @@
           "trekgewichtGeremd": 2250,
           "lengteCm": 471,
           "vermogenKw": 184,
-          "verbruikWltp": null,
+          "verbruikWltp": 7.2,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 200
+          },
           "verbruikGewogenWltp": 3,
           "elektrischVerbruikWltp": 12.7,
           "co2Wltp": 68,
@@ -934,7 +978,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -960,6 +1004,7 @@
           "lengteCm": 443,
           "vermogenKw": 116,
           "verbruikWltp": 4.5,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 101,
@@ -968,7 +1013,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -993,7 +1038,11 @@
           "trekgewichtGeremd": 1800,
           "lengteCm": 455,
           "vermogenKw": 102,
-          "verbruikWltp": null,
+          "verbruikWltp": 6.1,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 200
+          },
           "verbruikGewogenWltp": 0.9,
           "elektrischVerbruikWltp": 19.2,
           "co2Wltp": 20,
@@ -1002,7 +1051,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1028,6 +1077,7 @@
           "lengteCm": 363,
           "vermogenKw": 87,
           "verbruikWltp": 14.2,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 0,
@@ -1047,6 +1097,7 @@
           "lengteCm": 363,
           "vermogenKw": 48,
           "verbruikWltp": 5.3,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 120,
@@ -1055,7 +1106,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1081,6 +1132,7 @@
           "lengteCm": 470,
           "vermogenKw": 85,
           "verbruikWltp": 5.1,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 117,
@@ -1100,6 +1152,7 @@
           "lengteCm": 470,
           "vermogenKw": 85,
           "verbruikWltp": 5.4,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 123,
@@ -1108,7 +1161,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1134,6 +1187,7 @@
           "lengteCm": 453,
           "vermogenKw": 167,
           "verbruikWltp": 13.4,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 0,
@@ -1152,7 +1206,11 @@
           "trekgewichtGeremd": 725,
           "lengteCm": 436,
           "vermogenKw": 113,
-          "verbruikWltp": null,
+          "verbruikWltp": 4.7,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 200
+          },
           "verbruikGewogenWltp": 2.3,
           "elektrischVerbruikWltp": 10.9,
           "co2Wltp": 52,
@@ -1172,6 +1230,7 @@
           "lengteCm": 436,
           "vermogenKw": 72,
           "verbruikWltp": 4.7,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 107,
@@ -1180,7 +1239,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1206,6 +1265,7 @@
           "lengteCm": 367,
           "vermogenKw": 46,
           "verbruikWltp": 4.8,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 109,
@@ -1214,7 +1274,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1239,7 +1299,11 @@
           "trekgewichtGeremd": 1400,
           "lengteCm": 435,
           "vermogenKw": 110,
-          "verbruikWltp": null,
+          "verbruikWltp": 4.8,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 200
+          },
           "verbruikGewogenWltp": 1.2,
           "elektrischVerbruikWltp": 12.5,
           "co2Wltp": 27,
@@ -1259,6 +1323,7 @@
           "lengteCm": 435,
           "vermogenKw": 85,
           "verbruikWltp": 5.3,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 120,
@@ -1267,7 +1332,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1293,6 +1358,7 @@
           "lengteCm": 423,
           "vermogenKw": 92,
           "verbruikWltp": 5.6,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 128,
@@ -1312,6 +1378,7 @@
           "lengteCm": 421,
           "vermogenKw": 124,
           "verbruikWltp": 13.9,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 0,
@@ -1320,7 +1387,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1346,6 +1413,7 @@
           "lengteCm": 386,
           "vermogenKw": 160,
           "verbruikWltp": 14.4,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 0,
@@ -1365,6 +1433,7 @@
           "lengteCm": 388,
           "vermogenKw": 115,
           "verbruikWltp": 6.3,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 141,
@@ -1373,7 +1442,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1398,7 +1467,11 @@
           "trekgewichtGeremd": 1500,
           "lengteCm": 471,
           "vermogenKw": 135,
-          "verbruikWltp": null,
+          "verbruikWltp": 7.5,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 200
+          },
           "verbruikGewogenWltp": 2.7,
           "elektrischVerbruikWltp": 15.9,
           "co2Wltp": 60,
@@ -1418,6 +1491,7 @@
           "lengteCm": 471,
           "vermogenKw": 115,
           "verbruikWltp": 6.8,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 153,
@@ -1426,7 +1500,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1452,6 +1526,7 @@
           "lengteCm": 413,
           "vermogenKw": 85,
           "verbruikWltp": 5.7,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 130,
@@ -1460,7 +1535,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1486,6 +1561,7 @@
           "lengteCm": 409,
           "vermogenKw": 92,
           "verbruikWltp": 5,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 114,
@@ -1505,6 +1581,7 @@
           "lengteCm": 409,
           "vermogenKw": 74,
           "verbruikWltp": 6.7,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 125,
@@ -1513,7 +1590,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1538,7 +1615,11 @@
           "trekgewichtGeremd": 1800,
           "lengteCm": 476,
           "vermogenKw": 110,
-          "verbruikWltp": null,
+          "verbruikWltp": 5.8,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 200
+          },
           "verbruikGewogenWltp": 1.7,
           "elektrischVerbruikWltp": 14.1,
           "co2Wltp": 38,
@@ -1558,6 +1639,7 @@
           "lengteCm": 476,
           "vermogenKw": 110,
           "verbruikWltp": 6.1,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 140,
@@ -1566,7 +1648,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1592,6 +1674,7 @@
           "lengteCm": 454,
           "vermogenKw": 157,
           "verbruikWltp": 17,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 0,
@@ -1611,6 +1694,7 @@
           "lengteCm": 454,
           "vermogenKw": 100,
           "verbruikWltp": 5.4,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 121,
@@ -1629,7 +1713,11 @@
           "trekgewichtGeremd": 1550,
           "lengteCm": 454,
           "vermogenKw": 110,
-          "verbruikWltp": null,
+          "verbruikWltp": 6.1,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 200
+          },
           "verbruikGewogenWltp": 2.5,
           "elektrischVerbruikWltp": 14.4,
           "co2Wltp": 57,
@@ -1638,7 +1726,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1663,7 +1751,11 @@
           "trekgewichtGeremd": 2000,
           "lengteCm": 478,
           "vermogenKw": 132,
-          "verbruikWltp": null,
+          "verbruikWltp": 6.7,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 26
+          },
           "verbruikGewogenWltp": 2.1,
           "elektrischVerbruikWltp": 12.2,
           "co2Wltp": 48,
@@ -1683,6 +1775,7 @@
           "lengteCm": 478,
           "vermogenKw": 145,
           "verbruikWltp": 6.2,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 142,
@@ -1691,7 +1784,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1717,6 +1810,7 @@
           "lengteCm": 461,
           "vermogenKw": 74,
           "verbruikWltp": 5.4,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 123,
@@ -1736,6 +1830,7 @@
           "lengteCm": 461,
           "vermogenKw": 74,
           "verbruikWltp": 5.6,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 126,
@@ -1744,7 +1839,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1770,6 +1865,7 @@
           "lengteCm": 427,
           "vermogenKw": 140,
           "verbruikWltp": 14,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 0,
@@ -1778,7 +1874,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1804,6 +1900,7 @@
           "lengteCm": 360,
           "vermogenKw": 48,
           "verbruikWltp": 5.1,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 115,
@@ -1823,6 +1920,7 @@
           "lengteCm": 360,
           "vermogenKw": 61,
           "verbruikWltp": 14.4,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 0,
@@ -1831,7 +1929,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1857,6 +1955,7 @@
           "lengteCm": 466,
           "vermogenKw": 210,
           "verbruikWltp": 15.5,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 0,
@@ -1865,7 +1964,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1891,6 +1990,7 @@
           "lengteCm": 386,
           "vermogenKw": 60,
           "verbruikWltp": 4.4,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 99,
@@ -1899,7 +1999,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1925,6 +2025,7 @@
           "lengteCm": 454,
           "vermogenKw": 132,
           "verbruikWltp": 5.8,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 131,
@@ -1943,7 +2044,11 @@
           "trekgewichtGeremd": 1210,
           "lengteCm": 453,
           "vermogenKw": 132,
-          "verbruikWltp": null,
+          "verbruikWltp": 6.1,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 200
+          },
           "verbruikGewogenWltp": 2.8,
           "elektrischVerbruikWltp": 10.9,
           "co2Wltp": 64,
@@ -1952,7 +2057,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -1977,7 +2082,11 @@
           "trekgewichtGeremd": 1600,
           "lengteCm": 445,
           "vermogenKw": 120,
-          "verbruikWltp": null,
+          "verbruikWltp": 6.6,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 26
+          },
           "verbruikGewogenWltp": 2.7,
           "elektrischVerbruikWltp": 13,
           "co2Wltp": 62,
@@ -1997,6 +2106,7 @@
           "lengteCm": 445,
           "vermogenKw": 100,
           "verbruikWltp": 6,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 135,
@@ -2005,7 +2115,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -2031,6 +2141,7 @@
           "lengteCm": 347,
           "vermogenKw": 53,
           "verbruikWltp": 4.9,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 111,
@@ -2039,7 +2150,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -2065,6 +2176,7 @@
           "lengteCm": 407,
           "vermogenKw": 70,
           "verbruikWltp": 5,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 114,
@@ -2073,7 +2185,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -2098,7 +2210,11 @@
           "trekgewichtGeremd": 1700,
           "lengteCm": 450,
           "vermogenKw": 100,
-          "verbruikWltp": 2.5,
+          "verbruikWltp": 6.3,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 1,
+            "afgeleid": 199
+          },
           "verbruikGewogenWltp": 2.7,
           "elektrischVerbruikWltp": 13.6,
           "co2Wltp": 60,
@@ -2118,6 +2234,7 @@
           "lengteCm": 450,
           "vermogenKw": 115,
           "verbruikWltp": 5.9,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 132,
@@ -2126,7 +2243,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -2152,6 +2269,7 @@
           "lengteCm": 454,
           "vermogenKw": 132,
           "verbruikWltp": 5.7,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 129,
@@ -2170,7 +2288,11 @@
           "trekgewichtGeremd": 1210,
           "lengteCm": 454,
           "vermogenKw": 132,
-          "verbruikWltp": null,
+          "verbruikWltp": 6.1,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 200
+          },
           "verbruikGewogenWltp": 2.8,
           "elektrischVerbruikWltp": 10.8,
           "co2Wltp": 63,
@@ -2179,7 +2301,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -2205,6 +2327,7 @@
           "lengteCm": 423,
           "vermogenKw": 81,
           "verbruikWltp": 5.9,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 132,
@@ -2213,7 +2336,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }
@@ -2239,6 +2362,7 @@
           "lengteCm": 458,
           "vermogenKw": 210,
           "verbruikWltp": 16.2,
+          "verbruikLegeAccuHerkomst": null,
           "verbruikGewogenWltp": null,
           "elektrischVerbruikWltp": null,
           "co2Wltp": 0,
@@ -2247,7 +2371,7 @@
       ],
       "herkomst": {
         "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
-        "peildatum": "2026-11-03",
+        "peildatum": "2026-11-04",
         "betrouwbaarheid": "hoog",
         "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
       }

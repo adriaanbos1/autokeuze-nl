@@ -35,6 +35,11 @@ export interface UitvoeringRdw {
    * "gewogen" papieren verbruik.
    */
   verbruikWltp: number | null;
+  /**
+   * Alleen plug-in hybride: op hoeveel kentekens het verbruik met lege accu uit RDW
+   * komt en op hoeveel het is afgeleid uit het gewogen verbruik (src/engine/phev.ts).
+   */
+  verbruikLegeAccuHerkomst?: { rdw: number; afgeleid: number } | null;
   /** Alleen plug-in hybride: gewogen WLTP-verbruik (l/100 km), zoals in folders. */
   verbruikGewogenWltp: number | null;
   /** Alleen plug-in hybride: elektrisch verbruik (kWh/100 km). */

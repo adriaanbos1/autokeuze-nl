@@ -22,13 +22,15 @@ npm run dev      # rekenpagina op http://localhost:3000
 
 ```bash
 node scripts/selecteer-modellen.ts 50   # kiest de 50 meest geregistreerde modellen
-node scripts/haal-specs.ts              # haalt de officiële specificaties op
+npx vite-node --config vitest.config.ts scripts/haal-specs.ts   # officiële specificaties (gebruikt de engine, daarom vite-node)
 node scripts/haal-apk.ts                # APK-gebreken voor de betrouwbaarheidsscore (~15 min)
+node scripts/haal-ncap.ts               # Euro NCAP-sterren uit de openbare uitslagpagina's (~2 min)
 ```
 
 ## Structuur
 
 - `src/regels/regels-nl.ts` — alle fiscale/wettelijke waarden, met bron, status en `geldigVanaf`
+- `src/regels/aannames.ts` — kostenaannames (onderhoud, banden, verzekering), elk gemarkeerd als bron of eigen aanname
 - `src/engine/` — pure rekencode (TCO, financiering, MRB, bijtelling, ZZP)
 - `tests/` — unit tests; `persona-*.test.ts` volgen de rekenvoorbeelden in `docs/methodiek.md`
 - `src/data/` — datamodel, modelnormalisatie, kentekencheck

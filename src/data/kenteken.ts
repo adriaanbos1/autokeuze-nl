@@ -3,6 +3,7 @@
  * rechtstreeks naar RDW (CORS toegestaan) en nooit langs een eigen server.
  */
 import type { Brandstof } from "@/engine/mrb";
+import { verbruikLegeAccu } from "@/engine/phev";
 import { aandrijvingUitRdw, mrbBrandstof, type RdwBrandstofRij } from "./aandrijving";
 import { modelSleutel } from "./normaliseer";
 import type { Aandrijvingstype } from "./types";
@@ -42,6 +43,12 @@ export interface KentekenInfo {
   /** Alleen plug-in hybride: gewogen WLTP-verbruik (l/100 km) en elektrisch verbruik (kWh/100 km). */
   verbruikGewogenWltp: number | null;
   elektrischVerbruikWltp: number | null;
+  /**
+   * Alleen plug-in hybride: brandstofverbruik met lege accu (l/100 km). Uit RDW als
+   * die het publiceert, anders afgeleid uit het gewogen verbruik (src/engine/phev.ts).
+   */
+  verbruikLegeAccu: number | null;
+  verbruikLegeAccuHerkomst: "RDW" | "afgeleid" | null;
   co2Wltp: number | null;
   actieradiusWltpKm: number | null;
   /** "WLTP", of "NEDC" bij oudere auto's (vóór 2018) waarvoor RDW alleen de oude testwaarden heeft. */
@@ -89,6 +96,11 @@ export async function haalKenteken(invoer: string, f: Fetch = (u) => fetch(u)): 
   const elek = brandstoffen.find((b) => b.brandstof_omschrijving === "Elektriciteit");
   const evVerbruik = num(elek?.elektrisch_verbruik_enkel_elektrisch_wltp);
   const datum = iso(v.datum_eerste_toelating) ?? "";
+  const actieradius = num(elek?.actie_radius_enkel_elektrisch_wltp ?? brandstoffen.map((b) => b.actie_radius_extern_opladen_wltp).find(Boolean));
+  const gewogen = aandrijving === "plug-in hybride" ? num(hoofd?.brandstof_verbruik_gewogen_gecombineerd_wltp) : null;
+  const legeAccuRdw = aandrijving === "plug-in hybride" ? num(hoofd?.brandstof_verbruik_gecombineerd_wltp) : null;
+  const legeAccuAfgeleid =
+    legeAccuRdw === null && gewogen !== null && actieradius !== null ? verbruikLegeAccu(gewogen, actieradius, hoofd?.uitlaatemissieniveau)?.lPer100 ?? null : null;
 
   return {
     kenteken,
@@ -110,7 +122,9 @@ export async function haalKenteken(invoer: string, f: Fetch = (u) => fetch(u)): 
           ? null
           : evVerbruik / 10
         : num(hoofd?.brandstof_verbruik_gecombineerd_wltp) ?? num(hoofd?.brandstofverbruik_gecombineerd),
-    verbruikGewogenWltp: aandrijving === "plug-in hybride" ? num(hoofd?.brandstof_verbruik_gewogen_gecombineerd_wltp) : null,
+    verbruikGewogenWltp: gewogen,
+    verbruikLegeAccu: legeAccuRdw ?? legeAccuAfgeleid,
+    verbruikLegeAccuHerkomst: legeAccuRdw !== null ? "RDW" : legeAccuAfgeleid !== null ? "afgeleid" : null,
     elektrischVerbruikWltp:
       aandrijving === "plug-in hybride"
         ? (() => {
@@ -121,7 +135,7 @@ export async function haalKenteken(invoer: string, f: Fetch = (u) => fetch(u)): 
     co2Wltp:
       aandrijving === "elektrisch" ? 0 : num(hoofd?.emissie_co2_gecombineerd_wltp ?? hoofd?.emis_co2_gewogen_gecombineerd_wltp) ?? num(hoofd?.co2_uitstoot_gecombineerd),
     meetmethode: hoofd?.brandstof_verbruik_gecombineerd_wltp || hoofd?.emissie_co2_gecombineerd_wltp || aandrijving === "elektrisch" ? "WLTP" : hoofd?.brandstofverbruik_gecombineerd ? "NEDC" : "WLTP",
-    actieradiusWltpKm: num(elek?.actie_radius_enkel_elektrisch_wltp ?? brandstoffen.map((b) => b.actie_radius_extern_opladen_wltp).find(Boolean)),
+    actieradiusWltpKm: actieradius,
     apkVervaldatum: iso(v.vervaldatum_apk),
     terugroepacties: open.map((s, i) => {
       const d = details[i][0];

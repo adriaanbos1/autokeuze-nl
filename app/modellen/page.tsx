@@ -3,6 +3,11 @@ import rdw from "../../data/modellen-rdw.json";
 import type { ModelRdw, UitvoeringRdw } from "@/data/types";
 import { Nav } from "../nav";
 import { apkHerkomst, betrouwbaarheidModel } from "@/data/betrouwbaarheid-data";
+import { ncapHerkomst, veiligheidModel } from "@/data/ncap-data";
+import { bandenPerJaar, onderhoudPerJaar } from "@/engine/onderhoud";
+
+// Voorbeeld voor de kolom "onderhoud + banden": nieuwe auto, 15.000 km per jaar.
+const VOORBEELD_KM = 15000;
 
 const modellen = rdw.modellen as ModelRdw[];
 const eur = (x: number | null) => (x === null ? "—" : x.toLocaleString("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }));
@@ -10,7 +15,14 @@ const n = (x: number | null, eenheid = "") => (x === null ? "—" : `${x.toLocal
 
 function verbruik(u: UitvoeringRdw) {
   if (u.aandrijving === "elektrisch") return n(u.verbruikWltp, " kWh");
-  if (u.aandrijving === "plug-in hybride") return `${n(u.elektrischVerbruikWltp, " kWh")} / gewogen ${n(u.verbruikGewogenWltp, " l")}`;
+  if (u.aandrijving === "plug-in hybride")
+    return (
+      <span title={u.verbruikLegeAccuHerkomst ? `accu leeg: ${u.verbruikLegeAccuHerkomst.afgeleid} kentekens afgeleid uit het gewogen verbruik, ${u.verbruikLegeAccuHerkomst.rdw} officieel (RDW)` : undefined}>
+        {n(u.elektrischVerbruikWltp, " kWh")} · accu leeg {n(u.verbruikWltp, " l")}
+        {u.verbruikLegeAccuHerkomst && u.verbruikLegeAccuHerkomst.afgeleid > 0 ? "*" : ""}{" "}
+        <span className="uitleg">(gewogen {n(u.verbruikGewogenWltp, " l")})</span>
+      </span>
+    );
   return n(u.verbruikWltp, " l");
 }
 
@@ -18,10 +30,11 @@ function verbruik(u: UitvoeringRdw) {
 const criteria: [string, string][] = [
   ["Specificaties (RDW)", "gevuld"],
   ["Catalogusprijs (RDW)", "gevuld"],
-  ["Verbruik / CO₂ / actieradius (RDW, WLTP)", "gevuld (plug-in hybride zonder accu: ontbreekt)"],
+  ["Verbruik / CO₂ / actieradius (RDW, WLTP)", "gevuld (plug-in hybride met lege accu: afgeleid*)"],
   ["Betrouwbaarheid (RDW APK-gebreken, bouwjaar 2014–2022)", "gevuld"],
-  ["Euro NCAP", "nog te doen"],
-  ["Onderhoud, banden, verzekering", "nog te doen (eigen dataset)"],
+  ["Euro NCAP (sterren + testjaar)", "gevuld"],
+  ["Onderhoud en banden", "gevuld (rekenmodel, indicatief)"],
+  ["Verzekering", "marktgemiddelde per dekking; geen verschil per model"],
   ["Restwaarde / occasion-curves", "nog te doen (schatting)"],
 ];
 
@@ -63,11 +76,14 @@ export default function Modellen() {
               <th className="b">Trekgewicht</th>
               <th className="b">Steekproef</th>
               <th className="b">Betrouwbaarheid</th>
+              <th className="b">Euro NCAP</th>
+              <th className="b">Onderhoud + banden /jr</th>
             </tr>
           </thead>
           <tbody>
             {modellen.flatMap((m) => {
               const b = betrouwbaarheidModel(m.id);
+              const v = veiligheidModel(m.id);
               return m.uitvoeringen.map((u, i) => (
                 <tr key={`${m.id}-${u.aandrijving}`} className={i === 0 ? "nieuw-model" : ""}>
                   <td>{i === 0 ? m.rang : ""}</td>
@@ -90,6 +106,23 @@ export default function Modellen() {
                       <span className="uitleg">onvoldoende data</span>
                     )}
                   </td>
+                  <td className="b">
+                    {i > 0 ? "" : v ? (
+                      <a href={v.geldend.url} title={`score ${v.score} · ${v.alle.map((x) => `${x.testjaar}: ${x.sterren}★`).join(", ")}`}>
+                        {v.geldend.sterren}★ ({v.geldend.testjaar}){v.geldend.verlopen ? " verlopen" : ""}
+                      </a>
+                    ) : (
+                      <span className="uitleg">geen test</span>
+                    )}
+                  </td>
+                  <td className="b">
+                    {(() => {
+                      const elektrisch = u.aandrijving === "elektrisch";
+                      const o = onderhoudPerJaar({ elektrisch, kmPerJaar: VOORBEELD_KM, leeftijdJaar: 0 });
+                      const bd = u.massaRijklaar === null ? null : bandenPerJaar({ elektrisch, massaRijklaar: u.massaRijklaar, kmPerJaar: VOORBEELD_KM });
+                      return bd ? <span title={`${o.uitleg}\n${bd.uitleg}`}>{eur(o.bedrag + bd.bedrag)}</span> : "—";
+                    })()}
+                  </td>
                 </tr>
               ));
             })}
@@ -102,6 +135,16 @@ export default function Modellen() {
         Betrouwbaarheid: score 0–100 (50 = gemiddeld) uit APK-gebreken t.o.v. auto&apos;s van hetzelfde bouwjaar en dezelfde leeftijd; tussen haakjes
         de verhouding (1× = gemiddeld) en de statistische zekerheid. APK-venster {apkHerkomst.venster.vanaf}–{apkHerkomst.venster.tot}; methode in
         docs/methodiek.md §2.2. Score geldt per model, niet per aandrijving.
+        <br />
+        Euro NCAP: aantal sterren en testjaar van de nieuwste test, met link naar de uitslag (bron: euroncap.com, peildatum {ncapHerkomst.peildatum}).
+        Sterren uit verschillende jaren zijn niet goed vergelijkbaar, want de test wordt steeds strenger; &quot;verlopen&quot; betekent dat Euro NCAP de
+        uitslag na 6 jaar niet meer laat gelden.
+        <br />
+        * Plug-in hybride met lege accu: RDW publiceert dit verbruik zelden; wij leiden het af uit het gewogen WLTP-verbruik en de elektrische
+        actieradius (methodiek §2.4, gecontroleerd tegen 2.178 auto&apos;s met een officiële waarde: mediane afwijking +1%).
+        <br />
+        Onderhoud + banden: indicatief rekenmodel voor een nieuwe auto bij {VOORBEELD_KM.toLocaleString("nl-NL")} km per jaar (uurtarief ANWB, verder
+        eigen aannames in src/regels/aannames.ts). Verschilt alleen naar aandrijving en gewicht, niet naar merk.
       </p>
     </main>
   );

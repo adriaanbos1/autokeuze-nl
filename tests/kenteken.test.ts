@@ -70,6 +70,20 @@ describe("kentekencheck", () => {
     expect(info).toMatchObject({ verbruikWltp: 5, co2Wltp: 115, meetmethode: "NEDC" });
   });
 
+  it("plug-in hybride zonder officieel verbruik bij lege accu: afgeleid uit het gewogen verbruik", async () => {
+    const info = await haalKenteken(
+      "AB123C",
+      nepRdw({
+        "m9d7-ebf2": [{ ...voertuig, merk: "KIA", handelsbenaming: "NIRO" }],
+        "8ys7-d773": [
+          { brandstof_omschrijving: "Benzine", klasse_hybride_elektrisch_voertuig: "OVC-HEV", brandstof_verbruik_gewogen_gecombineerd_wltp: "2.900", uitlaatemissieniveau: "EURO 6 EA" },
+          { brandstof_omschrijving: "Elektriciteit", klasse_hybride_elektrisch_voertuig: "OVC-HEV", actie_radius_enkel_elektrisch_wltp: "47" },
+        ],
+      }),
+    );
+    expect(info).toMatchObject({ aandrijving: "plug-in hybride", verbruikGewogenWltp: 2.9, verbruikLegeAccu: 11, verbruikLegeAccuHerkomst: "afgeleid" });
+  });
+
   it("elektrische auto met openstaande terugroepactie", async () => {
     const info = await haalKenteken(
       "AB123C",

@@ -1,0 +1,1214 @@
+{
+ "bron": "https://www.euroncap.com/assessments/ (openbare uitslagpagina's, via https://www.euroncap.com/sitemap.xml)",
+ "peildatum": "2026-11-04",
+ "uitgesloten": {
+  "/toyota/c-hr/1206/": "C-HR+ is een apart elektrisch model, niet de C-HR"
+ },
+ "voorwaarden": "Alleen feiten (sterren, testjaar, link). Geen logo's, teksten of beelden zonder toestemming van Euro NCAP.",
+ "modellen": {
+  "volkswagen-polo": {
+   "gezocht": [
+    "volkswagen/polo"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/volkswagen/polo/0890/",
+     "sterren": 5,
+     "testjaar": 2022,
+     "publicatiedatum": "2022-03-02",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Polos",
+     "geteestModel": "VW Polo, 1.0 TSI 'Life', LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/volkswagen/polo/0692/",
+     "sterren": 5,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-11-08",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Polos",
+     "geteestModel": "VW Polo 1.0 TSI 'Comfortline', LHD"
+    }
+   ]
+  },
+  "kia-niro": {
+   "gezocht": [
+    "kia/niro"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/kia/niro/1000/",
+     "sterren": 4,
+     "testjaar": 2022,
+     "publicatiedatum": "2022-09-07",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Niros",
+     "geteestModel": "Kia Niro"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/kia/niro/1000sp/",
+     "sterren": 5,
+     "testjaar": 2022,
+     "publicatiedatum": "2022-09-07",
+     "verlopen": false,
+     "veiligheidspakket": true,
+     "geldtVoor": "all Niros",
+     "geteestModel": "Kia Niro"
+    }
+   ]
+  },
+  "volvo-xc40": {
+   "gezocht": [
+    "volvo/xc40"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/volvo/xc40/0725/",
+     "sterren": 5,
+     "testjaar": 2018,
+     "publicatiedatum": "2018-07-18",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all XC40s, including XC40 Recharge (from 2021)",
+     "geteestModel": "Volvo XC40 D4 AWD Momentum"
+    }
+   ]
+  },
+  "kia-picanto": {
+   "gezocht": [
+    "kia/picanto"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/kia/picanto/0687/",
+     "sterren": 3,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-09-06",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Picantos",
+     "geteestModel": "Kia Picanto 1.0 GLS, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/kia/picanto/0687sp/",
+     "sterren": 4,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-09-06",
+     "verlopen": true,
+     "veiligheidspakket": true,
+     "geldtVoor": "all Picantos with optional safety pack",
+     "geteestModel": "Kia Picanto 1.0 GLS, LHD"
+    }
+   ]
+  },
+  "volkswagen-golf": {
+   "gezocht": [
+    "volkswagen/golf"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/volkswagen/golf/1115/",
+     "sterren": 5,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-10-15",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "WVWZZZCD8TW000054",
+     "geteestModel": "VW Golf 'Life', 1.5 petrol, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/volkswagen/golf/0913/",
+     "sterren": 5,
+     "testjaar": 2022,
+     "publicatiedatum": "2022-10-12",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Golfs of the specification tested",
+     "geteestModel": "VW Golf 1.5 TSI 'Life', TSI"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/volkswagen/golf/0805/",
+     "sterren": 5,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-12-18",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Golfs including 'Variant' wagon",
+     "geteestModel": "VW Golf, 1.5 petrol 'Comfortline', LHD"
+    }
+   ]
+  },
+  "peugeot-208": {
+   "gezocht": [
+    "peugeot/208"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/peugeot/208/0777/",
+     "sterren": 4,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-10-09",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all 208s",
+     "geteestModel": "Peugeot 208 1.2L Puretech 75, LHD"
+    }
+   ]
+  },
+  "tesla-model-y": {
+   "gezocht": [
+    "tesla/model+y"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/tesla/model+y/1181/",
+     "sterren": 5,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-11-19",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Model Y",
+     "geteestModel": "Tesla Model Y, dual motor AWD, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/tesla/model+y/0961/",
+     "sterren": 5,
+     "testjaar": 2022,
+     "publicatiedatum": "2022-09-07",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Model Y variants",
+     "geteestModel": "Model Y"
+    }
+   ]
+  },
+  "toyota-yaris": {
+   "gezocht": [
+    "toyota/yaris"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/toyota/yaris/1174/",
+     "sterren": 4,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-12-10",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Toyota Yaris",
+     "geteestModel": "Toyota Yaris 1.5 hybrid, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/toyota/yaris/0821/",
+     "sterren": 5,
+     "testjaar": 2020,
+     "publicatiedatum": "2020-09-16",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Yaris variants",
+     "geteestModel": "Toyota Yaris Hybrid"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/toyota/yaris/0714/",
+     "sterren": 5,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-12-13",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": null,
+     "geteestModel": "Toyota Yaris Hybrid"
+    }
+   ]
+  },
+  "renault-captur": {
+   "gezocht": [
+    "renault/captur"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/renault/captur/1082/",
+     "sterren": 4,
+     "testjaar": 2024,
+     "publicatiedatum": "2024-09-11",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": null,
+     "geteestModel": "Renault Symbioz, E-Tech, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/renault/captur/0807/",
+     "sterren": 5,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-12-04",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Capturs",
+     "geteestModel": "Renault Captur 1.0 TCe, LHD"
+    }
+   ]
+  },
+  "tesla-model-3": {
+   "gezocht": [
+    "tesla/model+3"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/tesla/model+3/1110/",
+     "sterren": 5,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-05-21",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Model 3's",
+     "geteestModel": "Tesla Model 3, RWD, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/tesla/model+3/0766/",
+     "sterren": 5,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-07-03",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Model 3",
+     "geteestModel": "Tesla Model 3 Long Range RWD, LHD"
+    }
+   ]
+  },
+  "volkswagen-t-roc": {
+   "gezocht": [
+    "volkswagen/t-roc"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/volkswagen/t-roc/1114/",
+     "sterren": 5,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-12-10",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all T-Rocs",
+     "geteestModel": "VW T-Roc 1.5 TSI 'Life', LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/volkswagen/t-roc/0694/",
+     "sterren": 5,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-11-08",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all T-Rocs",
+     "geteestModel": "Volkswagen T-Roc 1.0 TSI Comfortline, LHD"
+    }
+   ]
+  },
+  "opel-corsa": {
+   "gezocht": [
+    "opel/corsa"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/opel/corsa/0784/",
+     "sterren": 4,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-11-13",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Corsas",
+     "geteestModel": "Opel Corsa 1.2 'Edition', LHD"
+    }
+   ]
+  },
+  "volkswagen-tiguan": {
+   "gezocht": [
+    "volkswagen/tiguan"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/volkswagen/tiguan/1033/",
+     "sterren": 5,
+     "testjaar": 2024,
+     "publicatiedatum": "2024-05-29",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Tiguans",
+     "geteestModel": "VW Tiguan 2.0 TDI 'Life', LHD"
+    }
+   ]
+  },
+  "renault-clio": {
+   "gezocht": [
+    "renault/clio"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/renault/clio/1189/",
+     "sterren": 4,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-12-10",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Renault Clios",
+     "geteestModel": "Renault Clio 1.8 petrol hybrid, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/renault/clio/0753/",
+     "sterren": 5,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-05-22",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Clios",
+     "geteestModel": "Renault Clio Zen 1.0 TCe 100, LHD"
+    }
+   ]
+  },
+  "peugeot-2008": {
+   "gezocht": [
+    "peugeot/2008"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/peugeot/2008/0799/",
+     "sterren": 4,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-12-04",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all 2008s",
+     "geteestModel": "Peugeot 2008 Allure 1.2 Puretech 130, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/peugeot/2008/0799sp/",
+     "sterren": 5,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-12-04",
+     "verlopen": true,
+     "veiligheidspakket": true,
+     "geldtVoor": "all 2008s with optional safety pack",
+     "geteestModel": "Peugeot 2008 Allure 1.2 Puretech 130, LHD with optional safety pack"
+    }
+   ]
+  },
+  "toyota-yaris-cross": {
+   "gezocht": [
+    "toyota/yaris+cross"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/toyota/yaris+cross/1164/",
+     "sterren": 4,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-11-19",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "JTDKBABB40A505704",
+     "geteestModel": "Toyota Yaris Cross 1.5 hybrid, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/toyota/yaris+cross/0875/",
+     "sterren": 5,
+     "testjaar": 2021,
+     "publicatiedatum": "2021-10-27",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Yaris Cross",
+     "geteestModel": "Toyota Yaris Cross, 1.5 hybrid, 4x2, LHD"
+    }
+   ]
+  },
+  "ford-kuga": {
+   "gezocht": [
+    "ford/kuga"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/ford/kuga/0792/",
+     "sterren": 5,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-12-04",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Kugas",
+     "geteestModel": "Ford Kuga 2.0 diesel 4x4 automatic, LHD"
+    }
+   ]
+  },
+  "hyundai-kona": {
+   "gezocht": [
+    "hyundai/kona"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/hyundai/kona/1051/",
+     "sterren": 4,
+     "testjaar": 2023,
+     "publicatiedatum": "2023-12-06",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all KONAs",
+     "geteestModel": "Hyundai KONA GLS electric, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/hyundai/kona/0709/",
+     "sterren": 5,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-12-13",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all KONAs",
+     "geteestModel": "Hyundai KONA 1.0 T-GDI, LHD"
+    }
+   ]
+  },
+  "ford-focus": {
+   "gezocht": [
+    "ford/focus"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/ford/focus/0814/",
+     "sterren": 5,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-09-04",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "WF0MXXGCHMKT13569",
+     "geteestModel": "Ford Focus 1.0 'Trend', LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/ford/focus/0724/",
+     "sterren": 5,
+     "testjaar": 2018,
+     "publicatiedatum": "2018-07-18",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Focus",
+     "geteestModel": "Ford Focus 1.0 'Trend', LHD"
+    }
+   ]
+  },
+  "toyota-corolla": {
+   "gezocht": [
+    "toyota/corolla"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/toyota/corolla/0762/",
+     "sterren": 5,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-05-22",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Corollas",
+     "geteestModel": "Toyota Corolla Hatchback 1.8, LHD"
+    }
+   ]
+  },
+  "toyota-aygo-x": {
+   "gezocht": [
+    "toyota/aygo+x"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/toyota/aygo+x/1165/",
+     "sterren": 4,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-12-10",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "JTDAANBC600001501",
+     "geteestModel": "Toyota Aygo X 1.5 HEV, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/toyota/aygo+x/0941/",
+     "sterren": 4,
+     "testjaar": 2022,
+     "publicatiedatum": "2022-07-06",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Aygo X's",
+     "geteestModel": "Toyota Aygo X, 1.0 petrol 'Play', LHD"
+    }
+   ]
+  },
+  "volvo-xc60": {
+   "gezocht": [
+    "volvo/xc60"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/volvo/xc60/0699/",
+     "sterren": 5,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-11-08",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all XC60'S",
+     "geteestModel": "Volvo XC60 D4 AWD Momentum, LHD"
+    }
+   ]
+  },
+  "nissan-qashqai": {
+   "gezocht": [
+    "nissan/qashqai"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/nissan/qashqai/1212/",
+     "sterren": 4,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-11-19",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "J122203750",
+     "geteestModel": "Nissan Qashqai 1.5 N-Connecta, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/nissan/qashqai/0906/",
+     "sterren": 5,
+     "testjaar": 2021,
+     "publicatiedatum": "2021-12-08",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Qashqais",
+     "geteestModel": "Nissan Qashqai 1.3 petrol 4x2 Acenta, LHD"
+    }
+   ]
+  },
+  "lynk-co-01": {
+   "gezocht": [
+    "lynk+-+co/1"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/lynk+-+co/1/0877/",
+     "sterren": 5,
+     "testjaar": 2021,
+     "publicatiedatum": "2021-09-08",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Lynk \\u0026 Co. 01s",
+     "geteestModel": "Lynk \\u0026 Co 01 1.5 HEV, LHD"
+    }
+   ]
+  },
+  "fiat-500": {
+   "gezocht": [
+    "fiat/500",
+    "fiat/500e"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/fiat/500e/0911/",
+     "sterren": 4,
+     "testjaar": 2021,
+     "publicatiedatum": "2021-12-08",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all 500e",
+     "geteestModel": "FIAT 500e 'ICON', LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/fiat/500/0662/",
+     "sterren": 3,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-03-01",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "from J696837",
+     "geteestModel": "Fiat 500 1.2 Pop, LHD"
+    }
+   ]
+  },
+  "skoda-octavia": {
+   "gezocht": [
+    "skoda/octavia"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/skoda/octavia/1143/",
+     "sterren": 5,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-10-15",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "TMBJJ8NX9TY006035",
+     "geteestModel": "Škoda Octavia 1.5 TSI \\\\"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/skoda/octavia/0939/",
+     "sterren": 5,
+     "testjaar": 2022,
+     "publicatiedatum": "2022-12-07",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Skoda Octavias",
+     "geteestModel": "Skoda Octavia 1.5 TSI, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/skoda/octavia/0785/",
+     "sterren": 5,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-12-04",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Octavias including PHEV",
+     "geteestModel": "Škoda Octavia Combi 1.5 TSI \\\\"
+    }
+   ]
+  },
+  "toyota-c-hr": {
+   "gezocht": [
+    "toyota/c-hr"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/toyota/c-hr/1042/",
+     "sterren": 5,
+     "testjaar": 2024,
+     "publicatiedatum": "2024-04-10",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all C-HRs",
+     "geteestModel": "New Toyota C-HR"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/toyota/c-hr/0663/",
+     "sterren": 5,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-03-01",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all C-HRs",
+     "geteestModel": "Toyota C-HR Hybrid"
+    }
+   ]
+  },
+  "hyundai-i10": {
+   "gezocht": [
+    "hyundai/i10"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/hyundai/i10/0847/",
+     "sterren": 3,
+     "testjaar": 2020,
+     "publicatiedatum": "2020-12-09",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all i10s",
+     "geteestModel": "Hyundai i10 1.0 MPI GLS, LHD"
+    }
+   ]
+  },
+  "audi-a3": {
+   "gezocht": [
+    "audi/a3"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/audi/a3/1149/",
+     "sterren": 5,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-11-19",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "WAUZZZGY0TA007426",
+     "geteestModel": "A3 35 TFSI"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/audi/a3/0786/",
+     "sterren": 5,
+     "testjaar": 2020,
+     "publicatiedatum": "2020-12-09",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "WAUZZZGYMA058053",
+     "geteestModel": "Audi A3 35 TFSI, LHD"
+    }
+   ]
+  },
+  "ford-puma": {
+   "gezocht": [
+    "ford/puma"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/ford/puma/0986/",
+     "sterren": 4,
+     "testjaar": 2022,
+     "publicatiedatum": "2022-12-07",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Ford Pumas",
+     "geteestModel": "Ford Puma 1.0 MHEV, 'Titanium', LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/ford/puma/0791/",
+     "sterren": 5,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-12-18",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Pumas*",
+     "geteestModel": "Ford Puma"
+    }
+   ]
+  },
+  "mini-cooper": {
+   "gezocht": [
+    "mini/cooper",
+    "mini/cooper+e"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/mini/cooper/1124/",
+     "sterren": 5,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-09-08",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "WMW#########81635",
+     "geteestModel": "MINI Cooper C, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/mini/cooper+e/1066/",
+     "sterren": 5,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-03-05",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Cooper E",
+     "geteestModel": "MINI Cooper E"
+    }
+   ]
+  },
+  "bmw-3-serie": {
+   "gezocht": [
+    "bmw/3+series"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/bmw/3+series/0774/",
+     "sterren": 5,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-10-09",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "see 'Rating Validity'",
+     "geteestModel": "BMW 320d, LHD"
+    }
+   ]
+  },
+  "volkswagen-t-cross": {
+   "gezocht": [
+    "volkswagen/t-cross"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/volkswagen/t-cross/1134/",
+     "sterren": 3,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-10-15",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "WVGZZZC17TY000018",
+     "geteestModel": "VW T-Cross 1,0 TSI, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/volkswagen/t-cross/0765/",
+     "sterren": 5,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-05-22",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all VW T-Cross",
+     "geteestModel": "VW T-Cross 1.0 petrol 'Life', LHD"
+    }
+   ]
+  },
+  "ford-fiesta": {
+   "gezocht": [
+    "ford/fiesta"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/ford/fiesta/0681/",
+     "sterren": 5,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-09-06",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Fiestas",
+     "geteestModel": "Ford Fiesta"
+    }
+   ]
+  },
+  "skoda-kodiaq": {
+   "gezocht": [
+    "skoda/kodiaq"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/skoda/kodiaq/1074/",
+     "sterren": 5,
+     "testjaar": 2024,
+     "publicatiedatum": "2024-07-10",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Skoda Kodiaqs",
+     "geteestModel": "Škoda Kodiaq 2.0 TDI \\\\"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/skoda/kodiaq/0669/",
+     "sterren": 5,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-05-31",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Kodiaqs of the specification tested",
+     "geteestModel": "Škoda Kodiaq 2.0 TDI \\\\"
+    }
+   ]
+  },
+  "peugeot-3008": {
+   "gezocht": [
+    "peugeot/3008"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/peugeot/3008/1141/",
+     "sterren": 4,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-05-21",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Peugeot 3008s",
+     "geteestModel": "Peugeot e3008, 73kWh, LHD"
+    }
+   ]
+  },
+  "volvo-v60": {
+   "gezocht": [
+    "volvo/v60"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/volvo/v60/0741/",
+     "sterren": 5,
+     "testjaar": 2018,
+     "publicatiedatum": "2018-12-05",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all V60s",
+     "geteestModel": "Volvo V60 D4 Momentum"
+    }
+   ]
+  },
+  "kia-ceed": {
+   "gezocht": [
+    "kia/ceed"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/kia/ceed/0757/",
+     "sterren": 4,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-07-03",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Kia Ceeds",
+     "geteestModel": "Kia Ceed 1.4T-GDI 'EX', LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/kia/ceed/0757sp/",
+     "sterren": 5,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-07-03",
+     "verlopen": true,
+     "veiligheidspakket": true,
+     "geldtVoor": "all Kia Ceeds with optional safety pack",
+     "geteestModel": "Kia Ceed 1.4T-GDI 'EX', LHD"
+    }
+   ]
+  },
+  "volkswagen-id.3": {
+   "gezocht": [
+    "volkswagen/id.3"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/volkswagen/id.3/1101/",
+     "sterren": 5,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-11-19",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "WVWZZZE19TP000027",
+     "geteestModel": "VW ID.3 Pro, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/volkswagen/id.3/0836/",
+     "sterren": 5,
+     "testjaar": 2020,
+     "publicatiedatum": "2020-12-09",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all ID.3s",
+     "geteestModel": "VW ID.3 'Pro', LHD"
+    }
+   ]
+  },
+  "volkswagen-up-": {
+   "gezocht": [
+    "volkswagen/up-"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/volkswagen/up-/0787/",
+     "sterren": 3,
+     "testjaar": 2019,
+     "publicatiedatum": "2019-12-18",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all VW up!s",
+     "geteestModel": "VW e-up! 'Move Up', LHD"
+    }
+   ]
+  },
+  "skoda-enyaq": {
+   "gezocht": [
+    "skoda/enyaq",
+    "skoda/enyaq+iv"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/skoda/enyaq/1128pm/",
+     "sterren": 5,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-11-19",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "TMBLJ9NY6TF038914",
+     "geteestModel": "Skoda Elroq 85, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/skoda/enyaq+iv/0848/",
+     "sterren": 5,
+     "testjaar": 2021,
+     "publicatiedatum": "2021-04-14",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all ENYAQ iV",
+     "geteestModel": "Škoda ENYAQ iV 60 , LHD"
+    }
+   ]
+  },
+  "suzuki-swift": {
+   "gezocht": [
+    "suzuki/swift"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/suzuki/swift/1036/",
+     "sterren": 3,
+     "testjaar": 2024,
+     "publicatiedatum": "2024-07-10",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Swifts",
+     "geteestModel": "Suzuki Swift 1.2L GL+, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/suzuki/swift/0671/",
+     "sterren": 3,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-05-31",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Swifts",
+     "geteestModel": "Suzuki Swift 1.2L GL, RHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/suzuki/swift/0671sp/",
+     "sterren": 4,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-05-31",
+     "verlopen": true,
+     "veiligheidspakket": true,
+     "geldtVoor": "all Swifts with 'Radar Brake Support'",
+     "geteestModel": "Suzuki Swift 1.2L GL, RHD"
+    }
+   ]
+  },
+  "hyundai-tucson": {
+   "gezocht": [
+    "hyundai/tucson"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/hyundai/tucson/0895/",
+     "sterren": 5,
+     "testjaar": 2021,
+     "publicatiedatum": "2021-10-27",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all TUCSONs",
+     "geteestModel": "Hyundai TUCSON 1.6 T-GDI HEV GLS, LHD"
+    }
+   ]
+  },
+  "mercedes-benz-a-klasse": {
+   "gezocht": [
+    "mercedes-benz/a-class"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/mercedes-benz/a-class/0739/",
+     "sterren": 5,
+     "testjaar": 2018,
+     "publicatiedatum": "2018-10-24",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "hatchback and saloon, from WDD1770031J054450",
+     "geteestModel": "Mercedes-Benz A 180 d, LHD"
+    }
+   ]
+  },
+  "toyota-aygo": {
+   "gezocht": [
+    "toyota/aygo"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/toyota/aygo/0713/",
+     "sterren": 3,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-12-13",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "JTDKGNEC60N317420",
+     "geteestModel": "Toyota Aygo 1.0 x-play, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/toyota/aygo/0713sp/",
+     "sterren": 4,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-12-13",
+     "verlopen": true,
+     "veiligheidspakket": true,
+     "geldtVoor": "JTDKGNEC60N317420, with 'Toyota Safety Sense'",
+     "geteestModel": "Toyota Aygo 1.0 x-play, LHD"
+    }
+   ]
+  },
+  "seat-ibiza": {
+   "gezocht": [
+    "seat/ibiza"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/seat/ibiza/0932/",
+     "sterren": 5,
+     "testjaar": 2022,
+     "publicatiedatum": "2022-10-12",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "VSSZZZKJ0PR000432",
+     "geteestModel": "SEAT Ibiza 1.0 Eco TSI 'Style', LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/seat/ibiza/0675/",
+     "sterren": 5,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-07-05",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Ibizas",
+     "geteestModel": "SEAT Ibiza1.0 'Style',LHD"
+    }
+   ]
+  },
+  "bmw-x1": {
+   "gezocht": [
+    "bmw/x1"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/bmw/x1/0997/",
+     "sterren": 5,
+     "testjaar": 2022,
+     "publicatiedatum": "2022-10-12",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all X1's, including iX1",
+     "geteestModel": "BMW X1 2.0 diesel X-Line, LHD"
+    }
+   ]
+  },
+  "kia-sportage": {
+   "gezocht": [
+    "kia/sportage"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/kia/sportage/0951/",
+     "sterren": 5,
+     "testjaar": 2022,
+     "publicatiedatum": "2022-07-06",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Sportages",
+     "geteestModel": "Kia Sportage 1.6 T-GDI HEV, LHD"
+    }
+   ]
+  },
+  "opel-crossland": {
+   "gezocht": [
+    "opel/crossland+x",
+    "opel/crossland"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/opel/crossland+x/0691/",
+     "sterren": 5,
+     "testjaar": 2017,
+     "publicatiedatum": "2017-11-08",
+     "verlopen": true,
+     "veiligheidspakket": false,
+     "geldtVoor": "all Crossland X",
+     "geteestModel": "Opel/Vauxhall Crossland X 1.2 'Edition', LHD"
+    }
+   ]
+  },
+  "volkswagen-id.4": {
+   "gezocht": [
+    "volkswagen/id.4"
+   ],
+   "uitslagen": [
+    {
+     "url": "https://www.euroncap.com/assessments/volkswagen/id.4/1116/",
+     "sterren": 5,
+     "testjaar": 2025,
+     "publicatiedatum": "2025-10-15",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "WVGZZZE2XSE037859, WVGZZZE26SP007245",
+     "geteestModel": "VW ID.4 Pro, 4 x 2, LHD"
+    },
+    {
+     "url": "https://www.euroncap.com/assessments/volkswagen/id.4/0846/",
+     "sterren": 5,
+     "testjaar": 2021,
+     "publicatiedatum": "2021-04-14",
+     "verlopen": false,
+     "veiligheidspakket": false,
+     "geldtVoor": "all VW ID.4s",
+     "geteestModel": "Volkswagen ID.4, rear drive, LHD"
+    }
+   ]
+  }
+ }
+}

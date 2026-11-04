@@ -304,4 +304,25 @@ export const regels = {
       peildatum: PEIL,
     } as Regel<number>,
   },
+  // ──────────────── WLTP: plug-in hybrides (utility factor) ────────────────
+  wltp: {
+    /**
+     * Utility factor (UF): het deel van de kilometers dat de WLTP-regels aannemen als
+     * elektrisch gereden, afhankelijk van de elektrische actieradius d:
+     * UF(d) = 1 − exp(−Σ Cᵢ · (d / dn)ⁱ), i = 1…10.
+     */
+    utilityFactor: {
+      waarde: {
+        coefficienten: [26.25, -38.94, -631.05, 5964.83, -25095, 60380.2, -87517, 75513.8, -35749, 7154.94],
+        /** Normaalafstand dn (km) per emissiecode, zoals RDW die toont in `uitlaatemissieniveau`. */
+        normaalafstand: { EA: 800, EB: 2200, EC: 4260, ouder: 800 },
+      },
+      status: "vastgesteld",
+      bron: "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0443 (Verordening (EU) 2023/443, bijlage XXI punt 3.2, tabel A8.App5/1)",
+      geldigVanaf: "2025-01-01",
+      peildatum: "2026-11-04",
+      toelichting:
+        "dnea 800 km (Euro 6e), dneb 2 200 km vanaf 1-1-2025 (Euro 6e-bis), dnec 4 260 km vanaf 1-1-2027 (Euro 6e-bis-FCM); keuze volgt de emissiecode EA/EB/EC van de auto. Oudere Euro 6-auto's: zelfde coëfficiënten met 800 km. De vergelijking staat in de verordening als afbeelding; wij gebruiken de standaardvorm uit VN-GTR 15 en controleerden die tegen 2 178 RDW-auto's met een officieel verbruik bij lege accu (docs/methodiek.md §2.4).",
+    } as Regel<{ coefficienten: number[]; normaalafstand: { EA: number; EB: number; EC: number; ouder: number } }>,
+  },
 } as const;

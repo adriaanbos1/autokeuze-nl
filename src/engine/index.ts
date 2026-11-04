@@ -9,3 +9,6 @@ export * from "./bijtelling";
 export * from "./belasting";
 export * from "./zakelijk";
 export * from "./betrouwbaarheid";
+export * from "./phev";
+export * from "./veiligheid";
+export * from "./onderhoud";

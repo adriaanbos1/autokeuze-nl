@@ -2,11 +2,14 @@
 
 import { useState, type FormEvent } from "react";
 import { haalKenteken, type KentekenInfo } from "@/data/kenteken";
-import { mrbPersonenauto } from "@/engine";
+import { bandenPerJaar, mrbPersonenauto, onderhoudPerJaar } from "@/engine";
 import { regels, type Provincie } from "@/regels/regels-nl";
 import selectie from "../../data/modelselectie.json";
 import { Nav } from "../nav";
 import { betrouwbaarheidModel } from "@/data/betrouwbaarheid-data";
+import { ncapVoorBouwjaar } from "@/data/ncap-data";
+
+const VOORBEELD_KM = 15000;
 
 const modelId = new Map(selectie.modellen.map((m) => [`${m.merk}|${m.model}`, m.id]));
 const provincies = Object.keys(regels.mrb.opcenten2026.waarde) as Provincie[];
@@ -107,6 +110,10 @@ export default function Kentekencheck() {
                     <>
                       <tr><td>Elektrisch verbruik</td><td className="b">{info.elektrischVerbruikWltp ?? "—"} kWh/100 km</td></tr>
                       <tr><td>Gewogen verbruik (folder)</td><td className="b">{info.verbruikGewogenWltp ?? "—"} l/100 km</td></tr>
+                      <tr>
+                        <td>Verbruik met lege accu{info.verbruikLegeAccuHerkomst === "afgeleid" ? " (afgeleid*)" : ""}</td>
+                        <td className="b">{info.verbruikLegeAccu ?? "—"} l/100 km</td>
+                      </tr>
                     </>
                   ) : (
                     <tr>
@@ -120,6 +127,15 @@ export default function Kentekencheck() {
                   <tr><td>Elektrische actieradius</td><td className="b">{info.actieradiusWltpKm ?? "—"} km</td></tr>
                 </tbody>
               </table>
+              {info.verbruikLegeAccuHerkomst === "afgeleid" && (
+                <p className="uitleg">
+                  * RDW publiceert dit niet voor deze auto. Afgeleid uit het gewogen verbruik en de actieradius met de EU-rekenregel (Verordening
+                  2023/443); gemiddeld ca. 1% naast de officiële waarde.
+                </p>
+              )}
+              {info.aandrijving === "plug-in hybride" && info.verbruikLegeAccu === null && (
+                <p className="uitleg">RDW vermeldt voor deze auto geen actieradius, dus het verbruik met lege accu kunnen we niet afleiden.</p>
+              )}
             </div>
             {(() => {
               const id = modelId.get(info.modelSleutel);
@@ -139,6 +155,54 @@ export default function Kentekencheck() {
                   ) : (
                     <div className="uitleg">Onvoldoende APK-gegevens voor dit model rond bouwjaar {info.bouwjaar}.</div>
                   )}
+                </div>
+              );
+            })()}
+            {(() => {
+              const id = modelId.get(info.modelSleutel);
+              const v = id ? ncapVoorBouwjaar(id, info.bouwjaar) : null;
+              if (!id) return null;
+              return (
+                <div className="kaart">
+                  <h3>Veiligheid (Euro NCAP)</h3>
+                  {v ? (
+                    <>
+                      <div className="groot">{v.uitslag.sterren} van 5 sterren</div>
+                      <div className="uitleg">
+                        Test {v.uitslag.testjaar}
+                        {v.uitslag.verlopen ? ", door Euro NCAP als verlopen aangemerkt" : ""}
+                        {v.uitslag.veiligheidspakket ? ", met optioneel veiligheidspakket" : ""}.{" "}
+                        {v.laterGetest
+                          ? `Let op: deze test is van na het bouwjaar (${info.bouwjaar}) en gaat mogelijk over een nieuwere versie.`
+                          : "Nieuwste test van vóór of uit het bouwjaar van deze auto."}{" "}
+                        <a href={v.uitslag.url}>Uitslag bij Euro NCAP</a>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="uitleg">Geen Euro NCAP-test gevonden voor dit model.</div>
+                  )}
+                </div>
+              );
+            })()}
+            {personenauto && !!info.massaRijklaar && (() => {
+              const elektrisch = info.aandrijving === "elektrisch";
+              const leeftijd = 2026 - info.bouwjaar;
+              const o = onderhoudPerJaar({ elektrisch, kmPerJaar: VOORBEELD_KM, leeftijdJaar: leeftijd });
+              const b = bandenPerJaar({ elektrisch, massaRijklaar: info.massaRijklaar, kmPerJaar: VOORBEELD_KM });
+              return (
+                <div className="kaart">
+                  <h3>Onderhoud en banden (indicatief)</h3>
+                  <div className="groot">{eur(o.bedrag + b.bedrag)}</div>
+                  <div className="uitleg">per jaar bij {VOORBEELD_KM.toLocaleString("nl-NL")} km</div>
+                  <details>
+                    <summary>Hoe berekend</summary>
+                    <p className="uitleg">Onderhoud {eur(o.bedrag)}: {o.uitleg}.</p>
+                    <p className="uitleg">Banden {eur(b.bedrag)}: {b.uitleg}.</p>
+                    <p className="uitleg">
+                      Uurtarief: gemiddelde volgens ANWB (AMT-enquête 2024). Uren, onderdelen, bandenprijs en levensduur zijn eigen aannames; grote
+                      reparaties zitten er niet in.
+                    </p>
+                  </details>
                 </div>
               );
             })()}

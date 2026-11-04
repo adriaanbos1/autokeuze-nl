@@ -44,7 +44,8 @@ Legenda kosten: 🟢 gratis · 🟡 gratis met voorwaarden / op aanvraag · 🔴
 - **Wat:** veiligheidssterren (0–5) en deelscores (inzittenden, kinderen, kwetsbare weggebruikers, assistentiesystemen) per model en testjaar.
 - **Kwaliteit:** de Europese standaard. Let op: sterren uit verschillende testjaren zijn niet goed vergelijkbaar, want het protocol wordt steeds strenger.
 - **Voorwaarden:** logo's, beeld en video mogen **niet** commercieel gebruikt worden zonder schriftelijke toestemming. Herpublicatie van materiaal buiten niet-commercieel/educatief gebruik vraagt toestemming ([Euro NCAP pers](https://www.euroncap.com/nl/pers), [protocol star rating v2.0](https://www.euroncap.com/media/88384/euro-ncap-protocol-application-of-star-rating-v20.pdf)). Het feitelijk noemen van "5 sterren (2024)" met bronlink valt waarschijnlijk onder normaal citeren, maar ⚠ dat laten we juridisch bevestigen, of we vragen toestemming.
-- **Toegang:** geen publieke API; handmatig overnemen (40–60 modellen is goed te doen).
+- **Toegang:** geen openbare API. De site heeft wel een interne `/api/`, maar die is in robots.txt uitgesloten; die gebruiken we dus niet. Wel toegestaan: de openbare uitslagpagina's per test (`/assessments/<merk>/<model>/<nummer>/`, vindbaar via de sitemap). Zie §5.5.
+- **Gebruiksvoorwaarden** ([terms-conditions](https://www.euroncap.com/terms-conditions/), gelezen 4-11-2026): de inhoud valt onder het auteursrecht van Euro NCAP; reproductie voor commerciële doelen is niet toegestaan en voor tekst en beeld is vooraf toestemming nodig. Wij nemen alleen feiten over (aantal sterren, testjaar, link).
 - **Update:** meerdere testrondes per jaar.
 - **v1:** sterren + testjaar als tekst met bronlink, geen logo. Toestemming aanvragen = actiepunt.
 
@@ -155,8 +156,28 @@ Legenda kosten: 🟢 gratis · 🟡 gratis met voorwaarden / op aanvraag · 🔴
 - Duur: ongeveer 15 minuten (een paar duizend API-verzoeken). Alleen het landelijk gemiddelde opnieuw ophalen kan met `--alleen-landelijk`.
 - Oudere auto's (vóór ca. september 2018) hebben in RDW alleen **NEDC**-verbruik en -CO₂ (oude test, lager dan WLTP). De kentekencheck gebruikt die dan, met het label "NEDC".
 
+### 5.5 Euro NCAP (Fase 2c)
+- Script `scripts/haal-ncap.ts` → `data/euro-ncap.json`. Leest de sitemap, opent alleen de uitslagpagina's van onze modellen (ca. 80, met 1,5 s pauze) en neemt over: sterren, testjaar, publicatiedatum, "verlopen" (zoals Euro NCAP dat zelf markeert, na 6 jaar), met/zonder optioneel veiligheidspakket, waarvoor de uitslag geldt, het geteste model en de link.
+- Paginanummers met een achtervoegsel: `sp` = met veiligheidspakket, `pm` = uitslag overgenomen van een technisch gelijk model (bijv. Enyaq op basis van de Elroq-test), `a` = rijassistentie (geen sterren, overgeslagen).
+- Eén handmatige uitsluiting, met reden in het script: Toyota C-HR+ (2025) is een ander, elektrisch model.
+- De sitemap bevat tests vanaf 2017. Oudere tests (bijv. VW Golf 7 uit 2012) ontbreken; de kentekencheck meldt dan dat de getoonde test van na het bouwjaar is.
+- ⚠ Een eerste verkenning raakte 7× de interne `/api/` voordat robots.txt was gelezen; die data is weggegooid en niet gebruikt.
+
+### 5.6 Plug-in hybride: verbruik met lege accu (Fase 2c)
+- RDW publiceert het verbruik met lege accu (`brandstof_verbruik_gecombineerd_wltp`) maar bij een klein deel van de plug-in hybrides. Wel altijd: het **gewogen** verbruik, de elektrische actieradius (tot ca. 2025) en de emissiecode (`uitlaatemissieniveau`, bijv. "EURO 6 EB").
+- Daarom leiden we het af met de EU-rekenregel voor de "utility factor" (Verordening (EU) 2023/443, tabel A8.App5/1). De code EA/EB/EC bepaalt welke normaalafstand geldt (800 / 2.200 / 4.260 km). Methode en controle: `methodiek.md` §2.4.
+- Bij registraties van de laatste maanden ontbreekt in RDW ook de actieradius. Voor de modelwaarde nemen we dan de 200 meest recente kentekens van dat model waarbij die er wel is (`scripts/haal-specs.ts`).
+- Geprobeerd en niet gebruikt: de EEA CO₂-monitoringsdataset (discodata) weigert automatische verzoeken (403); EUR-Lex idem, de verordening is in de browser gelezen.
+
+### 5.7 Onderhoud, banden, verzekering (Fase 2c)
+- Er is geen open bron per model. Rekenmodel in `src/engine/onderhoud.ts`, alle waarden in `src/regels/aannames.ts`, elk gemarkeerd als **bron** of **aanname**.
+- Bron: uurtarief ca. €82 incl. btw (spreiding €61–165; [ANWB, AMT-enquête 2024](https://www.anwb.nl/auto/autokosten/onderhoudskosten-auto)), onderhoudsinterval 20.000 km of 1 jaar (ANWB), tot 20% snellere bandenslijtage bij EV's (Michelin via [Move Electric](https://www.moveelectric.com/nl-nl/e-cars/slijten-de-banden-van-elektrische-autos-sneller), secundair), gemiddelde premie per dekking H1 2026 ([Geld.nl datamonitor](https://www.geld.nl/autoverzekering/service/datamonitor-autoverzekering)).
+- Aanname: uren en onderdelen per beurt, leeftijdsopslag 6%/jaar boven 3 jaar, levensduur banden 40.000 km, prijs per band per gewichtsklasse (RDW publiceert geen bandenmaat).
+- Verzekering: de Geld.nl-gemiddelden komen uit vergelijkingen op die site (geen uitsplitsing naar bestuurder) en liggen ver boven de laagste aanbiedingen (vanaf ca. €20/maand, [Overstappen.nl okt. 2026](https://www.overstappen.nl/nieuws/dit-zijn-de-vijf-goedkoopste-autopremies-in-oktober-2026/)). Daarom: geen verschil per model, en de gebruiker vult bij voorkeur de eigen premie in.
+
 ## 6. Open punten
 - ⚠ Licenties per RDW-dataset bevestigen (alles CC-0?).
-- ⚠ Euro NCAP: mag "5 sterren (2024)" als feit commercieel genoemd worden? Toestemming vragen.
+- ⚠ Euro NCAP: mag "5 sterren (2024)" als feit commercieel genoemd worden? Volgens de voorwaarden is commerciële reproductie niet toegestaan. **Toestemming vragen vóór livegang** (mail aan Euro NCAP, concept volgt bij Fase 5).
+- ⚠ Onderhoud en banden zijn grotendeels eigen aannames; later aanvullen met echte data (bijv. onderhoudsschema's per merk, prijssteekproef banden, na juridische check).
 - ⚠ Steekproef van vraagprijzen: juridische check (databankenrecht / gebruiksvoorwaarden).
 - ⚠ Offertes Autotelex / Indicata / VWE opvragen voor de latere fase.

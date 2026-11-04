@@ -156,6 +156,14 @@ Effect op hypotheek: geldverstrekkers rekenen een private-leasebedrag mee als ma
 - **Salderen** stopt per 1-1-2027 ✅ (laden met eigen zonnestroom wordt relatief duurder).
 - **Laadpunten:** nieuwe laadpunten moeten ISO 15118-20 ondersteunen (slim en bidirectioneel laden). Voor de app alleen informatief.
 
+## 10a. WLTP-weging plug-in hybrides (utility factor) ✅ vastgesteld
+- Bron: [Verordening (EU) 2023/443](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0443), bijlage XXI punt 3.2, tabel A8.App5/1 (gelezen 4-11-2026).
+- Coëfficiënten C1–C10: 26,25 · −38,94 · −631,05 · 5.964,83 · −25.095 · 60.380,2 · −87.517 · 75.513,8 · −35.749 · 7.154,94.
+- Normaalafstand: dnea 800 km (Euro 6e), dneb 2.200 km vanaf 1-1-2025 (Euro 6e-bis), dnec 4.260 km vanaf 1-1-2027 (Euro 6e-bis-FCM). De waarde volgt de emissiecode EA/EB/EC van de auto; RDW toont die in `uitlaatemissieniveau`.
+- ⚠ De vergelijking zelf staat in de verordening als afbeelding; wij gebruiken de standaardvorm uit VN-GTR 15. Die vorm is bevestigd door de controle tegen 2.178 RDW-auto's (`methodiek.md` §2.4).
+- Waarom het ertoe doet: met de strengere normaalafstand telt de regel minder kilometers als elektrisch, dus stijgen het gewogen verbruik en de CO₂ op papier. Folderwaarden van plug-in hybrides uit verschillende jaren zijn daardoor niet direct vergelijkbaar.
+- In de code: `regels.wltp.utilityFactor` in `src/regels/regels-nl.ts`.
+
 ## 11. Configbestand (voorstel structuur)
 ```yaml
 - sleutel: mrb.ev_korting

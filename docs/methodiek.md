@@ -107,11 +107,44 @@ km_norm(t) = 15.000 × t
 
 ### 2.3 Onderhoud & reparatie
 ```
-onderhoud_per_jaar(t, km) = basis_onderhoud × (1 + c × max(0, t − 3)) + verwachte_grote_beurten(km)
+onderhoud_per_jaar = beurten × (uren × uurtarief + onderdelen) × (1 + c × max(0, leeftijd − 3))
+beurten            = max(1, km_per_jaar / 20.000)          (ANWB: elke 20.000 km of eens per jaar)
+banden_per_jaar    = km_per_jaar × slijtagefactor / 40.000 × 4 × prijs_per_band(gewicht)
 ```
-- `c` ≈ 5–8% per jaar extra boven 3 jaar oud (aanname, openbaar).
-- Grote, voorspelbare kosten (distributieriem, remmen, 12V-accu, koppeling) volgens interval-km uit de eigen dataset, verdeeld over de looptijd.
-- EV: geen olie/riem, wel hogere bandenslijtage; accugarantie (jaren/km) wordt getoond.
+**Gebouwd in Fase 2c** (`src/engine/onderhoud.ts`, waarden in `src/regels/aannames.ts`):
+
+| Waarde | Verbranding (incl. (plug-in) hybride) | Elektrisch | Soort |
+|---|---|---|---|
+| uurtarief incl. btw | €82 | €82 | bron (ANWB/AMT 2024) |
+| uren per beurt | 1,5 | 1,0 | aanname |
+| onderdelen per beurt | €120 | €50 | aanname |
+| leeftijdsopslag `c` | 6% per jaar boven 3 jaar | idem | aanname (bandbreedte 5–8%) |
+| slijtagefactor banden | 1,0 | 1,2 | bron (Michelin, secundair) |
+| levensduur set banden | 40.000 km | 40.000 km | aanname |
+| prijs per band | ≤1.200 kg €90 · ≤1.600 kg €120 · ≤2.000 kg €160 · zwaarder €210 | idem | aanname |
+
+Narekenen: benzine 1.500 kg, 15.000 km, nieuw → onderhoud 1 × (1,5 × 82 + 120) = **€243**, banden 15.000 / 40.000 × 4 × 120 = **€180**. Elektrisch 2.000 kg, 15.000 km → onderhoud **€132**, banden 0,45 × 4 × 160 = **€288**.
+
+- Het model maakt alleen onderscheid naar aandrijving, gewicht, leeftijd en km, **niet naar merk**. Dat is neutraal, maar ook grof: echte verschillen in onderhoudsschema's en onderdelenprijzen zitten er nog niet in.
+- Nog niet in het model: grote voorspelbare posten (distributieriem, remmen, 12V-accu) en reparaties buiten de leeftijdsopslag.
+- Verzekering: eigen premie van de gebruiker, anders het marktgemiddelde per dekking (Geld.nl H1 2026: WA €109,57 · WA+ €100,17 · allrisk €111,49 per maand). Geen verschil per model, dus geen invloed op de ranking tussen modellen; wel op de vergelijking kopen vs. private lease (lease bevat meestal allrisk).
+
+### 2.4 Plug-in hybride: verbruik met lege accu (Fase 2c)
+Het "gewogen" WLTP-verbruik uit de folder is een mengsel van elektrisch en op brandstof rijden. De EU-regel weegt met de **utility factor** (UF), het deel van de kilometers dat als elektrisch wordt aangenomen:
+```
+UF(d)  = 1 − exp(−Σ Cᵢ · (d / dn)ⁱ),  i = 1…10      (Verordening (EU) 2023/443, tabel A8.App5/1)
+gewogen ≈ UF × 0 + (1 − UF) × leeg   ⇒   leeg ≈ gewogen / (1 − UF)
+```
+- `d` = elektrische actieradius (WLTP), `dn` = normaalafstand volgens de emissiecode: EA (en oudere Euro 6) 800 km, EB 2.200 km (vanaf 2025), EC 4.260 km (vanaf 2027). Hoe groter `dn`, hoe minder kilometers de regel als elektrisch telt.
+- Aannames: in de elektrische fase wordt geen brandstof verbruikt, en we nemen de UF bij de actieradius (de officiële berekening werkt per testfase).
+- **Controle:** bij 2.178 RDW-auto's waarvoor RDW de officiële waarde wél publiceert: mediane afwijking **+1%**, 80% tussen −2% en +7,5%; voor emissiecode EA (802 auto's) 100% binnen 10%. Voorbeeld met de hand: gewogen 2,9 l, actieradius 47 km, EA → UF = 0,737 → 2,9 / 0,263 = **11,0 l** (officieel 11,0).
+- In de TCO rekenen we met **jouw** aandeel elektrisch (laadgedrag), niet met de UF: `energie = km × aandeel × kWh/100 × stroomprijs + km × (1 − aandeel) × leeg/100 × brandstofprijs` (`energiekostenPhevPerJaar`).
+
+### 2.5 Veiligheid (Euro NCAP, Fase 2c)
+- Geldende uitslag per model: de nieuwste test; bij twee uitslagen in hetzelfde jaar de standaarduitvoering (zonder optioneel veiligheidspakket).
+- Score (§1.2): gecorrigeerde sterren = sterren − 0,5 per volle 3 jaar sinds de test; 2 sterren = 0, 5 sterren = 100; door Euro NCAP als verlopen gemarkeerd → hoogstens 50. Voorbeelden (peiljaar 2026): 5★ uit 2025 → 100; 5★ uit 2022 → 4,5 → 83; 5★ uit 2019 (verlopen) → 50; 3★ uit 2024 → 33.
+- Kentekencheck (bestaande auto): de nieuwste test van vóór of uit het bouwjaar, omdat een latere test meestal over een nieuwere generatie gaat.
+- We tonen sterren en testjaar als tekst met link, geen logo of beeld.
 
 ---
 

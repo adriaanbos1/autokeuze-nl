@@ -7,6 +7,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import type { Aandrijvingstype, ModelRdw, UitvoeringRdw } from "../src/data/types.ts";
 import { aandrijvingUitRdw as aandrijving } from "../src/data/aandrijving.ts";
+import { verbruikLegeAccu } from "../src/engine/phev.ts";
 import { mediaan, RDW, soql, vandaag } from "./rdw.ts";
 
 const STEEKPROEF = 400;
@@ -28,6 +29,37 @@ function mediaanMetNul(xs: number[]): number | null {
   return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
 }
 const afgerond = (x: number | null, decimalen = 0) => (x === null ? null : Math.round(x * 10 ** decimalen) / 10 ** decimalen);
+
+const LEGE_ACCU_STEEKPROEF = 200;
+
+/** Verbruik met lege accu uit de meest recente kentekens van een model waarvoor RDW de actieradius heeft. */
+async function legeAccuOudereKentekens(
+  m: { merk: string; varianten: string[] },
+  legeAccuVan: (b: Rij[]) => { waarde: number; herkomst: "rdw" | "afgeleid" } | null,
+) {
+  const uit: ({ waarde: number; herkomst: "rdw" | "afgeleid" } | null)[] = [];
+  for (let offset = 0; uit.length < LEGE_ACCU_STEEKPROEF && offset < 20000; offset += 1000) {
+    const kentekens = await soql<Rij>(RDW.voertuigen, {
+      $select: "kenteken",
+      $where: `voertuigsoort='Personenauto' AND datum_eerste_toelating IS NOT NULL AND merk=${quote(m.merk)} AND handelsbenaming in(${m.varianten.map(quote).join(",")})`,
+      $order: "datum_eerste_toelating DESC, kenteken",
+      $limit: "1000",
+      $offset: String(offset),
+    });
+    if (kentekens.length === 0) break;
+    for (let i = 0; i < kentekens.length && uit.length < LEGE_ACCU_STEEKPROEF; i += 100) {
+      const blok = kentekens.slice(i, i + 100).map((v) => quote(v.kenteken));
+      const rijen = await soql<Rij>(RDW.brandstof, { $where: `kenteken in(${blok.join(",")}) AND klasse_hybride_elektrisch_voertuig='OVC-HEV'`, $limit: "1000" });
+      const per = new Map<string, Rij[]>();
+      for (const r of rijen) per.set(r.kenteken, [...(per.get(r.kenteken) ?? []), r]);
+      for (const b of per.values()) {
+        const x = legeAccuVan(b);
+        if (x && uit.length < LEGE_ACCU_STEEKPROEF) uit.push(x);
+      }
+    }
+  }
+  return uit;
+}
 
 const modellen: ModelRdw[] = [];
 for (const m of selectie.modellen) {
@@ -59,6 +91,22 @@ for (const m of selectie.modellen) {
     const jaren = rijen.map((r) => Number(r.v.datum_eerste_toelating.slice(0, 4)));
     const hoofd = (b: Rij[]) => (a === "elektrisch" ? b[0] : b.find((x) => x.brandstof_omschrijving !== "Elektriciteit") ?? b[0]);
     const elek = (b: Rij[]) => b.find((x) => x.brandstof_omschrijving === "Elektriciteit");
+    const actieradius = (b: Rij[]) => getal(elek(b)?.actie_radius_enkel_elektrisch_wltp ?? b.map((x) => x.actie_radius_extern_opladen_wltp).find(Boolean));
+    // Plug-in hybride: officieel verbruik bij lege accu als RDW het heeft, anders afgeleid (src/engine/phev.ts).
+    const legeAccuVan = (b: Rij[]) => {
+      const gewogen = getal(hoofd(b).brandstof_verbruik_gewogen_gecombineerd_wltp);
+      const officieel = getal(hoofd(b).brandstof_verbruik_gecombineerd_wltp);
+      // een "officieel" verbruik onder het gewogen verbruik kan niet kloppen en telt niet mee
+      if (officieel > 0 && !(officieel < gewogen)) return { waarde: officieel, herkomst: "rdw" as const };
+      const s = verbruikLegeAccu(gewogen, actieradius(b), hoofd(b).uitlaatemissieniveau);
+      return s ? { waarde: s.lPer100, herkomst: "afgeleid" as const } : null;
+    };
+    let legeAccu = a === "plug-in hybride" ? rijen.map((r) => legeAccuVan(r.b)) : [];
+    if (a === "plug-in hybride" && legeAccu.filter(Boolean).length < MIN_PER_AANDRIJVING) {
+      // Bij registraties van de laatste maanden publiceert RDW geen actieradius meer.
+      // Dan: de meest recente plug-in hybrides van dit model waarbij die er wel is.
+      legeAccu = await legeAccuOudereKentekens(m, legeAccuVan);
+    }
     uitvoeringen.push({
       aandrijving: a,
       steekproef: rijen.length,
@@ -75,16 +123,20 @@ for (const m of selectie.modellen) {
       verbruikWltp:
         a === "elektrisch"
           ? afgerond(mediaan(rijen.map((r) => getal(r.b[0].elektrisch_verbruik_enkel_elektrisch_wltp) / 10)), 1)
-          : afgerond(mediaan(rijen.map((r) => getal(hoofd(r.b).brandstof_verbruik_gecombineerd_wltp))), 1),
+          : a === "plug-in hybride"
+            ? afgerond(mediaan(legeAccu.map((x) => x?.waarde ?? NaN)), 1)
+            : afgerond(mediaan(rijen.map((r) => getal(hoofd(r.b).brandstof_verbruik_gecombineerd_wltp))), 1),
+      verbruikLegeAccuHerkomst:
+        a === "plug-in hybride"
+          ? { rdw: legeAccu.filter((x) => x?.herkomst === "rdw").length, afgeleid: legeAccu.filter((x) => x?.herkomst === "afgeleid").length }
+          : null,
       verbruikGewogenWltp: a === "plug-in hybride" ? afgerond(mediaan(rijen.map((r) => getal(hoofd(r.b).brandstof_verbruik_gewogen_gecombineerd_wltp))), 1) : null,
       elektrischVerbruikWltp:
         a === "plug-in hybride"
           ? afgerond(mediaan(rijen.map((r) => getal(r.b.map((x) => x.elektrisch_verbruik_extern_opladen_wltp).find(Boolean)) / 10)), 1)
           : null,
       co2Wltp: a === "elektrisch" ? 0 : afgerond(mediaan(rijen.map((r) => getal(hoofd(r.b).emissie_co2_gecombineerd_wltp ?? hoofd(r.b).emis_co2_gewogen_gecombineerd_wltp)))),
-      actieradiusWltpKm: afgerond(
-        mediaan(rijen.map((r) => getal(elek(r.b)?.actie_radius_enkel_elektrisch_wltp ?? r.b.map((x) => x.actie_radius_extern_opladen_wltp).find(Boolean)))),
-      ),
+      actieradiusWltpKm: afgerond(mediaan(rijen.map((r) => actieradius(r.b)))),
     });
   }
   uitvoeringen.sort((x, y) => y.steekproef - x.steekproef);
