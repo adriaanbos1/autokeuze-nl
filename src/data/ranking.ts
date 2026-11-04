@@ -4,7 +4,8 @@
 import rdw from "../../data/modellen-rdw.json";
 import type { ModelRdw, UitvoeringRdw, Aandrijvingstype } from "./types";
 import { betrouwbaarheidModel } from "./betrouwbaarheid-data";
-import { veiligheidModel } from "./ncap-data";
+import { ncapVoorBouwjaar, veiligheidModel } from "./ncap-data";
+import { occasionJaren } from "./occasions-data";
 import { aannames } from "@/regels/aannames";
 import { ankers, CRITERIA, type Criterium, type Profiel } from "@/regels/methodiek";
 import type { Provincie } from "@/regels/regels-nl";
@@ -14,6 +15,7 @@ import {
   eindscore,
   energiekostenPerJaar,
   energiekostenPhevPerJaar,
+  geschatteWaarde,
   gemiddeldeLaadprijs,
   grootsteAchterstand,
   lineaireScore,
@@ -23,6 +25,7 @@ import {
   sterkEnZwak,
   tcoContant,
   vergelijk,
+  veiligheidsScore,
   verzekeringPerJaar,
   type CriteriumScore,
   type Dekking,
@@ -35,8 +38,14 @@ import {
 export const alleModellen = rdw.modellen as ModelRdw[];
 export const datasetPeildatum = rdw.peildatum;
 
+export type Soort = "nieuw" | "occasion" | "beide";
+
 export interface Intake {
   profiel: Profiel;
+  soort: Soort;
+  /** Alleen occasions: maximale leeftijd in jaren en optionele maximale kilometerstand. */
+  maxLeeftijdJaar: number;
+  maxKmStand: number | null;
   kmPerJaar: number;
   /** Langste rit die je regelmatig maakt, enkele reis. */
   langsteRitKm: number;
@@ -63,9 +72,24 @@ export const gezinsprofiel = (i: Pick<Intake, "personen" | "kinderen">) => i.kin
 const nl = (x: number, decimalen = 3) => x.toLocaleString("nl-NL", { maximumFractionDigits: decimalen });
 const eur0 = (x: number) => x.toLocaleString("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 
+/** Een occasion: bouwjaar, leeftijd bij aankoop en (aangenomen) kilometerstand. */
+export interface Occasion {
+  bouwjaar: number;
+  leeftijdMaanden: number;
+  kmNu: number;
+}
+
+/** Occasion van een bouwjaar bij aankoop in het startjaar: midden bouwjaar tot midden startjaar, normale km per jaar (aanname). */
+export function occasionVan(bouwjaar: number, startjaar: number): Occasion {
+  const leeftijdMaanden = (startjaar - bouwjaar) * 12;
+  return { bouwjaar, leeftijdMaanden, kmNu: (leeftijdMaanden / 12) * aannames.restwaarde.normKmPerJaar.waarde };
+}
+
 export interface Kosten {
   tco: TcoUitkomst;
   aankoopprijs: number;
+  /** Hoe de aankoopprijs tot stand komt (catalogusprijs of geschatte occasionprijs). */
+  prijsUitleg: string;
   restwaardeEinde: number;
   energiePerJaar: number;
   energieUitleg: string;
@@ -91,6 +115,9 @@ function laadprijs(thuisladen: boolean): { prijs: number; uitleg: string } {
   return { prijs, uitleg: `gemiddeld €${nl(prijs)} per kWh (${delen.join(", ")})` };
 }
 
+const meet = (u: UitvoeringRdw, veld: "verbruik" | "co2" | "actieradius") =>
+  u.meetmethode?.[veld] === "nedc-omgerekend" ? "WLTP, omgerekend uit de oudere NEDC-test" : "WLTP";
+
 /** Energie per jaar en CO₂ bij jouw gebruik; null als de data ontbreekt. */
 function energie(u: UitvoeringRdw, i: Intake): { perJaar: number; uitleg: string; co2: number | null; co2Uitleg: string } | null {
   const pomp = aannames.energie.pompprijs.waarde;
@@ -99,7 +126,7 @@ function energie(u: UitvoeringRdw, i: Intake): { perJaar: number; uitleg: string
     const l = laadprijs(i.thuisladen);
     return {
       perJaar: energiekostenPerJaar(i.kmPerJaar, u.verbruikWltp, l.prijs),
-      uitleg: `${nl(i.kmPerJaar)} km × ${nl(u.verbruikWltp)} kWh/100 km (WLTP), ${l.uitleg}`,
+      uitleg: `${nl(i.kmPerJaar)} km × ${nl(u.verbruikWltp)} kWh/100 km (${meet(u, "verbruik")}), ${l.uitleg}`,
       co2: 0,
       co2Uitleg: "elektrisch: geen uitstoot uit de uitlaat",
     };
@@ -131,9 +158,9 @@ function energie(u: UitvoeringRdw, i: Intake): { perJaar: number; uitleg: string
   const soort = u.aandrijving === "diesel" ? "diesel" : u.aandrijving === "lpg" ? "lpg" : "benzine";
   return {
     perJaar: energiekostenPerJaar(i.kmPerJaar, u.verbruikWltp, prijs),
-    uitleg: `${nl(i.kmPerJaar)} km × ${nl(u.verbruikWltp)} l/100 km (WLTP) × €${nl(prijs)} per liter ${soort} (CBS)`,
+    uitleg: `${nl(i.kmPerJaar)} km × ${nl(u.verbruikWltp)} l/100 km (${meet(u, "verbruik")}) × €${nl(prijs)} per liter ${soort} (CBS)`,
     co2: u.co2Wltp,
-    co2Uitleg: "WLTP-opgave (RDW)",
+    co2Uitleg: `${meet(u, "co2")}-opgave (RDW)`,
   };
 }
 
@@ -143,7 +170,10 @@ function jarenVan(i: Intake): number[] {
 }
 
 /** Kosten van een nieuwe auto over jouw looptijd, contant gekocht. Null als er data ontbreekt. */
-export function kostenNieuw(u: UitvoeringRdw, i: Intake): Kosten | null {
+export const kostenNieuw = (u: UitvoeringRdw, i: Intake) => kosten(u, i, null);
+
+/** Kosten over jouw looptijd, contant gekocht; nieuw (occ = null) of als occasion. */
+export function kosten(u: UitvoeringRdw, i: Intake, occ: Occasion | null): Kosten | null {
   if (u.catalogusprijs == null || u.massaRijklaar == null) return null;
   const e = energie(u, i);
   if (!e) return null;
@@ -155,20 +185,25 @@ export function kostenNieuw(u: UitvoeringRdw, i: Intake): Kosten | null {
     jaren.reduce((s, k) => s + mrbPersonenauto({ massaRijklaar: u.massaRijklaar!, brandstof, provincie: i.provincie, jaar: i.startjaar + k }).perJaar, 0) /
     jaren.length;
   const onderhoudJaar =
-    jaren.reduce((s, k) => s + onderhoudPerJaar({ elektrisch, kmPerJaar: i.kmPerJaar, leeftijdJaar: k }).bedrag, 0) / jaren.length;
+    jaren.reduce((s, k) => s + onderhoudPerJaar({ elektrisch, kmPerJaar: i.kmPerJaar, leeftijdJaar: (occ ? occ.leeftijdMaanden / 12 : 0) + k }).bedrag, 0) / jaren.length;
   const banden = bandenPerJaar({ elektrisch, massaRijklaar: u.massaRijklaar, kmPerJaar: i.kmPerJaar }).bedrag;
   const verzekering = verzekeringPerJaar({ dekking: i.dekking, eigenPremiePerMaand: i.eigenPremiePerMaand }).bedrag;
+  const prijs = occ ? geschatteWaarde({ nieuwprijs: u.catalogusprijs, leeftijdMaanden: occ.leeftijdMaanden, km: occ.kmNu }) : null;
+  const aankoopprijs = prijs ? prijs.waarde : u.catalogusprijs;
+  const prijsUitleg = occ
+    ? `geschat: nieuwprijs ${occ.bouwjaar} ${eur0(u.catalogusprijs)}, ${occ.leeftijdMaanden / 12} jaar oud, ca. ${nl(occ.kmNu)} km (${prijs!.uitleg}). Generieke curve, geen marktprijs.`
+    : `mediane catalogusprijs van recent geregistreerde exemplaren (RDW), incl. opties, zonder korting`;
   const rest = afschrijvingOverLooptijd({
     nieuwprijs: u.catalogusprijs,
-    leeftijdNuMaanden: 0,
-    kmNu: 0,
+    leeftijdNuMaanden: occ?.leeftijdMaanden ?? 0,
+    kmNu: occ?.kmNu ?? 0,
     looptijdMaanden: i.looptijdMaanden,
     kmPerJaar: i.kmPerJaar,
   });
   const onderhoudEnBanden = rond2((onderhoudJaar + banden) / 12);
 
   const tco = tcoContant({
-    aankoopprijs: u.catalogusprijs,
+    aankoopprijs,
     restwaardeEinde: rest.waardeEinde,
     maanden: i.looptijdMaanden,
     kmPerJaar: i.kmPerJaar,
@@ -186,14 +221,15 @@ export function kostenNieuw(u: UitvoeringRdw, i: Intake): Kosten | null {
     Motorrijtuigenbelasting: `gemiddeld €${Math.round(mrbJaar)} per jaar over ${jaren.length} jaar (${i.provincie.replace(/(^|-)\w/g, (x) => x.toUpperCase())}, ${nl(u.massaRijklaar)} kg${elektrisch ? ", korting elektrisch loopt af" : ""})`,
     Verzekering: i.eigenPremiePerMaand != null ? "jouw eigen premie" : `marktgemiddelde ${i.dekking} (Geld.nl, H1 2026), gelijk voor elk model`,
     "Onderhoud en banden": `onderhoud gem. €${Math.round(onderhoudJaar)} + banden €${Math.round(banden)} per jaar (rekenmodel, indicatief)`,
-    "Kosten van geld (gemist rendement)": `gemiddeld ${eur0((u.catalogusprijs + rest.waardeEinde) / 2)} vastgezet × ${nl(aannames.geld.gemistRendement.waarde * 100)}% rente die je misloopt / 12 (aanname)`,
-    Afschrijving: `catalogusprijs ${eur0(u.catalogusprijs)} → geschatte waarde na ${i.looptijdMaanden} maanden ${eur0(rest.waardeEinde)} (generieke curve, niet per model)`,
+    "Kosten van geld (gemist rendement)": `gemiddeld ${eur0((aankoopprijs + rest.waardeEinde) / 2)} vastgezet × ${nl(aannames.geld.gemistRendement.waarde * 100)}% rente die je misloopt / 12 (aanname)`,
+    Afschrijving: `${occ ? "geschatte occasionprijs" : "catalogusprijs"} ${eur0(aankoopprijs)} → geschatte waarde na ${i.looptijdMaanden} maanden ${eur0(rest.waardeEinde)} (generieke curve, niet per model)`,
   };
   tco.posten = tco.posten.map((p) => (extra[p.label] ? { ...p, uitleg: extra[p.label] } : p));
 
   return {
     tco,
-    aankoopprijs: u.catalogusprijs,
+    aankoopprijs,
+    prijsUitleg,
     restwaardeEinde: rest.waardeEinde,
     energiePerJaar: e.perJaar,
     energieUitleg: e.uitleg,
@@ -204,10 +240,13 @@ export function kostenNieuw(u: UitvoeringRdw, i: Intake): Kosten | null {
 }
 
 /** Harde eisen: geven geen punten, maar sluiten uit. Lege lijst = voldoet. */
-export function hardeEisen(u: UitvoeringRdw, i: Intake, k: Kosten | null): string[] {
+export function hardeEisen(u: UitvoeringRdw, i: Intake, k: Kosten | null, occ: Occasion | null = null): string[] {
   const nee: string[] = [];
   if (!i.aandrijvingen.includes(u.aandrijving)) nee.push("aandrijving niet gekozen");
-  if (u.periode[1] < i.startjaar) nee.push(`niet meer nieuw geregistreerd sinds ${u.periode[1]}`);
+  if (!occ && u.periode[1] < i.startjaar) nee.push(`niet meer nieuw geregistreerd sinds ${u.periode[1]}`);
+  if (occ && occ.leeftijdMaanden / 12 > i.maxLeeftijdJaar) nee.push(`ouder dan ${i.maxLeeftijdJaar} jaar`);
+  if (occ && i.maxKmStand != null && occ.kmNu > i.maxKmStand) nee.push(`ca. ${nl(occ.kmNu)} km`);
+  if (u.aandrijving === "elektrisch" && u.actieradiusWltpKm == null) nee.push("actieradius onbekend");
   if (!k) nee.push("onvoldoende data om de kosten te berekenen");
   if (u.zitplaatsen != null && u.zitplaatsen < i.personen) nee.push(`${u.zitplaatsen} zitplaatsen`);
   if (u.zitplaatsen == null && i.personen > 4) nee.push("aantal zitplaatsen onbekend");
@@ -237,9 +276,25 @@ function fitScore(u: UitvoeringRdw, i: Intake): CriteriumScore | null {
   return { score, waarde: delen.map((d) => d.kort).join(", "), uitleg: delen.map((d) => `${d.uitleg} → ${d.score}`).join("; ") };
 }
 
-export function scoresVoor(m: ModelRdw, u: UitvoeringRdw, i: Intake, k: Kosten): Scores {
-  const betr = betrouwbaarheidModel(m.id);
-  const veil = veiligheidModel(m.id, i.startjaar);
+/** Betrouwbaarheid: voor een occasion van dat bouwjaar als er genoeg keuringen zijn, anders het hele model. */
+function betrouwbaarheidVoor(id: string, occ: Occasion | null) {
+  const eigen = occ ? betrouwbaarheidModel(id, [occ.bouwjaar]) : null;
+  if (eigen) return { ...eigen, wat: `bouwjaar ${occ!.bouwjaar}` };
+  const model = betrouwbaarheidModel(id);
+  return model ? { ...model, wat: occ ? `alle bouwjaren 2014–2022; te weinig keuringen van bouwjaar ${occ.bouwjaar}` : "bouwjaren 2014–2022" } : null;
+}
+
+/** Euro NCAP: nieuw = de geldende uitslag; occasion = de nieuwste test uit of vóór het bouwjaar (een latere test gaat over een nieuwere generatie). */
+function veiligheidVoor(id: string, occ: Occasion | null, peiljaar: number) {
+  if (!occ) return veiligheidModel(id, peiljaar)?.geldend ?? null;
+  const v = ncapVoorBouwjaar(id, occ.bouwjaar);
+  return v && !v.laterGetest ? v.uitslag : null;
+}
+
+export function scoresVoor(m: ModelRdw, u: UitvoeringRdw, i: Intake, k: Kosten, occ: Occasion | null = null): Scores {
+  const betr = betrouwbaarheidVoor(m.id, occ);
+  const ncap = veiligheidVoor(m.id, occ, i.startjaar);
+  const veil = ncap ? { geldend: ncap, score: veiligheidsScore(ncap, i.startjaar) } : null;
   const s: Scores = {
     TCO: {
       score: lineaireScore(k.tco.perMaand, ankers.tco.slecht * i.maandbudget, ankers.tco.goed * i.maandbudget),
@@ -250,7 +305,7 @@ export function scoresVoor(m: ModelRdw, u: UitvoeringRdw, i: Intake, k: Kosten):
       ? {
           score: betr.score,
           waarde: `${nl(betr.verhouding, 2)}× het gemiddelde aantal APK-gebreken`,
-          uitleg: `RDW-keuringen van dit model (bouwjaren 2014–2022), vergeleken met alle auto's van dezelfde leeftijd. Zekerheid: ${betr.zekerheid}. Zegt iets over het model, niet per se over de nieuwste generatie.`,
+          uitleg: `RDW-keuringen van dit model (${betr.wat}), vergeleken met alle auto's van dezelfde leeftijd. Zekerheid: ${betr.zekerheid}.${occ ? "" : " Zegt iets over het model, niet per se over de nieuwste generatie."}`,
         }
       : null,
     ONDH: {
@@ -288,6 +343,8 @@ export interface Resultaat {
   model: string;
   naam: string;
   uitvoering: UitvoeringRdw;
+  /** null = nieuw. */
+  occasion: Occasion | null;
   kosten: Kosten;
   scores: Scores;
   eind: Eindscore;
@@ -295,11 +352,11 @@ export interface Resultaat {
 }
 
 export interface Ranglijst {
-  /** Alle auto's die aan de harde eisen voldoen, beste uitvoering per model, gesorteerd. */
+  /** Alle auto's die aan de harde eisen voldoen, beste kandidaat per model, gesorteerd. */
   lijst: Resultaat[];
   /** Top 3: binnen budget; aangevuld met de goedkoopste erboven als er te weinig zijn. */
   top: Resultaat[];
-  uitgesloten: { naam: string; aandrijving: Aandrijvingstype; redenen: string[] }[];
+  uitgesloten: { naam: string; aandrijving: Aandrijvingstype; bouwjaren: number[]; redenen: string[] }[];
 }
 
 // Alleen weergave: hoofdletters zoals de RDW ze geeft, omgezet naar gewone schrijfwijze.
@@ -308,25 +365,43 @@ const merkNaam = (m: string) => m.replace(/[A-Z]+/g, (w) => woord(w, !/[AEIOUY]/
 const typeNaam = (m: string) => m.replace(/[A-Z0-9!.]+/g, (w) => woord(w, w.length <= 3 || /\d/.test(w)));
 export const modelNaam = (m: Pick<ModelRdw, "merk" | "model">) => `${merkNaam(m.merk)} ${typeNaam(m.model)}`;
 
+/** Alle kandidaten van een model: nieuwe uitvoeringen en/of occasions per bouwjaar binnen de leeftijdsgrens. */
+function kandidaten(m: ModelRdw, i: Intake): { u: UitvoeringRdw; occ: Occasion | null }[] {
+  const uit: { u: UitvoeringRdw; occ: Occasion | null }[] = [];
+  if (i.soort !== "occasion") for (const u of m.uitvoeringen) uit.push({ u, occ: null });
+  if (i.soort !== "nieuw")
+    for (const j of occasionJaren(m.id)) {
+      const leeftijd = i.startjaar - j.bouwjaar;
+      if (leeftijd < 1 || leeftijd > i.maxLeeftijdJaar) continue;
+      for (const u of j.uitvoeringen) uit.push({ u, occ: occasionVan(j.bouwjaar, i.startjaar) });
+    }
+  return uit;
+}
+
 export function rangschik(i: Intake, gewichten: Gewichten, modellen: ModelRdw[] = alleModellen): Ranglijst {
-  const uitgesloten: Ranglijst["uitgesloten"] = [];
+  const uitgesloten = new Map<string, Ranglijst["uitgesloten"][number]>();
   const perModel: Resultaat[] = [];
   for (const m of modellen) {
     let beste: Resultaat | null = null;
-    for (const u of m.uitvoeringen) {
-      const k = kostenNieuw(u, i);
-      const nee = hardeEisen(u, i, k);
+    for (const { u, occ } of kandidaten(m, i)) {
+      if (!i.aandrijvingen.includes(u.aandrijving)) continue;
+      const k = kosten(u, i, occ);
+      const nee = hardeEisen(u, i, k, occ);
       if (nee.length || !k) {
-        if (i.aandrijvingen.includes(u.aandrijving)) uitgesloten.push({ naam: modelNaam(m), aandrijving: u.aandrijving, redenen: nee });
+        const sleutelUit = `${m.id}|${u.aandrijving}|${occ ? "occ" : "nieuw"}|${nee.join(",")}`;
+        const e = uitgesloten.get(sleutelUit) ?? { naam: modelNaam(m), aandrijving: u.aandrijving, bouwjaren: [], redenen: nee };
+        if (occ) e.bouwjaren.push(occ.bouwjaar);
+        uitgesloten.set(sleutelUit, e);
         continue;
       }
-      const scores = scoresVoor(m, u, i, k);
+      const scores = scoresVoor(m, u, i, k, occ);
       const r: Resultaat = {
         id: m.id,
         merk: m.merk,
         model: m.model,
         naam: modelNaam(m),
         uitvoering: u,
+        occasion: occ,
         kosten: k,
         scores,
         eind: eindscore(scores, gewichten),
@@ -340,10 +415,18 @@ export function rangschik(i: Intake, gewichten: Gewichten, modellen: ModelRdw[] 
   const binnen = lijst.filter((r) => r.binnenBudget);
   const erboven = lijst.filter((r) => !r.binnenBudget).sort((a, b) => a.kosten.tco.perMaand - b.kosten.tco.perMaand);
   const top = [...binnen.slice(0, 3), ...erboven.slice(0, Math.max(0, 3 - binnen.length))];
-  return { lijst, top, uitgesloten };
+  return { lijst, top, uitgesloten: [...uitgesloten.values()] };
 }
 
-const sleutel = (r: Resultaat) => ({ naam: `${r.naam} ${r.uitvoering.aandrijving}`, eindscore: r.eind.score, tcoPerMaand: r.kosten.tco.perMaand });
+/** Tie-break-naam: model, aandrijving en bouwjaar (nieuw vóór occasion bij verder gelijke stand). */
+const sleutel = (r: Resultaat) => ({
+  naam: `${r.naam} ${r.uitvoering.aandrijving} ${r.occasion ? r.occasion.bouwjaar : "0000"}`,
+  eindscore: r.eind.score,
+  tcoPerMaand: r.kosten.tco.perMaand,
+});
+
+/** Korte omschrijving van wat je koopt: "nieuw" of "occasion 2021, ca. 75.000 km". */
+export const soortTekst = (r: Pick<Resultaat, "occasion">) => (r.occasion ? `occasion ${r.occasion.bouwjaar}, ca. ${nl(r.occasion.kmNu)} km` : "nieuw");
 
 /** Uitleg bij een plek in de top: sterke en zwakke punten, en de achterstand op nummer 1. */
 export function toelichting(r: Resultaat, eerste: Resultaat, gewichten: Gewichten) {

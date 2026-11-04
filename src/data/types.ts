@@ -47,6 +47,8 @@ export interface UitvoeringRdw {
   co2Wltp: number | null;
   /** Elektrische actieradius WLTP (EV of plug-in hybride). */
   actieradiusWltpKm: number | null;
+  /** Alleen occasions: of een waarde WLTP is of omgerekend uit de oudere NEDC-test. */
+  meetmethode?: Partial<Record<"verbruik" | "co2" | "actieradius", "wltp" | "nedc-omgerekend" | null>>;
 }
 
 export interface ModelRdw {

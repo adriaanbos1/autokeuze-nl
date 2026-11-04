@@ -27,6 +27,10 @@ describe("startGewichten", () => {
     const g = startGewichten("particulier", { gezin: true });
     expect([g.VEIL, g.FIT, g.COMF, g.DUUR]).toEqual([15, 20, 0, 0]);
   });
+  it("occasion: BETR +5 en ONDH +5", () => {
+    const g = startGewichten("particulier", { gezin: false, occasion: true });
+    expect([g.BETR, g.ONDH, g.TCO]).toEqual([20, 15, 30]);
+  });
 });
 
 describe("eindscore", () => {

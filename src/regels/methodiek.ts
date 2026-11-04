@@ -33,6 +33,8 @@ export const standaardGewichten: Record<Profiel, Record<Criterium, number>> = {
 export const profielTweaks = {
   /** Gezin met kinderen: VEIL +5 en FIT +5, ten koste van COMF en DUUR. */
   gezin: { VEIL: 5, FIT: 5, COMF: -5, DUUR: -5 } as Partial<Record<Criterium, number>>,
+  /** Alleen occasions: BETR +5 en ONDH +5; de andere wegen daardoor naar verhouding iets minder. */
+  occasion: { BETR: 5, ONDH: 5 } as Partial<Record<Criterium, number>>,
 };
 
 export const ankers = {

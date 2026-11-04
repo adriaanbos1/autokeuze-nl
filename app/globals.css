@@ -101,3 +101,8 @@ input[type="range"] { width: 100%; accent-color: var(--accent); min-height: 28px
 table.ranglijst { font-size: 0.88rem; }
 table.ranglijst th { text-align: left; border-bottom: 1px solid var(--rand); font-weight: 600; }
 table.ranglijst th.b { text-align: right; }
+.keuzeknoppen { display: flex; flex-wrap: wrap; gap: 8px; }
+.keuzeknoppen legend { width: 100%; }
+.keuzeknoppen button { background: var(--bg); color: var(--fg); border: 1px solid var(--rand); min-height: 40px; }
+.keuzeknoppen button.gekozen { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.ontbreekt { border-left: 3px solid var(--min); padding-left: 8px; }

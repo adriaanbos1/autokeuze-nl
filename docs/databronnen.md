@@ -186,6 +186,12 @@ Legenda kosten: 🟢 gratis · 🟡 gratis met voorwaarden / op aanvraag · 🔴
 - **Publiek laden en snelladen:** geen officiële bron. Aannames €0,50 en €0,70 per kWh, binnen de bandbreedtes op athlon.com (€0,25–0,55 publiek, €0,50–0,70 snel). 🟡
 - Alles staat in `src/regels/aannames.ts` (sectie `energie`) met bron en peildatum. Bijwerken: elk kwartaal.
 
+### 5.10 Occasions per bouwjaar (Fase 3b)
+- **Bron:** RDW Open Data (voertuigen m9d7-ebf2 + brandstof 8ys7-d773), `scripts/haal-occasions.ts` → `data/occasions-rdw.json` (peildatum 4-11-2026). 50 modellen × bouwjaar 2016–2025 → 656 combinaties van model, bouwjaar en aandrijving (min. 20 kentekens).
+- **Steekproef:** per bouwjaar de laatste 50 toelatingen van elk kwartaal, alleen niet-geëxporteerde auto's. Ook geïmporteerde occasions tellen mee (eerste toelating in het buitenland).
+- **WLTP/NEDC-verhouding** uit auto's waarvoor RDW beide waarden heeft: brandstofverbruik ×1,208 (20.950 paren), CO₂ ×1,194 (25.355), elektrisch verbruik ×1,04 (381), actieradius ×1,00 (150; weinig paren, onzeker). 96 combinaties gebruiken een omgerekende NEDC-waarde.
+- **Euro NCAP voor oudere bouwjaren ontbreekt vaak:** de sitemap van euroncap.com bevat alleen uitslagen vanaf ca. 2019. Oudere uitslagen staan op andere pagina's die we (nog) niet ophalen. Gevolg: veiligheid telt dan niet mee voor die occasion; de kaart meldt dat. 🟡
+
 ## 6. Open punten
 - ⚠ Licenties per RDW-dataset bevestigen (alles CC-0?).
 - ⚠ Euro NCAP: mag "5 sterren (2024)" als feit commercieel genoemd worden? Volgens de voorwaarden is commerciële reproductie niet toegestaan. **Toestemming vragen vóór livegang** (mail aan Euro NCAP, concept volgt bij Fase 5).

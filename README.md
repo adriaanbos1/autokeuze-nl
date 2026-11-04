@@ -25,6 +25,7 @@ node scripts/selecteer-modellen.ts 50   # kiest de 50 meest geregistreerde model
 npx vite-node --config vitest.config.ts scripts/haal-specs.ts   # officiële specificaties (gebruikt de engine, daarom vite-node)
 node scripts/haal-apk.ts                # APK-gebreken voor de betrouwbaarheidsscore (~15 min)
 node scripts/haal-ncap.ts               # Euro NCAP-sterren uit de openbare uitslagpagina's (~2 min)
+npx vite-node --config vitest.config.ts scripts/haal-occasions.ts   # specs per model en bouwjaar voor occasions (~40 min)
 ```
 
 ## Structuur

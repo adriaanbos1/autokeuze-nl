@@ -97,6 +97,18 @@ Plug-in hybride met thuisladen rijdt het officiële WLTP-aandeel elektrisch (= 1
 
 ## 2. Occasions: leeftijd- en kilometercurves
 
+### 2.0 Occasions in de ranglijst (gebouwd in Fase 3b)
+- **Kandidaten:** per model en bouwjaar (2016–2025, tot de gekozen maximale leeftijd, minimaal 1 jaar oud) de mediane specificaties van dat bouwjaar uit de RDW: nieuwprijs van toen, gewicht, zitplaatsen, trekgewicht, verbruik, CO₂ en actieradius (`data/occasions-rdw.json`, `scripts/haal-occasions.ts`).
+- **Leeftijd en km:** leeftijd = aankoopjaar − bouwjaar (midden van het jaar tot midden van het jaar); kilometerstand = leeftijd × 15.000 km (aanname, gelijk aan de norm van de restwaardecurve). De optionele maximale kilometerstand is een harde eis.
+- **Prijs:** nieuwprijs van dat bouwjaar × (1 − afschrijving volgens §2.1) met km-correctie. Dit is een schatting met een generieke curve, geen vraagprijs; label "geschatte prijs".
+- **Kosten:** dezelfde TCO als nieuw (§3), maar met de geschatte prijs als aankoopprijs, restwaarde aan het eind volgens dezelfde curve, en onderhoud met leeftijdsopslag vanaf de leeftijd bij aankoop.
+- **Verbruik van vóór WLTP:** heeft RDW geen WLTP-waarde (vooral bouwjaar 2016–2018), dan nemen we de NEDC-waarde × de mediane verhouding WLTP/NEDC. Die verhouding meten we op auto's waarvoor RDW beide waarden heeft (zie `verhoudingen` in het databestand). Elektrische auto's zonder bekende actieradius en plug-in hybrides zonder WLTP-gegevens doen niet mee.
+- **Betrouwbaarheid:** de APK-score van dat bouwjaar als er genoeg keuringen zijn (§2.2); anders die van het hele model, met die vermelding.
+- **Veiligheid:** de nieuwste Euro NCAP-test uit of vóór het bouwjaar. Is het model pas later getest (meestal een nieuwere generatie), dan telt veiligheid niet mee voor die occasion.
+- **Gewichten:** zoek je alleen occasions, dan krijgen betrouwbaarheid en onderhoud elk +5 (§1.3); de andere criteria wegen daardoor naar verhouding iets minder. Bij "allebei vergelijken" gelden de gewone gewichten, zodat nieuw en occasion op dezelfde schaal staan.
+- **Per model** telt de kandidaat (nieuw, bouwjaar, aandrijving) met de hoogste eindscore; de top 3 bestaat uit drie verschillende modellen.
+- **Bekend nadeel van herschaling:** een occasion zonder Euro NCAP-uitslag (vaak bouwjaar vóór 2019, zie databronnen §5.10) mist veiligheid, waardoor de andere criteria zwaarder wegen. Dat kan zo'n auto bevoordelen. De kaart meldt het expliciet ("Geen data voor veiligheid"); oplossing: oudere uitslagen toevoegen.
+
 Voor een occasion hangen drie criteria af van **leeftijd (jaren)** en **kilometerstand**:
 
 ### 2.1 Restwaarde (afschrijving), gebouwd in Fase 2d

@@ -40,7 +40,7 @@ export function geschatteWaarde(p: { nieuwprijs: number; leeftijdMaanden: number
   const factor = Math.max(0, 1 - pct / 100 + correctie);
   return {
     waarde: Math.round(p.nieuwprijs * factor),
-    uitleg: `${p.nieuwprijs} × (1 − ${pct}% afschrijving ${correctie >= 0 ? "+" : "−"} ${Math.abs(correctie * 100).toFixed(1)}% km-correctie)`,
+    uitleg: `€${p.nieuwprijs.toLocaleString("nl-NL")} × (1 − ${pct.toLocaleString("nl-NL")}% afschrijving ${correctie >= 0 ? "+" : "−"} ${Math.abs(correctie * 100).toLocaleString("nl-NL", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}% km-correctie)`,
   };
 }
 

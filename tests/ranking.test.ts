@@ -1,11 +1,14 @@
 // Ranglijst op de echte dataset: harde eisen, kosten en merkneutraliteit.
 import { describe, expect, it } from "vitest";
-import { alleModellen, kostenNieuw, rangschik, type Intake } from "@/data/ranking";
+import { alleModellen, hardeEisen, kosten, kostenNieuw, occasionVan, rangschik, type Intake } from "@/data/ranking";
 import { startGewichten } from "@/engine";
 import type { ModelRdw, UitvoeringRdw } from "@/data/types";
 
 const basis: Intake = {
   profiel: "particulier",
+  soort: "nieuw",
+  maxLeeftijdJaar: 8,
+  maxKmStand: null,
   kmPerJaar: 15000,
   langsteRitKm: 150,
   maandbudget: 750,
@@ -97,5 +100,52 @@ describe("kosten van een fictieve voorbeeldauto (met de hand na te rekenen)", ()
   it("TCO is de som van de getoonde posten", () => {
     const som = k.tco.posten.reduce((s, p) => s + p.bedrag, 0);
     expect(k.tco.perMaand).toBeCloseTo(som, 2);
+  });
+});
+
+describe("occasions", () => {
+  const u = {
+    aandrijving: "benzine" as const,
+    steekproef: 100,
+    periode: [2021, 2021] as [number, number],
+    catalogusprijs: 30000,
+    massaRijklaar: 1200,
+    zitplaatsen: 5,
+    trekgewichtGeremd: 1000,
+    lengteCm: 420,
+    vermogenKw: 85,
+    verbruikWltp: 5,
+    verbruikGewogenWltp: null,
+    elektrischVerbruikWltp: null,
+    co2Wltp: 114,
+    actieradiusWltpKm: null,
+  };
+  it("bouwjaar 2021 gekocht in 2026: 60 maanden oud, 75.000 km (15.000 per jaar)", () => {
+    expect(occasionVan(2021, 2026)).toEqual({ bouwjaar: 2021, leeftijdMaanden: 60, kmNu: 75000 });
+  });
+  it("prijs: nieuwprijs €30.000 × (1 − 64,52%) = €10.644; na nog 5 jaar (120 mnd: 81 + 6 × 0,19 = 82,14%) €5.358", () => {
+    const k = kosten(u, basis, occasionVan(2021, 2026))!;
+    expect(k.aankoopprijs).toBe(10644);
+    expect(k.restwaardeEinde).toBe(5358);
+  });
+  it("leeftijd en kilometerstand zijn harde eisen", () => {
+    const occ = occasionVan(2019, 2026);
+    expect(hardeEisen(u, { ...basis, maxLeeftijdJaar: 5 }, null, occ)).toContain("ouder dan 5 jaar");
+    expect(hardeEisen(u, { ...basis, maxKmStand: 100000 }, null, occ)).toContain("ca. 105.000 km");
+  });
+  it("een occasion valt niet af omdat het model niet meer nieuw verkocht wordt", () => {
+    expect(hardeEisen(u, basis, null, occasionVan(2021, 2026)).some((r) => r.includes("nieuw geregistreerd"))).toBe(false);
+  });
+  it("soort occasion: alleen occasions binnen de leeftijdsgrens; soort nieuw: alleen nieuw", () => {
+    const occ = rangschik({ ...basis, soort: "occasion", maxLeeftijdJaar: 6 }, g).lijst;
+    expect(occ.length).toBeGreaterThan(0);
+    for (const r of occ) expect(2026 - r.occasion!.bouwjaar).toBeLessThanOrEqual(6);
+    for (const r of rangschik(basis, g).lijst) expect(r.occasion).toBeNull();
+  });
+  it("merkblind ook voor occasions", () => {
+    const i = { ...basis, soort: "beide" as const };
+    const blind = alleModellen.map((m, n) => ({ ...m, merk: `MERK ${n}`, model: `MODEL ${n}` }));
+    const vorm = (l: ReturnType<typeof rangschik>["lijst"]) => l.map((r) => [r.id, r.occasion?.bouwjaar ?? 0, r.eind.score]).sort((a, b) => String(a[0]).localeCompare(String(b[0])));
+    expect(vorm(rangschik(i, g, blind).lijst)).toEqual(vorm(rangschik(i, g).lijst));
   });
 });

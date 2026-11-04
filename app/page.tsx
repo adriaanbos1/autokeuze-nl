@@ -2,7 +2,8 @@
 
 import { useMemo, useRef, useState } from "react";
 import { Nav } from "./nav";
-import { alleModellen, datasetPeildatum, gezinsprofiel, nietGescoord, rangschik, toelichting, type Intake, type Resultaat } from "@/data/ranking";
+import { alleModellen, datasetPeildatum, gezinsprofiel, nietGescoord, rangschik, soortTekst, toelichting, type Intake, type Resultaat, type Soort } from "@/data/ranking";
+import { occasionHerkomst } from "@/data/occasions-data";
 import type { Aandrijvingstype } from "@/data/types";
 import { ncapHerkomst, veiligheidModel } from "@/data/ncap-data";
 import { startGewichten, type Gewichten } from "@/engine";
@@ -27,6 +28,9 @@ const ZONDER_DATA: Partial<Record<Criterium, string>> = {
 
 const STANDAARD: Intake = {
   profiel: "particulier",
+  soort: "beide",
+  maxLeeftijdJaar: 8,
+  maxKmStand: null,
   kmPerJaar: 15000,
   langsteRitKm: 150,
   maandbudget: 750,
@@ -83,6 +87,47 @@ function Intakeformulier({ intake, zet }: { intake: Intake; zet: (i: Intake) => 
           <input type="radio" disabled /> Auto van de zaak (lease) <span className="uitleg">(volgt in stap 3d)</span>
         </label>
       </fieldset>
+
+      <fieldset className="keuzeknoppen">
+        <legend>Nieuw of tweedehands?</legend>
+        {(
+          [
+            ["nieuw", "Nieuw"],
+            ["occasion", "Occasion"],
+            ["beide", "Allebei vergelijken"],
+          ] as [Soort, string][]
+        ).map(([v, t]) => (
+          <button key={v} type="button" className={intake.soort === v ? "gekozen" : ""} aria-pressed={intake.soort === v} onClick={() => zet({ ...intake, soort: v })}>
+            {t}
+          </button>
+        ))}
+      </fieldset>
+      {intake.soort !== "nieuw" && (
+        <div className="velden">
+          <label>
+            Hoe oud mag de occasion maximaal zijn?
+            <select value={intake.maxLeeftijdJaar} onChange={(e) => zet({ ...intake, maxLeeftijdJaar: Number(e.target.value) })}>
+              {[2, 3, 4, 5, 6, 7, 8, 9, 10].map((j) => (
+                <option key={j} value={j}>
+                  {j} jaar
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            Maximale kilometerstand (optioneel)
+            <input
+              type="number"
+              inputMode="numeric"
+              step={10000}
+              value={intake.maxKmStand ?? ""}
+              placeholder="geen maximum"
+              onChange={(e) => zet({ ...intake, maxKmStand: e.target.value ? Number(e.target.value) : null })}
+            />
+            <span className="uitleg">We rekenen met 15.000 km per jaar oud.</span>
+          </label>
+        </div>
+      )}
 
       <h2>Hoe rijd je?</h2>
       <div className="velden">
@@ -204,6 +249,8 @@ function Schuifjes({ gewichten, zet, standaard }: { gewichten: Gewichten; zet: (
 
 function AutoKaart({ r, plek, eerste, gewichten }: { r: Resultaat; plek: number; eerste: Resultaat; gewichten: Gewichten }) {
   const t = toelichting(r, eerste, gewichten);
+  // Criteria die normaal meetellen maar voor deze auto geen data hebben.
+  const ontbreekt = nietGescoord(r.scores).filter((c) => !ZONDER_DATA[c] && gewichten[c] > 0 && c !== "FIT");
   const veil = veiligheidModel(r.id);
   return (
     <article className="autokaart">
@@ -212,7 +259,7 @@ function AutoKaart({ r, plek, eerste, gewichten }: { r: Resultaat; plek: number;
         <div>
           <h3>{r.naam}</h3>
           <div className="uitleg">
-            {r.uitvoering.aandrijving} · nieuw · catalogusprijs {eur(r.kosten.aankoopprijs)}
+            {r.uitvoering.aandrijving} · {soortTekst(r)} · {r.occasion ? "geschatte prijs" : "catalogusprijs"} {eur(r.kosten.aankoopprijs)}
           </div>
         </div>
         <div className="eindscore" title="Eindscore op 100">
@@ -223,6 +270,12 @@ function AutoKaart({ r, plek, eerste, gewichten }: { r: Resultaat; plek: number;
       <div className="groot">
         {eur(r.kosten.tco.perMaand)} <span className="uitleg">per maand alles inbegrepen</span>
       </div>
+      {r.occasion && (
+        <details>
+          <summary>Hoe is de occasionprijs geschat?</summary>
+          <p className="uitleg">{r.kosten.prijsUitleg} Echte vraagprijzen verschillen per auto, uitvoering, staat en verkoper; vergelijk altijd met het aanbod.</p>
+        </details>
+      )}
       {!r.binnenBudget && <div className="melding">Boven je budget. Er passen te weinig auto&apos;s binnen je budget; dit is de goedkoopste daarboven.</div>}
       <ul className="punten">
         {t.sterk.map((c) => (
@@ -236,9 +289,16 @@ function AutoKaart({ r, plek, eerste, gewichten }: { r: Resultaat; plek: number;
           </li>
         ))}
       </ul>
+      {ontbreekt.length > 0 && (
+        <p className="uitleg ontbreekt">
+          Geen data voor {ontbreekt.map((c) => criteriumNaam[c].toLowerCase()).join(" en ")}
+          {r.occasion && ontbreekt.includes("VEIL") ? " (geen Euro NCAP-test gevonden uit of vóór dit bouwjaar)" : ""}. Dat telt niet mee; de andere criteria wegen daardoor
+          zwaarder. Kijk hier zelf extra naar.
+        </p>
+      )}
       {t.achterstand && (
         <p className="uitleg">
-          {t.verschil} punten achter op nummer 1, vooral door {criteriumNaam[t.achterstand.criterium].toLowerCase()} ({t.achterstand.punten} punten). Vind je dat minder belangrijk? Zet
+          {t.verschil.toLocaleString("nl-NL")} punten achter op nummer 1, vooral door {criteriumNaam[t.achterstand.criterium].toLowerCase()} ({t.achterstand.punten.toLocaleString("nl-NL")} punten). Vind je dat minder belangrijk? Zet
           het schuifje lager.
         </p>
       )}
@@ -316,7 +376,8 @@ function AutoKaart({ r, plek, eerste, gewichten }: { r: Resultaat; plek: number;
 export default function Autokeuze() {
   const [intake, setIntake] = useState<Intake>(STANDAARD);
   const gezin = gezinsprofiel(intake);
-  const standaard = useMemo(() => startGewichten(intake.profiel, { gezin }), [intake.profiel, gezin]);
+  const occasion = intake.soort === "occasion";
+  const standaard = useMemo(() => startGewichten(intake.profiel, { gezin, occasion }), [intake.profiel, gezin, occasion]);
   const [eigen, setEigen] = useState<Gewichten | null>(null);
   const gewichten = eigen ?? standaard;
   const [getoond, setGetoond] = useState(false);
@@ -359,6 +420,7 @@ export default function Autokeuze() {
               <p className="uitleg">
                 In dit scenario scoren deze auto&apos;s het hoogst. Dit is een vergelijking, geen advies: kijk ook zelf of de auto bij je past en maak een proefrit.
                 {gezin && " Omdat je met 3 of meer personen of met kinderen rijdt, tellen veiligheid en ruimte zwaarder mee."}
+                {occasion && " Omdat je een occasion zoekt, tellen betrouwbaarheid en onderhoud zwaarder mee."}
               </p>
               <Schuifjes gewichten={gewichten} zet={setEigen} standaard={standaard} />
               <div className="top">
@@ -387,7 +449,7 @@ export default function Autokeuze() {
                       <tr key={r.id}>
                         <td>{n + 1}</td>
                         <td>
-                          {r.naam} <span className="uitleg">{r.uitvoering.aandrijving}</span>
+                          {r.naam} <span className="uitleg">{r.uitvoering.aandrijving} · {soortTekst(r)}</span>
                         </td>
                         <td className="b">{Math.round(r.eind.score)}</td>
                         <td className="b">
@@ -399,7 +461,7 @@ export default function Autokeuze() {
                   </tbody>
                 </table>
               </div>
-              <p className="uitleg">Per model telt de uitvoering (aandrijving) die het hoogst scoort. Bij een gelijke afgeronde score staat de laagste maandprijs eerst, daarna alfabetisch.</p>
+              <p className="uitleg">Per model telt de uitvoering (aandrijving{intake.soort !== "nieuw" ? ", nieuw of bouwjaar" : ""}) die het hoogst scoort. Bij een gelijke afgeronde score staat de laagste maandprijs eerst, daarna alfabetisch.</p>
             </details>
           )}
 
@@ -409,7 +471,8 @@ export default function Autokeuze() {
               <ul className="uitleg">
                 {ranglijst.uitgesloten.map((u, n) => (
                   <li key={n}>
-                    {u.naam} ({u.aandrijving}): {u.redenen.join(", ")}
+                    {u.naam} ({u.aandrijving}
+                    {u.bouwjaren.length ? `, bouwjaar ${u.bouwjaren.length > 1 ? `${Math.min(...u.bouwjaren)}–${Math.max(...u.bouwjaren)}` : u.bouwjaren[0]}` : ", nieuw"}): {u.redenen.join(", ")}
                   </li>
                 ))}
               </ul>
@@ -419,7 +482,11 @@ export default function Autokeuze() {
           <details>
             <summary>Wat zit er (nog) niet in?</summary>
             <ul className="uitleg">
-              <li>Alleen nieuwe auto&apos;s, contant gekocht. Occasions (stap 3b) en financieringsvormen zoals private lease (stap 3c) volgen.</li>
+              <li>Contant gekocht. Financieringsvormen zoals private lease volgen in stap 3c.</li>
+              <li>
+                Occasions: per model en bouwjaar de nieuwprijs en specificaties van toen (RDW, {occasionHerkomst.peildatum}). De prijs is een schatting met een generieke
+                afschrijvingscurve en 15.000 km per jaar; geen marktprijs. Verbruik van vóór 2019 is omgerekend uit de oudere NEDC-test.
+              </li>
               <li>Prijzen zijn de mediane catalogusprijs van recent geregistreerde exemplaren (RDW, {datasetPeildatum}), inclusief opties en zonder kortingen.</li>
               <li>Verbruik is de officiële WLTP-opgave. In de praktijk ligt het vaak hoger, vooral in de winter. Daar corrigeren we nog niet voor.</li>
               <li>Restwaarde en onderhoud zijn rekenmodellen die niet per merk verschillen. Verzekering is voor elk model gelijk.</li>

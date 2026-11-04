@@ -54,3 +54,9 @@ Format: datum · beslissing · waarom · door wie · status
 | 48 | 2026-11-04 | Schuifjes 0–40 in stappen van 5 in plaats van 0–5; tie-break op afgeronde eindscore | startwaarden blijven exact zichtbaar; eenduidige sortering | Claude | uitgevoerd |
 | 49 | 2026-11-04 | Energieprijzen: CBS voor brandstof en thuisstroom; publiek/snelladen als gelabelde aanname | geen officieel gemiddelde laadtarief | Claude | uitgevoerd |
 | 50 | 2026-11-04 | Startpagina is nu de autokeuze; de Fase 1-rekenpagina staat op `/rekenpagina` | de hoofdflow hoort op de voorpagina | Claude | uitgevoerd |
+| 51 | 2026-11-04 | Occasiondata per model × bouwjaar (2016–2025) uit RDW: 4 × 50 kentekens per bouwjaar (laatste toelatingen per kwartaal), niet geëxporteerd | nieuwprijs en specs van dat bouwjaar zijn eerlijker dan die van nu; spreiding over het jaar | Claude | uitgevoerd |
+| 52 | 2026-11-04 | Verbruik zonder WLTP-waarde = NEDC × mediane WLTP/NEDC-verhouding uit RDW-auto's met beide waarden | geen omrekenfactor uit het geheugen; afgeleid uit dezelfde bron | Claude | uitgevoerd |
+| 53 | 2026-11-04 | Occasion-kilometerstand = 15.000 km per jaar oud (aanname); maximale km-stand optioneel als harde eis | RDW publiceert geen tellerstand | Claude | uitgevoerd |
+| 54 | 2026-11-04 | Euro NCAP telt niet mee voor een occasion als het model alleen ná het bouwjaar is getest | latere test gaat meestal over een nieuwere generatie; geen gok | Claude | uitgevoerd |
+| 55 | 2026-11-04 | Occasion-gewichtsaanpassing (BETR +5, ONDH +5) alleen bij "alleen occasion", niet bij "allebei" | bij allebei moeten nieuw en occasion op dezelfde schaal vergeleken worden | Claude | uitgevoerd |
+| 56 | 2026-11-04 | Diesel-occasions: aangenomen dat er een roetfilter is geregistreerd (geen fijnstoftoeslag MRB) | de grens voor de toeslag is nog niet tegen de wet gecontroleerd; check per kenteken in de kentekencheck | Claude | open: per kenteken verifiëren |

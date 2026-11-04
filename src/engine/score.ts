@@ -20,10 +20,11 @@ export function lineaireScore(waarde: number, slecht: number, goed: number): num
   return Math.round(Math.min(100, Math.max(0, s)) * 10) / 10;
 }
 
-/** Startgewichten voor een profiel, met de automatische gezinsaanpassing. Nooit onder 0. */
-export function startGewichten(profiel: Profiel, opties: { gezin: boolean }): Gewichten {
+/** Startgewichten voor een profiel, met de automatische aanpassingen voor gezin en occasion. Nooit onder 0. */
+export function startGewichten(profiel: Profiel, opties: { gezin: boolean; occasion?: boolean }): Gewichten {
   const g = { ...standaardGewichten[profiel] };
-  if (opties.gezin) for (const [c, d] of Object.entries(profielTweaks.gezin) as [Criterium, number][]) g[c] = Math.max(0, g[c] + d);
+  const tweaks = [opties.gezin && profielTweaks.gezin, opties.occasion && profielTweaks.occasion].filter(Boolean) as Partial<Gewichten>[];
+  for (const t of tweaks) for (const [c, d] of Object.entries(t) as [Criterium, number][]) g[c] = Math.max(0, g[c] + d);
   return g;
 }
 
