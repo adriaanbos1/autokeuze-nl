@@ -18,10 +18,7 @@ Daarna zet elke nieuwe versie die ik naar GitHub stuur zichzelf automatisch onli
 - **Euro NCAP:** vóór een openbare livegang eerst toestemming vragen (besluit 31). Een afgeschermde testlink is iets anders dan publiceren, maar zet de link niet breed rond.
 
 ## Tot die tijd: testen op je telefoon via wifi
-Zet laptop en telefoon op hetzelfde wifi-netwerk en start de app zo:
-```bash
-npm run dev -- -H 0.0.0.0
-```
+Zet laptop en telefoon op hetzelfde wifi-netwerk en start de app gewoon met `npm run dev` (die luistert standaard ook op het netwerk). Mogelijk vraagt macOS of je inkomende verbindingen wilt toestaan.
 Zoek het adres van je laptop op:
 ```bash
 ipconfig getifaddr en0
