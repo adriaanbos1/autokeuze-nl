@@ -47,6 +47,9 @@ export interface UitvoeringRdw {
   co2Wltp: number | null;
   /** Elektrische actieradius WLTP (EV of plug-in hybride). */
   actieradiusWltpKm: number | null;
+  /** Alleen bestelauto's: laadvermogen (kg) en de meest voorkomende emissieklasse (voor ZE-zones). */
+  laadvermogenKg?: number | null;
+  emissieklasse?: string | null;
   /** Alleen occasions: of een waarde WLTP is of omgerekend uit de oudere NEDC-test. */
   meetmethode?: Partial<Record<"verbruik" | "co2" | "actieradius", "wltp" | "nedc-omgerekend" | null>>;
 }

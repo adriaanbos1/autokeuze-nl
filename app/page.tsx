@@ -21,6 +21,7 @@ import {
   type Intake,
   type Resultaat,
   type Soort,
+  type Voertuig,
 } from "@/data/ranking";
 import { occasionHerkomst } from "@/data/occasions-data";
 import type { Aandrijvingstype } from "@/data/types";
@@ -61,6 +62,7 @@ const BUDGETVRAAG: Record<Profiel, string> = {
 
 const STANDAARD: Intake = {
   profiel: "particulier",
+  voertuig: "personenauto",
   soort: "beide",
   maxLeeftijdJaar: 8,
   maxKmStand: null,
@@ -236,6 +238,48 @@ function Intakeformulier({ intake, zet }: { intake: Intake; zet: (i: Intake) => 
                 : "Leaseauto's zijn nieuw; we rekenen met de bijtelling van het jaar waarin je de auto krijgt."}{" "}
             Niet nagerekend door een fiscalist: laat je bij een definitief besluit adviseren.
           </p>
+        </>
+      )}
+
+      {(intake.profiel === "zzp" || intake.profiel === "dga") && (
+        <>
+          <fieldset className="keuzeknoppen">
+            <legend>Wat zoek je?</legend>
+            {(
+              [
+                ["personenauto", "Personenauto"],
+                ["bestelauto", "Bestelauto"],
+              ] as [Voertuig, string][]
+            ).map(([v, t]) => (
+              <button key={v} type="button" className={intake.voertuig === v ? "gekozen" : ""} aria-pressed={intake.voertuig === v} onClick={() => zet({ ...intake, voertuig: v })}>
+                {t}
+              </button>
+            ))}
+          </fieldset>
+          {intake.voertuig === "bestelauto" && (
+            <div className="velden">
+              <Getal
+                label="Benodigd laadvermogen (kg, 0 = maakt niet uit)"
+                waarde={intake.zakelijk.laadvermogenNodig}
+                zet={(n) => zz({ laadvermogenNodig: n })}
+                stap={100}
+              />
+              <JaNee
+                label="Rijd je privé met de bestelauto?"
+                waarde={intake.zakelijk.bestelPriveGebruik}
+                zet={(b) => zz({ bestelPriveGebruik: b })}
+              />
+              <JaNee
+                label="Moet je de hele looptijd in zero-emissiezones (binnensteden) kunnen komen?"
+                waarde={intake.zakelijk.zeZoneNodig}
+                zet={(b) => zz({ zeZoneNodig: b })}
+              />
+              <p className="uitleg">
+                &quot;Nee&quot; bij privégebruik betekent: je vraagt een verklaring uitsluitend zakelijk gebruik aan. Dan geen bijtelling en geen btw-correctie,
+                maar ook écht geen privéritten. Euro NCAP geeft bestelauto&apos;s geen sterren, dus veiligheid telt hier niet mee.
+              </p>
+            </div>
+          )}
         </>
       )}
 

@@ -27,6 +27,8 @@ npx vite-node --config vitest.config.ts scripts/haal-specs.ts   # officiële spe
 node scripts/haal-apk.ts                # APK-gebreken voor de betrouwbaarheidsscore (~15 min)
 node scripts/haal-ncap.ts               # Euro NCAP-sterren uit de openbare uitslagpagina's (~2 min)
 npx vite-node --config vitest.config.ts scripts/haal-occasions.ts   # specs per model en bouwjaar voor occasions (~40 min)
+# Bestelauto's: dezelfde scripts met --bestel (selectie top 20, specs, occasions, APK):
+node scripts/selecteer-modellen.ts 20 --bestel
 ```
 
 ## Structuur

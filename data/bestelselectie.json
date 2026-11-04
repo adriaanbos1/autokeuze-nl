@@ -1,0 +1,240 @@
+{
+  "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json",
+  "peildatum": "2026-11-04",
+  "regel": "Bedrijfsauto categorie N1, datum eerste toelating ≥ 20190101, export_indicator = Nee; top 20 modelfamilies op aantal registraties (normalisatie: src/data/normaliseer.ts).",
+  "aantalRegistratiesGeteld": 544862,
+  "dekkingGekozen": 75,
+  "modellen": [
+    {
+      "rang": 1,
+      "id": "mercedes-benz-sprinter",
+      "merk": "MERCEDES-BENZ",
+      "model": "SPRINTER",
+      "registraties": 47602,
+      "varianten": [
+        "SPRINTER",
+        "Sprinter",
+        "SPRINTER MULTICAB",
+        "SPRINTER BE-COMBI 3500PLUS",
+        "SPRINTER CB"
+      ]
+    },
+    {
+      "rang": 2,
+      "id": "ford-transit-custom",
+      "merk": "FORD",
+      "model": "TRANSIT CUSTOM",
+      "registraties": 44531,
+      "varianten": [
+        "TRANSIT CUSTOM",
+        "Transit Custom",
+        "TRANSIT CUSTOM BUSINESSVAN"
+      ]
+    },
+    {
+      "rang": 3,
+      "id": "volkswagen-caddy",
+      "merk": "VOLKSWAGEN",
+      "model": "CADDY",
+      "registraties": 32998,
+      "varianten": [
+        "CADDY MODIFIED PARTITION WALL",
+        "CADDY",
+        "CADDY 75 EDITION"
+      ]
+    },
+    {
+      "rang": 4,
+      "id": "volkswagen-transporter",
+      "merk": "VOLKSWAGEN",
+      "model": "TRANSPORTER",
+      "registraties": 31824,
+      "varianten": [
+        "TRANSPORTER",
+        "TRANSPORTER DOUBLECAB",
+        "TRANSPORTER SN DOUBLE CAB",
+        "TRANSPORTER 75 EDITION",
+        "TRANSPORTER SN DOUBLE CAB 75 EDITION"
+      ]
+    },
+    {
+      "rang": 5,
+      "id": "renault-trafic",
+      "merk": "RENAULT",
+      "model": "TRAFIC",
+      "registraties": 31160,
+      "varianten": [
+        "TRAFIC",
+        "TRAFIC E-TECH"
+      ]
+    },
+    {
+      "rang": 6,
+      "id": "mercedes-benz-vito",
+      "merk": "MERCEDES-BENZ",
+      "model": "VITO",
+      "registraties": 26691,
+      "varianten": [
+        "VITO",
+        "Vito",
+        "VITO TOURER",
+        "VITO BUSINESSVAN"
+      ]
+    },
+    {
+      "rang": 7,
+      "id": "renault-master",
+      "merk": "RENAULT",
+      "model": "MASTER",
+      "registraties": 25780,
+      "varianten": [
+        "MASTER",
+        "MASTER E-TECH",
+        "MASTER BE-COMBI 3500PLUS",
+        "MASTER Z.E."
+      ]
+    },
+    {
+      "rang": 8,
+      "id": "volkswagen-crafter",
+      "merk": "VOLKSWAGEN",
+      "model": "CRAFTER",
+      "registraties": 25720,
+      "varianten": [
+        "CRAFTER",
+        "CRAFTER 75 EDITION",
+        "CRAFTER DOUBLECAB",
+        "CRAFTER CB"
+      ]
+    },
+    {
+      "rang": 9,
+      "id": "ford-transit",
+      "merk": "FORD",
+      "model": "TRANSIT",
+      "registraties": 18420,
+      "varianten": [
+        "TRANSIT",
+        "Transit"
+      ]
+    },
+    {
+      "rang": 10,
+      "id": "opel-vivaro",
+      "merk": "OPEL",
+      "model": "VIVARO",
+      "registraties": 18370,
+      "varianten": [
+        "VIVARO"
+      ]
+    },
+    {
+      "rang": 11,
+      "id": "peugeot-expert",
+      "merk": "PEUGEOT",
+      "model": "EXPERT",
+      "registraties": 16996,
+      "varianten": [
+        "EXPERT",
+        "EXPERT / EXPERT TRAVELLER"
+      ]
+    },
+    {
+      "rang": 12,
+      "id": "ford-transit-connect",
+      "merk": "FORD",
+      "model": "TRANSIT CONNECT",
+      "registraties": 14309,
+      "varianten": [
+        "TRANSIT CONNECT",
+        "Transit Connect"
+      ]
+    },
+    {
+      "rang": 13,
+      "id": "peugeot-partner",
+      "merk": "PEUGEOT",
+      "model": "PARTNER",
+      "registraties": 13878,
+      "varianten": [
+        "PARTNER"
+      ]
+    },
+    {
+      "rang": 14,
+      "id": "man-tge",
+      "merk": "MAN",
+      "model": "TGE",
+      "registraties": 9632,
+      "varianten": [
+        "TGE"
+      ]
+    },
+    {
+      "rang": 15,
+      "id": "opel-combo",
+      "merk": "OPEL",
+      "model": "COMBO",
+      "registraties": 9602,
+      "varianten": [
+        "COMBO",
+        "COMBO VAN",
+        "Combo"
+      ]
+    },
+    {
+      "rang": 16,
+      "id": "toyota-proace",
+      "merk": "TOYOTA",
+      "model": "PROACE",
+      "registraties": 8929,
+      "varianten": [
+        "PROACE",
+        "PROACE MAX"
+      ]
+    },
+    {
+      "rang": 17,
+      "id": "volkswagen-id.-buzz",
+      "merk": "VOLKSWAGEN",
+      "model": "ID. BUZZ",
+      "registraties": 8533,
+      "varianten": [
+        "ID. BUZZ CARGO MODIFIED PARTITION WALL",
+        "ID. BUZZ CARGO 150 KW"
+      ]
+    },
+    {
+      "rang": 18,
+      "id": "mercedes-benz-citan",
+      "merk": "MERCEDES-BENZ",
+      "model": "CITAN",
+      "registraties": 8361,
+      "varianten": [
+        "CITAN"
+      ]
+    },
+    {
+      "rang": 19,
+      "id": "renault-kangoo",
+      "merk": "RENAULT",
+      "model": "KANGOO",
+      "registraties": 7738,
+      "varianten": [
+        "KANGOO",
+        "KANGOO VAN",
+        "KANGOO EXPRESS Z.E."
+      ]
+    },
+    {
+      "rang": 20,
+      "id": "citroen-jumpy",
+      "merk": "CITROEN",
+      "model": "JUMPY",
+      "registraties": 7499,
+      "varianten": [
+        "JUMPY"
+      ]
+    }
+  ]
+}

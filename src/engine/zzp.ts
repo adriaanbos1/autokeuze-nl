@@ -5,6 +5,7 @@ import { regels } from "@/regels/regels-nl";
 import { rond2, som, type Post } from "./geld";
 import { bijtellingPerJaar, type Aandrijving } from "./bijtelling";
 import { financialLease } from "./financiering";
+import { kia2026 } from "./inkomstenbelasting";
 
 export type ZzpVorm = "koopZakelijk" | "koopPrive" | "financialLeaseZakelijk" | "operationalLease";
 
@@ -26,6 +27,24 @@ export interface ZzpAuto {
   /** Per jaar, zonder btw. */
   mrb: number;
   verzekering: number;
+  /** Komt de auto in aanmerking voor de KIA? Bestelauto ja, personenauto nee (art. 3.45 Wet IB). */
+  kiaToegestaan?: boolean;
+}
+
+/**
+ * KIA per jaar, gemiddeld over de looptijd: aftrek in het investeringsjaar, min de desinvesteringsbijtelling
+ * als de auto binnen 5 jaar wordt verkocht (zelfde percentage over de verkoopprijs). Aanname: dit is je enige
+ * investering dat jaar.
+ */
+export function kiaPerJaar(investeringExclBtw: number, restwaarde: number, looptijdJaren: number): { perJaar: number; uitleg: string } {
+  const kia = kia2026(investeringExclBtw);
+  if (kia === 0) return { perJaar: 0, uitleg: "geen KIA (investering buiten de grenzen)" };
+  const pctKia = kia / investeringExclBtw;
+  const desinvestering = looptijdJaren <= 5 ? Math.min(kia, pctKia * restwaarde) : 0;
+  return {
+    perJaar: rond2((kia - desinvestering) / looptijdJaren),
+    uitleg: `KIA 2026 ${eur(kia)}${desinvestering ? ` − desinvesteringsbijtelling ${eur(desinvestering)} bij verkoop binnen 5 jaar` : ""}, verdeeld over ${looptijdJaren} jaar (aanname: enige investering dat jaar)`,
+  };
 }
 
 export interface ZzpSituatie {
@@ -82,11 +101,20 @@ export function gemiddeldeBtwCorrectie(a: ZzpAuto, s: ZzpSituatie, btwAftrekBijA
 const exclBtw = (bedrag: number, aftrekbaar: boolean) => (aftrekbaar ? rond2(bedrag / (1 + btw)) : bedrag);
 
 /** Zakelijke variant: kosten aftrekbaar, bijtelling begrensd tot die kosten, plus niet-aftrekbare posten. */
-function zakelijk(vorm: ZzpVorm, a: ZzpAuto, s: ZzpSituatie, aftrekbaar: Post[], nietAftrekbaar: Post[], btwAftrekBijAanschaf: boolean): ZzpUitkomst {
+function zakelijk(
+  vorm: ZzpVorm,
+  a: ZzpAuto,
+  s: ZzpSituatie,
+  aftrekbaar: Post[],
+  nietAftrekbaar: Post[],
+  btwAftrekBijAanschaf: boolean,
+  kia: { perJaar: number; uitleg: string } | null = null,
+): ZzpUitkomst {
   const kosten = som(...aftrekbaar.map((p) => p.bedrag));
   const bijtellingVol = gemiddeldeBijtelling(a, s.priveKm);
   const bijtelling = Math.min(bijtellingVol, kosten);
-  const voordeel = rond2(s.belastingvoordeel(kosten - bijtelling));
+  const kiaBedrag = kia?.perJaar ?? 0;
+  const voordeel = rond2(s.belastingvoordeel(kosten - bijtelling + kiaBedrag));
   const btwCorrectie = gemiddeldeBtwCorrectie(a, s, btwAftrekBijAanschaf);
   const posten: Post[] = [
     ...aftrekbaar,
@@ -96,7 +124,8 @@ function zakelijk(vorm: ZzpVorm, a: ZzpAuto, s: ZzpSituatie, aftrekbaar: Post[],
       bedrag: bijtelling,
       uitleg: bijtellingVol === 0 ? "≤ 500 km privé: geen bijtelling" : `gemiddeld ${eur(bijtellingVol)} per jaar over de looptijd; telt niet als kosten maar verlaagt je aftrek`,
     },
-    { label: "Belastingvoordeel", bedrag: -voordeel, uitleg: `minder inkomstenbelasting door ${eur(kosten - bijtelling)} aftrek (kosten − bijtelling)` },
+    ...(kia ? [{ label: "KIA (aftrekpost, geen kosten)", bedrag: 0, uitleg: kia.uitleg + `: ${eur(kiaBedrag)} per jaar` }] : []),
+    { label: "Belastingvoordeel", bedrag: -voordeel, uitleg: `minder inkomstenbelasting door ${eur(kosten - bijtelling + kiaBedrag)} aftrek (kosten − bijtelling${kia ? " + KIA" : ""})` },
     { label: "Btw-correctie privégebruik", bedrag: btwCorrectie, uitleg: btwCorrectie ? `${btwAftrekBijAanschaf ? "2,7% (1,5% vanaf jaar 5)" : "1,5% (geen btw-aftrek bij aanschaf)"} × catalogusprijs, gemiddeld` : "niet van toepassing" },
   ];
   const nettoPerJaar = som(kosten, ...nietAftrekbaar.map((p) => p.bedrag), -voordeel, btwCorrectie);
@@ -141,7 +170,8 @@ export function zzpVarianten(a: ZzpAuto, s: ZzpSituatie, l: ZzpLease): ZzpUitkom
   const uit: ZzpUitkomst[] = [];
 
   // 1. Kopen, auto zakelijk.
-  uit.push(zakelijk("koopZakelijk", a, s, [afschrijving, ...lopendZakelijk], [gemist((aanschaf + rest) / 2)], terugAanschaf));
+  const kia = a.kiaToegestaan ? kiaPerJaar(aanschaf, rest, n) : null;
+  uit.push(zakelijk("koopZakelijk", a, s, [afschrijving, ...lopendZakelijk], [gemist((aanschaf + rest) / 2)], terugAanschaf, kia));
 
   // 2. Kopen, auto privé + €0,25 per zakelijke km. Geen btw terug.
   {
@@ -169,7 +199,7 @@ export function zzpVarianten(a: ZzpAuto, s: ZzpSituatie, l: ZzpLease): ZzpUitkom
     const slot = Math.min(l.financialLease.slottermijn, aanschaf);
     const f = financialLease(aanschaf, l.financialLease.jaarrente, n * 12, slot, rest);
     const rente: Post = { label: "Rente", bedrag: rond2(f.totaleRente / n), uitleg: `${pct(l.financialLease.jaarrente)} over ${eur(aanschaf)}, slottermijn ${eur(slot)}` };
-    uit.push(zakelijk("financialLeaseZakelijk", a, s, [afschrijving, rente, ...lopendZakelijk], [], terugAanschaf));
+    uit.push(zakelijk("financialLeaseZakelijk", a, s, [afschrijving, rente, ...lopendZakelijk], [], terugAanschaf, kia));
   }
 
   // 4. Operational lease: leaseprijs (incl. MRB, verzekering, onderhoud) + energie, aftrekbaar.

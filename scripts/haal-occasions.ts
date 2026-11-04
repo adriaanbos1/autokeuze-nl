@@ -13,14 +13,14 @@ import { readFileSync, writeFileSync } from "node:fs";
 import type { Aandrijvingstype } from "../src/data/types";
 import { aandrijvingUitRdw as aandrijving } from "../src/data/aandrijving";
 import { verbruikLegeAccu } from "../src/engine/phev";
-import { mediaan, RDW, soql, vandaag } from "./rdw";
+import { mediaan, RDW, SOORT, soql, vandaag } from "./rdw";
 
 const EERSTE_BOUWJAAR = 2016;
 const LAATSTE_BOUWJAAR = 2025;
 const PER_KWARTAAL = 50;
 const MIN_PER_AANDRIJVING = 20;
 
-const selectie = JSON.parse(readFileSync("data/modelselectie.json", "utf8")) as {
+const selectie = JSON.parse(readFileSync(SOORT.selectie, "utf8")) as {
   modellen: { id: string; merk: string; model: string; varianten: string[] }[];
 };
 
@@ -65,8 +65,8 @@ for (const m of selectie.modellen) {
     for (const [van, tot] of [["0101", "0331"], ["0401", "0630"], ["0701", "0930"], ["1001", "1231"]]) {
       voertuigen.push(
         ...(await soql<Rij>(RDW.voertuigen, {
-          $select: "kenteken,datum_eerste_toelating,catalogusprijs,massa_rijklaar,aantal_zitplaatsen,maximum_trekken_massa_geremd,lengte",
-          $where: `voertuigsoort='Personenauto' AND export_indicator='Nee' AND merk=${quote(m.merk)} AND handelsbenaming in(${m.varianten.map(quote).join(",")}) AND datum_eerste_toelating between '${jaar}${van}' and '${jaar}${tot}'`,
+          $select: "kenteken,datum_eerste_toelating,catalogusprijs,massa_rijklaar,aantal_zitplaatsen,maximum_trekken_massa_geremd,lengte,laadvermogen",
+          $where: `${SOORT.filter} AND export_indicator='Nee' AND merk=${quote(m.merk)} AND handelsbenaming in(${m.varianten.map(quote).join(",")}) AND datum_eerste_toelating between '${jaar}${van}' and '${jaar}${tot}'`,
           $order: "datum_eerste_toelating DESC, kenteken",
           $limit: String(PER_KWARTAAL),
         })),
@@ -156,6 +156,7 @@ for (const g of ruw) {
       co2Wltp: co2.waarde,
       actieradiusWltpKm: bereik.waarde,
       meetmethode: { verbruik: verbruik.methode, co2: co2.methode, actieradius: bereik.methode },
+      ...(SOORT.naam === "bestelauto" ? { laadvermogenKg: afgerond(mediaan(autos.map((x) => getal(x.v.laadvermogen)))) } : {}),
     });
   }
   uitvoeringen.sort((x, y) => y.steekproef - x.steekproef);
@@ -163,7 +164,7 @@ for (const g of ruw) {
 }
 
 writeFileSync(
-  "data/occasions-rdw.json",
+  SOORT.occasions,
   JSON.stringify(
     {
       bron: `${RDW.voertuigen} + ${RDW.brandstof}`,

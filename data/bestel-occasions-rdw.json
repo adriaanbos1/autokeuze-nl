@@ -1,0 +1,6669 @@
+{
+ "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+ "peildatum": "2026-11-04",
+ "methode": "Per bouwjaar (jaar van eerste toelating) de laatste 50 toelatingen van elk kwartaal, niet geëxporteerd; medianen per aandrijving (min. 20 kentekens). Catalogusprijs = nieuwprijs van toen, incl. btw, BPM en opties. Verbruik, CO₂ en actieradius: WLTP; zonder WLTP de NEDC-waarde × de mediane verhouding WLTP/NEDC uit auto's met beide waarden.",
+ "bouwjaren": [
+  2016,
+  2025
+ ],
+ "verhoudingen": {
+  "brandstof": {
+   "factor": 1.281,
+   "paren": 8227
+  },
+  "co2": {
+   "factor": 1.276,
+   "paren": 8734
+  },
+  "elektrisch": {
+   "factor": 1.032,
+   "paren": 13
+  },
+  "bereik": {
+   "factor": 0.822,
+   "paren": 8
+  }
+ },
+ "modellen": {
+  "mercedes-benz-sprinter": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 198,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 58497,
+      "massaRijklaar": 2343,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 593,
+      "vermogenKw": 105,
+      "verbruikWltp": 10.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 265,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1204
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 199,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 59998,
+      "massaRijklaar": 2358,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 593,
+      "vermogenKw": 105,
+      "verbruikWltp": 10.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 267,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1104
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 61223,
+      "massaRijklaar": 2357,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 593,
+      "vermogenKw": 105,
+      "verbruikWltp": 10.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 267,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1163
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 66213,
+      "massaRijklaar": 2345,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 593,
+      "vermogenKw": 105,
+      "verbruikWltp": 9.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 241,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1214
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 65770,
+      "massaRijklaar": 2388,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 593,
+      "vermogenKw": 120,
+      "verbruikWltp": 9.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 247,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1165
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 65841,
+      "massaRijklaar": 2427,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 593,
+      "vermogenKw": 110,
+      "verbruikWltp": 10,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 259,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1147
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 71765,
+      "massaRijklaar": 2328,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 593,
+      "vermogenKw": 110,
+      "verbruikWltp": 9.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 246,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1202
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 78675,
+      "massaRijklaar": 2373,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 593,
+      "vermogenKw": 110,
+      "verbruikWltp": 9.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 247,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1149
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 82384,
+      "massaRijklaar": 2327,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 593,
+      "vermogenKw": 125,
+      "verbruikWltp": 9.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 246,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1272
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 158,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 81408,
+      "massaRijklaar": 2334,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 593,
+      "vermogenKw": 110,
+      "verbruikWltp": 9.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 245,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1227
+     }
+    ]
+   }
+  ],
+  "ford-transit-custom": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 40371,
+      "massaRijklaar": 2016,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 497,
+      "vermogenKw": 77,
+      "verbruikWltp": 9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 237,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 899
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 41654,
+      "massaRijklaar": 2016,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 497,
+      "vermogenKw": 77,
+      "verbruikWltp": 7.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 205,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 926
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 43420,
+      "massaRijklaar": 2026,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 497,
+      "vermogenKw": 77,
+      "verbruikWltp": 7.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 211,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 884
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 47605,
+      "massaRijklaar": 2131,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 497,
+      "vermogenKw": 96,
+      "verbruikWltp": 7.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 202,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 882
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 194,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 49629,
+      "massaRijklaar": 2065,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 497,
+      "vermogenKw": 96,
+      "verbruikWltp": 7.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 202,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 964
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 189,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 50383,
+      "massaRijklaar": 2156,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 534,
+      "vermogenKw": 96,
+      "verbruikWltp": 7.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 206,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 982
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 192,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 51533,
+      "massaRijklaar": 2091,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 497,
+      "vermogenKw": 96,
+      "verbruikWltp": 7.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 194,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 956
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 195,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 57722,
+      "massaRijklaar": 2091,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 534,
+      "vermogenKw": 96,
+      "verbruikWltp": 7.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 200,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1009
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 190,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 61817,
+      "massaRijklaar": 1977,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 545,
+      "vermogenKw": 100,
+      "verbruikWltp": 7.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 195,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1261
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 129,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 61946,
+      "massaRijklaar": 2251,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 545,
+      "vermogenKw": 100,
+      "verbruikWltp": 23,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 316,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1158
+     },
+     {
+      "aandrijving": "plug-in hybride",
+      "steekproef": 67,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 58177,
+      "massaRijklaar": 2234,
+      "zitplaatsen": 5,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 545,
+      "vermogenKw": 87,
+      "verbruikWltp": 7.5,
+      "verbruikGewogenWltp": 2,
+      "elektrischVerbruikWltp": 20,
+      "co2Wltp": 40,
+      "actieradiusWltpKm": 51,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1091
+     }
+    ]
+   }
+  ],
+  "volkswagen-caddy": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 189,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 27649,
+      "massaRijklaar": 1491,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 441,
+      "vermogenKw": 55,
+      "verbruikWltp": 5.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 154,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 754
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 178,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 28962,
+      "massaRijklaar": 1491,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 441,
+      "vermogenKw": 75,
+      "verbruikWltp": 6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 158,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 754
+     },
+     {
+      "aandrijving": "benzine",
+      "steekproef": 21,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 27814,
+      "massaRijklaar": 1413,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 441,
+      "vermogenKw": 75,
+      "verbruikWltp": 7.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 170,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 755
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 180,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 30298,
+      "massaRijklaar": 1487,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 441,
+      "vermogenKw": 55,
+      "verbruikWltp": 6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 158,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 754
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 185,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 28934,
+      "massaRijklaar": 1496,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 441,
+      "vermogenKw": 55,
+      "verbruikWltp": 5.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 155,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 756
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 188,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 29073,
+      "massaRijklaar": 1497,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 441,
+      "vermogenKw": 55,
+      "verbruikWltp": 5.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 150,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 757
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 179,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 32203,
+      "massaRijklaar": 1497,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 450,
+      "vermogenKw": 75,
+      "verbruikWltp": 4.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 130,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 823
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 183,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 33679,
+      "massaRijklaar": 1512,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 450,
+      "vermogenKw": 55,
+      "verbruikWltp": 4.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 129,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 810
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 173,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 37853,
+      "massaRijklaar": 1545,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 450,
+      "vermogenKw": 75,
+      "verbruikWltp": 5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 130,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 810
+     },
+     {
+      "aandrijving": "benzine",
+      "steekproef": 27,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 36693,
+      "massaRijklaar": 1473,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 450,
+      "vermogenKw": 84,
+      "verbruikWltp": 6.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 152,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 806
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 186,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 42106,
+      "massaRijklaar": 1537,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 450,
+      "vermogenKw": 75,
+      "verbruikWltp": 5.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 141,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 810
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 81,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 45019,
+      "massaRijklaar": 1548,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 450,
+      "vermogenKw": 90,
+      "verbruikWltp": 5.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 145,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 816
+     },
+     {
+      "aandrijving": "benzine",
+      "steekproef": 49,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 45281,
+      "massaRijklaar": 1478,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 450,
+      "vermogenKw": 85,
+      "verbruikWltp": 6.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 151,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 775
+     }
+    ]
+   }
+  ],
+  "volkswagen-transporter": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 196,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 44756,
+      "massaRijklaar": 1972,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 530,
+      "vermogenKw": 103,
+      "verbruikWltp": 8.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 225,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 938
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 198,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 45177,
+      "massaRijklaar": 1978,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 530,
+      "vermogenKw": 110,
+      "verbruikWltp": 7.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 203,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 914
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 188,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 50056,
+      "massaRijklaar": 2004,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 530,
+      "vermogenKw": 110,
+      "verbruikWltp": 7.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 203,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 896
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 199,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 48073,
+      "massaRijklaar": 2010,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 530,
+      "vermogenKw": 110,
+      "verbruikWltp": 7.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 201,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 936
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 51040,
+      "massaRijklaar": 2005,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 530,
+      "vermogenKw": 110,
+      "verbruikWltp": 8.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 212,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 921
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 48326,
+      "massaRijklaar": 2005,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 530,
+      "vermogenKw": 110,
+      "verbruikWltp": 7.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 196,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 899
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 55397,
+      "massaRijklaar": 1929,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 530,
+      "vermogenKw": 110,
+      "verbruikWltp": 7.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 189,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 971
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 62400,
+      "massaRijklaar": 1929,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 530,
+      "vermogenKw": 110,
+      "verbruikWltp": 7.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 198,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1028
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 62269,
+      "massaRijklaar": 1929,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 530,
+      "vermogenKw": 110,
+      "verbruikWltp": 7.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 198,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1021
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 115,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 62412,
+      "massaRijklaar": 2246,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 545,
+      "vermogenKw": 160,
+      "verbruikWltp": 23.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 313,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1158
+     },
+     {
+      "aandrijving": "diesel",
+      "steekproef": 47,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 63895,
+      "massaRijklaar": 1974,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 545,
+      "vermogenKw": 110,
+      "verbruikWltp": 7.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 200,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1214
+     }
+    ]
+   }
+  ],
+  "renault-trafic": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 40034,
+      "massaRijklaar": 1825,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 540,
+      "vermogenKw": 85,
+      "verbruikWltp": 8.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 217,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1237
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 41510,
+      "massaRijklaar": 1825,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 540,
+      "vermogenKw": 89,
+      "verbruikWltp": 8.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 209,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1262
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 41046,
+      "massaRijklaar": 1835,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 540,
+      "vermogenKw": 89,
+      "verbruikWltp": 8.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 209,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1266
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 42165,
+      "massaRijklaar": 1835,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 540,
+      "vermogenKw": 89,
+      "verbruikWltp": 7.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 191,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1260
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 44082,
+      "massaRijklaar": 1859,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 540,
+      "vermogenKw": 88,
+      "verbruikWltp": 7.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 192,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1260
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 44387,
+      "massaRijklaar": 1859,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 540,
+      "vermogenKw": 88,
+      "verbruikWltp": 7.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 191,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1291
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 50668,
+      "massaRijklaar": 1899,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 548,
+      "vermogenKw": 96,
+      "verbruikWltp": 7.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 187,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1271
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 52056,
+      "massaRijklaar": 1899,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 548,
+      "vermogenKw": 96,
+      "verbruikWltp": 7.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 188,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1248
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 190,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 56690,
+      "massaRijklaar": 1903,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 548,
+      "vermogenKw": 110,
+      "verbruikWltp": 7.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 187,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1252
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 194,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 50844,
+      "massaRijklaar": 1960,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 548,
+      "vermogenKw": 90,
+      "verbruikWltp": 25.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 240,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1210
+     }
+    ]
+   }
+  ],
+  "mercedes-benz-vito": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 48927,
+      "massaRijklaar": 2050,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 514,
+      "vermogenKw": 100,
+      "verbruikWltp": 7.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 208,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 829
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 48446,
+      "massaRijklaar": 2045,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 514,
+      "vermogenKw": 100,
+      "verbruikWltp": 8.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 209,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 819
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 52367,
+      "massaRijklaar": 2051,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 514,
+      "vermogenKw": 100,
+      "verbruikWltp": 7.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 203,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 828
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 53972,
+      "massaRijklaar": 2068,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 514,
+      "vermogenKw": 100,
+      "verbruikWltp": 7.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 203,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 831
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 55694,
+      "massaRijklaar": 2088,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 514,
+      "vermogenKw": 100,
+      "verbruikWltp": 7.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 200,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 827
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 59307,
+      "massaRijklaar": 2095,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 514,
+      "vermogenKw": 100,
+      "verbruikWltp": 7.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 193,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 825
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 62927,
+      "massaRijklaar": 2083,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 514,
+      "vermogenKw": 100,
+      "verbruikWltp": 7.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 198,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 825
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 69976,
+      "massaRijklaar": 2082,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 514,
+      "vermogenKw": 100,
+      "verbruikWltp": 7.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 196,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 824
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 76928,
+      "massaRijklaar": 1934,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 514,
+      "vermogenKw": 100,
+      "verbruikWltp": 7.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 190,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 966
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 153,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 77887,
+      "massaRijklaar": 2017,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 514,
+      "vermogenKw": 120,
+      "verbruikWltp": 7.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 190,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1083
+     }
+    ]
+   }
+  ],
+  "renault-master": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 47516,
+      "massaRijklaar": 2085,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 555,
+      "vermogenKw": 96,
+      "verbruikWltp": 10,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 264,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1420
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 48775,
+      "massaRijklaar": 2099,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 555,
+      "vermogenKw": 96,
+      "verbruikWltp": 10,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 256,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1418
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 48982,
+      "massaRijklaar": 2090,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 555,
+      "vermogenKw": 96,
+      "verbruikWltp": 10,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 260,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1442
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 183,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 51073,
+      "massaRijklaar": 2099,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 555,
+      "vermogenKw": 107,
+      "verbruikWltp": 9.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 253,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1456
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 199,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 52451,
+      "massaRijklaar": 2090,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 555,
+      "vermogenKw": 110,
+      "verbruikWltp": 9.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 253,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1456
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 53033,
+      "massaRijklaar": 2049,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 555,
+      "vermogenKw": 107,
+      "verbruikWltp": 9.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 250,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1456
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 197,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 59253,
+      "massaRijklaar": 2056,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 555,
+      "vermogenKw": 107,
+      "verbruikWltp": 9.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 245,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1531
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 197,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 59712,
+      "massaRijklaar": 2056,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 555,
+      "vermogenKw": 107,
+      "verbruikWltp": 9.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 243,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1544
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 199,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 61110,
+      "massaRijklaar": 2128,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 569,
+      "vermogenKw": 110,
+      "verbruikWltp": 9.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 239,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1472
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 197,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 64946,
+      "massaRijklaar": 2378,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 569,
+      "vermogenKw": 105,
+      "verbruikWltp": 25.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 397,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1222
+     }
+    ]
+   }
+  ],
+  "volkswagen-crafter": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 51206,
+      "massaRijklaar": 2264,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 591,
+      "vermogenKw": 100,
+      "verbruikWltp": 10.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 276,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1139
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 52802,
+      "massaRijklaar": 2202,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 103,
+      "verbruikWltp": 9.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 251,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1361
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 197,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 53191,
+      "massaRijklaar": 2105,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 103,
+      "verbruikWltp": 9.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 248,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1415
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 57269,
+      "massaRijklaar": 2121,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 103,
+      "verbruikWltp": 9.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 256,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1434
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 184,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 58008,
+      "massaRijklaar": 2121,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 103,
+      "verbruikWltp": 9.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 260,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1407
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 182,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 61741,
+      "massaRijklaar": 2165,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 103,
+      "verbruikWltp": 10,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 260,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1407
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 198,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 63499,
+      "massaRijklaar": 2163,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 103,
+      "verbruikWltp": 9.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 242,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1392
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 197,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 67466,
+      "massaRijklaar": 2153,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 103,
+      "verbruikWltp": 9.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 244,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1438
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 73077,
+      "massaRijklaar": 2164,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 103,
+      "verbruikWltp": 9.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 244,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1312
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 157,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 75704,
+      "massaRijklaar": 2288,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 675,
+      "vermogenKw": 103,
+      "verbruikWltp": 11.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 296,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1308
+     }
+    ]
+   }
+  ],
+  "ford-transit": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 44345,
+      "massaRijklaar": 2131,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 553,
+      "vermogenKw": 92,
+      "verbruikWltp": 9.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 246,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1109
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 48232,
+      "massaRijklaar": 2271,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 577,
+      "vermogenKw": 96,
+      "verbruikWltp": 9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 232,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1119
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 51168,
+      "massaRijklaar": 2271,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 598,
+      "vermogenKw": 96,
+      "verbruikWltp": 9.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 236,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1185
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 199,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 50383,
+      "massaRijklaar": 2271,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 598,
+      "vermogenKw": 96,
+      "verbruikWltp": 8.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 224,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1119
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 197,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 51898,
+      "massaRijklaar": 2292,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 598,
+      "vermogenKw": 96,
+      "verbruikWltp": 8.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 230,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1205
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 182,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 54469,
+      "massaRijklaar": 2290,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 598,
+      "vermogenKw": 96,
+      "verbruikWltp": 8.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 227,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1188
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 179,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 56650,
+      "massaRijklaar": 2307,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 598,
+      "vermogenKw": 96,
+      "verbruikWltp": 9.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 239,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1173
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 134,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 64805,
+      "massaRijklaar": 2173,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 595,
+      "vermogenKw": 96,
+      "verbruikWltp": 9.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 241,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1394
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 60,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 76321,
+      "massaRijklaar": 2803,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 670,
+      "vermogenKw": 135,
+      "verbruikWltp": 31.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 248,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 797
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 158,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 67848,
+      "massaRijklaar": 2203,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 598,
+      "vermogenKw": 96,
+      "verbruikWltp": 9.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 235,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1343
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 42,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 76502,
+      "massaRijklaar": 2803,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 670,
+      "vermogenKw": 135,
+      "verbruikWltp": 31.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 248,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 797
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 166,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 70997,
+      "massaRijklaar": 2816,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 625,
+      "vermogenKw": 135,
+      "verbruikWltp": 31.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 251,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 784
+     },
+     {
+      "aandrijving": "diesel",
+      "steekproef": 34,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 70448,
+      "massaRijklaar": 2191,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 553,
+      "vermogenKw": 96,
+      "verbruikWltp": 8.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 231,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1409
+     }
+    ]
+   }
+  ],
+  "opel-vivaro": [
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 103,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 45573,
+      "massaRijklaar": 1760,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 90,
+      "verbruikWltp": 7.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 196,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1355
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 198,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 43275,
+      "massaRijklaar": 1760,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 90,
+      "verbruikWltp": 7.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 195,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1285
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 179,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 44383,
+      "massaRijklaar": 1760,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 90,
+      "verbruikWltp": 7.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 193,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1355
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 21,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 50812,
+      "massaRijklaar": 2100,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 100,
+      "verbruikWltp": 26.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 307,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1027
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 133,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 50745,
+      "massaRijklaar": 1767,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 106,
+      "verbruikWltp": 7.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 194,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1418
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 67,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 55039,
+      "massaRijklaar": 2128,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 100,
+      "verbruikWltp": 26.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 314,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1027
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 148,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 51247,
+      "massaRijklaar": 1767,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 106,
+      "verbruikWltp": 7.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 199,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1418
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 50,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 55587,
+      "massaRijklaar": 2100,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 100,
+      "verbruikWltp": 26.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 317,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1025
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 173,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 52723,
+      "massaRijklaar": 1835,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 106,
+      "verbruikWltp": 7.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 200,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1332
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 27,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 57136,
+      "massaRijklaar": 2128,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 100,
+      "verbruikWltp": 26.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 316,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1027
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 172,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 55418,
+      "massaRijklaar": 2118,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 100,
+      "verbruikWltp": 24.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 346,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1026
+     },
+     {
+      "aandrijving": "diesel",
+      "steekproef": 28,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 52490,
+      "massaRijklaar": 1791,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 498,
+      "vermogenKw": 106,
+      "verbruikWltp": 7.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 194,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1409
+     }
+    ]
+   }
+  ],
+  "peugeot-expert": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 34750,
+      "massaRijklaar": 1690,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 90,
+      "verbruikWltp": 7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 184,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1143
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 37370,
+      "massaRijklaar": 1688,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 90,
+      "verbruikWltp": 7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 184,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1181
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 39646,
+      "massaRijklaar": 1729,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 90,
+      "verbruikWltp": 6.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 177,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1356
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 40602,
+      "massaRijklaar": 1732,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 90,
+      "verbruikWltp": 7.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 189,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1209
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 196,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 40503,
+      "massaRijklaar": 1735,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 90,
+      "verbruikWltp": 7.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 189,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1184
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 185,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 43185,
+      "massaRijklaar": 1735,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 90,
+      "verbruikWltp": 7.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 189,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1104
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 143,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 46692,
+      "massaRijklaar": 1728,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 106,
+      "verbruikWltp": 7.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 188,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1149
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 57,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 52683,
+      "massaRijklaar": 2116,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 100,
+      "verbruikWltp": 26.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 316,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1027
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 137,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 51437,
+      "massaRijklaar": 1753,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 106,
+      "verbruikWltp": 7.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 195,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1237
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 63,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 53845,
+      "massaRijklaar": 2116,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 100,
+      "verbruikWltp": 26.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 315,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1029
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 162,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 53033,
+      "massaRijklaar": 1835,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 498,
+      "vermogenKw": 106,
+      "verbruikWltp": 7.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 198,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1213
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 38,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 55502,
+      "massaRijklaar": 2100,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 100,
+      "verbruikWltp": 26.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 318,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1025
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 176,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 55769,
+      "massaRijklaar": 2100,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 514,
+      "vermogenKw": 100,
+      "verbruikWltp": 24.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 346,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1026
+     },
+     {
+      "aandrijving": "diesel",
+      "steekproef": 24,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 56650,
+      "massaRijklaar": 1830,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 533,
+      "vermogenKw": 106,
+      "verbruikWltp": 7.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 200,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1345
+     }
+    ]
+   }
+  ],
+  "ford-transit-connect": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 183,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 27516,
+      "massaRijklaar": 1553,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 442,
+      "vermogenKw": 70,
+      "verbruikWltp": 6.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 158,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 625
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 187,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 25943,
+      "massaRijklaar": 1544,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 442,
+      "vermogenKw": 74,
+      "verbruikWltp": 6.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 158,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 596
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 193,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 27847,
+      "massaRijklaar": 1589,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 482,
+      "vermogenKw": 74,
+      "verbruikWltp": 6.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 166,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 646
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 183,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 29299,
+      "massaRijklaar": 1653,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 443,
+      "vermogenKw": 74,
+      "verbruikWltp": 6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 156,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 646
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 181,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 32131,
+      "massaRijklaar": 1640,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 483,
+      "vermogenKw": 74,
+      "verbruikWltp": 5.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 148,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 708
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 172,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 32584,
+      "massaRijklaar": 1659,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 483,
+      "vermogenKw": 73,
+      "verbruikWltp": 5.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 143,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 725
+     },
+     {
+      "aandrijving": "benzine",
+      "steekproef": 28,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 24728,
+      "massaRijklaar": 1582,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 483,
+      "vermogenKw": 74,
+      "verbruikWltp": 7.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 162,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 702
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 189,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 36114,
+      "massaRijklaar": 1641,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 483,
+      "vermogenKw": 73,
+      "verbruikWltp": 5.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 150,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 736
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 195,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 41194,
+      "massaRijklaar": 1634,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 483,
+      "vermogenKw": 73,
+      "verbruikWltp": 6.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 160,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 736
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 154,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 41654,
+      "massaRijklaar": 1634,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 483,
+      "vermogenKw": 73,
+      "verbruikWltp": 5.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 159,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 816
+     },
+     {
+      "aandrijving": "plug-in hybride",
+      "steekproef": 37,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 51722,
+      "massaRijklaar": 1783,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 485,
+      "vermogenKw": 85,
+      "verbruikWltp": 6.5,
+      "verbruikGewogenWltp": 0.5,
+      "elektrischVerbruikWltp": 18.9,
+      "co2Wltp": 11,
+      "actieradiusWltpKm": 117,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 817
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "plug-in hybride",
+      "steekproef": 129,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 43955,
+      "massaRijklaar": 1783,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 485,
+      "vermogenKw": 85,
+      "verbruikWltp": 6.5,
+      "verbruikGewogenWltp": 0.5,
+      "elektrischVerbruikWltp": 19,
+      "co2Wltp": 12,
+      "actieradiusWltpKm": 117,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 817
+     }
+    ]
+   }
+  ],
+  "peugeot-partner": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 198,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 24547,
+      "massaRijklaar": 1369,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 438,
+      "vermogenKw": 55,
+      "verbruikWltp": 5.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 143,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 673
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 192,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 24730,
+      "massaRijklaar": 1367,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 438,
+      "vermogenKw": 55,
+      "verbruikWltp": 5.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 143,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 673
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 183,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 25060,
+      "massaRijklaar": 1367,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 438,
+      "vermogenKw": 55,
+      "verbruikWltp": 5.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 143,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 673
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 190,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 28958,
+      "massaRijklaar": 1395,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 440,
+      "vermogenKw": 73,
+      "verbruikWltp": 5.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 150,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 705
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 197,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 29172,
+      "massaRijklaar": 1395,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 440,
+      "vermogenKw": 75,
+      "verbruikWltp": 5.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 144,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 685
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 190,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 29632,
+      "massaRijklaar": 1395,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 440,
+      "vermogenKw": 75,
+      "verbruikWltp": 5.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 144,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 677
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 169,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 34917,
+      "massaRijklaar": 1473,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 440,
+      "vermogenKw": 75,
+      "verbruikWltp": 5.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 140,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 683
+     },
+     {
+      "aandrijving": "benzine",
+      "steekproef": 31,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 28727,
+      "massaRijklaar": 1359,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 440,
+      "vermogenKw": 81,
+      "verbruikWltp": 6.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 154,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 681
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 195,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 36710,
+      "massaRijklaar": 1463,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 440,
+      "vermogenKw": 75,
+      "verbruikWltp": 5.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 146,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 674
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 188,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 35734,
+      "massaRijklaar": 1476,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 440,
+      "vermogenKw": 75,
+      "verbruikWltp": 5.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 144,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 807
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 83,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 41540,
+      "massaRijklaar": 1505,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 440,
+      "vermogenKw": 96,
+      "verbruikWltp": 5.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 151,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 674
+     }
+    ]
+   }
+  ],
+  "man-tge": [
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 113,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 53778,
+      "massaRijklaar": 2098,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 103,
+      "verbruikWltp": 9.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 246,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1474
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 199,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 57714,
+      "massaRijklaar": 2194,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 130,
+      "verbruikWltp": 9.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 254,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1400
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 197,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 59563,
+      "massaRijklaar": 2194,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 130,
+      "verbruikWltp": 10.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 265,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1365
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 187,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 60975,
+      "massaRijklaar": 2166,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 130,
+      "verbruikWltp": 10.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 265,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1374
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 195,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 63995,
+      "massaRijklaar": 2200,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 130,
+      "verbruikWltp": 10.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 265,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1374
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 198,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 73905,
+      "massaRijklaar": 2227,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 130,
+      "verbruikWltp": 9.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 253,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1336
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 80571,
+      "massaRijklaar": 2199,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 130,
+      "verbruikWltp": 9.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 254,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1401
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 199,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 79844,
+      "massaRijklaar": 2246,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 120,
+      "verbruikWltp": 9.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 255,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1354
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 23,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 82665,
+      "massaRijklaar": 2432,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 599,
+      "vermogenKw": 120,
+      "verbruikWltp": 10.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 265,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1168
+     }
+    ]
+   }
+  ],
+  "opel-combo": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 175,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 24455,
+      "massaRijklaar": 1365,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 439,
+      "vermogenKw": 66,
+      "verbruikWltp": 6.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 161,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 775
+     },
+     {
+      "aandrijving": "benzine",
+      "steekproef": 25,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 20557,
+      "massaRijklaar": 1355,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 439,
+      "vermogenKw": 70,
+      "verbruikWltp": 9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 216,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 775
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 191,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 25771,
+      "massaRijklaar": 1460,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 474,
+      "vermogenKw": 70,
+      "verbruikWltp": 5.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 154,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1025
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 192,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 25200,
+      "massaRijklaar": 1395,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 439,
+      "vermogenKw": 70,
+      "verbruikWltp": 5.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 153,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1025
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 199,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 27087,
+      "massaRijklaar": 1395,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 440,
+      "vermogenKw": 73,
+      "verbruikWltp": 5.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 151,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 693
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 185,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 28830,
+      "massaRijklaar": 1395,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 440,
+      "vermogenKw": 75,
+      "verbruikWltp": 5.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 149,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 693
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 179,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 31398,
+      "massaRijklaar": 1477,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 475,
+      "vermogenKw": 75,
+      "verbruikWltp": 5.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 147,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 978
+     },
+     {
+      "aandrijving": "benzine",
+      "steekproef": 20,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 25758,
+      "massaRijklaar": 1388,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 440,
+      "vermogenKw": 81,
+      "verbruikWltp": 6.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 159,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 916
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 193,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 34023,
+      "massaRijklaar": 1446,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 440,
+      "vermogenKw": 75,
+      "verbruikWltp": 5.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 141,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 683
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 186,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 37900,
+      "massaRijklaar": 1496,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 440,
+      "vermogenKw": 75,
+      "verbruikWltp": 5.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 149,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 964
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 194,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 37638,
+      "massaRijklaar": 1497,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 440,
+      "vermogenKw": 75,
+      "verbruikWltp": 5.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 146,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 961
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 33,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 38841,
+      "massaRijklaar": 1494,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 440,
+      "vermogenKw": 75,
+      "verbruikWltp": 5.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 144,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 961
+     }
+    ]
+   }
+  ],
+  "toyota-proace": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 190,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 35257,
+      "massaRijklaar": 1672,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 85,
+      "verbruikWltp": 6.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 177,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1190
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 37313,
+      "massaRijklaar": 1729,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 90,
+      "verbruikWltp": 7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 184,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1185
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 37634,
+      "massaRijklaar": 1706,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 90,
+      "verbruikWltp": 7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 182,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1181
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 39393,
+      "massaRijklaar": 1729,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 90,
+      "verbruikWltp": 7.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 191,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1281
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 180,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 39027,
+      "massaRijklaar": 1844,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 90,
+      "verbruikWltp": 7.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 193,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1173
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 20,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 50215,
+      "massaRijklaar": 2100,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 514,
+      "vermogenKw": 100,
+      "verbruikWltp": 27,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 306,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1026
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 101,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 39900,
+      "massaRijklaar": 1782,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 90,
+      "verbruikWltp": 7.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 194,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1355
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 99,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 51655,
+      "massaRijklaar": 2116,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 100,
+      "verbruikWltp": 26.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 314,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1027
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 137,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 42344,
+      "massaRijklaar": 1767,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 106,
+      "verbruikWltp": 7.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 193,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1433
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 63,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 53833,
+      "massaRijklaar": 2116,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 521,
+      "vermogenKw": 100,
+      "verbruikWltp": 26.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 315,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1027
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 115,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 59290,
+      "massaRijklaar": 2116,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 100,
+      "verbruikWltp": 26.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 315,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1027
+     },
+     {
+      "aandrijving": "diesel",
+      "steekproef": 85,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 51199,
+      "massaRijklaar": 1767,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 106,
+      "verbruikWltp": 7.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 199,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1433
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 148,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 50334,
+      "massaRijklaar": 1777,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 106,
+      "verbruikWltp": 7.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 202,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1360
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 52,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 58168,
+      "massaRijklaar": 2098,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 498,
+      "vermogenKw": 100,
+      "verbruikWltp": 24.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 335,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1026
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 197,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 57052,
+      "massaRijklaar": 2100,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 508,
+      "vermogenKw": 100,
+      "verbruikWltp": 24.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 346,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1026
+     }
+    ]
+   }
+  ],
+  "volkswagen-id.-buzz": [
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 65,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 58951,
+      "massaRijklaar": 2352,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 471,
+      "vermogenKw": 70,
+      "verbruikWltp": 21.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 413,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 748
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 200,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 59568,
+      "massaRijklaar": 2352,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 471,
+      "vermogenKw": 150,
+      "verbruikWltp": 21.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 411,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 748
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 200,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 63223,
+      "massaRijklaar": 2362,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 471,
+      "vermogenKw": 150,
+      "verbruikWltp": 20.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 417,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 741
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 200,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 62890,
+      "massaRijklaar": 2401,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 471,
+      "vermogenKw": 210,
+      "verbruikWltp": 19.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 441,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 845
+     }
+    ]
+   }
+  ],
+  "mercedes-benz-citan": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 196,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 25447,
+      "massaRijklaar": 1429,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 432,
+      "vermogenKw": 55,
+      "verbruikWltp": 5.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 143,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 623
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 193,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 26110,
+      "massaRijklaar": 1432,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 432,
+      "vermogenKw": 55,
+      "verbruikWltp": 5.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 143,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 620
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 196,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 25961,
+      "massaRijklaar": 1427,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 432,
+      "vermogenKw": 55,
+      "verbruikWltp": 5.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 143,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 623
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 198,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 25556,
+      "massaRijklaar": 1428,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 432,
+      "vermogenKw": 55,
+      "verbruikWltp": 5.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 148,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 622
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 199,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 28611,
+      "massaRijklaar": 1465,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 432,
+      "vermogenKw": 66,
+      "verbruikWltp": 5.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 149,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 615
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 28957,
+      "massaRijklaar": 1479,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 432,
+      "vermogenKw": 70,
+      "verbruikWltp": 5.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 148,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 612
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 190,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 32045,
+      "massaRijklaar": 1584,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 449,
+      "vermogenKw": 70,
+      "verbruikWltp": 5.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 138,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 538
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 188,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 35207,
+      "massaRijklaar": 1565,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 449,
+      "vermogenKw": 70,
+      "verbruikWltp": 5.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 140,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 628
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 183,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 39812,
+      "massaRijklaar": 1525,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 449,
+      "vermogenKw": 70,
+      "verbruikWltp": 5.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 141,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 639
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 26,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 43287,
+      "massaRijklaar": 1525,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 449,
+      "vermogenKw": 70,
+      "verbruikWltp": 5.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 141,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 639
+     }
+    ]
+   }
+  ],
+  "renault-kangoo": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 193,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 24859,
+      "massaRijklaar": 1355,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 428,
+      "vermogenKw": 55,
+      "verbruikWltp": 5.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 152,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 685
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 185,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 25621,
+      "massaRijklaar": 1355,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 428,
+      "vermogenKw": 55,
+      "verbruikWltp": 5.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 143,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 695
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 169,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 25621,
+      "massaRijklaar": 1330,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 428,
+      "vermogenKw": 55,
+      "verbruikWltp": 5.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 143,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 655
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 150,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 27050,
+      "massaRijklaar": 1355,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 428,
+      "vermogenKw": 66,
+      "verbruikWltp": 5.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 149,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 695
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 44,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 37604,
+      "massaRijklaar": 1585,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 448,
+      "vermogenKw": 44,
+      "verbruikWltp": 18.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 223,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 718
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 146,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 28347,
+      "massaRijklaar": 1384,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 428,
+      "vermogenKw": 59,
+      "verbruikWltp": 5.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 148,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 696
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 53,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 36497,
+      "massaRijklaar": 1512,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 428,
+      "vermogenKw": 44,
+      "verbruikWltp": 18.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 222,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 718
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 145,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 29219,
+      "massaRijklaar": 1384,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 428,
+      "vermogenKw": 70,
+      "verbruikWltp": 5.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 151,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 696
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 54,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 37133,
+      "massaRijklaar": 1553,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 448,
+      "vermogenKw": 44,
+      "verbruikWltp": 18.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 222,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 718
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 173,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 31521,
+      "massaRijklaar": 1483,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 449,
+      "vermogenKw": 70,
+      "verbruikWltp": 5.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 137,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 637
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 172,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 33552,
+      "massaRijklaar": 1483,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 449,
+      "vermogenKw": 70,
+      "verbruikWltp": 5.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 138,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 637
+     },
+     {
+      "aandrijving": "benzine",
+      "steekproef": 28,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 30258,
+      "massaRijklaar": 1399,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 449,
+      "vermogenKw": 75,
+      "verbruikWltp": 6.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 154,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 671
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 180,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 36766,
+      "massaRijklaar": 1493,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 449,
+      "vermogenKw": 70,
+      "verbruikWltp": 5.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 137,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 637
+     },
+     {
+      "aandrijving": "benzine",
+      "steekproef": 20,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 35210,
+      "massaRijklaar": 1467,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 470,
+      "vermogenKw": 96,
+      "verbruikWltp": 6.9,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 157,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 772
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 23,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 37715,
+      "massaRijklaar": 1507,
+      "zitplaatsen": 2,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 449,
+      "vermogenKw": 70,
+      "verbruikWltp": 5.4,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 141,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 627
+     }
+    ]
+   }
+  ],
+  "citroen-jumpy": [
+   {
+    "bouwjaar": 2016,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2016,
+       2016
+      ],
+      "catalogusprijs": 34738,
+      "massaRijklaar": 1721,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 90,
+      "verbruikWltp": 7.3,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 188,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1143
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2017,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2017,
+       2017
+      ],
+      "catalogusprijs": 38225,
+      "massaRijklaar": 1688,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 90,
+      "verbruikWltp": 7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 184,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1221
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2018,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2018,
+       2018
+      ],
+      "catalogusprijs": 39234,
+      "massaRijklaar": 1688,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 90,
+      "verbruikWltp": 7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 177,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "nedc-omgerekend",
+       "co2": "nedc-omgerekend",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1221
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2019,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 200,
+      "periode": [
+       2019,
+       2019
+      ],
+      "catalogusprijs": 39980,
+      "massaRijklaar": 1717,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 90,
+      "verbruikWltp": 7.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 189,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1323
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2020,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 190,
+      "periode": [
+       2020,
+       2020
+      ],
+      "catalogusprijs": 40979,
+      "massaRijklaar": 1735,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 90,
+      "verbruikWltp": 7.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 189,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1188
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2021,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 166,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 42963,
+      "massaRijklaar": 1735,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 90,
+      "verbruikWltp": 7.2,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 189,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1173
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 34,
+      "periode": [
+       2021,
+       2021
+      ],
+      "catalogusprijs": 49120,
+      "massaRijklaar": 2100,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 100,
+      "verbruikWltp": 26.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 302,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1025
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2022,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 145,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 44311,
+      "massaRijklaar": 1728,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 88,
+      "verbruikWltp": 6.7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 175,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1144
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 55,
+      "periode": [
+       2022,
+       2022
+      ],
+      "catalogusprijs": 52562,
+      "massaRijklaar": 2100,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 100,
+      "verbruikWltp": 26.5,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 313,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1027
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2023,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 112,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 49486,
+      "massaRijklaar": 1728,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 496,
+      "vermogenKw": 106,
+      "verbruikWltp": 7,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 189,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1142
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 88,
+      "periode": [
+       2023,
+       2023
+      ],
+      "catalogusprijs": 55720,
+      "massaRijklaar": 2116,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 100,
+      "verbruikWltp": 26.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 304,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1027
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2024,
+    "uitvoeringen": [
+     {
+      "aandrijving": "diesel",
+      "steekproef": 159,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 52786,
+      "massaRijklaar": 1782,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 498,
+      "vermogenKw": 106,
+      "verbruikWltp": 7.6,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 198,
+      "actieradiusWltpKm": null,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": null
+      },
+      "laadvermogenKg": 1202
+     },
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 41,
+      "periode": [
+       2024,
+       2024
+      ],
+      "catalogusprijs": 57317,
+      "massaRijklaar": 2128,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 531,
+      "vermogenKw": 100,
+      "verbruikWltp": 26.8,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 316,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 1025
+     }
+    ]
+   },
+   {
+    "bouwjaar": 2025,
+    "uitvoeringen": [
+     {
+      "aandrijving": "elektrisch",
+      "steekproef": 171,
+      "periode": [
+       2025,
+       2025
+      ],
+      "catalogusprijs": 57317,
+      "massaRijklaar": 2118,
+      "zitplaatsen": 3,
+      "trekgewichtGeremd": 0,
+      "lengteCm": 533,
+      "vermogenKw": 100,
+      "verbruikWltp": 24.1,
+      "verbruikGewogenWltp": null,
+      "elektrischVerbruikWltp": null,
+      "co2Wltp": 0,
+      "actieradiusWltpKm": 346,
+      "meetmethode": {
+       "verbruik": "wltp",
+       "co2": "wltp",
+       "actieradius": "wltp"
+      },
+      "laadvermogenKg": 949
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -3,18 +3,18 @@
 //
 // Regel: personenauto's met datum eerste toelating sinds 2019-01-01, niet
 // geëxporteerd; tellen per modelfamilie; de N grootste families gaan mee.
-// Gebruik: node scripts/selecteer-modellen.ts [N=50]
+// Gebruik: node scripts/selecteer-modellen.ts [N=50] [--bestel]
 
 import { writeFileSync } from "node:fs";
 import { modelSleutel } from "../src/data/normaliseer.ts";
-import { RDW, soql, vandaag } from "./rdw.ts";
+import { RDW, SOORT, soql, vandaag } from "./rdw.ts";
 
-const N = Number(process.argv[2] ?? 50);
+const N = Number(process.argv.find((a) => /^\d+$/.test(a)) ?? 50);
 const VANAF = "20190101";
 
 const rijen = await soql<{ merk: string; handelsbenaming: string; n: string }>(RDW.voertuigen, {
   $select: "merk,handelsbenaming,count(*) as n",
-  $where: `voertuigsoort='Personenauto' AND datum_eerste_toelating>=${VANAF} AND export_indicator='Nee'`,
+  $where: `${SOORT.filter} AND datum_eerste_toelating>=${VANAF} AND export_indicator='Nee'`,
   $group: "merk,handelsbenaming",
   $order: "n DESC",
   $limit: "5000",
@@ -38,7 +38,7 @@ const gekozen = gesorteerd.slice(0, N);
 const uit = {
   bron: RDW.voertuigen,
   peildatum: vandaag(),
-  regel: `Personenauto, datum eerste toelating ≥ ${VANAF}, export_indicator = Nee; top ${N} modelfamilies op aantal registraties (normalisatie: src/data/normaliseer.ts).`,
+  regel: `${SOORT.naam === "bestelauto" ? "Bedrijfsauto categorie N1" : "Personenauto"}, datum eerste toelating ≥ ${VANAF}, export_indicator = Nee; top ${N} modelfamilies op aantal registraties (normalisatie: src/data/normaliseer.ts).`,
   aantalRegistratiesGeteld: totaal,
   dekkingGekozen: Math.round((gekozen.reduce((s, f) => s + f.n, 0) / totaal) * 1000) / 10,
   modellen: gekozen.map((f, i) => ({
@@ -52,6 +52,6 @@ const uit = {
   })),
 };
 
-writeFileSync("data/modelselectie.json", JSON.stringify(uit, null, 2) + "\n");
+writeFileSync(SOORT.selectie, JSON.stringify(uit, null, 2) + "\n");
 console.log(`${gekozen.length} modellen, ${uit.dekkingGekozen}% van ${totaal} registraties`);
 for (const m of uit.modellen) console.log(String(m.rang).padStart(2), m.registraties, m.merk, m.model);

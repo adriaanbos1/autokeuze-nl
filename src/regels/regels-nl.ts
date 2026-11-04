@@ -114,6 +114,34 @@ export const regels = {
       peildatum: PEIL,
     } as Regel<number>,
 
+    /** Bestelauto van een btw-ondernemer, per kwartaal op massa rijklaar (art. 24b Wet MRB). Geen provinciale opcenten. */
+    bestelautoOndernemer: {
+      waarde: {
+        klassen: [[600, 51.97]],
+        lineair: [
+          { vanaf: 700, basis: 63.55, perHonderdKg: 8.15 },
+          { vanaf: 1200, basis: 104.42, perHonderdKg: 8.76 },
+          { vanaf: 2200, basis: 192.46, perHonderdKg: 9.43 },
+          { vanaf: 2900, basis: 254.79, perHonderdKg: 2.14 },
+        ],
+      } satisfies Staffel,
+      status: "vastgesteld",
+      bron: "https://wetten.overheid.nl/BWBR0006324/2026-07-01 (art. 24b, gelezen 4-11-2026); opcenten alleen voor personenauto's en motorrijwielen: https://wetten.overheid.nl/BWBR0005645/2026-07-01 (art. 222 Provinciewet)",
+      geldigVanaf: "2026-07-01",
+      peildatum: "2026-11-04",
+      toelichting:
+        "Gecontroleerd met de rekenhulp van de Belastingdienst (4-11-2026): elektrische bestelauto 2.000 kg = €87 per kwartaal (= helft van €174,50, tijdelijke verlaging). Geen korting voor elektrische bestelauto's: art. 23b geldt voor het tarief van art. 23 en 23a. Fijnstoftoeslag diesel 12 jaar en ouder (15%) niet opgenomen.",
+    } as Regel<Staffel>,
+
+    /** Tijdelijke halvering voor bestelauto's met ondernemerstarief. */
+    bestelautoTijdelijkeVerlaging: {
+      waarde: { van: "2026-07-01", tot: "2027-01-01", factor: 0.5 },
+      status: "vastgesteld",
+      bron: "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/berichten/nieuws/tijdelijke-verlaging-mrb-bestelautos-vrachtautos",
+      geldigVanaf: "2026-07-01",
+      peildatum: "2026-11-04",
+    } as Regel<{ van: string; tot: string; factor: number }>,
+
     /** Grondslag provinciale opcenten per kwartaal (art. 222 lid 3 Provinciewet). */
     opcentenGrondslag: {
       waarde: {
@@ -395,6 +423,20 @@ export const regels = {
       peildatum: PEIL,
     } as Regel<number>,
   },
+  // ─────────────────────── Zero-emissiezones ───────────────────────
+  zezone: {
+    /** Overgangsregeling bestelauto's: laatste kalenderjaar met toegang. */
+    overgang: {
+      waarde: { euro5TotEnMet: 2026, euro6TotEnMet: 2027, fossielNieuwVanaf: 2025 },
+      status: "aangekondigd",
+      bron: "https://www.kvk.nl/duurzaamheid/zero-emissiezones-kom-je-straks-de-stad-nog-in-met-je-auto/ ; https://www.eerstekamer.nl/brief_in/20261022/verlenging_overgangsregeling_nul/f=/vn20fauaq8hf.pdf",
+      geldigVanaf: "2025-01-01",
+      peildatum: "2026-11-04",
+      toelichting:
+        "Euro 5 tot 1-1-2027, Euro 6 tot 1-1-2028 (kabinet wil verlengen tot 1-1-2029, nog niet vastgesteld). Fossiele bestelauto's met eerste inschrijving vanaf 2025: geen toegang. Per gemeente eigen zone en invoerdatum (opwegnaarzes.nl).",
+    } as Regel<{ euro5TotEnMet: number; euro6TotEnMet: number; fossielNieuwVanaf: number }>,
+  },
+
   // ─────────────────────────── DGA ───────────────────────────
   dga: {
     /** Normbedrag gebruikelijk loon (het hoogste van drie maatstaven; dit is de ondergrens zonder tegenbewijs). */

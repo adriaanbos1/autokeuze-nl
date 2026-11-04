@@ -13,7 +13,7 @@
  * "SPORTBACK", "PRO 150 KW") vallen daardoor vanzelf weg. Alleen deze
  * tweede woorden horen bij de modelnaam (YARIS CROSS ≠ YARIS).
  */
-const HOORT_BIJ_MODEL = new Set(["CROSS", "AIRCROSS", "X", "STAR", "AYGO"]);
+const HOORT_BIJ_MODEL = new Set(["CROSS", "AIRCROSS", "X", "STAR", "AYGO", "CUSTOM", "CONNECT", "COURIER", "CITY", "BUZZ"]);
 
 function merkWoorden(merk: string): string[] {
   // "LYNK&CO" → ["LYNK", "&", "CO", "LYNK&CO"]; "MERCEDES-BENZ" → ["MERCEDES-BENZ", "MERCEDES", "BENZ"]
@@ -24,10 +24,11 @@ function merkWoorden(merk: string): string[] {
 export function modelFamilie(merk: string, handelsbenaming: string): string {
   let t = handelsbenaming.toUpperCase().replace(/\s+/g, " ").trim();
 
-  // merknaam vooraan weghalen ("TOYOTA YARIS", "LYNK & CO 01")
-  for (const w of merkWoorden(merk).sort((a, b) => b.length - a.length)) {
-    if (t.startsWith(w + " ")) t = t.slice(w.length + 1);
-  }
+  // merknaam vooraan weghalen ("TOYOTA YARIS", "LYNK & CO 01", ook dubbel: "FIAT FIAT DUCATO")
+  for (let ronde = 0; ronde < 2; ronde++)
+    for (const w of merkWoorden(merk).sort((a, b) => b.length - a.length)) {
+      if (t.startsWith(w + " ")) t = t.slice(w.length + 1);
+    }
   t = t.replace(/^& CO /, "").replace(/^CO /, "");
 
   const m = merk.toUpperCase();

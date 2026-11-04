@@ -36,6 +36,23 @@ export function staffelBedrag(staffel: Staffel, massa: number): number {
   return rond2(regel.basis + stappen * regel.perHonderdKg);
 }
 
+/**
+ * MRB voor een bestelauto van een btw-ondernemer in een kalenderjaar (art. 24b Wet MRB): per kwartaal
+ * op massa rijklaar, geen opcenten, geen EV-korting; tijdelijke halvering 1-7-2026 t/m 31-12-2026.
+ */
+export function mrbBestelautoOndernemer(p: { massaRijklaar: number; jaar: number }): { perKwartaal: number; perJaar: number } {
+  const m = rondMassa(p.massaRijklaar);
+  const vol = staffelBedrag(regels.mrb.bestelautoOndernemer.waarde, m);
+  const v = regels.mrb.bestelautoTijdelijkeVerlaging.waarde;
+  let perJaar = 0;
+  for (let k = 0; k < 4; k++) {
+    const begin = `${p.jaar}-${String(1 + 3 * k).padStart(2, "0")}-01`;
+    const factor = begin >= v.van && begin < v.tot ? v.factor : 1;
+    perJaar += Math.floor(vol * factor + 1e-9);
+  }
+  return { perKwartaal: Math.floor(vol + 1e-9), perJaar };
+}
+
 /** Factor voor emissievrije auto's in een kalenderjaar (1 = geen korting). */
 export function emissievrijFactor(jaar: number): number {
   const tabel = regels.mrb.emissievrijPercentage.waarde;

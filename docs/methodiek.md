@@ -92,6 +92,12 @@ Het criterium TCO rekent per profiel met wat de auto **jou netto per maand** kos
   - *Eigen bijdrage* (vast + meerprijs) verlaagt de bijtelling euro voor euro en telt zelf mee als kosten.
   - *2026 vs. 2027:* per auto ook de netto kosten bij instap in het andere jaar (EV: 18% → 20% tot €30.000) en de pseudo-eindheffing die de werkgever vanaf 2027 betaalt voor auto's met CO₂-uitstoot.
   - Rekenvoorbeeld: benzine €30.000, €100 meerprijs: (6.600 − 1.200) × 50,468% + 1.200 = 3.925,27 per jaar = **€327,11** per maand (`tests/ranking.test.ts`).
+- **Bestelauto's (Fase 4e, alleen ZZP'er en DGA):** eigen dataset (top 20 N1-bestelauto's, `docs/databronnen.md` §5.11). Verschillen met personenauto's:
+  - MRB ondernemerstarief (art. 24b), zonder opcenten en zonder EV-korting.
+  - KIA bij kopen zakelijk en financial lease (ZZP) en in de Vpb (DGA): KIA 2026 over de investering excl. btw, min de desinvesteringsbijtelling bij verkoop binnen 5 jaar, gemiddeld per jaar; aanname: enige investering dat jaar.
+  - "Rijd je privé met de bestelauto?" Nee = verklaring uitsluitend zakelijk gebruik: geen bijtelling, geen btw-correctie.
+  - Harde eisen: laadvermogen; en als je de hele looptijd in zero-emissiezones moet komen, de ZE-toegang (elektrisch altijd; fossiel ingeschreven vanaf 2025 nooit; Euro 6 t/m 2027, Euro 5 t/m 2026).
+  - Veiligheid telt niet mee (geen Euro NCAP-sterren voor bestelauto's); betrouwbaarheid tegen bestelauto's van dezelfde leeftijd.
 - **Leaserijder: alleen nieuwe auto's.** De ZZP'er kan sinds Fase 4b ook occasions kiezen.
 
 ### 1.5 Hoe de ranglijst wordt gemaakt (gebouwd in Fase 3a)

@@ -4,7 +4,7 @@
 // met vaste percentages na te rekenen zijn.
 import { regels } from "@/regels/regels-nl";
 import { rond2, som, type Post } from "./geld";
-import { gemiddeldeBijtelling, gemiddeldeBtwCorrectie, type ZzpAuto } from "./zzp";
+import { gemiddeldeBijtelling, gemiddeldeBtwCorrectie, kiaPerJaar, type ZzpAuto } from "./zzp";
 
 export type DgaVorm = "autoInBv" | "autoPriveKmVergoeding";
 
@@ -53,7 +53,9 @@ export function dgaVarianten(a: ZzpAuto, s: DgaSituatie): DgaUitkomst[] {
   const pseudo: Post = { label: "Pseudo-eindheffing (bv)", bedrag: s.pseudoEindheffing, uitleg: s.pseudoEindheffing ? "12% van de catalogusprijs, gemiddeld per jaar over de looptijd (auto met CO₂-uitstoot)" : "niet van toepassing (elektrisch, of in gebruik vóór 2027 en overgangsregeling)" };
   if (s.pseudoEindheffingAftrekbaar) aftrekbaar.push(pseudo);
   const kosten = som(...aftrekbaar.map((p) => p.bedrag));
-  const vpb = rond2(s.vpbVoordeel(kosten));
+  // KIA werkt ook in de Vpb (bestelauto; personenauto's zijn uitgesloten).
+  const kia = a.kiaToegestaan ? kiaPerJaar(aanschaf, rest, n) : null;
+  const vpb = rond2(s.vpbVoordeel(kosten + (kia?.perJaar ?? 0)));
   const gemist = rond2(((aanschaf + rest) / 2) * s.rendement);
   const btwCorrectie = gemiddeldeBtwCorrectie(a, { zakelijkeKm: s.zakelijkeKm, priveKm: s.priveKm, btwPlichtig: terug, rendement: s.rendement, belastingvoordeel: () => 0 }, terugAanschaf);
   const bvNetto = som(kosten, -vpb, gemist, btwCorrectie, s.pseudoEindheffingAftrekbaar ? 0 : s.pseudoEindheffing);
@@ -83,7 +85,8 @@ export function dgaVarianten(a: ZzpAuto, s: DgaSituatie): DgaUitkomst[] {
       nettoPerMaand: rond2(inBv / 12),
       posten: [
         ...aftrekbaar,
-        { label: "Minder Vpb", bedrag: -vpb, uitleg: `door ${eur(kosten)} aftrekbare kosten` },
+        ...(kia ? [{ label: "KIA (aftrekpost, geen kosten)", bedrag: 0, uitleg: `${kia.uitleg}: ${eur(kia.perJaar)} per jaar` }] : []),
+        { label: "Minder Vpb", bedrag: -vpb, uitleg: `door ${eur(kosten + (kia?.perJaar ?? 0))} aftrek (kosten${kia ? " + KIA" : ""})` },
         { label: "Gemist rendement (bv)", bedrag: gemist, uitleg: `${(s.rendement * 100).toLocaleString("nl-NL")}% over het gemiddeld vastgezette geld` },
         { label: "Btw-correctie privégebruik", bedrag: btwCorrectie, uitleg: btwCorrectie ? "forfait over de catalogusprijs, gemiddeld" : "niet van toepassing" },
         ...(s.pseudoEindheffingAftrekbaar ? [] : [pseudo]),

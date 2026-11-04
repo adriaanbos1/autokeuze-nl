@@ -1,11 +1,13 @@
 // Ranglijst op de echte dataset: harde eisen, kosten en merkneutraliteit.
 import { describe, expect, it } from "vitest";
-import { alleModellen, STANDAARD_ZAKELIJK, hardeEisen, kosten, kostenNieuw, occasionVan, rangschik, type Intake } from "@/data/ranking";
+import { alleModellen, isBestel, standaardZzpLease, zzpVariantenVoor, STANDAARD_ZAKELIJK, hardeEisen, kosten, kostenNieuw, occasionVan, rangschik, type Intake } from "@/data/ranking";
 import { rond2, startGewichten } from "@/engine";
 import type { ModelRdw, UitvoeringRdw } from "@/data/types";
+import { bestelModellen } from "@/data/bestel-data";
 
 const basis: Intake = {
   profiel: "particulier",
+  voertuig: "personenauto",
   soort: "nieuw",
   maxLeeftijdJaar: 8,
   maxKmStand: null,
@@ -235,5 +237,44 @@ describe("zakelijke profielen (basis)", () => {
     const k = kostenNieuw(ev, lease)!.profiel!;
     expect(k.lease!.anderJaar.jaar).toBe(2027);
     expect(rond2(k.lease!.anderJaar.perMaand - k.perMaand)).toBe(25.23);
+  });
+});
+
+describe("bestelauto's (ZZP'er en DGA)", () => {
+  const zzpBestel = { ...basis, profiel: "zzp" as const, voertuig: "bestelauto" as const, personen: 2, kinderen: false };
+  const g = startGewichten("zzp", { gezin: false });
+
+  it("alleen ZZP'er en DGA rekenen met bestelauto's", () => {
+    expect(isBestel({ ...basis, voertuig: "bestelauto" })).toBe(false);
+    expect(isBestel(zzpBestel)).toBe(true);
+    expect(isBestel({ ...zzpBestel, profiel: "dga" })).toBe(true);
+  });
+  it("ranglijst komt uit de bestelauto-dataset; veiligheid telt niet mee; MRB ondernemerstarief", () => {
+    const l = rangschik(zzpBestel, g).lijst;
+    expect(l.length).toBeGreaterThan(0);
+    const ids = new Set(bestelModellen.map((m) => m.id));
+    for (const r of l) {
+      expect(ids.has(r.id)).toBe(true);
+      expect(r.scores.VEIL).toBeNull();
+      expect(r.kosten.tco.posten.find((p) => p.label === "Motorrijtuigenbelasting")!.uitleg).toContain("ondernemerstarief");
+    }
+  });
+  it("zero-emissiezone de hele looptijd nodig: alleen elektrische bestelauto's", () => {
+    for (const r of rangschik({ ...zzpBestel, zakelijk: { ...STANDAARD_ZAKELIJK, zeZoneNodig: true } }, g).lijst) expect(r.uitvoering.aandrijving).toBe("elektrisch");
+  });
+  it("laadvermogen is een harde eis", () => {
+    for (const r of rangschik({ ...zzpBestel, zakelijk: { ...STANDAARD_ZAKELIJK, laadvermogenNodig: 1200 } }, g).lijst)
+      expect(r.uitvoering.laadvermogenKg).toBeGreaterThanOrEqual(1200);
+  });
+  it("verklaring uitsluitend zakelijk gebruik: geen bijtelling; KIA bij kopen zakelijk", () => {
+    const r = rangschik(zzpBestel, g).lijst[0];
+    const zak = zzpVariantenVoor(r.kosten.profiel!.zzp!, standaardZzpLease(r.kosten.profiel!.zzp!)).find((v) => v.vorm === "koopZakelijk")!;
+    expect(zak.posten.find((p) => p.label.startsWith("Bijtelling"))!.bedrag).toBe(0);
+    expect(zak.posten.some((p) => p.label.startsWith("KIA"))).toBe(true);
+  });
+  it("personenauto voor de ZZP'er: geen KIA", () => {
+    const r = rangschik({ ...basis, profiel: "zzp" }, g).lijst[0];
+    const zak = zzpVariantenVoor(r.kosten.profiel!.zzp!, standaardZzpLease(r.kosten.profiel!.zzp!)).find((v) => v.vorm === "koopZakelijk")!;
+    expect(zak.posten.some((p) => p.label.startsWith("KIA"))).toBe(false);
   });
 });

@@ -88,3 +88,8 @@ Format: datum · beslissing · waarom · door wie · status
 | 82 | 2026-11-04 | Overgangsregeling pseudo-eindheffing: auto in gebruik vóór 2027 → pas vanaf 2031 | datum onzeker (17-9-2030 of 1-1-2031) | Claude | uitgevoerd |
 | 83 | 2026-11-04 | Leaserijder: leasebudget als maximaal leasetarief excl. btw; geschatte leaseprijs per auto (kostprijs × 1,10); meerprijs telt als eigen bijdrage of sluit uit | veel leaseregelingen werken met een normleasebedrag; geen open bron met leaseprijzen | Claude | uitgevoerd; aanname meerprijs = eigen bijdrage |
 | 84 | 2026-11-04 | Per auto de vergelijking instap 2026 vs. 2027 (bijtelling en pseudo-eindheffing werkgever) | relevante keuze in 2026; regels 2027 aangenomen | Claude | uitgevoerd |
+| 85 | 2026-11-04 | Bestelauto-selectie: top 20 N1-modelfamilies sinds 2019 (zelfde regel als personenauto's); naamregels uitgebreid zonder effect op de personenauto-selectie | objectief en controleerbaar | Claude | uitgevoerd |
+| 86 | 2026-11-04 | MRB bestelauto ondernemer volgens art. 24b, geen opcenten, geen EV-korting, tijdelijke halvering H2 2026; gecontroleerd met de rekenhulp | wettekst + rekenhulp Belastingdienst | Claude | uitgevoerd |
+| 87 | 2026-11-04 | KIA voor bestelauto's met desinvesteringsbijtelling bij verkoop binnen 5 jaar; aanname: enige investering dat jaar | KIA hangt af van alle investeringen samen | Claude | uitgevoerd |
+| 88 | 2026-11-04 | ZE-zone als harde eis over de hele looptijd (optioneel); veiligheid telt niet mee bij bestelauto's | Euro NCAP geeft geen sterren voor bestelauto's | Claude | uitgevoerd |
+| 89 | 2026-11-04 | Verzekering bestelauto: personenauto-gemiddelde met waarschuwing | geen bron voor bestelauto-premies | Claude | uitgevoerd; ⚠ open |

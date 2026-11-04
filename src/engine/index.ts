@@ -18,3 +18,4 @@ export * from "./scenario";
 export * from "./inkomstenbelasting";
 export * from "./zzp";
 export * from "./dga";
+export * from "./zezone";

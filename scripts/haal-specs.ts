@@ -8,12 +8,12 @@ import { readFileSync, writeFileSync } from "node:fs";
 import type { Aandrijvingstype, ModelRdw, UitvoeringRdw } from "../src/data/types.ts";
 import { aandrijvingUitRdw as aandrijving } from "../src/data/aandrijving.ts";
 import { verbruikLegeAccu } from "../src/engine/phev.ts";
-import { mediaan, RDW, soql, vandaag } from "./rdw.ts";
+import { mediaan, RDW, SOORT, soql, vandaag } from "./rdw.ts";
 
 const STEEKPROEF = 400;
 const MIN_PER_AANDRIJVING = 10;
 
-const selectie = JSON.parse(readFileSync("data/modelselectie.json", "utf8")) as {
+const selectie = JSON.parse(readFileSync(SOORT.selectie, "utf8")) as {
   modellen: { rang: number; id: string; merk: string; model: string; registraties: number; varianten: string[] }[];
 };
 
@@ -28,6 +28,11 @@ function mediaanMetNul(xs: number[]): number | null {
   const m = Math.floor(s.length / 2);
   return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
 }
+const modus = (xs: string[]) => {
+  const n = new Map<string, number>();
+  for (const x of xs.filter(Boolean)) n.set(x, (n.get(x) ?? 0) + 1);
+  return [...n.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] ?? null;
+};
 const afgerond = (x: number | null, decimalen = 0) => (x === null ? null : Math.round(x * 10 ** decimalen) / 10 ** decimalen);
 
 const LEGE_ACCU_STEEKPROEF = 200;
@@ -41,7 +46,7 @@ async function legeAccuOudereKentekens(
   for (let offset = 0; uit.length < LEGE_ACCU_STEEKPROEF && offset < 20000; offset += 1000) {
     const kentekens = await soql<Rij>(RDW.voertuigen, {
       $select: "kenteken",
-      $where: `voertuigsoort='Personenauto' AND datum_eerste_toelating IS NOT NULL AND merk=${quote(m.merk)} AND handelsbenaming in(${m.varianten.map(quote).join(",")})`,
+      $where: `${SOORT.filter} AND datum_eerste_toelating IS NOT NULL AND merk=${quote(m.merk)} AND handelsbenaming in(${m.varianten.map(quote).join(",")})`,
       $order: "datum_eerste_toelating DESC, kenteken",
       $limit: "1000",
       $offset: String(offset),
@@ -64,9 +69,9 @@ async function legeAccuOudereKentekens(
 const modellen: ModelRdw[] = [];
 for (const m of selectie.modellen) {
   const voertuigen = await soql<Rij>(RDW.voertuigen, {
-    $select: "kenteken,datum_eerste_toelating,catalogusprijs,massa_rijklaar,aantal_zitplaatsen,maximum_trekken_massa_geremd,lengte",
+    $select: "kenteken,datum_eerste_toelating,catalogusprijs,massa_rijklaar,aantal_zitplaatsen,maximum_trekken_massa_geremd,lengte,laadvermogen",
     // zonder datum eerste toelating sorteren lege velden vooraan; die tellen niet mee
-    $where: `voertuigsoort='Personenauto' AND datum_eerste_toelating IS NOT NULL AND merk=${quote(m.merk)} AND handelsbenaming in(${m.varianten.map(quote).join(",")})`,
+    $where: `${SOORT.filter} AND datum_eerste_toelating IS NOT NULL AND merk=${quote(m.merk)} AND handelsbenaming in(${m.varianten.map(quote).join(",")})`,
     $order: "datum_eerste_toelating DESC, kenteken",
     $limit: String(STEEKPROEF),
   });
@@ -137,6 +142,13 @@ for (const m of selectie.modellen) {
           : null,
       co2Wltp: a === "elektrisch" ? 0 : afgerond(mediaan(rijen.map((r) => getal(hoofd(r.b).emissie_co2_gecombineerd_wltp ?? hoofd(r.b).emis_co2_gewogen_gecombineerd_wltp)))),
       actieradiusWltpKm: afgerond(mediaan(rijen.map((r) => actieradius(r.b)))),
+      ...(SOORT.naam === "bestelauto"
+        ? {
+            laadvermogenKg: afgerond(mediaan(rijen.map((r) => getal(r.v.laadvermogen)))),
+            // Euro-klasse voor ZE-zones: de meest voorkomende emissiecode in de steekproef
+            emissieklasse: modus(rijen.map((r) => hoofd(r.b).uitlaatemissieniveau ?? hoofd(r.b).emissiecode_omschrijving ?? "")),
+          }
+        : {}),
     });
   }
   uitvoeringen.sort((x, y) => y.steekproef - x.steekproef);
@@ -158,4 +170,4 @@ for (const m of selectie.modellen) {
   console.log(m.rang, m.merk, m.model, uitvoeringen.map((u) => `${u.aandrijving}:${u.steekproef}`).join(" "));
 }
 
-writeFileSync("data/modellen-rdw.json", JSON.stringify({ peildatum: vandaag(), modellen }, null, 2) + "\n");
+writeFileSync(SOORT.specs, JSON.stringify({ peildatum: vandaag(), modellen }, null, 2) + "\n");

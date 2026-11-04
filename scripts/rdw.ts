@@ -24,3 +24,25 @@ export function mediaan(xs: number[]): number | null {
 }
 
 export const vandaag = () => new Date().toISOString().slice(0, 10);
+
+/**
+ * Personenauto's (standaard) of bestelauto's (`--bestel`): RDW-filter en bestandsnamen.
+ * Bestelauto = voertuigsoort Bedrijfsauto, Europese categorie N1 (tot 3.500 kg).
+ */
+export const SOORT = process.argv.includes("--bestel")
+  ? {
+      naam: "bestelauto",
+      filter: "voertuigsoort='Bedrijfsauto' AND europese_voertuigcategorie='N1'",
+      selectie: "data/bestelselectie.json",
+      specs: "data/bestel-rdw.json",
+      occasions: "data/bestel-occasions-rdw.json",
+      apk: "data/bestel-apk-gebreken.json",
+    }
+  : {
+      naam: "personenauto",
+      filter: "voertuigsoort='Personenauto'",
+      selectie: "data/modelselectie.json",
+      specs: "data/modellen-rdw.json",
+      occasions: "data/occasions-rdw.json",
+      apk: "data/apk-gebreken.json",
+    };

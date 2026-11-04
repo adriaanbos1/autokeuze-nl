@@ -15,7 +15,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync } from "node:fs";
 import { isTechnischGebrek } from "../src/data/gebreken.ts";
-import { RDW, soql, vandaag } from "./rdw.ts";
+import { RDW, SOORT, soql, vandaag } from "./rdw.ts";
 
 const MELDINGEN = "https://opendata.rdw.nl/resource/sgfe-77wx.json";
 const GEBREKEN = "https://opendata.rdw.nl/resource/a34c-vvps.json";
@@ -115,24 +115,24 @@ const jaarFilter = (j: number) => `datum_eerste_toelating>=${j}0101 AND datum_ee
 // op een letter, waardoor recente bouwjaren wegvielen. Daarom nu uit alle kentekens.)
 const landelijk: Record<number, Awaited<ReturnType<typeof meet>>> = {};
 for (const j of BOUWJAREN) {
-  const k = await kentekens(`voertuigsoort='Personenauto' AND ${jaarFilter(j)}`, N_LANDELIJK);
+  const k = await kentekens(`${SOORT.filter} AND ${jaarFilter(j)}`, N_LANDELIJK);
   landelijk[j] = await meet(k, j);
   console.log("landelijk", j, landelijk[j].auto, JSON.stringify(landelijk[j].perLeeftijd));
 }
 
-const selectie = JSON.parse(readFileSync("data/modelselectie.json", "utf8")) as {
+const selectie = JSON.parse(readFileSync(SOORT.selectie, "utf8")) as {
   modellen: { id: string; merk: string; model: string; varianten: string[] }[];
 };
 
 const alleenLandelijk = process.argv.includes("--alleen-landelijk");
 const modellen: Record<string, Record<number, Awaited<ReturnType<typeof meet>>>> = alleenLandelijk
-  ? JSON.parse(readFileSync("data/apk-gebreken.json", "utf8")).modellen
+  ? JSON.parse(readFileSync(SOORT.apk, "utf8")).modellen
   : {};
 for (const m of alleenLandelijk ? [] : selectie.modellen) {
   modellen[m.id] = {};
   for (const j of BOUWJAREN) {
     const k = await kentekens(
-      `voertuigsoort='Personenauto' AND ${jaarFilter(j)} AND merk=${quote(m.merk)} AND handelsbenaming in(${m.varianten.map(quote).join(",")})`,
+      `${SOORT.filter} AND ${jaarFilter(j)} AND merk=${quote(m.merk)} AND handelsbenaming in(${m.varianten.map(quote).join(",")})`,
       N_MODEL,
     );
     if (k.length === 0) continue;
@@ -143,13 +143,13 @@ for (const m of alleenLandelijk ? [] : selectie.modellen) {
 }
 
 writeFileSync(
-  "data/apk-gebreken.json",
+  SOORT.apk,
   JSON.stringify(
     {
       bron: `${MELDINGEN} + ${GEBREKEN} + ${GEBREK_CATALOGUS} + ${RDW.voertuigen}`,
       peildatum: vandaag(),
       venster: { vanaf: VANAF, tot: vandaag().replace(/-/g, "") },
-      methode: `Per model × bouwjaar ${N_MODEL} kentekens, gelot via SHA-256 van het kenteken; landelijk ${N_LANDELIJK} per bouwjaar, gelot uit alle personenauto's van dat bouwjaar. Reguliere APK's (lichte voertuigen) in het venster; keuring "met gebrek" = ≥ 1 technisch gebrek (src/data/gebreken.ts).`,
+      methode: `Per model × bouwjaar ${N_MODEL} kentekens, gelot via SHA-256 van het kenteken; landelijk ${N_LANDELIJK} per bouwjaar, gelot uit alle ${SOORT.naam === "bestelauto" ? "bestelauto's (N1)" : "personenauto's"} van dat bouwjaar. Reguliere APK's (lichte voertuigen) in het venster; keuring "met gebrek" = ≥ 1 technisch gebrek (src/data/gebreken.ts).`,
       technischeGebrekcodes: technisch.size,
       landelijk,
       modellen,

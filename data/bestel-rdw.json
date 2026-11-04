@@ -1,0 +1,1153 @@
+{
+  "peildatum": "2026-11-04",
+  "modellen": [
+    {
+      "id": "mercedes-benz-sprinter",
+      "merk": "MERCEDES-BENZ",
+      "model": "SPRINTER",
+      "rang": 1,
+      "registratiesSinds2019": 47602,
+      "uitvoeringen": [
+        {
+          "aandrijving": "diesel",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 87412,
+          "massaRijklaar": 2265,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 593,
+          "vermogenKw": 125,
+          "verbruikWltp": 9.4,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 246,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 1335,
+          "emissieklasse": "EURO 6 EB"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "ford-transit-custom",
+      "merk": "FORD",
+      "model": "TRANSIT CUSTOM",
+      "rang": 2,
+      "registratiesSinds2019": 44531,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 351,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 60966,
+          "massaRijklaar": 2281,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 545,
+          "vermogenKw": 100,
+          "verbruikWltp": 23.2,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 351,
+          "laadvermogenKg": 1164,
+          "emissieklasse": "AX"
+        },
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 38,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 61704,
+          "massaRijklaar": 2120,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 545,
+          "vermogenKw": 87,
+          "verbruikWltp": 7.3,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 200
+          },
+          "verbruikGewogenWltp": 3.9,
+          "elektrischVerbruikWltp": 12.7,
+          "co2Wltp": 90,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 1205,
+          "emissieklasse": "EURO 6 EB"
+        },
+        {
+          "aandrijving": "diesel",
+          "steekproef": 11,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 70268,
+          "massaRijklaar": 2014,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 545,
+          "vermogenKw": 100,
+          "verbruikWltp": 7.9,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 207,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 1311,
+          "emissieklasse": "EURO 6 EB"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "volkswagen-caddy",
+      "merk": "VOLKSWAGEN",
+      "model": "CADDY",
+      "rang": 3,
+      "registratiesSinds2019": 32998,
+      "uitvoeringen": [
+        {
+          "aandrijving": "diesel",
+          "steekproef": 215,
+          "periode": [
+            2025,
+            2026
+          ],
+          "catalogusprijs": 43895,
+          "massaRijklaar": 1539,
+          "zitplaatsen": 2,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 451,
+          "vermogenKw": 75,
+          "verbruikWltp": 5.5,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 143,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 813,
+          "emissieklasse": "EURO 6 EB"
+        },
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 134,
+          "periode": [
+            2025,
+            2026
+          ],
+          "catalogusprijs": 46168,
+          "massaRijklaar": 1744,
+          "zitplaatsen": 2,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 451,
+          "vermogenKw": 85,
+          "verbruikWltp": 6.2,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 28
+          },
+          "verbruikGewogenWltp": 1.8,
+          "elektrischVerbruikWltp": 14.5,
+          "co2Wltp": 42,
+          "actieradiusWltpKm": 116,
+          "laadvermogenKg": 764,
+          "emissieklasse": "EURO 6 EB"
+        },
+        {
+          "aandrijving": "benzine",
+          "steekproef": 51,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 45164,
+          "massaRijklaar": 1478,
+          "zitplaatsen": 2,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 451,
+          "vermogenKw": 85,
+          "verbruikWltp": 6.6,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 151,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 808,
+          "emissieklasse": "EURO 6 EB"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "volkswagen-transporter",
+      "merk": "VOLKSWAGEN",
+      "model": "TRANSPORTER",
+      "rang": 4,
+      "registratiesSinds2019": 31824,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 271,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 59496,
+          "massaRijklaar": 2253,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 545,
+          "vermogenKw": 100,
+          "verbruikWltp": 22.9,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 353,
+          "laadvermogenKg": 1146,
+          "emissieklasse": "AX"
+        },
+        {
+          "aandrijving": "diesel",
+          "steekproef": 79,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 64105,
+          "massaRijklaar": 2011,
+          "zitplaatsen": 2,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 545,
+          "vermogenKw": 110,
+          "verbruikWltp": 7.8,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 203,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 1114,
+          "emissieklasse": "EURO 6 EB"
+        },
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 50,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 63499,
+          "massaRijklaar": 2139,
+          "zitplaatsen": 2,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 545,
+          "vermogenKw": 87,
+          "verbruikWltp": 7.2,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 19
+          },
+          "verbruikGewogenWltp": 3.9,
+          "elektrischVerbruikWltp": 12.6,
+          "co2Wltp": 88,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 986,
+          "emissieklasse": "EURO 6 EB"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "renault-trafic",
+      "merk": "RENAULT",
+      "model": "TRAFIC",
+      "rang": 5,
+      "registratiesSinds2019": 31160,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 323,
+          "periode": [
+            2025,
+            2026
+          ],
+          "catalogusprijs": 51419,
+          "massaRijklaar": 1960,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 548,
+          "vermogenKw": 90,
+          "verbruikWltp": 25.3,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 240,
+          "laadvermogenKg": 1210,
+          "emissieklasse": "AX"
+        },
+        {
+          "aandrijving": "diesel",
+          "steekproef": 77,
+          "periode": [
+            2025,
+            2026
+          ],
+          "catalogusprijs": 58314,
+          "massaRijklaar": 1912,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 548,
+          "vermogenKw": 110,
+          "verbruikWltp": 7,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 184,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 1230,
+          "emissieklasse": "EURO 6 EC"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "mercedes-benz-vito",
+      "merk": "MERCEDES-BENZ",
+      "model": "VITO",
+      "rang": 6,
+      "registratiesSinds2019": 26691,
+      "uitvoeringen": [
+        {
+          "aandrijving": "diesel",
+          "steekproef": 392,
+          "periode": [
+            2025,
+            2026
+          ],
+          "catalogusprijs": 76032,
+          "massaRijklaar": 1907,
+          "zitplaatsen": 2,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 514,
+          "vermogenKw": 100,
+          "verbruikWltp": 7,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 184,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 993,
+          "emissieklasse": "EURO 6 EB"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "renault-master",
+      "merk": "RENAULT",
+      "model": "MASTER",
+      "rang": 7,
+      "registratiesSinds2019": 25780,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 380,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 65703,
+          "massaRijklaar": 2378,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 569,
+          "vermogenKw": 105,
+          "verbruikWltp": 25.8,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 397,
+          "laadvermogenKg": 1222,
+          "emissieklasse": "AX"
+        },
+        {
+          "aandrijving": "diesel",
+          "steekproef": 20,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 69185,
+          "massaRijklaar": 2140,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 569,
+          "vermogenKw": 110,
+          "verbruikWltp": 8,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 209,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 1460,
+          "emissieklasse": "EURO 6 EC"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "volkswagen-crafter",
+      "merk": "VOLKSWAGEN",
+      "model": "CRAFTER",
+      "rang": 8,
+      "registratiesSinds2019": 25720,
+      "uitvoeringen": [
+        {
+          "aandrijving": "diesel",
+          "steekproef": 400,
+          "periode": [
+            2025,
+            2026
+          ],
+          "catalogusprijs": 75704,
+          "massaRijklaar": 2288,
+          "zitplaatsen": 2,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 630,
+          "vermogenKw": 103,
+          "verbruikWltp": 10.7,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 283,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 1275,
+          "emissieklasse": "EURO 6 EC"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "ford-transit",
+      "merk": "FORD",
+      "model": "TRANSIT",
+      "rang": 9,
+      "registratiesSinds2019": 18420,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 364,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 63356,
+          "massaRijklaar": 2646,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 553,
+          "vermogenKw": 135,
+          "verbruikWltp": null,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 954,
+          "emissieklasse": "EURO VI E"
+        },
+        {
+          "aandrijving": "diesel",
+          "steekproef": 36,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 76174,
+          "massaRijklaar": 2214,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 598,
+          "vermogenKw": 121,
+          "verbruikWltp": 9,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 236,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 1386,
+          "emissieklasse": "EURO 6 EB"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "opel-vivaro",
+      "merk": "OPEL",
+      "model": "VIVARO",
+      "rang": 10,
+      "registratiesSinds2019": 18370,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 367,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 56537,
+          "massaRijklaar": 2127,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 533,
+          "vermogenKw": 100,
+          "verbruikWltp": 23.9,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 348,
+          "laadvermogenKg": 1026,
+          "emissieklasse": "AX"
+        },
+        {
+          "aandrijving": "diesel",
+          "steekproef": 33,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 55434,
+          "massaRijklaar": 1871,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 498,
+          "vermogenKw": 110,
+          "verbruikWltp": 6.8,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 178,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 1319,
+          "emissieklasse": "EURO 6 EB"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "peugeot-expert",
+      "merk": "PEUGEOT",
+      "model": "EXPERT",
+      "rang": 11,
+      "registratiesSinds2019": 16996,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 350,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 56930,
+          "massaRijklaar": 2127,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 533,
+          "vermogenKw": 100,
+          "verbruikWltp": 23.8,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 351,
+          "laadvermogenKg": 1026,
+          "emissieklasse": "AX"
+        },
+        {
+          "aandrijving": "diesel",
+          "steekproef": 50,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 55785,
+          "massaRijklaar": 1879,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 533,
+          "vermogenKw": 110,
+          "verbruikWltp": 6.9,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 181,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 1219,
+          "emissieklasse": "EURO 6 EB"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "ford-transit-connect",
+      "merk": "FORD",
+      "model": "TRANSIT CONNECT",
+      "rang": 12,
+      "registratiesSinds2019": 14309,
+      "uitvoeringen": [
+        {
+          "aandrijving": "plug-in hybride",
+          "steekproef": 363,
+          "periode": [
+            2025,
+            2026
+          ],
+          "catalogusprijs": 45179,
+          "massaRijklaar": 1783,
+          "zitplaatsen": 2,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 485,
+          "vermogenKw": 85,
+          "verbruikWltp": 6.4,
+          "verbruikLegeAccuHerkomst": {
+            "rdw": 0,
+            "afgeleid": 181
+          },
+          "verbruikGewogenWltp": 1.8,
+          "elektrischVerbruikWltp": 14.7,
+          "co2Wltp": 42,
+          "actieradiusWltpKm": 116,
+          "laadvermogenKg": 817,
+          "emissieklasse": "EURO 6 EB"
+        },
+        {
+          "aandrijving": "diesel",
+          "steekproef": 37,
+          "periode": [
+            2025,
+            2026
+          ],
+          "catalogusprijs": 41139,
+          "massaRijklaar": 1553,
+          "zitplaatsen": 2,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 485,
+          "vermogenKw": 75,
+          "verbruikWltp": 5.5,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 144,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 847,
+          "emissieklasse": "EURO 6 EB"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "peugeot-partner",
+      "merk": "PEUGEOT",
+      "model": "PARTNER",
+      "rang": 13,
+      "registratiesSinds2019": 13878,
+      "uitvoeringen": [
+        {
+          "aandrijving": "diesel",
+          "steekproef": 364,
+          "periode": [
+            2024,
+            2026
+          ],
+          "catalogusprijs": 39781,
+          "massaRijklaar": 1486,
+          "zitplaatsen": 2,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 440,
+          "vermogenKw": 96,
+          "verbruikWltp": 5.8,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 151,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 860,
+          "emissieklasse": "EURO 6 EA"
+        },
+        {
+          "aandrijving": "benzine",
+          "steekproef": 36,
+          "periode": [
+            2024,
+            2026
+          ],
+          "catalogusprijs": 34893,
+          "massaRijklaar": 1405,
+          "zitplaatsen": 2,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 440,
+          "vermogenKw": 81,
+          "verbruikWltp": 6.7,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 152,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 636,
+          "emissieklasse": "EURO 6 EA"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "man-tge",
+      "merk": "MAN",
+      "model": "TGE",
+      "rang": 14,
+      "registratiesSinds2019": 9632,
+      "uitvoeringen": [
+        {
+          "aandrijving": "diesel",
+          "steekproef": 400,
+          "periode": [
+            2024,
+            2026
+          ],
+          "catalogusprijs": 85036,
+          "massaRijklaar": 2275,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 599,
+          "vermogenKw": 120,
+          "verbruikWltp": 9.8,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 257,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 1317,
+          "emissieklasse": "EURO 6 EA"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "opel-combo",
+      "merk": "OPEL",
+      "model": "COMBO",
+      "rang": 15,
+      "registratiesSinds2019": 9602,
+      "uitvoeringen": [
+        {
+          "aandrijving": "diesel",
+          "steekproef": 372,
+          "periode": [
+            2024,
+            2026
+          ],
+          "catalogusprijs": 38758,
+          "massaRijklaar": 1539,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 475,
+          "vermogenKw": 75,
+          "verbruikWltp": 5.5,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 145,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 952,
+          "emissieklasse": "EURO 6 EA"
+        },
+        {
+          "aandrijving": "benzine",
+          "steekproef": 27,
+          "periode": [
+            2024,
+            2026
+          ],
+          "catalogusprijs": 35527,
+          "massaRijklaar": 1405,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 440,
+          "vermogenKw": 81,
+          "verbruikWltp": 6.6,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 148,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 655,
+          "emissieklasse": "EURO 6 EA"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "toyota-proace",
+      "merk": "TOYOTA",
+      "model": "PROACE",
+      "rang": 16,
+      "registratiesSinds2019": 8929,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 382,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 57759,
+          "massaRijklaar": 2118,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 533,
+          "vermogenKw": 100,
+          "verbruikWltp": 24.1,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 346,
+          "laadvermogenKg": 1163,
+          "emissieklasse": "AX"
+        },
+        {
+          "aandrijving": "diesel",
+          "steekproef": 18,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 62644,
+          "massaRijklaar": 2150,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 541,
+          "vermogenKw": 103,
+          "verbruikWltp": 7.8,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 205,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 1310,
+          "emissieklasse": "EURO 6 EB"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "volkswagen-id.-buzz",
+      "merk": "VOLKSWAGEN",
+      "model": "ID. BUZZ",
+      "rang": 17,
+      "registratiesSinds2019": 8533,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 400,
+          "periode": [
+            2026,
+            2026
+          ],
+          "catalogusprijs": 61250,
+          "massaRijklaar": 2424,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 471,
+          "vermogenKw": 210,
+          "verbruikWltp": 20.1,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 440,
+          "laadvermogenKg": 826,
+          "emissieklasse": "AX"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "mercedes-benz-citan",
+      "merk": "MERCEDES-BENZ",
+      "model": "CITAN",
+      "rang": 18,
+      "registratiesSinds2019": 8361,
+      "uitvoeringen": [
+        {
+          "aandrijving": "diesel",
+          "steekproef": 379,
+          "periode": [
+            2024,
+            2026
+          ],
+          "catalogusprijs": 41107,
+          "massaRijklaar": 1495,
+          "zitplaatsen": 2,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 449,
+          "vermogenKw": 70,
+          "verbruikWltp": 5.3,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 139,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 639,
+          "emissieklasse": "EURO 6 EA"
+        },
+        {
+          "aandrijving": "benzine",
+          "steekproef": 21,
+          "periode": [
+            2024,
+            2026
+          ],
+          "catalogusprijs": 42235,
+          "massaRijklaar": 1452,
+          "zitplaatsen": 2,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 449,
+          "vermogenKw": 96,
+          "verbruikWltp": 6.9,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 157,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 673,
+          "emissieklasse": "EURO 6 EA"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "renault-kangoo",
+      "merk": "RENAULT",
+      "model": "KANGOO",
+      "rang": 19,
+      "registratiesSinds2019": 7738,
+      "uitvoeringen": [
+        {
+          "aandrijving": "diesel",
+          "steekproef": 365,
+          "periode": [
+            2024,
+            2026
+          ],
+          "catalogusprijs": 38908,
+          "massaRijklaar": 1495,
+          "zitplaatsen": 2,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 449,
+          "vermogenKw": 70,
+          "verbruikWltp": 5.3,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 138,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 627,
+          "emissieklasse": "EURO 6 EA"
+        },
+        {
+          "aandrijving": "benzine",
+          "steekproef": 35,
+          "periode": [
+            2024,
+            2024
+          ],
+          "catalogusprijs": 34495,
+          "massaRijklaar": 1408,
+          "zitplaatsen": 2,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 449,
+          "vermogenKw": 96,
+          "verbruikWltp": 6.9,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 157,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 662,
+          "emissieklasse": "EURO 6 EA"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    },
+    {
+      "id": "citroen-jumpy",
+      "merk": "CITROEN",
+      "model": "JUMPY",
+      "rang": 20,
+      "registratiesSinds2019": 7499,
+      "uitvoeringen": [
+        {
+          "aandrijving": "elektrisch",
+          "steekproef": 369,
+          "periode": [
+            2025,
+            2026
+          ],
+          "catalogusprijs": 59689,
+          "massaRijklaar": 2118,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 533,
+          "vermogenKw": 100,
+          "verbruikWltp": 23.9,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 0,
+          "actieradiusWltpKm": 348,
+          "laadvermogenKg": 940,
+          "emissieklasse": "AX"
+        },
+        {
+          "aandrijving": "diesel",
+          "steekproef": 31,
+          "periode": [
+            2025,
+            2026
+          ],
+          "catalogusprijs": 55765,
+          "massaRijklaar": 1881,
+          "zitplaatsen": 3,
+          "trekgewichtGeremd": 0,
+          "lengteCm": 533,
+          "vermogenKw": 110,
+          "verbruikWltp": 6.9,
+          "verbruikLegeAccuHerkomst": null,
+          "verbruikGewogenWltp": null,
+          "elektrischVerbruikWltp": null,
+          "co2Wltp": 181,
+          "actieradiusWltpKm": null,
+          "laadvermogenKg": 1220,
+          "emissieklasse": "EURO 6 EB"
+        }
+      ],
+      "herkomst": {
+        "bron": "https://opendata.rdw.nl/resource/m9d7-ebf2.json + https://opendata.rdw.nl/resource/8ys7-d773.json",
+        "peildatum": "2026-11-04",
+        "betrouwbaarheid": "hoog",
+        "methode": "Medianen over de 400 meest recent toegelaten kentekens van dit model, per aandrijving (min. 10). Catalogusprijs is incl. btw en BPM, inclusief fabrieksopties van die auto's."
+      }
+    }
+  ]
+}

@@ -23,6 +23,7 @@ Statuslabels:
 | Gewichtscorrectie voor EV-accu | onduidelijk | onderzoek naar andere grondslag dan gewicht | ⚠ bronnen spreken elkaar tegen | [AutoScout24](https://www.autoscout24.nl/informeren/advies/kosten-en-wetgeving/wegenbelasting-elektrische-auto-wat-je-moet-weten/), ANWB |
 | Plug-in hybride (≤50 g/km) | **geen korting meer** (volledig tarief) | idem | ✅ | ANWB |
 | Bestelauto ondernemer / lichte vracht tijdelijke korting | loopt | vervalt per 1-1-2027 | 🟡 | Athlon |
+| Bestelauto ondernemer (art. 24b Wet MRB) | per kwartaal op massa rijklaar: ≤600 kg €51,97 · 700–1.100: €63,55 + €8,15/100 kg boven 700 · 1.200–2.100: €104,42 + €8,76/100 kg boven 1.200 · 2.200–2.800: €192,46 + €9,43/100 kg boven 2.200 · ≥2.900: €254,79 + €2,14/100 kg boven 2.900. **Geen provinciale opcenten** (art. 222 Provinciewet: alleen personenauto's en motorrijwielen). **Geen EV-korting** (art. 23b geldt voor art. 23/23a). Tijdelijk de helft van 1-7-2026 t/m 31-12-2026 | ✅ wettekst + rekenhulp Belastingdienst (2.000 kg EV: €87 per kwartaal) | [Wet MRB](https://wetten.overheid.nl/BWBR0006324/2026-07-01), [Belastingdienst](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/berichten/nieuws/tijdelijke-verlaging-mrb-bestelautos-vrachtautos) |
 | Provinciale opcenten | 82,1 (N-Holland) t/m 104,4 (Z-Holland); max 143,9; over een eigen grondslag (art. 222 Provinciewet) | jaarlijks vastgesteld | ✅ | [CBS 80889ned](https://www.cbs.nl/nl-nl/cijfers/detail/80889ned) |
 
 **Implementatie (Fase 1, gedaan):** in `src/regels/regels-nl.ts` staan:

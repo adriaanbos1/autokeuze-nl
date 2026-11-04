@@ -6,6 +6,7 @@ import type { ModelRdw, UitvoeringRdw, Aandrijvingstype } from "./types";
 import { betrouwbaarheidModel } from "./betrouwbaarheid-data";
 import { ncapVoorBouwjaar, veiligheidModel } from "./ncap-data";
 import { occasionJaren } from "./occasions-data";
+import { bestelBetrouwbaarheid, bestelModellen, bestelOccasionJaren } from "./bestel-data";
 import { aannames } from "@/regels/aannames";
 import { ankers, CRITERIA, type Criterium, type Profiel } from "@/regels/methodiek";
 import { regels, type Provincie } from "@/regels/regels-nl";
@@ -20,6 +21,8 @@ import {
   grootsteAchterstand,
   lineaireScore,
   mrbPersonenauto,
+  mrbBestelautoOndernemer,
+  zeToegangTot,
   onderhoudPerJaar,
   rond2,
   sterkEnZwak,
@@ -56,6 +59,7 @@ export const alleModellen = rdw.modellen as ModelRdw[];
 export const datasetPeildatum = rdw.peildatum;
 
 export type Soort = "nieuw" | "occasion" | "beide";
+export type Voertuig = "personenauto" | "bestelauto";
 
 /** Extra invoer voor de zakelijke profielen (Fase 3d, basis). */
 export interface ZakelijkeInvoer {
@@ -72,6 +76,12 @@ export interface ZakelijkeInvoer {
   leasebudgetExclBtw: number | null;
   /** Leaserijder: mag je boven je budget rijden als je het meerbedrag zelf betaalt (eigen bijdrage)? */
   bovenBudgetMetEigenBijdrage: boolean;
+  /** Bestelauto: rijd je er privé mee? Nee = verklaring uitsluitend zakelijk gebruik (geen bijtelling, geen btw-correctie). */
+  bestelPriveGebruik: boolean;
+  /** Bestelauto: moet je de hele looptijd in zero-emissiezones kunnen komen? */
+  zeZoneNodig: boolean;
+  /** Bestelauto: benodigd laadvermogen in kg (0 = maakt niet uit). */
+  laadvermogenNodig: number;
   /** DGA: winst van de bv vóór autokosten, en het salaris dat de DGA uit de bv krijgt. */
   bvWinst: number;
   salaris: number;
@@ -84,6 +94,9 @@ export const STANDAARD_ZAKELIJK: ZakelijkeInvoer = {
   zakelijkAandeel: 0.8,
   btwPlichtig: true,
   leasebudgetExclBtw: null,
+  bestelPriveGebruik: false,
+  zeZoneNodig: false,
+  laadvermogenNodig: 0,
   bovenBudgetMetEigenBijdrage: true,
   bvWinst: 100000,
   salaris: regels.dga.gebruikelijkLoon2026.waarde,
@@ -91,6 +104,8 @@ export const STANDAARD_ZAKELIJK: ZakelijkeInvoer = {
 
 export interface Intake {
   profiel: Profiel;
+  /** Bestelauto alleen voor de ZZP'er en de DGA (ondernemerstarief MRB, KIA). */
+  voertuig: Voertuig;
   soort: Soort;
   /** Alleen occasions: maximale leeftijd in jaren en optionele maximale kilometerstand. */
   maxLeeftijdJaar: number;
@@ -118,6 +133,9 @@ export interface Intake {
 }
 
 export const gezinsprofiel = (i: Pick<Intake, "personen" | "kinderen">) => i.kinderen || i.personen >= 3;
+
+/** Rekent deze intake met bestelauto's? Alleen voor de ZZP'er en de DGA. */
+export const isBestel = (i: Pick<Intake, "voertuig" | "profiel">) => i.voertuig === "bestelauto" && (i.profiel === "zzp" || i.profiel === "dga");
 
 const nl = (x: number, decimalen = 3) => x.toLocaleString("nl-NL", { maximumFractionDigits: decimalen });
 const eur0 = (x: number) => x.toLocaleString("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
@@ -259,9 +277,16 @@ export function kosten(u: UitvoeringRdw, i: Intake, occ: Occasion | null): Koste
   const jaren = jarenVan(i);
   const brandstof = elektrisch ? "elektrisch" : u.aandrijving === "diesel" ? "diesel" : u.aandrijving === "lpg" ? "overig" : "benzine";
 
+  const bestel = isBestel(i);
   const mrbJaar =
-    jaren.reduce((s, k) => s + mrbPersonenauto({ massaRijklaar: u.massaRijklaar!, brandstof, provincie: i.provincie, jaar: i.startjaar + k }).perJaar, 0) /
-    jaren.length;
+    jaren.reduce(
+      (s, k) =>
+        s +
+        (bestel
+          ? mrbBestelautoOndernemer({ massaRijklaar: u.massaRijklaar!, jaar: i.startjaar + k }).perJaar
+          : mrbPersonenauto({ massaRijklaar: u.massaRijklaar!, brandstof, provincie: i.provincie, jaar: i.startjaar + k }).perJaar),
+      0,
+    ) / jaren.length;
   const onderhoudJaar =
     jaren.reduce((s, k) => s + onderhoudPerJaar({ elektrisch, kmPerJaar: i.kmPerJaar, leeftijdJaar: (occ ? occ.leeftijdMaanden / 12 : 0) + k }).bedrag, 0) / jaren.length;
   const banden = bandenPerJaar({ elektrisch, massaRijklaar: u.massaRijklaar, kmPerJaar: i.kmPerJaar }).bedrag;
@@ -297,8 +322,13 @@ export function kosten(u: UitvoeringRdw, i: Intake, occ: Occasion | null): Koste
   // Uitleg per post aanvullen met wat er voor deze auto echt in zit.
   const extra: Record<string, string> = {
     Energie: e.uitleg,
-    Motorrijtuigenbelasting: `gemiddeld €${Math.round(mrbJaar)} per jaar over ${jaren.length} jaar (${i.provincie.replace(/(^|-)\w/g, (x) => x.toUpperCase())}, ${nl(u.massaRijklaar)} kg${elektrisch ? ", korting elektrisch loopt af" : ""})`,
-    Verzekering: i.eigenPremiePerMaand != null ? "jouw eigen premie" : `marktgemiddelde ${i.dekking} (Geld.nl, H1 2026), gelijk voor elk model`,
+    Motorrijtuigenbelasting: bestel
+      ? `gemiddeld €${Math.round(mrbJaar)} per jaar over ${jaren.length} jaar (bestelauto ondernemerstarief, ${nl(u.massaRijklaar)} kg, geen opcenten${i.startjaar === 2026 ? ", 2e helft 2026 tijdelijk gehalveerd" : ""})`
+      : `gemiddeld €${Math.round(mrbJaar)} per jaar over ${jaren.length} jaar (${i.provincie.replace(/(^|-)\w/g, (x) => x.toUpperCase())}, ${nl(u.massaRijklaar)} kg${elektrisch ? ", korting elektrisch loopt af" : ""})`,
+    Verzekering:
+      i.eigenPremiePerMaand != null
+        ? "jouw eigen premie"
+        : `marktgemiddelde ${i.dekking} (Geld.nl, H1 2026), gelijk voor elk model${bestel ? "; dit is het gemiddelde voor personenauto's, voor bestelauto's hebben we geen bron: vul bij voorkeur je eigen premie in" : ""}`,
     "Onderhoud en banden": `onderhoud gem. €${Math.round(onderhoudJaar)} + banden €${Math.round(banden)} per jaar (rekenmodel, indicatief)`,
     "Kosten van geld (gemist rendement)": `gemiddeld ${eur0((aankoopprijs + rest.waardeEinde) / 2)} vastgezet × ${nl(aannames.geld.gemistRendement.waarde * 100)}% rente die je misloopt / 12 (aanname)`,
     Afschrijving: `${occ ? "geschatte occasionprijs" : "catalogusprijs"} ${eur0(aankoopprijs)} → geschatte waarde na ${i.looptijdMaanden} maanden ${eur0(rest.waardeEinde)} (generieke curve, niet per model)`,
@@ -428,6 +458,7 @@ function profielKosten(u: UitvoeringRdw, i: Intake, b: AutoBezit, occ: Occasion 
     const auto: ZzpAuto = {
       aankoopprijs: b.aankoopprijs,
       btwOpFactuur: occ ? !aannames.zakelijk.occasionMargeregeling.waarde : true,
+      kiaToegestaan: isBestel(i),
       restwaardeEinde: b.restwaardeEinde,
       looptijdJaren: jaren,
       cataloguswaarde: u.catalogusprijs!,
@@ -447,7 +478,8 @@ function profielKosten(u: UitvoeringRdw, i: Intake, b: AutoBezit, occ: Occasion 
     const dividend = W - vpb2026(W); // aanname: de bv keert de winst na Vpb uit
     const v = dgaVarianten(auto, {
       zakelijkeKm,
-      priveKm: i.kmPerJaar - zakelijkeKm,
+      // Bestelauto met verklaring uitsluitend zakelijk gebruik: geen privé-km.
+      priveKm: isBestel(i) && !z.bestelPriveGebruik ? 0 : i.kmPerJaar - zakelijkeKm,
       btwPlichtigBv: z.btwPlichtig,
       rendement: aannames.geld.gemistRendement.waarde,
       vpbVoordeel: (x) => vpb2026(W) - vpb2026(W - x),
@@ -472,6 +504,7 @@ function profielKosten(u: UitvoeringRdw, i: Intake, b: AutoBezit, occ: Occasion 
         aankoopprijs: b.aankoopprijs,
         // Occasion: meestal een marge-auto zonder btw op de factuur (aanname).
         btwOpFactuur: occ ? !aannames.zakelijk.occasionMargeregeling.waarde : true,
+        kiaToegestaan: isBestel(i),
         restwaardeEinde: b.restwaardeEinde,
         looptijdJaren: b.maanden / 12,
         cataloguswaarde: u.catalogusprijs!,
@@ -484,7 +517,8 @@ function profielKosten(u: UitvoeringRdw, i: Intake, b: AutoBezit, occ: Occasion 
         verzekering: rond2(b.lopend.verzekering * 12),
       },
       zakelijkeKm,
-      priveKm: i.kmPerJaar - zakelijkeKm,
+      // Bestelauto met verklaring uitsluitend zakelijk gebruik: geen privé-km.
+      priveKm: isBestel(i) && !z.bestelPriveGebruik ? 0 : i.kmPerJaar - zakelijkeKm,
       btwPlichtig: z.btwPlichtig,
       winst: z.inkomen,
     };
@@ -512,6 +546,13 @@ export function hardeEisen(u: UitvoeringRdw, i: Intake, k: Kosten | null, occ: O
   if (occ && occ.leeftijdMaanden / 12 > i.maxLeeftijdJaar) nee.push(`ouder dan ${i.maxLeeftijdJaar} jaar`);
   if (occ && i.maxKmStand != null && occ.kmNu > i.maxKmStand) nee.push(`ca. ${nl(occ.kmNu)} km`);
   if (u.aandrijving === "elektrisch" && u.actieradiusWltpKm == null) nee.push("actieradius onbekend");
+  if (isBestel(i) && i.zakelijk.laadvermogenNodig > 0 && (u.laadvermogenKg ?? 0) < i.zakelijk.laadvermogenNodig)
+    nee.push(`laadvermogen ${u.laadvermogenKg ?? "onbekend"} kg`);
+  if (isBestel(i) && i.zakelijk.zeZoneNodig) {
+    const tot = zeToegangTot({ elektrisch: u.aandrijving === "elektrisch", emissieklasse: u.emissieklasse ?? null, jaarEersteToelating: occ?.bouwjaar ?? i.startjaar });
+    const laatsteJaar = i.startjaar + Math.ceil(i.looptijdMaanden / 12) - 1;
+    if (tot === null || tot < laatsteJaar) nee.push(tot === null ? "geen toegang tot zero-emissiezones" : `toegang tot zero-emissiezones alleen t/m ${tot}`);
+  }
   if (i.profiel === "leaserijder" && k?.profiel?.lease?.bovenBudget && !i.zakelijk.bovenBudgetMetEigenBijdrage)
     nee.push(`geschatte leaseprijs ${eur0(k.profiel.lease.leaseprijsExcl)} boven je leasebudget`);
   if (!k) nee.push("onvoldoende data om de kosten te berekenen");
@@ -544,10 +585,11 @@ function fitScore(u: UitvoeringRdw, i: Intake): CriteriumScore | null {
 }
 
 /** Betrouwbaarheid: voor een occasion van dat bouwjaar als er genoeg keuringen zijn, anders het hele model. */
-function betrouwbaarheidVoor(id: string, occ: Occasion | null) {
-  const eigen = occ ? betrouwbaarheidModel(id, [occ.bouwjaar]) : null;
-  if (eigen) return { ...eigen, wat: `bouwjaar ${occ!.bouwjaar}` };
-  const model = betrouwbaarheidModel(id);
+function betrouwbaarheidVoor(id: string, occ: Occasion | null, bestel = false) {
+  const bron = bestel ? bestelBetrouwbaarheid : betrouwbaarheidModel;
+  const eigen = occ ? bron(id, [occ.bouwjaar]) : null;
+  if (eigen) return { ...eigen, wat: `bouwjaar ${occ!.bouwjaar}${bestel ? ", vergeleken met bestelauto's" : ""}` };
+  const model = bron(id);
   return model ? { ...model, wat: occ ? `alle bouwjaren 2014–2022; te weinig keuringen van bouwjaar ${occ.bouwjaar}` : "bouwjaren 2014–2022" } : null;
 }
 
@@ -559,8 +601,9 @@ function veiligheidVoor(id: string, occ: Occasion | null, peiljaar: number) {
 }
 
 export function scoresVoor(m: ModelRdw, u: UitvoeringRdw, i: Intake, k: Kosten, occ: Occasion | null = null): Scores {
-  const betr = betrouwbaarheidVoor(m.id, occ);
-  const ncap = veiligheidVoor(m.id, occ, i.startjaar);
+  const betr = betrouwbaarheidVoor(m.id, occ, isBestel(i));
+  // Euro NCAP geeft bestelauto's geen sterren; veiligheid telt dan voor geen enkele bestelauto mee.
+  const ncap = isBestel(i) ? null : veiligheidVoor(m.id, occ, i.startjaar);
   const veil = ncap ? { geldend: ncap, score: veiligheidsScore(ncap, i.startjaar) } : null;
   const s: Scores = {
     TCO: {
@@ -639,7 +682,7 @@ function kandidaten(m: ModelRdw, i: Intake): { u: UitvoeringRdw; occ: Occasion |
   const soort = i.profiel === "leaserijder" ? "nieuw" : i.soort;
   if (soort !== "occasion") for (const u of m.uitvoeringen) uit.push({ u, occ: null });
   if (soort !== "nieuw")
-    for (const j of occasionJaren(m.id)) {
+    for (const j of (isBestel(i) ? bestelOccasionJaren : occasionJaren)(m.id)) {
       const leeftijd = i.startjaar - j.bouwjaar;
       if (leeftijd < 1 || leeftijd > i.maxLeeftijdJaar) continue;
       for (const u of j.uitvoeringen) uit.push({ u, occ: occasionVan(j.bouwjaar, i.startjaar) });
@@ -647,7 +690,7 @@ function kandidaten(m: ModelRdw, i: Intake): { u: UitvoeringRdw; occ: Occasion |
   return uit;
 }
 
-export function rangschik(i: Intake, gewichten: Gewichten, modellen: ModelRdw[] = alleModellen): Ranglijst {
+export function rangschik(i: Intake, gewichten: Gewichten, modellen: ModelRdw[] = isBestel(i) ? bestelModellen : alleModellen): Ranglijst {
   const uitgesloten = new Map<string, Ranglijst["uitgesloten"][number]>();
   const perModel: Resultaat[] = [];
   for (const m of modellen) {

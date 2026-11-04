@@ -1,0 +1,3064 @@
+{
+ "bron": "https://opendata.rdw.nl/resource/sgfe-77wx.json + https://opendata.rdw.nl/resource/a34c-vvps.json + https://opendata.rdw.nl/resource/hx2c-gt7k.json + https://opendata.rdw.nl/resource/m9d7-ebf2.json",
+ "peildatum": "2026-11-04",
+ "venster": {
+  "vanaf": "20241104",
+  "tot": "20261104"
+ },
+ "methode": "Per model × bouwjaar 600 kentekens, gelot via SHA-256 van het kenteken; landelijk 3000 per bouwjaar, gelot uit alle bestelauto's (N1) van dat bouwjaar. Reguliere APK's (lichte voertuigen) in het venster; keuring \"met gebrek\" = ≥ 1 technisch gebrek (src/data/gebreken.ts).",
+ "technischeGebrekcodes": 763,
+ "landelijk": {
+  "2014": {
+   "auto": 3000,
+   "perLeeftijd": {
+    "10": {
+     "keuringen": 425,
+     "metGebrek": 234
+    },
+    "11": {
+     "keuringen": 2719,
+     "metGebrek": 1575
+    },
+    "12": {
+     "keuringen": 2059,
+     "metGebrek": 1209
+    }
+   }
+  },
+  "2015": {
+   "auto": 3000,
+   "perLeeftijd": {
+    "9": {
+     "keuringen": 425,
+     "metGebrek": 224
+    },
+    "10": {
+     "keuringen": 2739,
+     "metGebrek": 1528
+    },
+    "11": {
+     "keuringen": 2115,
+     "metGebrek": 1220
+    }
+   }
+  },
+  "2016": {
+   "auto": 3000,
+   "perLeeftijd": {
+    "8": {
+     "keuringen": 405,
+     "metGebrek": 202
+    },
+    "9": {
+     "keuringen": 2784,
+     "metGebrek": 1472
+    },
+    "10": {
+     "keuringen": 2188,
+     "metGebrek": 1182
+    }
+   }
+  },
+  "2017": {
+   "auto": 3000,
+   "perLeeftijd": {
+    "7": {
+     "keuringen": 426,
+     "metGebrek": 224
+    },
+    "8": {
+     "keuringen": 2790,
+     "metGebrek": 1409
+    },
+    "9": {
+     "keuringen": 2271,
+     "metGebrek": 1206
+    }
+   }
+  },
+  "2018": {
+   "auto": 3000,
+   "perLeeftijd": {
+    "6": {
+     "keuringen": 436,
+     "metGebrek": 193
+    },
+    "7": {
+     "keuringen": 2765,
+     "metGebrek": 1314
+    },
+    "8": {
+     "keuringen": 2312,
+     "metGebrek": 1131
+    }
+   }
+  },
+  "2019": {
+   "auto": 3000,
+   "perLeeftijd": {
+    "5": {
+     "keuringen": 418,
+     "metGebrek": 181
+    },
+    "6": {
+     "keuringen": 2782,
+     "metGebrek": 1269
+    },
+    "7": {
+     "keuringen": 2246,
+     "metGebrek": 1017
+    }
+   }
+  },
+  "2020": {
+   "auto": 3000,
+   "perLeeftijd": {
+    "4": {
+     "keuringen": 431,
+     "metGebrek": 196
+    },
+    "5": {
+     "keuringen": 2716,
+     "metGebrek": 1203
+    },
+    "6": {
+     "keuringen": 2340,
+     "metGebrek": 1043
+    }
+   }
+  },
+  "2021": {
+   "auto": 3000,
+   "perLeeftijd": {
+    "3": {
+     "keuringen": 412,
+     "metGebrek": 172
+    },
+    "4": {
+     "keuringen": 2818,
+     "metGebrek": 1137
+    },
+    "5": {
+     "keuringen": 2294,
+     "metGebrek": 974
+    }
+   }
+  },
+  "2022": {
+   "auto": 3000,
+   "perLeeftijd": {
+    "2": {
+     "keuringen": 129,
+     "metGebrek": 40
+    },
+    "3": {
+     "keuringen": 2559,
+     "metGebrek": 1063
+    },
+    "4": {
+     "keuringen": 2402,
+     "metGebrek": 1024
+    }
+   }
+  }
+ },
+ "modellen": {
+  "mercedes-benz-sprinter": {
+   "2014": {
+    "auto": 600,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 81,
+      "metGebrek": 48
+     },
+     "11": {
+      "keuringen": 537,
+      "metGebrek": 304
+     },
+     "12": {
+      "keuringen": 403,
+      "metGebrek": 236
+     }
+    }
+   },
+   "2015": {
+    "auto": 600,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 87,
+      "metGebrek": 47
+     },
+     "10": {
+      "keuringen": 538,
+      "metGebrek": 313
+     },
+     "11": {
+      "keuringen": 403,
+      "metGebrek": 244
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 86,
+      "metGebrek": 49
+     },
+     "9": {
+      "keuringen": 533,
+      "metGebrek": 327
+     },
+     "10": {
+      "keuringen": 425,
+      "metGebrek": 248
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 87,
+      "metGebrek": 42
+     },
+     "8": {
+      "keuringen": 535,
+      "metGebrek": 282
+     },
+     "9": {
+      "keuringen": 432,
+      "metGebrek": 237
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 82,
+      "metGebrek": 38
+     },
+     "7": {
+      "keuringen": 570,
+      "metGebrek": 281
+     },
+     "8": {
+      "keuringen": 460,
+      "metGebrek": 238
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 83,
+      "metGebrek": 37
+     },
+     "6": {
+      "keuringen": 584,
+      "metGebrek": 258
+     },
+     "7": {
+      "keuringen": 486,
+      "metGebrek": 222
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 82,
+      "metGebrek": 36
+     },
+     "5": {
+      "keuringen": 526,
+      "metGebrek": 245
+     },
+     "6": {
+      "keuringen": 458,
+      "metGebrek": 220
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 87,
+      "metGebrek": 36
+     },
+     "4": {
+      "keuringen": 550,
+      "metGebrek": 249
+     },
+     "5": {
+      "keuringen": 469,
+      "metGebrek": 201
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 33,
+      "metGebrek": 11
+     },
+     "3": {
+      "keuringen": 538,
+      "metGebrek": 232
+     },
+     "4": {
+      "keuringen": 470,
+      "metGebrek": 217
+     }
+    }
+   }
+  },
+  "ford-transit-custom": {
+   "2014": {
+    "auto": 600,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 93,
+      "metGebrek": 60
+     },
+     "11": {
+      "keuringen": 529,
+      "metGebrek": 297
+     },
+     "12": {
+      "keuringen": 371,
+      "metGebrek": 223
+     }
+    }
+   },
+   "2015": {
+    "auto": 600,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 82,
+      "metGebrek": 47
+     },
+     "10": {
+      "keuringen": 545,
+      "metGebrek": 277
+     },
+     "11": {
+      "keuringen": 407,
+      "metGebrek": 216
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 92,
+      "metGebrek": 47
+     },
+     "9": {
+      "keuringen": 557,
+      "metGebrek": 301
+     },
+     "10": {
+      "keuringen": 421,
+      "metGebrek": 228
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 91,
+      "metGebrek": 41
+     },
+     "8": {
+      "keuringen": 568,
+      "metGebrek": 297
+     },
+     "9": {
+      "keuringen": 440,
+      "metGebrek": 218
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 77,
+      "metGebrek": 35
+     },
+     "7": {
+      "keuringen": 580,
+      "metGebrek": 269
+     },
+     "8": {
+      "keuringen": 492,
+      "metGebrek": 232
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 92,
+      "metGebrek": 36
+     },
+     "6": {
+      "keuringen": 576,
+      "metGebrek": 217
+     },
+     "7": {
+      "keuringen": 465,
+      "metGebrek": 209
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 86,
+      "metGebrek": 40
+     },
+     "5": {
+      "keuringen": 561,
+      "metGebrek": 230
+     },
+     "6": {
+      "keuringen": 487,
+      "metGebrek": 214
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 82,
+      "metGebrek": 26
+     },
+     "4": {
+      "keuringen": 572,
+      "metGebrek": 214
+     },
+     "5": {
+      "keuringen": 517,
+      "metGebrek": 207
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 30,
+      "metGebrek": 8
+     },
+     "3": {
+      "keuringen": 579,
+      "metGebrek": 196
+     },
+     "4": {
+      "keuringen": 496,
+      "metGebrek": 181
+     }
+    }
+   }
+  },
+  "volkswagen-caddy": {
+   "2014": {
+    "auto": 600,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 82,
+      "metGebrek": 45
+     },
+     "11": {
+      "keuringen": 569,
+      "metGebrek": 281
+     },
+     "12": {
+      "keuringen": 448,
+      "metGebrek": 229
+     }
+    }
+   },
+   "2015": {
+    "auto": 600,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 75,
+      "metGebrek": 43
+     },
+     "10": {
+      "keuringen": 577,
+      "metGebrek": 265
+     },
+     "11": {
+      "keuringen": 480,
+      "metGebrek": 225
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 87,
+      "metGebrek": 31
+     },
+     "9": {
+      "keuringen": 567,
+      "metGebrek": 257
+     },
+     "10": {
+      "keuringen": 479,
+      "metGebrek": 244
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 91,
+      "metGebrek": 40
+     },
+     "8": {
+      "keuringen": 560,
+      "metGebrek": 241
+     },
+     "9": {
+      "keuringen": 492,
+      "metGebrek": 248
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 88,
+      "metGebrek": 39
+     },
+     "7": {
+      "keuringen": 540,
+      "metGebrek": 225
+     },
+     "8": {
+      "keuringen": 467,
+      "metGebrek": 191
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 87,
+      "metGebrek": 30
+     },
+     "6": {
+      "keuringen": 546,
+      "metGebrek": 234
+     },
+     "7": {
+      "keuringen": 465,
+      "metGebrek": 192
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 66,
+      "metGebrek": 25
+     },
+     "5": {
+      "keuringen": 551,
+      "metGebrek": 216
+     },
+     "6": {
+      "keuringen": 504,
+      "metGebrek": 193
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 79,
+      "metGebrek": 25
+     },
+     "4": {
+      "keuringen": 566,
+      "metGebrek": 174
+     },
+     "5": {
+      "keuringen": 480,
+      "metGebrek": 167
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 42,
+      "metGebrek": 17
+     },
+     "3": {
+      "keuringen": 535,
+      "metGebrek": 188
+     },
+     "4": {
+      "keuringen": 477,
+      "metGebrek": 192
+     }
+    }
+   }
+  },
+  "volkswagen-transporter": {
+   "2014": {
+    "auto": 600,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 83,
+      "metGebrek": 45
+     },
+     "11": {
+      "keuringen": 536,
+      "metGebrek": 280
+     },
+     "12": {
+      "keuringen": 418,
+      "metGebrek": 256
+     }
+    }
+   },
+   "2015": {
+    "auto": 600,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 99,
+      "metGebrek": 43
+     },
+     "10": {
+      "keuringen": 560,
+      "metGebrek": 298
+     },
+     "11": {
+      "keuringen": 430,
+      "metGebrek": 234
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 99,
+      "metGebrek": 51
+     },
+     "9": {
+      "keuringen": 568,
+      "metGebrek": 296
+     },
+     "10": {
+      "keuringen": 429,
+      "metGebrek": 204
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 99,
+      "metGebrek": 39
+     },
+     "8": {
+      "keuringen": 553,
+      "metGebrek": 261
+     },
+     "9": {
+      "keuringen": 455,
+      "metGebrek": 219
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 115,
+      "metGebrek": 46
+     },
+     "7": {
+      "keuringen": 575,
+      "metGebrek": 243
+     },
+     "8": {
+      "keuringen": 447,
+      "metGebrek": 164
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 101,
+      "metGebrek": 42
+     },
+     "6": {
+      "keuringen": 579,
+      "metGebrek": 232
+     },
+     "7": {
+      "keuringen": 446,
+      "metGebrek": 197
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 90,
+      "metGebrek": 33
+     },
+     "5": {
+      "keuringen": 567,
+      "metGebrek": 207
+     },
+     "6": {
+      "keuringen": 479,
+      "metGebrek": 163
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 81,
+      "metGebrek": 33
+     },
+     "4": {
+      "keuringen": 571,
+      "metGebrek": 196
+     },
+     "5": {
+      "keuringen": 499,
+      "metGebrek": 195
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 14,
+      "metGebrek": 3
+     },
+     "3": {
+      "keuringen": 587,
+      "metGebrek": 211
+     },
+     "4": {
+      "keuringen": 484,
+      "metGebrek": 187
+     }
+    }
+   }
+  },
+  "renault-trafic": {
+   "2014": {
+    "auto": 600,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 84,
+      "metGebrek": 53
+     },
+     "11": {
+      "keuringen": 544,
+      "metGebrek": 324
+     },
+     "12": {
+      "keuringen": 394,
+      "metGebrek": 253
+     }
+    }
+   },
+   "2015": {
+    "auto": 600,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 98,
+      "metGebrek": 46
+     },
+     "10": {
+      "keuringen": 528,
+      "metGebrek": 305
+     },
+     "11": {
+      "keuringen": 378,
+      "metGebrek": 230
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 90,
+      "metGebrek": 46
+     },
+     "9": {
+      "keuringen": 554,
+      "metGebrek": 308
+     },
+     "10": {
+      "keuringen": 421,
+      "metGebrek": 234
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 100,
+      "metGebrek": 53
+     },
+     "8": {
+      "keuringen": 559,
+      "metGebrek": 299
+     },
+     "9": {
+      "keuringen": 435,
+      "metGebrek": 250
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 83,
+      "metGebrek": 29
+     },
+     "7": {
+      "keuringen": 553,
+      "metGebrek": 261
+     },
+     "8": {
+      "keuringen": 453,
+      "metGebrek": 254
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 101,
+      "metGebrek": 39
+     },
+     "6": {
+      "keuringen": 570,
+      "metGebrek": 248
+     },
+     "7": {
+      "keuringen": 459,
+      "metGebrek": 202
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 115,
+      "metGebrek": 43
+     },
+     "5": {
+      "keuringen": 545,
+      "metGebrek": 220
+     },
+     "6": {
+      "keuringen": 467,
+      "metGebrek": 210
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 91,
+      "metGebrek": 25
+     },
+     "4": {
+      "keuringen": 588,
+      "metGebrek": 235
+     },
+     "5": {
+      "keuringen": 495,
+      "metGebrek": 193
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 17,
+      "metGebrek": 6
+     },
+     "3": {
+      "keuringen": 574,
+      "metGebrek": 209
+     },
+     "4": {
+      "keuringen": 454,
+      "metGebrek": 165
+     }
+    }
+   }
+  },
+  "mercedes-benz-vito": {
+   "2014": {
+    "auto": 600,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 98,
+      "metGebrek": 57
+     },
+     "11": {
+      "keuringen": 539,
+      "metGebrek": 313
+     },
+     "12": {
+      "keuringen": 381,
+      "metGebrek": 223
+     }
+    }
+   },
+   "2015": {
+    "auto": 600,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 87,
+      "metGebrek": 45
+     },
+     "10": {
+      "keuringen": 545,
+      "metGebrek": 282
+     },
+     "11": {
+      "keuringen": 403,
+      "metGebrek": 231
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 86,
+      "metGebrek": 40
+     },
+     "9": {
+      "keuringen": 564,
+      "metGebrek": 297
+     },
+     "10": {
+      "keuringen": 465,
+      "metGebrek": 254
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 88,
+      "metGebrek": 31
+     },
+     "8": {
+      "keuringen": 565,
+      "metGebrek": 268
+     },
+     "9": {
+      "keuringen": 439,
+      "metGebrek": 233
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 88,
+      "metGebrek": 42
+     },
+     "7": {
+      "keuringen": 581,
+      "metGebrek": 233
+     },
+     "8": {
+      "keuringen": 489,
+      "metGebrek": 220
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 88,
+      "metGebrek": 27
+     },
+     "6": {
+      "keuringen": 588,
+      "metGebrek": 244
+     },
+     "7": {
+      "keuringen": 473,
+      "metGebrek": 195
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 95,
+      "metGebrek": 44
+     },
+     "5": {
+      "keuringen": 579,
+      "metGebrek": 234
+     },
+     "6": {
+      "keuringen": 480,
+      "metGebrek": 193
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 66,
+      "metGebrek": 19
+     },
+     "4": {
+      "keuringen": 551,
+      "metGebrek": 218
+     },
+     "5": {
+      "keuringen": 495,
+      "metGebrek": 185
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 33,
+      "metGebrek": 11
+     },
+     "3": {
+      "keuringen": 543,
+      "metGebrek": 233
+     },
+     "4": {
+      "keuringen": 513,
+      "metGebrek": 227
+     }
+    }
+   }
+  },
+  "renault-master": {
+   "2014": {
+    "auto": 600,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 81,
+      "metGebrek": 53
+     },
+     "11": {
+      "keuringen": 527,
+      "metGebrek": 335
+     },
+     "12": {
+      "keuringen": 396,
+      "metGebrek": 235
+     }
+    }
+   },
+   "2015": {
+    "auto": 600,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 67,
+      "metGebrek": 35
+     },
+     "10": {
+      "keuringen": 534,
+      "metGebrek": 324
+     },
+     "11": {
+      "keuringen": 405,
+      "metGebrek": 250
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 85,
+      "metGebrek": 45
+     },
+     "9": {
+      "keuringen": 540,
+      "metGebrek": 323
+     },
+     "10": {
+      "keuringen": 408,
+      "metGebrek": 232
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 81,
+      "metGebrek": 42
+     },
+     "8": {
+      "keuringen": 551,
+      "metGebrek": 305
+     },
+     "9": {
+      "keuringen": 429,
+      "metGebrek": 246
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 86,
+      "metGebrek": 41
+     },
+     "7": {
+      "keuringen": 542,
+      "metGebrek": 274
+     },
+     "8": {
+      "keuringen": 430,
+      "metGebrek": 237
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 111,
+      "metGebrek": 54
+     },
+     "6": {
+      "keuringen": 551,
+      "metGebrek": 299
+     },
+     "7": {
+      "keuringen": 423,
+      "metGebrek": 224
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 76,
+      "metGebrek": 38
+     },
+     "5": {
+      "keuringen": 561,
+      "metGebrek": 285
+     },
+     "6": {
+      "keuringen": 463,
+      "metGebrek": 247
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 81,
+      "metGebrek": 44
+     },
+     "4": {
+      "keuringen": 537,
+      "metGebrek": 256
+     },
+     "5": {
+      "keuringen": 438,
+      "metGebrek": 217
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 24,
+      "metGebrek": 9
+     },
+     "3": {
+      "keuringen": 577,
+      "metGebrek": 287
+     },
+     "4": {
+      "keuringen": 469,
+      "metGebrek": 236
+     }
+    }
+   }
+  },
+  "volkswagen-crafter": {
+   "2014": {
+    "auto": 600,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 95,
+      "metGebrek": 48
+     },
+     "11": {
+      "keuringen": 519,
+      "metGebrek": 286
+     },
+     "12": {
+      "keuringen": 387,
+      "metGebrek": 215
+     }
+    }
+   },
+   "2015": {
+    "auto": 600,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 91,
+      "metGebrek": 53
+     },
+     "10": {
+      "keuringen": 523,
+      "metGebrek": 282
+     },
+     "11": {
+      "keuringen": 377,
+      "metGebrek": 233
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 95,
+      "metGebrek": 45
+     },
+     "9": {
+      "keuringen": 537,
+      "metGebrek": 286
+     },
+     "10": {
+      "keuringen": 414,
+      "metGebrek": 247
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 76,
+      "metGebrek": 36
+     },
+     "8": {
+      "keuringen": 557,
+      "metGebrek": 270
+     },
+     "9": {
+      "keuringen": 428,
+      "metGebrek": 232
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 83,
+      "metGebrek": 40
+     },
+     "7": {
+      "keuringen": 561,
+      "metGebrek": 272
+     },
+     "8": {
+      "keuringen": 459,
+      "metGebrek": 224
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 89,
+      "metGebrek": 47
+     },
+     "6": {
+      "keuringen": 569,
+      "metGebrek": 262
+     },
+     "7": {
+      "keuringen": 448,
+      "metGebrek": 199
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 86,
+      "metGebrek": 35
+     },
+     "5": {
+      "keuringen": 557,
+      "metGebrek": 274
+     },
+     "6": {
+      "keuringen": 437,
+      "metGebrek": 201
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 80,
+      "metGebrek": 29
+     },
+     "4": {
+      "keuringen": 561,
+      "metGebrek": 281
+     },
+     "5": {
+      "keuringen": 493,
+      "metGebrek": 273
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 34,
+      "metGebrek": 13
+     },
+     "3": {
+      "keuringen": 548,
+      "metGebrek": 247
+     },
+     "4": {
+      "keuringen": 480,
+      "metGebrek": 222
+     }
+    }
+   }
+  },
+  "ford-transit": {
+   "2014": {
+    "auto": 594,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 110,
+      "metGebrek": 62
+     },
+     "11": {
+      "keuringen": 505,
+      "metGebrek": 289
+     },
+     "12": {
+      "keuringen": 361,
+      "metGebrek": 205
+     }
+    }
+   },
+   "2015": {
+    "auto": 600,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 80,
+      "metGebrek": 43
+     },
+     "10": {
+      "keuringen": 537,
+      "metGebrek": 312
+     },
+     "11": {
+      "keuringen": 390,
+      "metGebrek": 201
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 93,
+      "metGebrek": 45
+     },
+     "9": {
+      "keuringen": 520,
+      "metGebrek": 289
+     },
+     "10": {
+      "keuringen": 398,
+      "metGebrek": 205
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 80,
+      "metGebrek": 39
+     },
+     "8": {
+      "keuringen": 553,
+      "metGebrek": 273
+     },
+     "9": {
+      "keuringen": 442,
+      "metGebrek": 233
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 82,
+      "metGebrek": 37
+     },
+     "7": {
+      "keuringen": 547,
+      "metGebrek": 257
+     },
+     "8": {
+      "keuringen": 455,
+      "metGebrek": 235
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 72,
+      "metGebrek": 29
+     },
+     "6": {
+      "keuringen": 559,
+      "metGebrek": 279
+     },
+     "7": {
+      "keuringen": 462,
+      "metGebrek": 241
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 73,
+      "metGebrek": 36
+     },
+     "5": {
+      "keuringen": 559,
+      "metGebrek": 245
+     },
+     "6": {
+      "keuringen": 456,
+      "metGebrek": 224
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 88,
+      "metGebrek": 30
+     },
+     "4": {
+      "keuringen": 563,
+      "metGebrek": 275
+     },
+     "5": {
+      "keuringen": 451,
+      "metGebrek": 202
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 58,
+      "metGebrek": 21
+     },
+     "3": {
+      "keuringen": 509,
+      "metGebrek": 222
+     },
+     "4": {
+      "keuringen": 455,
+      "metGebrek": 210
+     }
+    }
+   }
+  },
+  "opel-vivaro": {
+   "2014": {
+    "auto": 600,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 71,
+      "metGebrek": 41
+     },
+     "11": {
+      "keuringen": 518,
+      "metGebrek": 324
+     },
+     "12": {
+      "keuringen": 377,
+      "metGebrek": 232
+     }
+    }
+   },
+   "2015": {
+    "auto": 57,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 13,
+      "metGebrek": 7
+     },
+     "10": {
+      "keuringen": 41,
+      "metGebrek": 24
+     },
+     "11": {
+      "keuringen": 30,
+      "metGebrek": 19
+     }
+    }
+   },
+   "2016": {
+    "auto": 7,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 7,
+      "metGebrek": 4
+     },
+     "10": {
+      "keuringen": 4,
+      "metGebrek": 2
+     }
+    }
+   },
+   "2017": {
+    "auto": 4,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 6,
+      "metGebrek": 3
+     },
+     "9": {
+      "keuringen": 3,
+      "metGebrek": 1
+     }
+    }
+   },
+   "2018": {
+    "auto": 2,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 2,
+      "metGebrek": 0
+     },
+     "8": {
+      "keuringen": 2,
+      "metGebrek": 0
+     }
+    }
+   },
+   "2019": {
+    "auto": 567,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 161,
+      "metGebrek": 68
+     },
+     "6": {
+      "keuringen": 527,
+      "metGebrek": 251
+     },
+     "7": {
+      "keuringen": 367,
+      "metGebrek": 163
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 100,
+      "metGebrek": 44
+     },
+     "5": {
+      "keuringen": 559,
+      "metGebrek": 249
+     },
+     "6": {
+      "keuringen": 480,
+      "metGebrek": 230
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 97,
+      "metGebrek": 36
+     },
+     "4": {
+      "keuringen": 570,
+      "metGebrek": 252
+     },
+     "5": {
+      "keuringen": 436,
+      "metGebrek": 209
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 19,
+      "metGebrek": 9
+     },
+     "3": {
+      "keuringen": 413,
+      "metGebrek": 187
+     },
+     "4": {
+      "keuringen": 510,
+      "metGebrek": 258
+     }
+    }
+   }
+  },
+  "peugeot-expert": {
+   "2014": {
+    "auto": 600,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 80,
+      "metGebrek": 50
+     },
+     "11": {
+      "keuringen": 532,
+      "metGebrek": 354
+     },
+     "12": {
+      "keuringen": 377,
+      "metGebrek": 258
+     }
+    }
+   },
+   "2015": {
+    "auto": 600,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 76,
+      "metGebrek": 54
+     },
+     "10": {
+      "keuringen": 544,
+      "metGebrek": 359
+     },
+     "11": {
+      "keuringen": 411,
+      "metGebrek": 260
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 111,
+      "metGebrek": 60
+     },
+     "9": {
+      "keuringen": 547,
+      "metGebrek": 331
+     },
+     "10": {
+      "keuringen": 426,
+      "metGebrek": 278
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 108,
+      "metGebrek": 63
+     },
+     "8": {
+      "keuringen": 567,
+      "metGebrek": 315
+     },
+     "9": {
+      "keuringen": 425,
+      "metGebrek": 240
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 93,
+      "metGebrek": 46
+     },
+     "7": {
+      "keuringen": 562,
+      "metGebrek": 289
+     },
+     "8": {
+      "keuringen": 452,
+      "metGebrek": 223
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 73,
+      "metGebrek": 27
+     },
+     "6": {
+      "keuringen": 571,
+      "metGebrek": 259
+     },
+     "7": {
+      "keuringen": 478,
+      "metGebrek": 222
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 102,
+      "metGebrek": 51
+     },
+     "5": {
+      "keuringen": 570,
+      "metGebrek": 244
+     },
+     "6": {
+      "keuringen": 458,
+      "metGebrek": 209
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 77,
+      "metGebrek": 32
+     },
+     "4": {
+      "keuringen": 575,
+      "metGebrek": 234
+     },
+     "5": {
+      "keuringen": 461,
+      "metGebrek": 205
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 29,
+      "metGebrek": 9
+     },
+     "3": {
+      "keuringen": 430,
+      "metGebrek": 178
+     },
+     "4": {
+      "keuringen": 493,
+      "metGebrek": 222
+     }
+    }
+   }
+  },
+  "ford-transit-connect": {
+   "2014": {
+    "auto": 600,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 100,
+      "metGebrek": 53
+     },
+     "11": {
+      "keuringen": 538,
+      "metGebrek": 300
+     },
+     "12": {
+      "keuringen": 419,
+      "metGebrek": 227
+     }
+    }
+   },
+   "2015": {
+    "auto": 600,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 96,
+      "metGebrek": 43
+     },
+     "10": {
+      "keuringen": 565,
+      "metGebrek": 292
+     },
+     "11": {
+      "keuringen": 430,
+      "metGebrek": 226
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 101,
+      "metGebrek": 56
+     },
+     "9": {
+      "keuringen": 575,
+      "metGebrek": 279
+     },
+     "10": {
+      "keuringen": 468,
+      "metGebrek": 236
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 81,
+      "metGebrek": 38
+     },
+     "8": {
+      "keuringen": 574,
+      "metGebrek": 265
+     },
+     "9": {
+      "keuringen": 483,
+      "metGebrek": 232
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 82,
+      "metGebrek": 26
+     },
+     "7": {
+      "keuringen": 551,
+      "metGebrek": 266
+     },
+     "8": {
+      "keuringen": 479,
+      "metGebrek": 211
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 82,
+      "metGebrek": 32
+     },
+     "6": {
+      "keuringen": 561,
+      "metGebrek": 233
+     },
+     "7": {
+      "keuringen": 432,
+      "metGebrek": 194
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 88,
+      "metGebrek": 31
+     },
+     "5": {
+      "keuringen": 533,
+      "metGebrek": 210
+     },
+     "6": {
+      "keuringen": 450,
+      "metGebrek": 195
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 67,
+      "metGebrek": 32
+     },
+     "4": {
+      "keuringen": 559,
+      "metGebrek": 206
+     },
+     "5": {
+      "keuringen": 483,
+      "metGebrek": 173
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 13,
+      "metGebrek": 5
+     },
+     "3": {
+      "keuringen": 523,
+      "metGebrek": 181
+     },
+     "4": {
+      "keuringen": 484,
+      "metGebrek": 165
+     }
+    }
+   }
+  },
+  "peugeot-partner": {
+   "2014": {
+    "auto": 600,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 66,
+      "metGebrek": 35
+     },
+     "11": {
+      "keuringen": 549,
+      "metGebrek": 348
+     },
+     "12": {
+      "keuringen": 448,
+      "metGebrek": 307
+     }
+    }
+   },
+   "2015": {
+    "auto": 600,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 88,
+      "metGebrek": 51
+     },
+     "10": {
+      "keuringen": 562,
+      "metGebrek": 359
+     },
+     "11": {
+      "keuringen": 429,
+      "metGebrek": 289
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 84,
+      "metGebrek": 55
+     },
+     "9": {
+      "keuringen": 564,
+      "metGebrek": 332
+     },
+     "10": {
+      "keuringen": 438,
+      "metGebrek": 276
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 73,
+      "metGebrek": 41
+     },
+     "8": {
+      "keuringen": 540,
+      "metGebrek": 341
+     },
+     "9": {
+      "keuringen": 446,
+      "metGebrek": 285
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 74,
+      "metGebrek": 38
+     },
+     "7": {
+      "keuringen": 562,
+      "metGebrek": 299
+     },
+     "8": {
+      "keuringen": 464,
+      "metGebrek": 269
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 80,
+      "metGebrek": 37
+     },
+     "6": {
+      "keuringen": 559,
+      "metGebrek": 286
+     },
+     "7": {
+      "keuringen": 474,
+      "metGebrek": 241
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 90,
+      "metGebrek": 43
+     },
+     "5": {
+      "keuringen": 548,
+      "metGebrek": 237
+     },
+     "6": {
+      "keuringen": 465,
+      "metGebrek": 215
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 72,
+      "metGebrek": 29
+     },
+     "4": {
+      "keuringen": 591,
+      "metGebrek": 266
+     },
+     "5": {
+      "keuringen": 443,
+      "metGebrek": 195
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 27,
+      "metGebrek": 12
+     },
+     "3": {
+      "keuringen": 545,
+      "metGebrek": 252
+     },
+     "4": {
+      "keuringen": 512,
+      "metGebrek": 250
+     }
+    }
+   }
+  },
+  "man-tge": {
+   "2017": {
+    "auto": 163,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 29,
+      "metGebrek": 14
+     },
+     "8": {
+      "keuringen": 153,
+      "metGebrek": 91
+     },
+     "9": {
+      "keuringen": 116,
+      "metGebrek": 76
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 87,
+      "metGebrek": 48
+     },
+     "7": {
+      "keuringen": 557,
+      "metGebrek": 304
+     },
+     "8": {
+      "keuringen": 450,
+      "metGebrek": 256
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 85,
+      "metGebrek": 35
+     },
+     "6": {
+      "keuringen": 523,
+      "metGebrek": 251
+     },
+     "7": {
+      "keuringen": 448,
+      "metGebrek": 229
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 88,
+      "metGebrek": 44
+     },
+     "5": {
+      "keuringen": 539,
+      "metGebrek": 265
+     },
+     "6": {
+      "keuringen": 449,
+      "metGebrek": 222
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 88,
+      "metGebrek": 44
+     },
+     "4": {
+      "keuringen": 530,
+      "metGebrek": 245
+     },
+     "5": {
+      "keuringen": 473,
+      "metGebrek": 227
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 26,
+      "metGebrek": 14
+     },
+     "3": {
+      "keuringen": 532,
+      "metGebrek": 254
+     },
+     "4": {
+      "keuringen": 490,
+      "metGebrek": 255
+     }
+    }
+   }
+  },
+  "opel-combo": {
+   "2014": {
+    "auto": 600,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 101,
+      "metGebrek": 51
+     },
+     "11": {
+      "keuringen": 491,
+      "metGebrek": 281
+     },
+     "12": {
+      "keuringen": 356,
+      "metGebrek": 206
+     }
+    }
+   },
+   "2015": {
+    "auto": 600,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 99,
+      "metGebrek": 53
+     },
+     "10": {
+      "keuringen": 529,
+      "metGebrek": 316
+     },
+     "11": {
+      "keuringen": 363,
+      "metGebrek": 210
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 86,
+      "metGebrek": 52
+     },
+     "9": {
+      "keuringen": 546,
+      "metGebrek": 310
+     },
+     "10": {
+      "keuringen": 429,
+      "metGebrek": 235
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 74,
+      "metGebrek": 34
+     },
+     "8": {
+      "keuringen": 534,
+      "metGebrek": 269
+     },
+     "9": {
+      "keuringen": 425,
+      "metGebrek": 210
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 103,
+      "metGebrek": 45
+     },
+     "7": {
+      "keuringen": 513,
+      "metGebrek": 231
+     },
+     "8": {
+      "keuringen": 404,
+      "metGebrek": 203
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 62,
+      "metGebrek": 26
+     },
+     "6": {
+      "keuringen": 570,
+      "metGebrek": 270
+     },
+     "7": {
+      "keuringen": 453,
+      "metGebrek": 218
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 83,
+      "metGebrek": 44
+     },
+     "5": {
+      "keuringen": 516,
+      "metGebrek": 225
+     },
+     "6": {
+      "keuringen": 470,
+      "metGebrek": 210
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 70,
+      "metGebrek": 32
+     },
+     "4": {
+      "keuringen": 582,
+      "metGebrek": 256
+     },
+     "5": {
+      "keuringen": 471,
+      "metGebrek": 217
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 27,
+      "metGebrek": 12
+     },
+     "3": {
+      "keuringen": 574,
+      "metGebrek": 264
+     },
+     "4": {
+      "keuringen": 528,
+      "metGebrek": 238
+     }
+    }
+   }
+  },
+  "toyota-proace": {
+   "2014": {
+    "auto": 162,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 19,
+      "metGebrek": 13
+     },
+     "11": {
+      "keuringen": 146,
+      "metGebrek": 84
+     },
+     "12": {
+      "keuringen": 110,
+      "metGebrek": 70
+     }
+    }
+   },
+   "2015": {
+    "auto": 315,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 56,
+      "metGebrek": 42
+     },
+     "10": {
+      "keuringen": 273,
+      "metGebrek": 186
+     },
+     "11": {
+      "keuringen": 184,
+      "metGebrek": 113
+     }
+    }
+   },
+   "2016": {
+    "auto": 310,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 50,
+      "metGebrek": 27
+     },
+     "9": {
+      "keuringen": 303,
+      "metGebrek": 191
+     },
+     "10": {
+      "keuringen": 210,
+      "metGebrek": 136
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 80,
+      "metGebrek": 43
+     },
+     "8": {
+      "keuringen": 568,
+      "metGebrek": 276
+     },
+     "9": {
+      "keuringen": 461,
+      "metGebrek": 236
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 78,
+      "metGebrek": 30
+     },
+     "7": {
+      "keuringen": 579,
+      "metGebrek": 283
+     },
+     "8": {
+      "keuringen": 462,
+      "metGebrek": 249
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 75,
+      "metGebrek": 36
+     },
+     "6": {
+      "keuringen": 585,
+      "metGebrek": 304
+     },
+     "7": {
+      "keuringen": 490,
+      "metGebrek": 277
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 111,
+      "metGebrek": 52
+     },
+     "5": {
+      "keuringen": 563,
+      "metGebrek": 267
+     },
+     "6": {
+      "keuringen": 465,
+      "metGebrek": 208
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 62,
+      "metGebrek": 20
+     },
+     "4": {
+      "keuringen": 586,
+      "metGebrek": 278
+     },
+     "5": {
+      "keuringen": 290,
+      "metGebrek": 128
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 19,
+      "metGebrek": 8
+     },
+     "3": {
+      "keuringen": 412,
+      "metGebrek": 167
+     },
+     "4": {
+      "keuringen": 469,
+      "metGebrek": 188
+     }
+    }
+   }
+  },
+  "volkswagen-id.-buzz": {
+   "2022": {
+    "auto": 289,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 1,
+      "metGebrek": 0
+     },
+     "4": {
+      "keuringen": 117,
+      "metGebrek": 48
+     }
+    }
+   }
+  },
+  "mercedes-benz-citan": {
+   "2014": {
+    "auto": 600,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 80,
+      "metGebrek": 50
+     },
+     "11": {
+      "keuringen": 543,
+      "metGebrek": 295
+     },
+     "12": {
+      "keuringen": 423,
+      "metGebrek": 253
+     }
+    }
+   },
+   "2015": {
+    "auto": 600,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 91,
+      "metGebrek": 39
+     },
+     "10": {
+      "keuringen": 552,
+      "metGebrek": 275
+     },
+     "11": {
+      "keuringen": 420,
+      "metGebrek": 244
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 91,
+      "metGebrek": 52
+     },
+     "9": {
+      "keuringen": 578,
+      "metGebrek": 325
+     },
+     "10": {
+      "keuringen": 456,
+      "metGebrek": 233
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 92,
+      "metGebrek": 47
+     },
+     "8": {
+      "keuringen": 563,
+      "metGebrek": 293
+     },
+     "9": {
+      "keuringen": 484,
+      "metGebrek": 256
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 75,
+      "metGebrek": 38
+     },
+     "7": {
+      "keuringen": 568,
+      "metGebrek": 325
+     },
+     "8": {
+      "keuringen": 485,
+      "metGebrek": 250
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 68,
+      "metGebrek": 34
+     },
+     "6": {
+      "keuringen": 573,
+      "metGebrek": 291
+     },
+     "7": {
+      "keuringen": 472,
+      "metGebrek": 262
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 71,
+      "metGebrek": 32
+     },
+     "5": {
+      "keuringen": 578,
+      "metGebrek": 311
+     },
+     "6": {
+      "keuringen": 474,
+      "metGebrek": 248
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 91,
+      "metGebrek": 38
+     },
+     "4": {
+      "keuringen": 558,
+      "metGebrek": 258
+     },
+     "5": {
+      "keuringen": 497,
+      "metGebrek": 262
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 23,
+      "metGebrek": 15
+     },
+     "3": {
+      "keuringen": 515,
+      "metGebrek": 215
+     },
+     "4": {
+      "keuringen": 455,
+      "metGebrek": 182
+     }
+    }
+   }
+  },
+  "renault-kangoo": {
+   "2014": {
+    "auto": 600,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 83,
+      "metGebrek": 42
+     },
+     "11": {
+      "keuringen": 564,
+      "metGebrek": 339
+     },
+     "12": {
+      "keuringen": 429,
+      "metGebrek": 265
+     }
+    }
+   },
+   "2015": {
+    "auto": 600,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 84,
+      "metGebrek": 50
+     },
+     "10": {
+      "keuringen": 542,
+      "metGebrek": 299
+     },
+     "11": {
+      "keuringen": 431,
+      "metGebrek": 242
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 90,
+      "metGebrek": 41
+     },
+     "9": {
+      "keuringen": 572,
+      "metGebrek": 306
+     },
+     "10": {
+      "keuringen": 457,
+      "metGebrek": 252
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 68,
+      "metGebrek": 25
+     },
+     "8": {
+      "keuringen": 555,
+      "metGebrek": 305
+     },
+     "9": {
+      "keuringen": 471,
+      "metGebrek": 251
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 86,
+      "metGebrek": 47
+     },
+     "7": {
+      "keuringen": 489,
+      "metGebrek": 249
+     },
+     "8": {
+      "keuringen": 457,
+      "metGebrek": 255
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 79,
+      "metGebrek": 29
+     },
+     "6": {
+      "keuringen": 544,
+      "metGebrek": 247
+     },
+     "7": {
+      "keuringen": 399,
+      "metGebrek": 217
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 84,
+      "metGebrek": 49
+     },
+     "5": {
+      "keuringen": 464,
+      "metGebrek": 243
+     },
+     "6": {
+      "keuringen": 442,
+      "metGebrek": 214
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 71,
+      "metGebrek": 39
+     },
+     "4": {
+      "keuringen": 572,
+      "metGebrek": 292
+     },
+     "5": {
+      "keuringen": 403,
+      "metGebrek": 217
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 36,
+      "metGebrek": 12
+     },
+     "3": {
+      "keuringen": 479,
+      "metGebrek": 204
+     },
+     "4": {
+      "keuringen": 476,
+      "metGebrek": 196
+     }
+    }
+   }
+  },
+  "citroen-jumpy": {
+   "2014": {
+    "auto": 366,
+    "perLeeftijd": {
+     "10": {
+      "keuringen": 51,
+      "metGebrek": 30
+     },
+     "11": {
+      "keuringen": 337,
+      "metGebrek": 230
+     },
+     "12": {
+      "keuringen": 230,
+      "metGebrek": 165
+     }
+    }
+   },
+   "2015": {
+    "auto": 499,
+    "perLeeftijd": {
+     "9": {
+      "keuringen": 69,
+      "metGebrek": 48
+     },
+     "10": {
+      "keuringen": 446,
+      "metGebrek": 303
+     },
+     "11": {
+      "keuringen": 344,
+      "metGebrek": 230
+     }
+    }
+   },
+   "2016": {
+    "auto": 600,
+    "perLeeftijd": {
+     "8": {
+      "keuringen": 99,
+      "metGebrek": 50
+     },
+     "9": {
+      "keuringen": 560,
+      "metGebrek": 344
+     },
+     "10": {
+      "keuringen": 410,
+      "metGebrek": 251
+     }
+    }
+   },
+   "2017": {
+    "auto": 600,
+    "perLeeftijd": {
+     "7": {
+      "keuringen": 79,
+      "metGebrek": 44
+     },
+     "8": {
+      "keuringen": 549,
+      "metGebrek": 291
+     },
+     "9": {
+      "keuringen": 448,
+      "metGebrek": 249
+     }
+    }
+   },
+   "2018": {
+    "auto": 600,
+    "perLeeftijd": {
+     "6": {
+      "keuringen": 91,
+      "metGebrek": 36
+     },
+     "7": {
+      "keuringen": 575,
+      "metGebrek": 270
+     },
+     "8": {
+      "keuringen": 446,
+      "metGebrek": 213
+     }
+    }
+   },
+   "2019": {
+    "auto": 600,
+    "perLeeftijd": {
+     "5": {
+      "keuringen": 75,
+      "metGebrek": 42
+     },
+     "6": {
+      "keuringen": 578,
+      "metGebrek": 256
+     },
+     "7": {
+      "keuringen": 475,
+      "metGebrek": 208
+     }
+    }
+   },
+   "2020": {
+    "auto": 600,
+    "perLeeftijd": {
+     "4": {
+      "keuringen": 111,
+      "metGebrek": 57
+     },
+     "5": {
+      "keuringen": 554,
+      "metGebrek": 249
+     },
+     "6": {
+      "keuringen": 481,
+      "metGebrek": 235
+     }
+    }
+   },
+   "2021": {
+    "auto": 600,
+    "perLeeftijd": {
+     "3": {
+      "keuringen": 64,
+      "metGebrek": 29
+     },
+     "4": {
+      "keuringen": 573,
+      "metGebrek": 247
+     },
+     "5": {
+      "keuringen": 424,
+      "metGebrek": 197
+     }
+    }
+   },
+   "2022": {
+    "auto": 600,
+    "perLeeftijd": {
+     "2": {
+      "keuringen": 21,
+      "metGebrek": 8
+     },
+     "3": {
+      "keuringen": 458,
+      "metGebrek": 190
+     },
+     "4": {
+      "keuringen": 531,
+      "metGebrek": 231
+     }
+    }
+   }
+  }
+ }
+}

@@ -192,6 +192,13 @@ Legenda kosten: 🟢 gratis · 🟡 gratis met voorwaarden / op aanvraag · 🔴
 - **WLTP/NEDC-verhouding** uit auto's waarvoor RDW beide waarden heeft: brandstofverbruik ×1,208 (20.950 paren), CO₂ ×1,194 (25.355), elektrisch verbruik ×1,04 (381), actieradius ×1,00 (150; weinig paren, onzeker). 96 combinaties gebruiken een omgerekende NEDC-waarde.
 - **Euro NCAP voor oudere bouwjaren ontbreekt vaak:** de sitemap van euroncap.com bevat alleen uitslagen vanaf ca. 2019. Oudere uitslagen staan op andere pagina's die we (nog) niet ophalen. Gevolg: veiligheid telt dan niet mee voor die occasion; de kaart meldt dat. 🟡
 
+### 5.11 Bestelauto's (Fase 4e)
+- **Selectie:** zelfde objectieve regel als personenauto's, maar voor voertuigsoort *Bedrijfsauto*, Europese categorie **N1** (tot 3.500 kg), eerste toelating ≥ 2019, niet geëxporteerd: de **top 20 modelfamilies** (75% van 544.862 registraties). `node scripts/selecteer-modellen.ts 20 --bestel` → `data/bestelselectie.json`.
+- **Naamregels:** "TRANSIT CUSTOM", "TRANSIT CONNECT", "TRANSIT COURIER", "PROACE CITY" en "ID. BUZZ" zijn eigen families; dubbele merknaam ("FIAT FIAT DUCATO") wordt weggehaald. Gecontroleerd dat de personenauto-selectie daardoor niet verandert (0 afwijkingen). Elektrische varianten met een eigen naam (eSprinter, eVito) zijn aparte families en vallen buiten de top 20.
+- **Specs, occasions, APK:** dezelfde scripts met `--bestel` → `data/bestel-rdw.json` (incl. laadvermogen en emissieklasse), `data/bestel-occasions-rdw.json`, `data/bestel-apk-gebreken.json` (betrouwbaarheid tegen het landelijk gemiddelde van **bestelauto's**).
+- **Euro NCAP:** geeft bestelauto's geen sterren; veiligheid telt voor bestelauto's niet mee.
+- **Verzekering:** geen bron voor bestelauto's; de app gebruikt het personenauto-gemiddelde met die waarschuwing en vraagt om je eigen premie.
+
 ## 6. Open punten
 - ⚠ Licenties per RDW-dataset bevestigen (alles CC-0?).
 - ⚠ Euro NCAP: mag "5 sterren (2024)" als feit commercieel genoemd worden? Volgens de voorwaarden is commerciële reproductie niet toegestaan. **Toestemming vragen vóór livegang** (mail aan Euro NCAP, concept volgt bij Fase 5).
