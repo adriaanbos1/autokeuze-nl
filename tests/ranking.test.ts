@@ -201,4 +201,20 @@ describe("zakelijke profielen (basis)", () => {
   it("zakelijke profielen: alleen nieuwe auto's, ook als 'allebei' is gekozen", () => {
     for (const r of rangschik({ ...lease, soort: "beide" }, startGewichten("leaserijder", { gezin: false })).lijst) expect(r.occasion).toBeNull();
   });
+  it("DGA: twee varianten; de score rekent met de goedkoopste", () => {
+    const k = kostenNieuw(benzine, { ...basis, profiel: "dga" })!;
+    const v = k.profiel!.varianten!;
+    expect(v.map((x) => x.naam)).toEqual(["Auto in de bv", "Auto privé + km-vergoeding van de bv"]);
+    expect(k.profiel!.perMaand).toBe(Math.min(v[0].perMaand, v[1].perMaand));
+  });
+  it("DGA in 2027: benzine-auto in de bv betaalt pseudo-eindheffing, een EV niet", () => {
+    const i = { ...basis, profiel: "dga" as const, zakelijk: { ...STANDAARD_ZAKELIJK, jaarIngebruikname: 2027 } };
+    const pseudo = (u: UitvoeringRdw) => kostenNieuw(u, i)!.profiel!.varianten![0].posten.find((p) => p.label.startsWith("Pseudo"))!.bedrag;
+    expect(pseudo(benzine)).toBe(3600);
+    expect(pseudo(ev)).toBe(0);
+  });
+  it("DGA met auto in gebruik in 2026: geen pseudo-eindheffing tijdens 5 jaar looptijd (overgangsregeling tot 2031)", () => {
+    const k = kostenNieuw(benzine, { ...basis, profiel: "dga" })!;
+    expect(k.profiel!.varianten![0].posten.find((p) => p.label.startsWith("Pseudo"))!.bedrag).toBe(0);
+  });
 });

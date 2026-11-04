@@ -48,12 +48,14 @@ const ZONDER_DATA: Partial<Record<Criterium, string>> = {
 const PROFIELEN: [Profiel, string][] = [
   ["particulier", "Privé: ik kies en betaal zelf"],
   ["zzp", "ZZP'er of eenmanszaak"],
+  ["dga", "DGA met een bv"],
   ["leaserijder", "Auto van de zaak (leaserijder)"],
 ];
-const STARTBUDGET: Record<Profiel, number> = { particulier: 750, zzp: 600, leaserijder: 300 };
+const STARTBUDGET: Record<Profiel, number> = { particulier: 750, zzp: 600, dga: 700, leaserijder: 300 };
 const BUDGETVRAAG: Record<Profiel, string> = {
   particulier: "Budget per maand, alles inbegrepen (€)",
   zzp: "Wat mag de auto je netto per maand kosten? (€)",
+  dga: "Wat mag de auto je netto per maand kosten, in euro's privé? (€)",
   leaserijder: "Wat mag de auto je netto per maand kosten? (€)",
 };
 
@@ -137,15 +139,42 @@ function Intakeformulier({ intake, zet }: { intake: Intake; zet: (i: Intake) => 
 
       {intake.profiel !== "particulier" && (
         <>
-          <h2>{intake.profiel === "zzp" ? "Je onderneming" : "Je situatie"}</h2>
+          <h2>{intake.profiel === "leaserijder" ? "Je situatie" : "Je onderneming"}</h2>
           <div className="velden">
-            <Getal
-              label={intake.profiel === "zzp" ? "Verwachte winst per jaar (€)" : "Bruto jaarinkomen (€)"}
-              hulp="Bepaalt je belastingtarief. We bewaren niets."
-              waarde={intake.zakelijk.inkomen}
-              zet={(n) => zz({ inkomen: n })}
-              stap={1000}
-            />
+            {intake.profiel === "dga" ? (
+              <>
+                <Getal
+                  label="Winst van de bv per jaar, vóór autokosten (€)"
+                  hulp="Na je eigen salaris. Bepaalt de vennootschapsbelasting."
+                  waarde={intake.zakelijk.bvWinst}
+                  zet={(n) => zz({ bvWinst: n })}
+                  stap={5000}
+                />
+                <Getal
+                  label="Je salaris uit de bv (€ bruto per jaar)"
+                  hulp={`Gebruikelijk loon 2026: normbedrag € ${regels.dga.gebruikelijkLoon2026.waarde.toLocaleString("nl-NL")}.`}
+                  waarde={intake.zakelijk.salaris}
+                  zet={(n) => zz({ salaris: n })}
+                  stap={1000}
+                />
+                <label>
+                  Wanneer neem je de auto in gebruik?
+                  <select value={intake.zakelijk.jaarIngebruikname} onChange={(e) => zz({ jaarIngebruikname: Number(e.target.value) })}>
+                    <option value={2026}>in 2026</option>
+                    <option value={2027}>in 2027</option>
+                  </select>
+                  <span className="uitleg">Vanaf 2027 betaalt de bv 12% pseudo-eindheffing voor een auto met CO₂-uitstoot.</span>
+                </label>
+              </>
+            ) : (
+              <Getal
+                label={intake.profiel === "zzp" ? "Verwachte winst per jaar (€)" : "Bruto jaarinkomen (€)"}
+                hulp="Bepaalt je belastingtarief. We bewaren niets."
+                waarde={intake.zakelijk.inkomen}
+                zet={(n) => zz({ inkomen: n })}
+                stap={1000}
+              />
+            )}
             {intake.profiel === "leaserijder" ? (
               <>
                 <Getal
@@ -172,14 +201,20 @@ function Intakeformulier({ intake, zet }: { intake: Intake; zet: (i: Intake) => 
                   zet={(n) => zz({ zakelijkAandeel: Math.min(100, n) / 100 })}
                   stap={5}
                 />
-                <JaNee label="Btw-plichtig?" waarde={intake.zakelijk.btwPlichtig} zet={(b) => zz({ btwPlichtig: b })} />
+                <JaNee
+                  label={intake.profiel === "dga" ? "Is de bv btw-plichtig?" : "Btw-plichtig?"}
+                  waarde={intake.zakelijk.btwPlichtig}
+                  zet={(b) => zz({ btwPlichtig: b })}
+                />
               </>
             )}
           </div>
           <p className="uitleg">
             {intake.profiel === "zzp"
               ? "We vergelijken per auto kopen (zakelijk of privé), financial lease en operational lease. Een occasion rekenen we als auto zonder btw op de factuur."
-              : "Leaseauto's zijn nieuw; we rekenen met de bijtelling van het jaar waarin je de auto krijgt."}{" "}
+              : intake.profiel === "dga"
+                ? "We vergelijken per auto de auto in de bv met de auto privé en een km-vergoeding van de bv, in euro's die jij privé overhoudt. We nemen aan dat de bv haar winst als dividend uitkeert."
+                : "Leaseauto's zijn nieuw; we rekenen met de bijtelling van het jaar waarin je de auto krijgt."}{" "}
             Niet nagerekend door een fiscalist: laat je bij een definitief besluit adviseren.
           </p>
         </>
@@ -390,6 +425,7 @@ function Posten({ posten }: { posten: { label: string; bedrag: number; uitleg: s
 /** Zakelijke profielen: hoe het nettobedrag tot stand komt (per jaar). */
 function ProfielBerekening({ p }: { p: ProfielKosten }) {
   if (p.zzp) return <ZzpBerekening p={p} zzp={p.zzp} />;
+  if (p.varianten) return <VariantenBerekening p={p} />;
   return (
     <details className="financiering">
       <summary>Hoe is de netto bijtelling berekend?</summary>
@@ -398,6 +434,32 @@ function ProfielBerekening({ p }: { p: ProfielKosten }) {
       <p className="uitleg">
         Exacte inkomstenbelasting 2026 met en zonder bijtelling, inclusief minder heffingskortingen; zonder fiscale partner. Brandstof of laden betaalt in deze
         berekening je werkgever. Het percentage ligt 60 maanden vast. Niet nagerekend door een fiscalist.
+      </p>
+    </details>
+  );
+}
+
+/** DGA: auto in de bv vs. auto privé, naast elkaar. */
+function VariantenBerekening({ p }: { p: ProfielKosten }) {
+  const laagst = p.varianten!.reduce((x, y) => (y.perMaand < x.perMaand ? y : x));
+  return (
+    <details className="financiering">
+      <summary>Auto in de bv of privé?</summary>
+      <p className="uitleg">{p.uitleg}. Bedragen per jaar.</p>
+      <div className="scenarios">
+        {p.varianten!.map((v) => (
+          <div key={v.naam} className={`scenario${v === laagst ? " laagst" : ""}`}>
+            <h4>
+              {v.naam}: {eur(v.perMaand)} per maand
+            </h4>
+            <Posten posten={v.posten} />
+          </div>
+        ))}
+      </div>
+      <p className="uitleg">
+        In dit scenario is <b>{laagst.naam.toLowerCase()}</b> het goedkoopst. Aannames: de bv keert de winst na Vpb uit als dividend; pseudo-eindheffing is niet
+        aftrekbaar in de Vpb; geen fiscale partner. Een bv-auto later privé maken kan alleen door verkoop tegen marktwaarde. Niet nagerekend door een fiscalist:
+        laat je bij een definitief besluit adviseren.
       </p>
     </details>
   );

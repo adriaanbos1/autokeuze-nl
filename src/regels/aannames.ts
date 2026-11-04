@@ -245,6 +245,26 @@ export const aannames = {
       toelichting: "Bij een marge-auto staat er geen btw op de factuur, dus is er geen aftrek en geldt de btw-correctie van 1,5%. Koop je een occasion met btw op de factuur, dan valt het voordeliger uit.",
     } as Aanname<boolean>,
 
+    /** DGA: de bv keert de winst na Vpb uit als dividend; elke euro die de bv aan de auto uitgeeft, scheelt dus dividend. */
+    bvKeertWinstUit: {
+      waarde: true,
+      soort: "aanname",
+      bron: EIGEN,
+      geldigVanaf: "2026-11-04",
+      peildatum: "2026-11-04",
+      toelichting: "Laat je de winst in de bv staan, dan betaal je de box 2-belasting pas later; het voordeel van de auto in de bv is dan anders.",
+    } as Aanname<boolean>,
+
+    /** Pseudo-eindheffing telt niet als aftrekbare kosten voor de Vpb. */
+    pseudoEindheffingNietAftrekbaar: {
+      waarde: true,
+      soort: "aanname",
+      bron: "eigen aanname; geen bron gevonden over de aftrekbaarheid in de Vpb",
+      geldigVanaf: "2026-11-04",
+      peildatum: "2026-11-04",
+      toelichting: "Voorzichtige aanname. Is de heffing wel aftrekbaar, dan valt de auto in de bv iets gunstiger uit.",
+    } as Aanname<boolean>,
+
     /** Operational lease: we passen dezelfde forfaitaire btw-correctie toe als bij een gekochte auto. */
     btwCorrectieLeaseauto: {
       waarde: true,

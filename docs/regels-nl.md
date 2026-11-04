@@ -101,6 +101,8 @@ Bronnen: [SRA advieswijzer 2026](https://www.sra.nl/nieuws/000000/advieswijzers/
 | Auto van de bv | privégebruik belast als loon (bijtelling via loonbelasting), zelfde percentages | ✅ |
 | Bv-auto privé maken | alleen door verkoop aan de DGA (tegen marktwaarde; btw-discussie loopt bij de Hoge Raad) | ✅ / ⚠ btw-punt |
 | DGA rijdt privéauto voor de bv | bv mag €0,25/km onbelast vergoeden | ✅ |
+| Gebruikelijk loon 2026 | normbedrag €58.000 (hoogste van drie maatstaven; lager met tegenbewijs) | ✅ ([SRA](https://www.sra.nl/nieuws/000000/2025/12/gebruikelijk-loon-dga-in-2026-naar-58000), [regeringsbrief](https://www.eerstekamer.nl/behandeling/20260303/brief_regering_vervolgonderzoek/document3/f=/vmvpimjir0z5.pdf)) |
+| Pseudo-eindheffing aftrekbaar in de Vpb? | niet gevonden | ⚠ app rekent voorzichtig: niet aftrekbaar |
 | Pseudo-eindheffing vanaf 2027 | 12% per jaar voor nieuwe CO₂-auto's ter beschikking gesteld aan de DGA | ✅ aangenomen |
 | Vennootschapsbelasting 2026 | 19% t/m €200.000, 25,8% daarboven | ✅ ([KVK](https://www.kvk.nl/geldzaken/belastingtarieven-2026/)) |
 | Box 2 2026 | 24,5% t/m €68.843, 31% daarboven (zonder partner) | ✅ (KVK) |

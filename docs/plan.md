@@ -57,7 +57,7 @@ Alternatief bij krappe kosten: Cloudflare Pages (gratis, ook commercieel). Overs
 - **Deelstappen (4-11-2026, besluiten 67–70):**
   - **4a** ✅ gebouwd 4-11-2026: fiscale basis met bron: heffingskortingen 2026 (exacte inkomstenbelasting), bijtelling per jaar van eerste toelating 2016–2025 en de 60-maandenregel, KIA 2026, Vpb- en box 2-tarieven 2026.
   - **4b** ✅ gebouwd 4-11-2026: ZZP'er uitgediept: btw-aftrek en -correctie, KIA, financial lease en operational lease zakelijk, occasions.
-  - **4c** DGA/bv: auto in de bv vs. privé, met Vpb, box 2 en pseudo-eindheffing; eigen profiel in de intake.
+  - **4c** ✅ gebouwd 4-11-2026: DGA/bv: auto in de bv vs. privé, met Vpb, box 2 en pseudo-eindheffing; eigen profiel in de intake.
   - **4d** leaserijder uitgediept: leasebudget, eigen bijdrage, instap 2026 vs. 2027, occasions niet (lease is nieuw).
   - **4e** bestelauto's: objectieve RDW-selectie, ZE-zones, MRB en BPM voor ondernemers, KIA.
   - Geen fiscalist (besluit 69): zakelijke uitkomsten met extra waarschuwing.

@@ -17,3 +17,4 @@ export * from "./score";
 export * from "./scenario";
 export * from "./inkomstenbelasting";
 export * from "./zzp";
+export * from "./dga";

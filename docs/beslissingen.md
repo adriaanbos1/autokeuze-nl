@@ -82,3 +82,7 @@ Format: datum · beslissing · waarom · door wie · status
 | 76 | 2026-11-04 | Gemist rendement nu ook in de ZZP-koopvarianten (niet aftrekbaar); bij financial lease de rente (wel aftrekbaar) | eerlijke vergelijking kopen vs. financieren | Claude | uitgevoerd |
 | 77 | 2026-11-04 | Zakelijke occasion = geen btw op de factuur (aanname), btw-correctie 1,5% | meeste occasions bij handelaren onder de bijzondere regeling; voorzichtige aanname | Claude | uitgevoerd; aanpasbaar in aannames.ts |
 | 78 | 2026-11-04 | Operational lease: zelfde forfaitaire btw-correctie als bij koop | SRA noemt leaseauto's niet apart; aanname gemarkeerd | Claude | uitgevoerd; ⚠ open |
+| 79 | 2026-11-04 | DGA als vierde profiel in de intake; startgewichten gelijk aan de ZZP'er | betaalt zelf, via de onderneming; geen aparte methodiek nodig | Claude | uitgevoerd |
+| 80 | 2026-11-04 | DGA-vergelijking in euro's privé: bv-kosten na Vpb verlagen het dividend (minus box 2); bijtelling via loonheffing, niet begrensd | maakt bv- en privévariant vergelijkbaar; volgt besluit 68 | Claude | uitgevoerd |
+| 81 | 2026-11-04 | Aannames DGA: bv keert winst na Vpb uit; pseudo-eindheffing niet aftrekbaar in de Vpb | geen bron over de aftrekbaarheid; voorzichtig | Claude | uitgevoerd; ⚠ open |
+| 82 | 2026-11-04 | Overgangsregeling pseudo-eindheffing: auto in gebruik vóór 2027 → pas vanaf 2031 | datum onzeker (17-9-2030 of 1-1-2031) | Claude | uitgevoerd |

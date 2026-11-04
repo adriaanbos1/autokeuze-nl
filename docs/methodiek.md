@@ -81,6 +81,12 @@ Het criterium TCO rekent per profiel met wat de auto **jou netto per maand** kos
   - **Occasions:** een zakelijk gekochte occasion rekenen we als auto zonder btw op de factuur (aanname: de meeste handelaren verkopen occasions onder de bijzondere regeling), dus geen btw-aftrek en btw-correctie 1,5%. Bijtelling volgens het bouwjaar en de 60-maandenregel.
   - Rekenvoorbeeld met 40% vast belastingvoordeel: `tests/zzp.test.ts`.
 - **ZZP'er (basis, Fase 3d):** per auto de goedkoopste van *auto zakelijk* en *auto privé + €0,25 per zakelijke km* (§4.2), met het exacte tarief over de aftrekpost (vanaf Fase 4a): inkomstenbelasting 2026 over winst − zelfstandigenaftrek (€1.200) − 12,7% MKB-winstvrijstelling, inclusief heffingskortingen, met en zonder de aftrekpost. Zakelijke km = km per jaar × zakelijk aandeel. Kosten van geld zitten er (nog) niet in; een fiscale partner en de startersaftrek ook niet.
+- **DGA met een bv (Fase 4c, `src/engine/dga.ts`):** per auto twee varianten, in euro's die de DGA privé overhoudt, gemiddeld per jaar:
+  1. *Auto in de bv:* de bv betaalt de kosten (excl. btw als de bv btw-plichtig is), die zijn aftrekbaar voor de Vpb. Daarbij komen gemist rendement in de bv, de btw-correctie privégebruik en vanaf 2027 de pseudo-eindheffing (12% van de catalogusprijs per jaar, alleen auto's met CO₂-uitstoot). Een auto die vóór 2027 al in gebruik is, valt daar pas vanaf 2031 onder (overgangsregeling, datum onzeker). Wat de bv netto uitgeeft, scheelt dividend; de DGA bespaart daarover box 2. De DGA betaalt loonheffing over de bijtelling (exact, inclusief minder heffingskortingen), *zonder* begrenzing tot de kosten.
+  2. *Auto privé + €0,25 per zakelijke km van de bv:* de DGA betaalt alle kosten incl. btw plus gemist rendement en krijgt de vergoeding onbelast. De vergoeding is aftrekbaar in de bv; wat de bv netto kwijt is, scheelt dividend (minus box 2).
+  - Vpb 2026 over de bv-winst vóór autokosten, box 2 2026 over het dividend (= winst na Vpb, aanname: volledig uitgekeerd), inkomstenbelasting 2026 over het salaris (standaard het gebruikelijk loon €58.000).
+  - Aannames: pseudo-eindheffing niet aftrekbaar in de Vpb; geen fiscale partner; geen volledige jaarrekening. Score = de goedkoopste van de twee varianten.
+  - Rekenvoorbeeld met vaste percentages (Vpb 19%, box 2 24,5%, loonheffing 50%): `tests/dga.test.ts`.
 - **Leaserijder: alleen nieuwe auto's.** De ZZP'er kan sinds Fase 4b ook occasions kiezen.
 
 ### 1.5 Hoe de ranglijst wordt gemaakt (gebouwd in Fase 3a)

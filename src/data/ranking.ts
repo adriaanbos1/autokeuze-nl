@@ -8,7 +8,7 @@ import { ncapVoorBouwjaar, veiligheidModel } from "./ncap-data";
 import { occasionJaren } from "./occasions-data";
 import { aannames } from "@/regels/aannames";
 import { ankers, CRITERIA, type Criterium, type Profiel } from "@/regels/methodiek";
-import type { Provincie } from "@/regels/regels-nl";
+import { regels, type Provincie } from "@/regels/regels-nl";
 import {
   afschrijvingOverLooptijd,
   bandenPerJaar,
@@ -34,6 +34,10 @@ import {
   belastingWerknemer2026,
   effectiefTarief,
   zzpVarianten,
+  dgaVarianten,
+  vpb2026,
+  box2Belasting2026,
+  type DgaVorm,
   type ZzpAuto,
   type ZzpLease,
   type ZzpVorm,
@@ -63,6 +67,9 @@ export interface ZakelijkeInvoer {
   /** ZZP'er: deel van je kilometers dat zakelijk is (0–1; woon-werk telt voor de IB als zakelijk). */
   zakelijkAandeel: number;
   btwPlichtig: boolean;
+  /** DGA: winst van de bv vóór autokosten, en het salaris dat de DGA uit de bv krijgt. */
+  bvWinst: number;
+  salaris: number;
 }
 
 export const STANDAARD_ZAKELIJK: ZakelijkeInvoer = {
@@ -71,6 +78,8 @@ export const STANDAARD_ZAKELIJK: ZakelijkeInvoer = {
   jaarIngebruikname: 2026,
   zakelijkAandeel: 0.8,
   btwPlichtig: true,
+  bvWinst: 100000,
+  salaris: regels.dga.gebruikelijkLoon2026.waarde,
 };
 
 export interface Intake {
@@ -297,6 +306,11 @@ export function kosten(u: UitvoeringRdw, i: Intake, occ: Occasion | null): Koste
 }
 
 /** Netto kosten per maand voor de leaserijder en de ZZP'er; null voor particulier. */
+export const DGA_NAAM: Record<DgaVorm, string> = {
+  autoInBv: "Auto in de bv",
+  autoPriveKmVergoeding: "Auto privé + km-vergoeding van de bv",
+};
+
 export const ZZP_NAAM: Record<ZzpVorm, string> = {
   koopZakelijk: "Kopen, auto zakelijk",
   koopPrive: "Kopen, auto privé + km-vergoeding",
@@ -356,6 +370,49 @@ function profielKosten(u: UitvoeringRdw, i: Intake, b: AutoBezit, occ: Occasion 
         { label: "Netto per jaar", bedrag: netto.perJaar, uitleg: `tegen ${nl(tarief * 100, 2)}%${z.eigenBijdragePerMaand ? ", inclusief eigen bijdrage" : ""}` },
       ],
       pseudoEindheffingWerkgever: pseudo,
+    };
+  }
+  if (i.profiel === "dga") {
+    const zakelijkeKm = Math.round(i.kmPerJaar * z.zakelijkAandeel);
+    const jaren = b.maanden / 12;
+    const auto: ZzpAuto = {
+      aankoopprijs: b.aankoopprijs,
+      btwOpFactuur: occ ? !aannames.zakelijk.occasionMargeregeling.waarde : true,
+      restwaardeEinde: b.restwaardeEinde,
+      looptijdJaren: jaren,
+      cataloguswaarde: u.catalogusprijs!,
+      aandrijving: aandrijving as "batterij" | "brandstof",
+      jaarEersteToelating: occ?.bouwjaar ?? z.jaarIngebruikname,
+      startjaar: z.jaarIngebruikname,
+      energie: rond2(b.lopend.energie * 12),
+      onderhoud: rond2(b.lopend.onderhoudEnBanden * 12),
+      mrb: rond2(b.lopend.mrb * 12),
+      verzekering: rond2(b.lopend.verzekering * 12),
+    };
+    // Pseudo-eindheffing per kalenderjaar van de looptijd (auto met CO₂-uitstoot; overgangsregeling voor ingebruikname vóór 2027).
+    const pseudo = rond2(
+      Array.from({ length: jaren }, (_, k) => pseudoEindheffing(u.catalogusprijs!, aandrijving, z.jaarIngebruikname, z.jaarIngebruikname + k)).reduce((x, y) => x + y, 0) / jaren,
+    );
+    const W = z.bvWinst;
+    const dividend = W - vpb2026(W); // aanname: de bv keert de winst na Vpb uit
+    const v = dgaVarianten(auto, {
+      zakelijkeKm,
+      priveKm: i.kmPerJaar - zakelijkeKm,
+      btwPlichtigBv: z.btwPlichtig,
+      rendement: aannames.geld.gemistRendement.waarde,
+      vpbVoordeel: (x) => vpb2026(W) - vpb2026(W - x),
+      box2Voordeel: (x) => box2Belasting2026(dividend) - box2Belasting2026(Math.max(0, dividend - x)),
+      extraLoonheffing: (x) => belastingWerknemer2026(z.salaris + x) - belastingWerknemer2026(z.salaris),
+      pseudoEindheffing: pseudo,
+      pseudoEindheffingAftrekbaar: !aannames.zakelijk.pseudoEindheffingNietAftrekbaar.waarde,
+    });
+    const beste = v.reduce((x, y) => (y.nettoPerMaand < x.nettoPerMaand ? y : x));
+    return {
+      perMaand: beste.nettoPerMaand,
+      label: `netto per maand (${DGA_NAAM[beste.vorm].toLowerCase()})`,
+      uitleg: `goedkoopste van auto in de bv (${eur0(v[0].nettoPerMaand)}) en auto privé met €0,25 per zakelijke km van de bv (${eur0(v[1].nettoPerMaand)}), in euro's privé. Bv-winst ${eur0(W)} vóór autokosten (Vpb 2026), uitgekeerd als dividend (box 2 2026, aanname), salaris ${eur0(z.salaris)} (inkomstenbelasting 2026)`,
+      posten: beste.posten,
+      varianten: v.map((x) => ({ naam: DGA_NAAM[x.vorm], perMaand: x.nettoPerMaand, posten: x.posten })),
     };
   }
   if (i.profiel === "zzp") {

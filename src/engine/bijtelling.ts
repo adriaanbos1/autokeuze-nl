@@ -61,12 +61,14 @@ export function nettoBijtellingWerknemer(
 }
 
 /**
- * Pseudo-eindheffing voor de werkgever (of de bv van de DGA): vanaf 2027
+ * Pseudo-eindheffing voor de werkgever (of de bv van de DGA) in een kalenderjaar: vanaf 2027
  * 12% van de catalogusprijs per jaar voor nieuw ter beschikking gestelde auto's
  * met CO₂-uitstoot die privé gebruikt mogen worden.
  */
-export function pseudoEindheffing(cataloguswaarde: number, aandrijving: Aandrijving, jaarTerBeschikking: number): number {
+export function pseudoEindheffing(cataloguswaarde: number, aandrijving: Aandrijving, jaarTerBeschikking: number, kalenderjaar = jaarTerBeschikking): number {
   const { percentage, vanafJaar } = regels.pseudoEindheffing.waarde;
-  if (aandrijving !== "brandstof" || jaarTerBeschikking < vanafJaar) return 0;
+  if (aandrijving !== "brandstof" || kalenderjaar < vanafJaar) return 0;
+  // Overgangsregeling: al vóór 2027 ter beschikking → pas vanaf het overgangsjaar.
+  if (jaarTerBeschikking < vanafJaar && kalenderjaar < regels.pseudoEindheffingOvergang.waarde.vanafJaar) return 0;
   return rond2(cataloguswaarde * percentage);
 }

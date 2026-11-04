@@ -274,6 +274,16 @@ export const regels = {
   },
 
   /** Werkgever betaalt per jaar een % van de catalogusprijs voor nieuwe auto's mét CO₂-uitstoot die privé mogen worden gebruikt. */
+  /** Overgangsregeling: auto's die vóór 2027 al ter beschikking stonden, vallen er pas later onder. */
+  pseudoEindheffingOvergang: {
+    waarde: { vanafJaar: 2031 },
+    status: "onzeker",
+    bron: "https://www.athlon.com/nl/kennisbank/belastingplan-2027-autobelastingen-en-mobiliteit/",
+    geldigVanaf: "2027-01-01",
+    peildatum: "2026-11-04",
+    toelichting: "Datum onzeker: bronnen noemen 17-9-2030 of 1-1-2031; het kabinet wil 1-1-2031. Wij rekenen met 2031 (docs/regels-nl.md §3).",
+  } as Regel<{ vanafJaar: number }>,
+
   pseudoEindheffing: {
     waarde: { percentage: 0.12, vanafJaar: 2027 },
     status: "vastgesteld",
@@ -385,6 +395,19 @@ export const regels = {
       peildatum: PEIL,
     } as Regel<number>,
   },
+  // ─────────────────────────── DGA ───────────────────────────
+  dga: {
+    /** Normbedrag gebruikelijk loon (het hoogste van drie maatstaven; dit is de ondergrens zonder tegenbewijs). */
+    gebruikelijkLoon2026: {
+      waarde: 58000,
+      status: "vastgesteld",
+      bron: "https://www.sra.nl/nieuws/000000/2025/12/gebruikelijk-loon-dga-in-2026-naar-58000 ; https://www.eerstekamer.nl/behandeling/20260303/brief_regering_vervolgonderzoek/document3/f=/vmvpimjir0z5.pdf",
+      geldigVanaf: "2026-01-01",
+      peildatum: "2026-11-04",
+      toelichting: "Lager mag als het loon uit de meest vergelijkbare dienstbetrekking aantoonbaar lager is.",
+    } as Regel<number>,
+  },
+
   // ─────────────────── Vennootschapsbelasting en box 2 ───────────────────
   vpb: {
     /** [winst t/m, tarief]; laatste schijf zonder bovengrens. */

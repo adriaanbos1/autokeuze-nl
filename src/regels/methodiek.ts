@@ -7,7 +7,7 @@
  */
 
 export type Criterium = "TCO" | "BETR" | "ONDH" | "REST" | "FIT" | "DUUR" | "VEIL" | "COMF";
-export type Profiel = "particulier" | "zzp" | "leaserijder";
+export type Profiel = "particulier" | "zzp" | "dga" | "leaserijder";
 
 export const CRITERIA: Criterium[] = ["TCO", "BETR", "ONDH", "REST", "FIT", "DUUR", "VEIL", "COMF"];
 
@@ -26,6 +26,8 @@ export const criteriumNaam: Record<Criterium, string> = {
 export const standaardGewichten: Record<Profiel, Record<Criterium, number>> = {
   particulier: { TCO: 30, BETR: 15, ONDH: 10, REST: 10, FIT: 15, DUUR: 5, VEIL: 10, COMF: 5 },
   zzp: { TCO: 30, BETR: 20, ONDH: 10, REST: 10, FIT: 15, DUUR: 5, VEIL: 5, COMF: 5 },
+  /** DGA: zelfde startgewichten als de ZZP'er (besluit 79); beide betalen zelf, via de onderneming. */
+  dga: { TCO: 30, BETR: 20, ONDH: 10, REST: 10, FIT: 15, DUUR: 5, VEIL: 5, COMF: 5 },
   leaserijder: { TCO: 15, BETR: 5, ONDH: 0, REST: 0, FIT: 30, DUUR: 15, VEIL: 15, COMF: 20 },
 };
 
