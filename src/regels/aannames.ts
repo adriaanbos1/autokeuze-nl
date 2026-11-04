@@ -205,6 +205,72 @@ export const aannames = {
     } as Aanname<number>,
   },
 
+  financiering: {
+    leningRente: {
+      waarde: 0.075,
+      soort: "aanname",
+      bron: "eigen aanname binnen de bandbreedte van vergelijkers (vanaf ca. 4,1%, vaak 7–12%; https://financer.nl/leningen/laagste-rente-persoonlijke-lening/) en onder het wettelijk maximum van 12%",
+      geldigVanaf: "2026-11-04",
+      peildatum: "2026-11-04",
+      toelichting: "Je rente hangt af van bedrag, looptijd en je situatie. Vul de rente uit je eigen offerte in. Geen officieel gemiddelde gevonden.",
+    } as Aanname<number>,
+
+    financialLeaseRente: {
+      waarde: 0.075,
+      soort: "aanname",
+      bron: "eigen aanname; gelijk aan de persoonlijke lening, onder het wettelijk maximum van 12%",
+      geldigVanaf: "2026-11-04",
+      peildatum: "2026-11-04",
+      toelichting: "Dealers en merkfinanciers bieden soms acties met lage rente. Vul je eigen offerte in.",
+    } as Aanname<number>,
+
+    slottermijnAandeelRestwaarde: {
+      waarde: 0.8,
+      soort: "aanname",
+      bron: "eigen aanname (docs/methodiek.md §3.2)",
+      geldigVanaf: "2026-11-04",
+      peildatum: "2026-11-04",
+      toelichting: "Startwaarde voor de slottermijn: 80% van de geschatte waarde aan het eind, zodat de verkoop van de auto de slottermijn waarschijnlijk dekt.",
+    } as Aanname<number>,
+  },
+
+  privateLease: {
+    /** Rente die een leasemaatschappij over het geld in de auto rekent. */
+    kapitaalrente: {
+      waarde: 0.05,
+      soort: "aanname",
+      bron: "eigen aanname (docs/methodiek.md §3.3)",
+      geldigVanaf: "2026-11-04",
+      peildatum: "2026-11-04",
+    } as Aanname<number>,
+
+    /** Opslag op de kostprijs voor overhead, risico en winst; inkoopkorting van de leasemaatschappij verrekenen we niet. */
+    opslag: {
+      waarde: 0.1,
+      soort: "aanname",
+      bron: "eigen aanname (docs/methodiek.md §3.3); geen openbare bron gevonden voor de opbouw van leaseprijzen",
+      geldigVanaf: "2026-11-04",
+      peildatum: "2026-11-04",
+      toelichting: "Leasemaatschappijen kopen met korting in en verzekeren goedkoper; daar staan overhead, risico en winst tegenover. Een echte offerte kan dus flink afwijken, naar boven én naar beneden.",
+    } as Aanname<number>,
+
+    eigenRisico: {
+      waarde: 500,
+      soort: "aanname",
+      bron: "eigen aanname binnen de bandbreedte €250–500 per schade (docs/methodiek.md §3.1)",
+      geldigVanaf: "2026-11-03",
+      peildatum: "2026-11-04",
+    } as Aanname<number>,
+
+    schadesPerJaar: {
+      waarde: 0.12,
+      soort: "aanname",
+      bron: "eigen aanname (docs/methodiek.md §3.1)",
+      geldigVanaf: "2026-11-03",
+      peildatum: "2026-11-04",
+    } as Aanname<number>,
+  },
+
   verzekering: {
     /** Gemiddelde maandpremie per dekking, H1 2026. */
     gemiddeldePerMaand: {

@@ -334,6 +334,19 @@ export const regels = {
       peildatum: PEIL,
     } as Regel<number>,
   },
+  // ─────────────────────── Consumptief krediet ───────────────────────
+  krediet: {
+    /** Maximale kredietvergoeding (jaarrente) voor consumptief krediet: wettelijke rente 4% + 8 procentpunt. */
+    maximaleKredietvergoeding: {
+      waarde: 0.12,
+      status: "vastgesteld",
+      bron: "https://www.rijksoverheid.nl/onderwerpen/bescherming-van-consumenten/vraag-en-antwoord/wat-is-kredietvergoeding-en-wat-is-het-maximale-kredietvergoedingspercentage",
+      geldigVanaf: "2026-01-01",
+      peildatum: "2026-11-04",
+      toelichting: "Daalde van 14% naar 12% doordat de wettelijke rente per 1-1-2026 van 6% naar 4% ging. Geldt voor alle consumptieve kredieten, ook huurkoop/financial lease.",
+    } as Regel<number>,
+  },
+
   // ──────────────── WLTP: plug-in hybrides (utility factor) ────────────────
   wltp: {
     /**

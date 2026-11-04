@@ -239,6 +239,21 @@ Lease-TCO in de app = leaseprijs + energie + verwacht eigen risico (aanname: 0,1
 
 **Slottermijn:** lagere maandtermijn, maar je betaalt rente over het hele (hogere) uitstaande bedrag, en aan het eind moet je de slottermijn betalen, herfinancieren of de auto verkopen. De app toont: (a) maandlast, (b) totaal betaalde rente, (c) "is de verwachte restwaarde hoger dan de slottermijn?" (risico op een restschuld).
 
+**In de app (Fase 3c, `src/engine/scenario.ts`):** per auto uit de top 3 vier scenario's naast elkaar, met dezelfde auto, looptijd en km:
+- *Kost per maand* = TCO inclusief waardeverlies (§3). *Je betaalt per maand* = termijn of leaseprijs + de lopende kosten die je zelf draagt. Daarnaast: nu in één keer, slottermijn aan het eind, en wat je aan het eind bezit.
+- Startwaarden (allemaal aanpasbaar, `src/regels/aannames.ts`): rente lening en financial lease 7,5% (aanname, geen officieel gemiddelde gevonden), geen eigen geld of aanbetaling, slottermijn 80% van de geschatte eindwaarde (afgerond op €500 omlaag). Een rente boven het wettelijk maximum (12% in 2026, Rijksoverheid) krijgt een waarschuwing.
+- De zin onder de vergelijking is altijd "In dit scenario is … het goedkoopst per maand", met "Let op! Geld lenen kost geld." De ranglijst zelf rekent altijd met contant kopen (besluit 44).
+
+### 3.3 Private lease zonder offerte: eigen schatting
+Zonder offerte schatten we de leaseprijs op kostprijsbasis (besluit 40):
+```
+leaseprijs = [ afschrijving + gemiddeld kapitaal × 5% / 12 + MRB + verzekering + onderhoud en banden ] × (1 + 10% opslag)
+```
+- Afschrijving, MRB, verzekering en onderhoud zijn dezelfde getallen als bij kopen. De rente van 5% (kapitaal van de leasemaatschappij) en de opslag van 10% (overhead, risico, winst) zijn **eigen aannames**: we vonden geen openbare bron voor de opbouw van leaseprijzen.
+- Niet verrekend: inkoopkorting en goedkopere vlootverzekering van de leasemaatschappij (maken een echte offerte lager), en risico-opslagen voor bijvoorbeeld onzekere restwaarde van elektrische auto's (maken hem hoger).
+- Lease-TCO = leaseprijs + energie + verwacht eigen risico (0,12 schade per jaar × €500, aanname) (§3.1).
+- Rekenvoorbeeld (tests/scenario.test.ts): €30.000, eindwaarde €12.000 na 60 maanden, MRB 50 + verzekering 100 + onderhoud 40 → 300 + 87,50 + 190 = 577,50 × 1,10 = **€635,25** per maand.
+
 ---
 
 ## 4. Uitgewerkte rekenvoorbeelden

@@ -106,3 +106,10 @@ table.ranglijst th.b { text-align: right; }
 .keuzeknoppen button { background: var(--bg); color: var(--fg); border: 1px solid var(--rand); min-height: 40px; }
 .keuzeknoppen button.gekozen { background: var(--accent); color: var(--bg); border-color: var(--accent); }
 .ontbreekt { border-left: 3px solid var(--min); padding-left: 8px; }
+.financiering { margin-top: 10px; border-top: 1px solid var(--rand); padding-top: 8px; }
+.financiering > summary { font-weight: 600; }
+.scenarios { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; margin: 12px 0; }
+.scenario { background: var(--bg); border: 1px solid var(--rand); border-radius: 8px; padding: 10px 12px; }
+.scenario.laagst { border-color: var(--accent); border-width: 2px; }
+.scenario h4 { margin: 0 0 6px; font-size: 0.95rem; }
+.scenario ul { padding-left: 18px; margin: 6px 0 0; }

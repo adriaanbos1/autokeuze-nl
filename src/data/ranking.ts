@@ -33,6 +33,7 @@ import {
   type Gewichten,
   type Scores,
   type TcoUitkomst,
+  type AutoBezit,
 } from "@/engine";
 
 export const alleModellen = rdw.modellen as ModelRdw[];
@@ -90,6 +91,8 @@ export interface Kosten {
   aankoopprijs: number;
   /** Hoe de aankoopprijs tot stand komt (catalogusprijs of geschatte occasionprijs). */
   prijsUitleg: string;
+  /** Invoer van de TCO-berekening, voor de vergelijking van financieringsvormen. */
+  bezit: AutoBezit;
   restwaardeEinde: number;
   energiePerJaar: number;
   energieUitleg: string;
@@ -202,7 +205,7 @@ export function kosten(u: UitvoeringRdw, i: Intake, occ: Occasion | null): Koste
   });
   const onderhoudEnBanden = rond2((onderhoudJaar + banden) / 12);
 
-  const tco = tcoContant({
+  const bezit: AutoBezit = {
     aankoopprijs,
     restwaardeEinde: rest.waardeEinde,
     maanden: i.looptijdMaanden,
@@ -214,7 +217,8 @@ export function kosten(u: UitvoeringRdw, i: Intake, occ: Occasion | null): Koste
       verzekering: rond2(verzekering / 12),
       onderhoudEnBanden,
     },
-  });
+  };
+  const tco = tcoContant(bezit);
   // Uitleg per post aanvullen met wat er voor deze auto echt in zit.
   const extra: Record<string, string> = {
     Energie: e.uitleg,
@@ -230,6 +234,7 @@ export function kosten(u: UitvoeringRdw, i: Intake, occ: Occasion | null): Koste
     tco,
     aankoopprijs,
     prijsUitleg,
+    bezit,
     restwaardeEinde: rest.waardeEinde,
     energiePerJaar: e.perJaar,
     energieUitleg: e.uitleg,

@@ -2,6 +2,7 @@
 
 import { useMemo, useRef, useState } from "react";
 import { Nav } from "./nav";
+import { Financiering } from "./financiering";
 import { alleModellen, datasetPeildatum, gezinsprofiel, nietGescoord, rangschik, soortTekst, toelichting, type Intake, type Resultaat, type Soort } from "@/data/ranking";
 import { occasionHerkomst } from "@/data/occasions-data";
 import type { Aandrijvingstype } from "@/data/types";
@@ -358,8 +359,8 @@ function AutoKaart({ r, plek, eerste, gewichten }: { r: Resultaat; plek: number;
               <td>
                 <b>Totaal per maand</b>
                 <div className="uitleg">
-                  Contant gekocht, {r.kosten.tco.perKm.toLocaleString("nl-NL", { style: "currency", currency: "EUR", minimumFractionDigits: 3 })} per km. Andere
-                  financieringsvormen volgen in stap 3c.
+                  Contant gekocht, {r.kosten.tco.perKm.toLocaleString("nl-NL", { style: "currency", currency: "EUR", minimumFractionDigits: 3 })} per km. Lenen of
+                  leasen: zie hieronder.
                 </div>
               </td>
               <td className="b">
@@ -369,6 +370,7 @@ function AutoKaart({ r, plek, eerste, gewichten }: { r: Resultaat; plek: number;
           </tbody>
         </table>
       </details>
+      <Financiering key={`${r.id}-${r.occasion?.bouwjaar ?? 0}-${r.kosten.tco.perMaand}`} bezit={r.kosten.bezit} naam={r.naam} />
     </article>
   );
 }
@@ -482,7 +484,7 @@ export default function Autokeuze() {
           <details>
             <summary>Wat zit er (nog) niet in?</summary>
             <ul className="uitleg">
-              <li>Contant gekocht. Financieringsvormen zoals private lease volgen in stap 3c.</li>
+              <li>De ranglijst rekent met contant kopen, zodat de volgorde niet afhangt van een financieringsproduct. Lenen en leasen vergelijk je per auto onder &quot;Kopen, lenen of leasen?&quot;.</li>
               <li>
                 Occasions: per model en bouwjaar de nieuwprijs en specificaties van toen (RDW, {occasionHerkomst.peildatum}). De prijs is een schatting met een generieke
                 afschrijvingscurve en 15.000 km per jaar; geen marktprijs. Verbruik van vóór 2019 is omgerekend uit de oudere NEDC-test.
