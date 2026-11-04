@@ -1,7 +1,7 @@
 // Ranglijst op de echte dataset: harde eisen, kosten en merkneutraliteit.
 import { describe, expect, it } from "vitest";
 import { alleModellen, STANDAARD_ZAKELIJK, hardeEisen, kosten, kostenNieuw, occasionVan, rangschik, type Intake } from "@/data/ranking";
-import { startGewichten } from "@/engine";
+import { rond2, startGewichten } from "@/engine";
 import type { ModelRdw, UitvoeringRdw } from "@/data/types";
 
 const basis: Intake = {
@@ -216,5 +216,24 @@ describe("zakelijke profielen (basis)", () => {
   it("DGA met auto in gebruik in 2026: geen pseudo-eindheffing tijdens 5 jaar looptijd (overgangsregeling tot 2031)", () => {
     const k = kostenNieuw(benzine, { ...basis, profiel: "dga" })!;
     expect(k.profiel!.varianten![0].posten.find((p) => p.label.startsWith("Pseudo"))!.bedrag).toBe(0);
+  });
+  it("leaserijder met leasebudget €100 onder de geschatte leaseprijs: €100 eigen bijdrage, die de bijtelling verlaagt", () => {
+    const zonder = kostenNieuw(benzine, lease)!.profiel!;
+    const budget = rond2(zonder.lease!.leaseprijsExcl - 100);
+    const k = kostenNieuw(benzine, { ...lease, zakelijk: { ...STANDAARD_ZAKELIJK, leasebudgetExclBtw: budget } })!.profiel!;
+    expect(k.lease!.meerprijs).toBe(100);
+    expect(k.lease!.eigenBijdragePerMaand).toBe(100);
+    // (6.600 − 1.200) × 50,468% + 1.200 = 3.925,27 per jaar → 327,11 per maand
+    expect(k.perMaand).toBe(327.11);
+  });
+  it("leaserijder die niet boven budget mag: auto valt af", () => {
+    const zonder = kostenNieuw(benzine, lease)!;
+    const i = { ...lease, zakelijk: { ...STANDAARD_ZAKELIJK, leasebudgetExclBtw: zonder.profiel!.lease!.leaseprijsExcl - 1, bovenBudgetMetEigenBijdrage: false } };
+    expect(hardeEisen(benzine, i, kostenNieuw(benzine, i)).join()).toContain("boven je leasebudget");
+  });
+  it("leaserijder EV €30.000: 2027 (20%) kost (6.000 − 5.400) × 50,468% / 12 = €25,23 per maand meer dan 2026 (18%)", () => {
+    const k = kostenNieuw(ev, lease)!.profiel!;
+    expect(k.lease!.anderJaar.jaar).toBe(2027);
+    expect(rond2(k.lease!.anderJaar.perMaand - k.perMaand)).toBe(25.23);
   });
 });

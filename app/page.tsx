@@ -177,8 +177,27 @@ function Intakeformulier({ intake, zet }: { intake: Intake; zet: (i: Intake) => 
             )}
             {intake.profiel === "leaserijder" ? (
               <>
+                <label>
+                  Leasebudget van je werkgever per maand, excl. btw (€, optioneel)
+                  <input
+                    type="number"
+                    inputMode="numeric"
+                    step={25}
+                    value={intake.zakelijk.leasebudgetExclBtw ?? ""}
+                    placeholder="geen budget"
+                    onChange={(e) => zz({ leasebudgetExclBtw: e.target.value ? Number(e.target.value) : null })}
+                  />
+                  <span className="uitleg">We schatten per auto de leaseprijs; een echte leaseprijs kan afwijken.</span>
+                </label>
+                {intake.zakelijk.leasebudgetExclBtw != null && (
+                  <JaNee
+                    label="Mag je boven je budget als je het meerbedrag zelf betaalt?"
+                    waarde={intake.zakelijk.bovenBudgetMetEigenBijdrage}
+                    zet={(b) => zz({ bovenBudgetMetEigenBijdrage: b })}
+                  />
+                )}
                 <Getal
-                  label="Eigen bijdrage per maand (€)"
+                  label="Vaste eigen bijdrage per maand (€)"
                   waarde={intake.zakelijk.eigenBijdragePerMaand}
                   zet={(n) => zz({ eigenBijdragePerMaand: n })}
                   stap={10}
@@ -426,11 +445,28 @@ function Posten({ posten }: { posten: { label: string; bedrag: number; uitleg: s
 function ProfielBerekening({ p }: { p: ProfielKosten }) {
   if (p.zzp) return <ZzpBerekening p={p} zzp={p.zzp} />;
   if (p.varianten) return <VariantenBerekening p={p} />;
+  const l = p.lease;
   return (
     <details className="financiering">
       <summary>Hoe is de netto bijtelling berekend?</summary>
       <p className="uitleg">{p.uitleg}. Bedragen per jaar.</p>
       <Posten posten={p.posten} />
+      {l && (
+        <>
+          <p className="uitleg">
+            Geschatte leaseprijs voor je werkgever: <b>{eur(l.leaseprijsExcl)}</b> per maand excl. btw (onze schatting op kostprijsbasis, geen aanbod).
+            {l.meerprijs > 0 &&
+              ` Dat is ${eur(l.meerprijs)} boven je leasebudget; dat rekenen we als eigen bijdrage (aanname: zo werken veel leaseregelingen).`}
+          </p>
+          <p className="uitleg">
+            Krijg je de auto in {l.anderJaar.jaar}, dan kost hij je {eur(l.anderJaar.perMaand)} per maand
+            {l.anderJaar.perMaand !== p.perMaand
+              ? ` (${l.anderJaar.perMaand > p.perMaand ? "+" : "−"}${eur(Math.abs(l.anderJaar.perMaand - p.perMaand))})`
+              : ""}
+            {l.anderJaar.pseudoEindheffing ? `, en betaalt je werkgever ${eur(l.anderJaar.pseudoEindheffing)} per jaar pseudo-eindheffing` : ""}.
+          </p>
+        </>
+      )}
       <p className="uitleg">
         Exacte inkomstenbelasting 2026 met en zonder bijtelling, inclusief minder heffingskortingen; zonder fiscale partner. Brandstof of laden betaalt in deze
         berekening je werkgever. Het percentage ligt 60 maanden vast. Niet nagerekend door een fiscalist.

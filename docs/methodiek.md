@@ -87,6 +87,11 @@ Het criterium TCO rekent per profiel met wat de auto **jou netto per maand** kos
   - Vpb 2026 over de bv-winst vóór autokosten, box 2 2026 over het dividend (= winst na Vpb, aanname: volledig uitgekeerd), inkomstenbelasting 2026 over het salaris (standaard het gebruikelijk loon €58.000).
   - Aannames: pseudo-eindheffing niet aftrekbaar in de Vpb; geen fiscale partner; geen volledige jaarrekening. Score = de goedkoopste van de twee varianten.
   - Rekenvoorbeeld met vaste percentages (Vpb 19%, box 2 24,5%, loonheffing 50%): `tests/dga.test.ts`.
+- **Leaserijder uitgediept (Fase 4d):**
+  - *Leasebudget:* optioneel het maximale leasetarief van je werkgever (per maand, excl. btw). Per auto schatten we de leaseprijs op kostprijsbasis (`operationalLeaseSchatting`: afschrijving en rente excl. btw + MRB + verzekering + onderhoud, × 1,10). Ligt die boven het budget, dan rekenen we het meerbedrag als eigen bijdrage (aanname), of valt de auto af als je aangeeft dat je niet boven budget mag.
+  - *Eigen bijdrage* (vast + meerprijs) verlaagt de bijtelling euro voor euro en telt zelf mee als kosten.
+  - *2026 vs. 2027:* per auto ook de netto kosten bij instap in het andere jaar (EV: 18% → 20% tot €30.000) en de pseudo-eindheffing die de werkgever vanaf 2027 betaalt voor auto's met CO₂-uitstoot.
+  - Rekenvoorbeeld: benzine €30.000, €100 meerprijs: (6.600 − 1.200) × 50,468% + 1.200 = 3.925,27 per jaar = **€327,11** per maand (`tests/ranking.test.ts`).
 - **Leaserijder: alleen nieuwe auto's.** De ZZP'er kan sinds Fase 4b ook occasions kiezen.
 
 ### 1.5 Hoe de ranglijst wordt gemaakt (gebouwd in Fase 3a)

@@ -86,3 +86,5 @@ Format: datum · beslissing · waarom · door wie · status
 | 80 | 2026-11-04 | DGA-vergelijking in euro's privé: bv-kosten na Vpb verlagen het dividend (minus box 2); bijtelling via loonheffing, niet begrensd | maakt bv- en privévariant vergelijkbaar; volgt besluit 68 | Claude | uitgevoerd |
 | 81 | 2026-11-04 | Aannames DGA: bv keert winst na Vpb uit; pseudo-eindheffing niet aftrekbaar in de Vpb | geen bron over de aftrekbaarheid; voorzichtig | Claude | uitgevoerd; ⚠ open |
 | 82 | 2026-11-04 | Overgangsregeling pseudo-eindheffing: auto in gebruik vóór 2027 → pas vanaf 2031 | datum onzeker (17-9-2030 of 1-1-2031) | Claude | uitgevoerd |
+| 83 | 2026-11-04 | Leaserijder: leasebudget als maximaal leasetarief excl. btw; geschatte leaseprijs per auto (kostprijs × 1,10); meerprijs telt als eigen bijdrage of sluit uit | veel leaseregelingen werken met een normleasebedrag; geen open bron met leaseprijzen | Claude | uitgevoerd; aanname meerprijs = eigen bijdrage |
+| 84 | 2026-11-04 | Per auto de vergelijking instap 2026 vs. 2027 (bijtelling en pseudo-eindheffing werkgever) | relevante keuze in 2026; regels 2027 aangenomen | Claude | uitgevoerd |

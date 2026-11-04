@@ -103,6 +103,18 @@ function zakelijk(vorm: ZzpVorm, a: ZzpAuto, s: ZzpSituatie, aftrekbaar: Post[],
   return { vorm, nettoPerJaar, nettoPerMaand: rond2(nettoPerJaar / 12), posten };
 }
 
+/**
+ * Indicatieve operational-leaseprijs per maand excl. btw, op kostprijsbasis: afschrijving en rente (excl. btw,
+ * want de leasemaatschappij trekt de btw af) + MRB + verzekering + onderhoud, plus een opslag. Energie zit er niet in.
+ */
+export function operationalLeaseSchatting(a: ZzpAuto, kapitaalrente: number, opslag: number): number {
+  const aanschaf = exclBtw(a.aankoopprijs, a.btwOpFactuur);
+  const rest = exclBtw(a.restwaardeEinde, a.btwOpFactuur);
+  const n = a.looptijdJaren;
+  const kostprijsJaar = som((aanschaf - rest) / n, ((aanschaf + rest) / 2) * kapitaalrente, a.mrb, a.verzekering, exclBtw(a.onderhoud, true));
+  return rond2((kostprijsJaar * (1 + opslag)) / 12);
+}
+
 export function zzpVarianten(a: ZzpAuto, s: ZzpSituatie, l: ZzpLease): ZzpUitkomst[] {
   const terug = s.btwPlichtig; // btw op kosten terug te vragen
   const terugAanschaf = s.btwPlichtig && a.btwOpFactuur;
@@ -163,17 +175,8 @@ export function zzpVarianten(a: ZzpAuto, s: ZzpSituatie, l: ZzpLease): ZzpUitkom
   // 4. Operational lease: leaseprijs (incl. MRB, verzekering, onderhoud) + energie, aftrekbaar.
   {
     const ol = l.operationalLease;
-    const nieuwAanschaf = exclBtw(a.aankoopprijs, a.btwOpFactuur); // leasemaatschappij trekt btw wel af
-    const nieuwRest = exclBtw(a.restwaardeEinde, a.btwOpFactuur);
-    const kostprijsJaar = som(
-      (nieuwAanschaf - nieuwRest) / n,
-      ((nieuwAanschaf + nieuwRest) / 2) * ol.kapitaalrente,
-      a.mrb,
-      a.verzekering,
-      exclBtw(a.onderhoud, true),
-    );
     const geschat = ol.offerteExclBtw == null;
-    const leaseExclPerMaand = geschat ? rond2((kostprijsJaar * (1 + ol.opslag)) / 12) : ol.offerteExclBtw!;
+    const leaseExclPerMaand = geschat ? operationalLeaseSchatting(a, ol.kapitaalrente, ol.opslag) : ol.offerteExclBtw!;
     const leaseJaar = rond2(leaseExclPerMaand * 12 * (terug ? 1 : 1 + btw));
     uit.push(
       zakelijk(

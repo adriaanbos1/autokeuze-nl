@@ -35,6 +35,7 @@ import {
   effectiefTarief,
   zzpVarianten,
   dgaVarianten,
+  operationalLeaseSchatting,
   vpb2026,
   box2Belasting2026,
   type DgaVorm,
@@ -67,6 +68,10 @@ export interface ZakelijkeInvoer {
   /** ZZP'er: deel van je kilometers dat zakelijk is (0–1; woon-werk telt voor de IB als zakelijk). */
   zakelijkAandeel: number;
   btwPlichtig: boolean;
+  /** Leaserijder: maximaal leasetarief van je werkgever per maand excl. btw (null = geen). */
+  leasebudgetExclBtw: number | null;
+  /** Leaserijder: mag je boven je budget rijden als je het meerbedrag zelf betaalt (eigen bijdrage)? */
+  bovenBudgetMetEigenBijdrage: boolean;
   /** DGA: winst van de bv vóór autokosten, en het salaris dat de DGA uit de bv krijgt. */
   bvWinst: number;
   salaris: number;
@@ -78,6 +83,8 @@ export const STANDAARD_ZAKELIJK: ZakelijkeInvoer = {
   jaarIngebruikname: 2026,
   zakelijkAandeel: 0.8,
   btwPlichtig: true,
+  leasebudgetExclBtw: null,
+  bovenBudgetMetEigenBijdrage: true,
   bvWinst: 100000,
   salaris: regels.dga.gebruikelijkLoon2026.waarde,
 };
@@ -124,6 +131,14 @@ export interface ProfielKosten {
   varianten?: { naam: string; perMaand: number; posten: Post[] }[];
   /** Leaserijder: wat de werkgever extra betaalt aan pseudo-eindheffing (per jaar). */
   pseudoEindheffingWerkgever?: number;
+  /** Leaserijder: geschatte leaseprijs, meerprijs boven het leasebudget en de vergelijking 2026 ↔ 2027. */
+  lease?: {
+    leaseprijsExcl: number;
+    meerprijs: number;
+    eigenBijdragePerMaand: number;
+    bovenBudget: boolean;
+    anderJaar: { jaar: number; perMaand: number; pseudoEindheffing: number };
+  };
   /** ZZP'er: invoer om de varianten in de app opnieuw te berekenen. */
   zzp?: ZzpBasis;
 }
@@ -355,21 +370,56 @@ function profielKosten(u: UitvoeringRdw, i: Intake, b: AutoBezit, occ: Occasion 
   const z = i.zakelijk;
   const aandrijving = u.aandrijving === "elektrisch" ? "batterij" : "brandstof";
   if (i.profiel === "leaserijder") {
-    const bij = bijtellingPerJaar({ cataloguswaarde: u.catalogusprijs!, aandrijving, jaarEersteToelating: z.jaarIngebruikname });
+    // Geschatte leaseprijs (wat de werkgever betaalt), voor het leasebudget.
+    const leaseprijsExcl = operationalLeaseSchatting(
+      {
+        aankoopprijs: b.aankoopprijs,
+        btwOpFactuur: true,
+        restwaardeEinde: b.restwaardeEinde,
+        looptijdJaren: b.maanden / 12,
+        cataloguswaarde: u.catalogusprijs!,
+        aandrijving,
+        jaarEersteToelating: z.jaarIngebruikname,
+        startjaar: z.jaarIngebruikname,
+        energie: rond2(b.lopend.energie * 12),
+        onderhoud: rond2(b.lopend.onderhoudEnBanden * 12),
+        mrb: rond2(b.lopend.mrb * 12),
+        verzekering: rond2(b.lopend.verzekering * 12),
+      },
+      aannames.privateLease.kapitaalrente.waarde,
+      aannames.privateLease.opslag.waarde,
+    );
+    const meerprijs = z.leasebudgetExclBtw != null ? rond2(Math.max(0, leaseprijsExcl - z.leasebudgetExclBtw)) : 0;
+    // Aanname: wie boven het budget kiest, betaalt het meerbedrag (excl. btw) als eigen bijdrage.
+    const eigenBijdrage = rond2(z.eigenBijdragePerMaand + (z.bovenBudgetMetEigenBijdrage ? meerprijs : 0));
     // Exacte inkomstenbelasting 2026 met en zonder bijtelling, dus inclusief afbouw van de heffingskortingen.
-    const belast = Math.max(0, bij.perJaar - z.eigenBijdragePerMaand * 12);
-    const tarief = effectiefTarief(belastingWerknemer2026, z.inkomen, belast);
-    const netto = nettoBijtellingWerknemer(bij.perJaar, tarief, z.eigenBijdragePerMaand * 12);
-    const pseudo = pseudoEindheffing(u.catalogusprijs!, aandrijving, z.jaarIngebruikname);
+    const voorJaar = (jaar: number) => {
+      const bij = bijtellingPerJaar({ cataloguswaarde: u.catalogusprijs!, aandrijving, jaarEersteToelating: jaar });
+      const belast = Math.max(0, bij.perJaar - eigenBijdrage * 12);
+      const tarief = effectiefTarief(belastingWerknemer2026, z.inkomen, belast);
+      return { bij, tarief, netto: nettoBijtellingWerknemer(bij.perJaar, tarief, eigenBijdrage * 12) };
+    };
+    const { bij, tarief, netto } = voorJaar(z.jaarIngebruikname);
+    const ander = z.jaarIngebruikname === 2026 ? 2027 : 2026;
     return {
       perMaand: netto.perMaand,
-      label: "netto bijtelling per maand",
-      uitleg: `bijtelling ${bij.uitleg} = ${eur0(bij.perJaar)} per jaar${z.eigenBijdragePerMaand ? ` − eigen bijdrage ${eur0(z.eigenBijdragePerMaand * 12)}` : ""}, × ${nl(tarief * 100, 2)}% (extra inkomstenbelasting 2026 bij ${eur0(z.inkomen)} loon, inclusief minder heffingskortingen) ${z.eigenBijdragePerMaand ? "+ eigen bijdrage" : ""} / 12`,
+      label: "netto per maand (bijtelling + eigen bijdrage)",
+      uitleg: `bijtelling ${bij.uitleg} = ${eur0(bij.perJaar)} per jaar${eigenBijdrage ? ` − eigen bijdrage ${eur0(eigenBijdrage * 12)}` : ""}, × ${nl(tarief * 100, 2)}% (extra inkomstenbelasting 2026 bij ${eur0(z.inkomen)} loon, inclusief minder heffingskortingen)${eigenBijdrage ? " + eigen bijdrage" : ""} / 12`,
       posten: [
         { label: "Bijtelling per jaar", bedrag: bij.perJaar, uitleg: bij.uitleg },
-        { label: "Netto per jaar", bedrag: netto.perJaar, uitleg: `tegen ${nl(tarief * 100, 2)}%${z.eigenBijdragePerMaand ? ", inclusief eigen bijdrage" : ""}` },
+        ...(eigenBijdrage
+          ? [{ label: "Eigen bijdrage per jaar", bedrag: rond2(eigenBijdrage * 12), uitleg: meerprijs && z.bovenBudgetMetEigenBijdrage ? `waarvan ${eur0(meerprijs * 12)} meerprijs boven je leasebudget` : "vast bedrag" }]
+          : []),
+        { label: "Netto per jaar", bedrag: netto.perJaar, uitleg: `extra belasting tegen ${nl(tarief * 100, 2)}%${eigenBijdrage ? " + eigen bijdrage" : ""}` },
       ],
-      pseudoEindheffingWerkgever: pseudo,
+      pseudoEindheffingWerkgever: pseudoEindheffing(u.catalogusprijs!, aandrijving, z.jaarIngebruikname),
+      lease: {
+        leaseprijsExcl,
+        meerprijs,
+        eigenBijdragePerMaand: eigenBijdrage,
+        bovenBudget: meerprijs > 0,
+        anderJaar: { jaar: ander, perMaand: voorJaar(ander).netto.perMaand, pseudoEindheffing: pseudoEindheffing(u.catalogusprijs!, aandrijving, ander) },
+      },
     };
   }
   if (i.profiel === "dga") {
@@ -462,6 +512,8 @@ export function hardeEisen(u: UitvoeringRdw, i: Intake, k: Kosten | null, occ: O
   if (occ && occ.leeftijdMaanden / 12 > i.maxLeeftijdJaar) nee.push(`ouder dan ${i.maxLeeftijdJaar} jaar`);
   if (occ && i.maxKmStand != null && occ.kmNu > i.maxKmStand) nee.push(`ca. ${nl(occ.kmNu)} km`);
   if (u.aandrijving === "elektrisch" && u.actieradiusWltpKm == null) nee.push("actieradius onbekend");
+  if (i.profiel === "leaserijder" && k?.profiel?.lease?.bovenBudget && !i.zakelijk.bovenBudgetMetEigenBijdrage)
+    nee.push(`geschatte leaseprijs ${eur0(k.profiel.lease.leaseprijsExcl)} boven je leasebudget`);
   if (!k) nee.push("onvoldoende data om de kosten te berekenen");
   if (u.zitplaatsen != null && u.zitplaatsen < i.personen) nee.push(`${u.zitplaatsen} zitplaatsen`);
   if (u.zitplaatsen == null && i.personen > 4) nee.push("aantal zitplaatsen onbekend");
