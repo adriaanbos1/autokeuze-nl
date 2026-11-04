@@ -47,6 +47,8 @@ Statuslabels:
 | Bestelauto ondernemer, emissievrij | geen BPM | ✅ | VNA-samenvatting Belastingplan 2026 |
 | Toekomst | Vervanging door tenaamstellingsbelasting gaat **niet** door; vereenvoudiging wordt onderzocht | 🟡 | Athlon |
 
+**Forfaitaire afschrijvingstabel gebruikte auto's** ✅ vastgesteld (art. 10 lid 2 Wet BPM 1992; tabel op [Belastingdienst](https://www.belastingdienst.nl/wps/wcm/connect/nl/bpm/content/bpm-afschrijving-koerslijst-taxatierapport-forfaitaire-tabel), gelezen 4-11-2026). Per periode na eerste toelating een basispercentage plus een percentage per begonnen maand: 0–1 mnd 0% (+12%/mnd) · 1–3 mnd 12% (+4%) · 3–5 mnd 20% (+3,5%) · 5–9 mnd 27% (+1,5%) · 9–18 mnd 33% (+1%) · 18–30 mnd 42% (+0,75%) · 30–42 mnd 51% (+0,5%) · 42–54 mnd 57% (+0,42%) · 54–66 mnd 62% (+0,42%) · 66–78 mnd 67% (+0,42%) · 78–90 mnd 72% (+0,25%) · 90–102 mnd 75% (+0,25%) · 102–114 mnd 78% (+0,25%) · vanaf 114 mnd 81% (+0,19%); vanaf 17 jaar en 10 maanden 100%. Rekenvoorbeeld Belastingdienst: ruim 14 maanden → 39% (in `tests/restwaarde.test.ts`). ⚠ Laatst aangepast per 1-7-2012 volgens secundaire bronnen. In de app gebruiken we de tabel ook als algemene restwaardecurve (`methodiek.md` §2.1).
+
 **Voor de app:** BPM zit in de catalogusprijs van een nieuwe auto. We hebben haar vooral nodig voor (a) uitleg van de prijsopbouw en (b) de cataloguswaarde voor de bijtelling (incl. btw en BPM).
 
 ## 3. Bijtelling (auto van de zaak)

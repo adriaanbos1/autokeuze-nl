@@ -35,7 +35,7 @@ const criteria: [string, string][] = [
   ["Euro NCAP (sterren + testjaar)", "gevuld"],
   ["Onderhoud en banden", "gevuld (rekenmodel, indicatief)"],
   ["Verzekering", "marktgemiddelde per dekking; geen verschil per model"],
-  ["Restwaarde / occasion-curves", "nog te doen (schatting)"],
+  ["Restwaarde / occasionwaarde", "generieke curve (BPM-afschrijvingstabel + km-correctie), niet per model"],
 ];
 
 export default function Modellen() {

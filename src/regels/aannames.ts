@@ -66,6 +66,25 @@ export const aannames = {
     } as Aanname<number>,
   },
 
+  restwaarde: {
+    kmCorrectiePer10000: {
+      waarde: 0.015,
+      soort: "aanname",
+      bron: EIGEN,
+      geldigVanaf: PEIL,
+      peildatum: PEIL,
+      toelichting: "Per 10.000 km boven of onder het normale aantal (15.000 km per jaar) gaat de waarde 1,5% van de nieuwprijs omlaag of omhoog (bandbreedte in de methodiek: 1–2%).",
+    } as Aanname<number>,
+
+    normKmPerJaar: {
+      waarde: 15000,
+      soort: "aanname",
+      bron: EIGEN,
+      geldigVanaf: PEIL,
+      peildatum: PEIL,
+    } as Aanname<number>,
+  },
+
   banden: {
     levensduurKm: {
       waarde: 40000,

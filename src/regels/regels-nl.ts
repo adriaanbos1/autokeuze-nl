@@ -184,6 +184,36 @@ export const regels = {
       toelichting:
         "BPM voor brandstofauto's (CO₂-schijven, dieseltoeslag) is nog niet opgenomen: bronnen spreken elkaar tegen. In v1 is de catalogusprijs (incl. BPM) leidend.",
     } as Regel<number>,
+
+    /**
+     * Forfaitaire afschrijvingstabel voor gebruikte motorrijtuigen (art. 10 lid 2 Wet BPM 1992).
+     * Per rij: [vanaf maand, afschrijving % bij begin, % erbij per begonnen maand daarna].
+     * Wij gebruiken deze tabel ook als algemene restwaardecurve (docs/methodiek.md §2.1).
+     */
+    forfaitaireAfschrijving: {
+      waarde: [
+        [0, 0, 12],
+        [1, 12, 4],
+        [3, 20, 3.5],
+        [5, 27, 1.5],
+        [9, 33, 1],
+        [18, 42, 0.75],
+        [30, 51, 0.5],
+        [42, 57, 0.42],
+        [54, 62, 0.42],
+        [66, 67, 0.42],
+        [78, 72, 0.25],
+        [90, 75, 0.25],
+        [102, 78, 0.25],
+        [114, 81, 0.19],
+      ] as [number, number, number][],
+      status: "vastgesteld",
+      bron: "https://www.belastingdienst.nl/wps/wcm/connect/nl/bpm/content/bpm-afschrijving-koerslijst-taxatierapport-forfaitaire-tabel",
+      geldigVanaf: "2012-07-01",
+      peildatum: "2026-11-04",
+      toelichting:
+        "Elke maand die gedeeltelijk of helemaal voorbij is telt mee. Rekenvoorbeeld Belastingdienst: ruim 14 maanden → 33% + 6 × 1% = 39%. Vanaf 17 jaar en 10 maanden 100%. Laatst aangepast per 1-7-2012 (secundaire bron: Taxence; kamerbrief noemt de tabel 'uit 2012').",
+    } as Regel<[number, number, number][]>,
   },
 
   // ─────────────────────────── Bijtelling ───────────────────────────

@@ -12,3 +12,4 @@ export * from "./betrouwbaarheid";
 export * from "./phev";
 export * from "./veiligheid";
 export * from "./onderhoud";
+export * from "./restwaarde";

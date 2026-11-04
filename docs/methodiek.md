@@ -37,7 +37,7 @@ Voorbeelden van ankers (concept, worden openbaar gepubliceerd):
 | Criterium | "slecht" (0) | "goed" (100) |
 |---|---|---|
 | TCO €/maand | 2× jouw budget | ½× jouw budget |
-| Restwaarde na 5 jr | 25% | 65% |
+| Restwaarde na 5 jr | 25% | 65% *(telt pas mee met restwaardedata per model, §2.1)* |
 | BETR: gebrekenratio t.o.v. gemiddelde voor die leeftijd | 2,0× | 0,5× (logaritmische schaal, zie §2.2) |
 | Euro NCAP | 2 sterren | 5 sterren (actueel protocol) |
 
@@ -72,15 +72,23 @@ Profieltweaks (automatisch, zichtbaar): gezin met kinderen → VEIL +5, FIT +5 (
 
 Voor een occasion hangen drie criteria af van **leeftijd (jaren)** en **kilometerstand**:
 
-### 2.1 Restwaarde (afschrijving)
-Exponentiële curve per model/motorisatie, met kilometercorrectie:
+### 2.1 Restwaarde (afschrijving), gebouwd in Fase 2d
+Er is geen open bron voor marktwaarden per model, en advertentiesites scrapen we niet. Daarom in v1 een **generieke curve**:
 ```
-waarde(t, km) = nieuwprijs × e^(−a·t) × (1 − b × (km − km_norm(t)) / 10.000)
-km_norm(t) = 15.000 × t
+waarde(maanden, km) = nieuwprijs × (1 − afschrijving%(maanden) − b × (km − km_norm) / 10.000)
+km_norm             = 15.000 × maanden / 12
 ```
-- `a` = jaarlijkse afschrijvingsfactor per model (uit de steekproef; typisch 0,12–0,22).
-- `b` = correctie per 10.000 km boven of onder normaal (typisch 1–2%).
-- Restwaarde over de looptijd = waarde(t_eind, km_eind) − waarde(t_nu, km_nu).
+- `afschrijving%` = de **forfaitaire afschrijvingstabel van de Belastingdienst** voor de BPM op gebruikte auto's (`regels-nl.md` §2), per begonnen maand sinds de eerste toelating. Dit is een wettelijke vuistregel, geen marktwaarde.
+- `b` = 1,5% van de nieuwprijs per 10.000 km boven of onder normaal (eigen aanname, bandbreedte 1–2%).
+- `nieuwprijs` = de RDW-catalogusprijs (incl. btw, BPM en opties).
+- Afschrijving over de looptijd = waarde nu (bij nieuw: de nieuwprijs) − waarde aan het eind, gedeeld door het aantal maanden (`afschrijvingOverLooptijd`).
+
+Narekenen: €40.000 nieuw, 5 jaar, 15.000 km/jr → 60 maanden = 62% + 6 × 0,42% = 64,52% → eindwaarde **€14.192**, afschrijving (40.000 − 14.192) / 60 = **€430,13 per maand**. Occasion van 3 jaar met 45.000 km: 51% + 6 × 0,5% = 54% → **€18.400**; met 65.000 km 3% lager → **€17.200**.
+
+Gevolgen, eerlijk benoemd:
+- De curve is voor elk merk en model gelijk. Echte verschillen (sommige modellen of aandrijvingen houden hun waarde beter dan andere) zitten er niet in.
+- Het **criterium Restwaarde (REST) telt daarom nog niet mee in de score** ("onvoldoende data", §1.2): een curve die voor iedereen gelijk is, zegt niets over het verschil tussen modellen. In de **TCO** rekenen we wel met de curve, omdat afschrijving de grootste kostenpost is en weglaten erger zou zijn dan een grove schatting.
+- Verbetering: een licentie op restwaardedata (concept-offerteaanvraag in `docs/concepten/`).
 
 ### 2.2 Betrouwbaarheid (gebouwd in Fase 2b)
 

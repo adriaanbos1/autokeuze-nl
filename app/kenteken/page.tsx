@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { haalKenteken, type KentekenInfo } from "@/data/kenteken";
-import { bandenPerJaar, mrbPersonenauto, onderhoudPerJaar } from "@/engine";
+import { afschrijvingOverLooptijd, bandenPerJaar, begonnenMaanden, geschatteWaarde, mrbPersonenauto, onderhoudPerJaar } from "@/engine";
 import { regels, type Provincie } from "@/regels/regels-nl";
 import selectie from "../../data/modelselectie.json";
 import { Nav } from "../nav";
@@ -10,6 +10,8 @@ import { betrouwbaarheidModel } from "@/data/betrouwbaarheid-data";
 import { ncapVoorBouwjaar } from "@/data/ncap-data";
 
 const VOORBEELD_KM = 15000;
+const HOUDEN_MAANDEN = 36;
+const vandaag = () => new Date().toISOString().slice(0, 10);
 
 const modelId = new Map(selectie.modellen.map((m) => [`${m.merk}|${m.model}`, m.id]));
 const provincies = Object.keys(regels.mrb.opcenten2026.waarde) as Provincie[];
@@ -19,6 +21,7 @@ const risico: Record<string, string> = { ERN: "ernstig", HOOG: "hoog", MID: "mid
 export default function Kentekencheck() {
   const [invoer, setInvoer] = useState("");
   const [provincie, setProvincie] = useState<Provincie>("utrecht");
+  const [kmStand, setKmStand] = useState("");
   const [info, setInfo] = useState<KentekenInfo | null>(null);
   const [fout, setFout] = useState<string | null>(null);
   const [bezig, setBezig] = useState(false);
@@ -67,6 +70,10 @@ export default function Kentekencheck() {
               </option>
             ))}
           </select>
+        </label>
+        <label>
+          Kilometerstand (optioneel)
+          <input value={kmStand} onChange={(e) => setKmStand(e.target.value.replace(/\D/g, ""))} inputMode="numeric" placeholder="bijv. 85000" />
         </label>
         <label>
           &nbsp;
@@ -201,6 +208,32 @@ export default function Kentekencheck() {
                     <p className="uitleg">
                       Uurtarief: gemiddelde volgens ANWB (AMT-enquête 2024). Uren, onderdelen, bandenprijs en levensduur zijn eigen aannames; grote
                       reparaties zitten er niet in.
+                    </p>
+                  </details>
+                </div>
+              );
+            })()}
+            {personenauto && !!info.catalogusprijs && info.datumEersteToelating && (() => {
+              const maanden = begonnenMaanden(info.datumEersteToelating, vandaag());
+              const kmGeschat = kmStand === "";
+              const km = kmGeschat ? Math.round((VOORBEELD_KM * maanden) / 12) : Number(kmStand);
+              const nu = geschatteWaarde({ nieuwprijs: info.catalogusprijs, leeftijdMaanden: maanden, km });
+              const later = afschrijvingOverLooptijd({ nieuwprijs: info.catalogusprijs, leeftijdNuMaanden: maanden, kmNu: km, looptijdMaanden: HOUDEN_MAANDEN, kmPerJaar: VOORBEELD_KM });
+              return (
+                <div className="kaart">
+                  <h3>Waarde (grove schatting)</h3>
+                  <div className="groot">{eur(nu.waarde)}</div>
+                  <div className="uitleg">
+                    nu, bij {km.toLocaleString("nl-NL")} km{kmGeschat ? " (aangenomen: 15.000 per jaar)" : ""} · na nog {HOUDEN_MAANDEN / 12} jaar en{" "}
+                    {((VOORBEELD_KM * HOUDEN_MAANDEN) / 12).toLocaleString("nl-NL")} km: {eur(later.waardeEinde)} ({eur(later.perMaand.bedrag)} per maand afschrijving)
+                  </div>
+                  <details>
+                    <summary>Hoe berekend</summary>
+                    <p className="uitleg">{nu.uitleg}.</p>
+                    <p className="uitleg">
+                      Generieke curve: de wettelijke afschrijvingstabel van de Belastingdienst voor de BPM op gebruikte auto&apos;s, plus een eigen
+                      km-correctie (1,5% van de nieuwprijs per 10.000 km boven of onder normaal). Dit is geen marktwaarde voor dit model: merk, uitvoering,
+                      staat en vraag maken veel verschil. Vergelijk altijd met echte vraagprijzen of een taxatie.
                     </p>
                   </details>
                 </div>

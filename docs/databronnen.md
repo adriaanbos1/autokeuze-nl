@@ -175,6 +175,11 @@ Legenda kosten: 🟢 gratis · 🟡 gratis met voorwaarden / op aanvraag · 🔴
 - Aanname: uren en onderdelen per beurt, leeftijdsopslag 6%/jaar boven 3 jaar, levensduur banden 40.000 km, prijs per band per gewichtsklasse (RDW publiceert geen bandenmaat).
 - Verzekering: de Geld.nl-gemiddelden komen uit vergelijkingen op die site (geen uitsplitsing naar bestuurder) en liggen ver boven de laagste aanbiedingen (vanaf ca. €20/maand, [Overstappen.nl okt. 2026](https://www.overstappen.nl/nieuws/dit-zijn-de-vijf-goedkoopste-autopremies-in-oktober-2026/)). Daarom: geen verschil per model, en de gebruiker vult bij voorkeur de eigen premie in.
 
+### 5.8 Restwaarde (Fase 2d)
+- Generieke curve uit de forfaitaire BPM-afschrijvingstabel ([Belastingdienst](https://www.belastingdienst.nl/wps/wcm/connect/nl/bpm/content/bpm-afschrijving-koerslijst-taxatierapport-forfaitaire-tabel)), in `regels.bpm.forfaitaireAfschrijving`, plus een eigen km-correctie (`aannames.restwaarde`).
+- Niet gedaan: advertenties scrapen (gebruiksvoorwaarden/databankenrecht) en een handmatige steekproef van vraagprijzen (wacht op juridische check, zie §6).
+- Concept-offerteaanvraag voor Autotelex, Indicata en VWE: `docs/concepten/offerteaanvraag-restwaardedata.md` (niet verstuurd).
+
 ## 6. Open punten
 - ⚠ Licenties per RDW-dataset bevestigen (alles CC-0?).
 - ⚠ Euro NCAP: mag "5 sterren (2024)" als feit commercieel genoemd worden? Volgens de voorwaarden is commerciële reproductie niet toegestaan. **Toestemming vragen vóór livegang** (mail aan Euro NCAP, concept volgt bij Fase 5).
