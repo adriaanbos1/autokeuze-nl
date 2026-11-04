@@ -1,6 +1,8 @@
 import { regels } from "@/regels/regels-nl";
 import { rond2 } from "./geld";
 
+const eur = (x: number) => `€${x.toLocaleString("nl-NL")}`;
+
 export type Aandrijving = "brandstof" | "batterij" | "waterstof";
 
 export interface BijtellingInvoer {
@@ -22,13 +24,13 @@ export function bijtellingPerJaar(b: BijtellingInvoer): BijtellingUitkomst {
   const korting = b.aandrijving === "brandstof" ? undefined : regels.bijtelling.emissievrij.waarde[b.jaarEersteToelating]?.[b.aandrijving];
 
   if (!korting) {
-    return { perJaar: rond2(b.cataloguswaarde * std), uitleg: `${std * 100}% × ${b.cataloguswaarde}` };
+    return { perJaar: rond2(b.cataloguswaarde * std), uitleg: `${std * 100}% × ${eur(b.cataloguswaarde)}` };
   }
   const deelLaag = korting.cap === null ? b.cataloguswaarde : Math.min(b.cataloguswaarde, korting.cap);
   const deelHoog = b.cataloguswaarde - deelLaag;
   return {
     perJaar: rond2(deelLaag * korting.percentage + deelHoog * std),
-    uitleg: `${korting.percentage * 100}% × ${deelLaag}` + (deelHoog > 0 ? ` + ${std * 100}% × ${deelHoog}` : ""),
+    uitleg: `${korting.percentage * 100}% × ${eur(deelLaag)}` + (deelHoog > 0 ? ` + ${std * 100}% × ${eur(deelHoog)}` : ""),
   };
 }
 

@@ -1,6 +1,6 @@
 // Ranglijst op de echte dataset: harde eisen, kosten en merkneutraliteit.
 import { describe, expect, it } from "vitest";
-import { alleModellen, hardeEisen, kosten, kostenNieuw, occasionVan, rangschik, type Intake } from "@/data/ranking";
+import { alleModellen, STANDAARD_ZAKELIJK, hardeEisen, kosten, kostenNieuw, occasionVan, rangschik, type Intake } from "@/data/ranking";
 import { startGewichten } from "@/engine";
 import type { ModelRdw, UitvoeringRdw } from "@/data/types";
 
@@ -9,6 +9,7 @@ const basis: Intake = {
   soort: "nieuw",
   maxLeeftijdJaar: 8,
   maxKmStand: null,
+  zakelijk: STANDAARD_ZAKELIJK,
   kmPerJaar: 15000,
   langsteRitKm: 150,
   maandbudget: 750,
@@ -147,5 +148,46 @@ describe("occasions", () => {
     const blind = alleModellen.map((m, n) => ({ ...m, merk: `MERK ${n}`, model: `MODEL ${n}` }));
     const vorm = (l: ReturnType<typeof rangschik>["lijst"]) => l.map((r) => [r.id, r.occasion?.bouwjaar ?? 0, r.eind.score]).sort((a, b) => String(a[0]).localeCompare(String(b[0])));
     expect(vorm(rangschik(i, g, blind).lijst)).toEqual(vorm(rangschik(i, g).lijst));
+  });
+});
+
+describe("zakelijke profielen (basis)", () => {
+  const benzine = {
+    aandrijving: "benzine" as const,
+    steekproef: 100,
+    periode: [2026, 2026] as [number, number],
+    catalogusprijs: 30000,
+    massaRijklaar: 1200,
+    zitplaatsen: 5,
+    trekgewichtGeremd: 1000,
+    lengteCm: 420,
+    vermogenKw: 85,
+    verbruikWltp: 5,
+    verbruikGewogenWltp: null,
+    elektrischVerbruikWltp: null,
+    co2Wltp: 114,
+    actieradiusWltpKm: null,
+  };
+  const ev = { ...benzine, aandrijving: "elektrisch" as const, verbruikWltp: 15, co2Wltp: 0, actieradiusWltpKm: 400 };
+  const lease = { ...basis, profiel: "leaserijder" as const };
+
+  it("leaserijder, benzine €30.000, inkomen €60.000 (37,56%): 22% × 30.000 = 6.600 × 0,3756 / 12 = €206,58", () => {
+    expect(kostenNieuw(benzine, lease)!.profiel!.perMaand).toBe(206.58);
+  });
+  it("leaserijder, EV €30.000 in 2026: 18% × 30.000 = 5.400 × 0,3756 / 12 = €169,02", () => {
+    expect(kostenNieuw(ev, lease)!.profiel!.perMaand).toBe(169.02);
+  });
+  it("leaserijder in 2027: benzine geeft de werkgever 12% pseudo-eindheffing (€3.600 per jaar)", () => {
+    const k = kostenNieuw(benzine, { ...lease, zakelijk: { ...STANDAARD_ZAKELIJK, jaarIngebruikname: 2027 } })!;
+    expect(k.profiel!.pseudoEindheffingWerkgever).toBe(3600);
+  });
+  it("ZZP'er: de score rekent met de goedkoopste van zakelijk en privé", () => {
+    const k = kostenNieuw(benzine, { ...basis, profiel: "zzp" })!;
+    const [zak, pri] = k.profiel!.varianten!;
+    expect(k.profiel!.perMaand).toBe(Math.min(zak.perMaand, pri.perMaand));
+    expect([zak.naam, pri.naam]).toEqual(["Auto zakelijk", "Auto privé + km-vergoeding"]);
+  });
+  it("zakelijke profielen: alleen nieuwe auto's, ook als 'allebei' is gekozen", () => {
+    for (const r of rangschik({ ...lease, soort: "beide" }, startGewichten("leaserijder", { gezin: false })).lijst) expect(r.occasion).toBeNull();
   });
 });

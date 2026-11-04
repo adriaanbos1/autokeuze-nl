@@ -65,3 +65,7 @@ Format: datum · beslissing · waarom · door wie · status
 | 59 | 2026-11-04 | Private-leaseschatting = kostprijs × (1 + 10% opslag), kapitaalrente 5% | invulling van besluit 40; geen openbare bron voor leaseprijsopbouw | Claude | uitgevoerd; review Adriaan gewenst |
 | 60 | 2026-11-04 | Slottermijn start op 80% van de geschatte eindwaarde | toont een realistische slottermijn zonder direct restschuldrisico | Claude | uitgevoerd |
 | 61 | 2026-11-04 | Vergelijking toont "kost per maand" (incl. waardeverlies) én "je betaalt per maand" (wat van je rekening gaat) | voorkomt dat lease of slottermijn alleen op maandbedrag goedkoop lijkt | Claude | uitgevoerd |
+| 62 | 2026-11-04 | Leaserijder: TCO-criterium = netto bijtelling + eigen bijdrage per maand; pseudo-eindheffing alleen getoond als werkgeverskosten | dat is wat de rijder zelf betaalt; werkgeverskosten horen niet in zijn score | Claude | uitgevoerd |
+| 63 | 2026-11-04 | ZZP'er: TCO-criterium = goedkoopste van auto zakelijk en auto privé + km-vergoeding | de ondernemer kiest zelf de gunstigste fiscale route; beide worden getoond | Claude | uitgevoerd |
+| 64 | 2026-11-04 | Zakelijke profielen in Fase 3 alleen nieuwe auto's | bijtellingsregels van eerdere jaren nog niet geverifieerd; geen waarden uit het geheugen | Claude | uitgevoerd; Fase 4 |
+| 65 | 2026-11-04 | App bouwt volledig statisch (alles in de browser): geen server nodig, gratis te hosten | privacy (geen opslag) en goedkoop; `next build` gecontroleerd | Claude | uitgevoerd |

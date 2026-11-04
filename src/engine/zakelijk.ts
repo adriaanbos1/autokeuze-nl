@@ -2,6 +2,8 @@ import { regels } from "@/regels/regels-nl";
 import { rond2, som, type Post } from "./geld";
 import { bijtellingPerJaar, type Aandrijving } from "./bijtelling";
 
+const nl = (x: number, decimalen = 2) => x.toLocaleString("nl-NL", { maximumFractionDigits: decimalen });
+
 /**
  * ZZP'er / eenmanszaak: auto zakelijk (ondernemingsvermogen) of privé
  * met €0,25 per zakelijke km. Alle bedragen per jaar.
@@ -63,9 +65,9 @@ export function zzpZakelijk(z: ZzpInvoer): ZzpVariant {
       {
         label: "Bijtelling (begrensd tot kosten)",
         bedrag: bijtelling,
-        uitleg: geenBijtelling ? "≤ 500 km privé: geen bijtelling" : `volle bijtelling ${bijtellingVol}`,
+        uitleg: geenBijtelling ? "≤ 500 km privé: geen bijtelling" : `volle bijtelling €${nl(bijtellingVol)}`,
       },
-      { label: "Belastingvoordeel", bedrag: 0 - belastingvoordeel, uitleg: `(kosten − bijtelling) × ${z.tarief}` },
+      { label: "Belastingvoordeel", bedrag: 0 - belastingvoordeel, uitleg: `(kosten − bijtelling) × ${nl(z.tarief * 100, 1)}%` },
       { label: "Btw-correctie privégebruik", bedrag: btwCorrectie, uitleg: "2,7% × cataloguswaarde" },
     ],
   };
@@ -86,7 +88,7 @@ export function zzpPrive(z: ZzpInvoer): ZzpVariant {
       { label: "MRB", bedrag: z.mrb, uitleg: "" },
       { label: "Verzekering", bedrag: z.verzekering, uitleg: "" },
       { label: "Onderhoud", bedrag: z.onderhoudIncl, uitleg: "incl. btw" },
-      { label: "Belastingvoordeel km-aftrek", bedrag: 0 - belastingvoordeel, uitleg: `${z.zakelijkeKm} km × €0,25 × ${z.tarief}` },
+      { label: "Belastingvoordeel km-aftrek", bedrag: 0 - belastingvoordeel, uitleg: `${nl(z.zakelijkeKm)} km × €${nl(regels.zakelijk.kilometervergoeding.waarde)} × ${nl(z.tarief * 100, 1)}%` },
     ],
   };
 }

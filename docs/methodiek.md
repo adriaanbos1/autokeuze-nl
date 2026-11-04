@@ -68,6 +68,12 @@ Profieltweaks (automatisch, zichtbaar): gezin met kinderen → VEIL +5, FIT +5 (
 
 ---
 
+### 1.4a Zakelijke profielen in de ranglijst (basis, Fase 3d)
+Het criterium TCO rekent per profiel met wat de auto **jou netto per maand** kost; de ankers (2× en ½× je budget) blijven gelijk.
+- **Leaserijder:** netto bijtelling = (bijtelling − eigen bijdrage) × marginaal tarief 2026 + eigen bijdrage, per maand. Bijtelling volgens het jaar waarin je de auto krijgt (2026 of 2027; EV-korting tot €30.000). Brandstof/laden, onderhoud en restwaarde liggen bij werkgever en leasemaatschappij, en daarom zijn ONDH en REST 0 (§1.3). Pseudo-eindheffing (12% vanaf 2027, auto's met CO₂-uitstoot) tonen we als werkgeverskosten, niet in jouw score. Maximale cataloguswaarde volgens je leaseregeling is een harde eis.
+- **ZZP'er/eenmanszaak:** per auto de goedkoopste van *auto zakelijk* en *auto privé + €0,25 per zakelijke km* (§4.2), met het effectieve tarief na MKB-winstvrijstelling bij je opgegeven winst. Zakelijke km = km per jaar × zakelijk aandeel. Heffingskortingen en kosten van geld zitten er (nog) niet in.
+- **Alleen nieuwe auto's** voor beide zakelijke profielen: de bijtellingsregels van eerdere toelatingsjaren (voor occasions) staan nog niet geverifieerd in het config. Volgt in Fase 4, net als operational lease voor ondernemers en de DGA/bv.
+
 ### 1.5 Hoe de ranglijst wordt gemaakt (gebouwd in Fase 3a)
 Code: `src/engine/score.ts` (rekenregels), `src/data/ranking.ts` (koppeling met de dataset), `src/regels/methodiek.ts` (gewichten en ankers).
 

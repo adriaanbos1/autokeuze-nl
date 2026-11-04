@@ -1,9 +1,9 @@
 // Proefdraai van de ranglijst met een standaardintake (alleen voor ontwikkeling).
-import { rangschik, type Intake } from "@/data/ranking";
+import { rangschik, STANDAARD_ZAKELIJK, type Intake } from "@/data/ranking";
 import { startGewichten } from "@/engine";
 
 const intake: Intake = {
-  profiel: "particulier", soort: (process.argv[4] as Intake["soort"]) ?? "beide", maxLeeftijdJaar: 8, maxKmStand: null, kmPerJaar: 15000, langsteRitKm: 150, maandbudget: Number(process.argv[2] ?? 600), maxAankoopprijs: null,
+  profiel: "particulier", soort: (process.argv[4] as Intake["soort"]) ?? "beide", maxLeeftijdJaar: 8, maxKmStand: null, zakelijk: STANDAARD_ZAKELIJK, kmPerJaar: 15000, langsteRitKm: 150, maandbudget: Number(process.argv[2] ?? 600), maxAankoopprijs: null,
   personen: 4, kinderen: true, thuisladen: process.argv[3] !== "nee", trekgewicht: 0, provincie: "utrecht", looptijdMaanden: 60,
   aandrijvingen: ["benzine", "hybride", "plug-in hybride", "elektrisch", "diesel", "lpg"], dekking: "allrisk", eigenPremiePerMaand: null, startjaar: 2026,
 };

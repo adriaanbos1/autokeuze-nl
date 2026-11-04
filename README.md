@@ -16,6 +16,7 @@ Daarna, in deze map:
 npm install      # eenmalig
 npm test         # alle rekentests
 npm run dev      # autokeuze (intake → top 3) op http://localhost:3000
+npm run build    # productieversie (volledig statisch), zie docs/testlink-vercel.md
 ```
 
 ## Data verversen (RDW)

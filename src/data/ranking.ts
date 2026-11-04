@@ -27,6 +27,14 @@ import {
   vergelijk,
   veiligheidsScore,
   verzekeringPerJaar,
+  bijtellingPerJaar,
+  nettoBijtellingWerknemer,
+  pseudoEindheffing,
+  marginaalTarief2026,
+  effectiefTariefOndernemer,
+  zzpPrive,
+  zzpZakelijk,
+  type Post,
   type CriteriumScore,
   type Dekking,
   type Eindscore,
@@ -41,12 +49,34 @@ export const datasetPeildatum = rdw.peildatum;
 
 export type Soort = "nieuw" | "occasion" | "beide";
 
+/** Extra invoer voor de zakelijke profielen (Fase 3d, basis). */
+export interface ZakelijkeInvoer {
+  /** Leaserijder: bruto jaarinkomen; ZZP'er: belastbare winst. Bepaalt het tarief. */
+  inkomen: number;
+  /** Leaserijder: eigen bijdrage aan de werkgever per maand. */
+  eigenBijdragePerMaand: number;
+  /** Leaserijder: jaar waarin je de auto krijgt (bepaalt bijtelling en pseudo-eindheffing). */
+  jaarIngebruikname: number;
+  /** ZZP'er: deel van je kilometers dat zakelijk is (0–1; woon-werk telt voor de IB als zakelijk). */
+  zakelijkAandeel: number;
+  btwPlichtig: boolean;
+}
+
+export const STANDAARD_ZAKELIJK: ZakelijkeInvoer = {
+  inkomen: 60000,
+  eigenBijdragePerMaand: 0,
+  jaarIngebruikname: 2026,
+  zakelijkAandeel: 0.8,
+  btwPlichtig: true,
+};
+
 export interface Intake {
   profiel: Profiel;
   soort: Soort;
   /** Alleen occasions: maximale leeftijd in jaren en optionele maximale kilometerstand. */
   maxLeeftijdJaar: number;
   maxKmStand: number | null;
+  zakelijk: ZakelijkeInvoer;
   kmPerJaar: number;
   /** Langste rit die je regelmatig maakt, enkele reis. */
   langsteRitKm: number;
@@ -73,6 +103,20 @@ export const gezinsprofiel = (i: Pick<Intake, "personen" | "kinderen">) => i.kin
 const nl = (x: number, decimalen = 3) => x.toLocaleString("nl-NL", { maximumFractionDigits: decimalen });
 const eur0 = (x: number) => x.toLocaleString("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 
+export interface ProfielKosten {
+  perMaand: number;
+  label: string;
+  posten: Post[];
+  uitleg: string;
+  /** ZZP'er: beide varianten, zodat de app ze naast elkaar kan tonen. */
+  varianten?: { naam: string; perMaand: number; posten: Post[] }[];
+  /** Leaserijder: wat de werkgever extra betaalt aan pseudo-eindheffing (per jaar). */
+  pseudoEindheffingWerkgever?: number;
+}
+
+/** Het bedrag dat in de score en het budget telt: netto voor zakelijke profielen, anders de TCO. */
+export const kostenPerMaand = (k: Kosten) => k.profiel?.perMaand ?? k.tco.perMaand;
+
 /** Een occasion: bouwjaar, leeftijd bij aankoop en (aangenomen) kilometerstand. */
 export interface Occasion {
   bouwjaar: number;
@@ -93,6 +137,8 @@ export interface Kosten {
   prijsUitleg: string;
   /** Invoer van de TCO-berekening, voor de vergelijking van financieringsvormen. */
   bezit: AutoBezit;
+  /** Zakelijke profielen: wat de auto jou netto per maand kost (vervangt de TCO in de score). */
+  profiel: ProfielKosten | null;
   restwaardeEinde: number;
   energiePerJaar: number;
   energieUitleg: string;
@@ -235,6 +281,7 @@ export function kosten(u: UitvoeringRdw, i: Intake, occ: Occasion | null): Koste
     aankoopprijs,
     prijsUitleg,
     bezit,
+    profiel: profielKosten(u, i, bezit),
     restwaardeEinde: rest.waardeEinde,
     energiePerJaar: e.perJaar,
     energieUitleg: e.uitleg,
@@ -242,6 +289,62 @@ export function kosten(u: UitvoeringRdw, i: Intake, occ: Occasion | null): Koste
     co2GPerKm: e.co2,
     co2Uitleg: e.co2Uitleg,
   };
+}
+
+/** Netto kosten per maand voor de leaserijder en de ZZP'er; null voor particulier. */
+function profielKosten(u: UitvoeringRdw, i: Intake, b: AutoBezit): ProfielKosten | null {
+  const z = i.zakelijk;
+  const aandrijving = u.aandrijving === "elektrisch" ? "batterij" : "brandstof";
+  if (i.profiel === "leaserijder") {
+    const tarief = marginaalTarief2026(z.inkomen);
+    const bij = bijtellingPerJaar({ cataloguswaarde: u.catalogusprijs!, aandrijving, jaarEersteToelating: z.jaarIngebruikname });
+    const netto = nettoBijtellingWerknemer(bij.perJaar, tarief, z.eigenBijdragePerMaand * 12);
+    const pseudo = pseudoEindheffing(u.catalogusprijs!, aandrijving, z.jaarIngebruikname);
+    return {
+      perMaand: netto.perMaand,
+      label: "netto bijtelling per maand",
+      uitleg: `bijtelling ${bij.uitleg} = ${eur0(bij.perJaar)} per jaar${z.eigenBijdragePerMaand ? ` − eigen bijdrage ${eur0(z.eigenBijdragePerMaand * 12)}` : ""}, × ${nl(tarief * 100, 2)}% (tarief bij ${eur0(z.inkomen)}, 2026) ${z.eigenBijdragePerMaand ? "+ eigen bijdrage" : ""} / 12`,
+      posten: [
+        { label: "Bijtelling per jaar", bedrag: bij.perJaar, uitleg: bij.uitleg },
+        { label: "Netto per jaar", bedrag: netto.perJaar, uitleg: `tegen ${nl(tarief * 100, 2)}%${z.eigenBijdragePerMaand ? ", inclusief eigen bijdrage" : ""}` },
+      ],
+      pseudoEindheffingWerkgever: pseudo,
+    };
+  }
+  if (i.profiel === "zzp") {
+    const tarief = effectiefTariefOndernemer(marginaalTarief2026(z.inkomen));
+    const zakelijkeKm = Math.round(i.kmPerJaar * z.zakelijkAandeel);
+    const invoer = {
+      aankoopprijsIncl: b.aankoopprijs,
+      restwaardeEindeIncl: b.restwaardeEinde,
+      looptijdJaren: b.maanden / 12,
+      cataloguswaarde: u.catalogusprijs!,
+      aandrijving: aandrijving as "batterij" | "brandstof",
+      jaarEersteToelating: i.startjaar,
+      energieIncl: rond2(b.lopend.energie * 12),
+      onderhoudIncl: rond2(b.lopend.onderhoudEnBanden * 12),
+      mrb: rond2(b.lopend.mrb * 12),
+      verzekering: rond2(b.lopend.verzekering * 12),
+      zakelijkeKm,
+      priveKm: i.kmPerJaar - zakelijkeKm,
+      tarief,
+      btwPlichtig: z.btwPlichtig,
+    };
+    const zak = zzpZakelijk(invoer);
+    const pri = zzpPrive(invoer);
+    const beste = zak.nettoPerMaand <= pri.nettoPerMaand ? { naam: "zakelijk", v: zak } : { naam: "privé", v: pri };
+    return {
+      perMaand: beste.v.nettoPerMaand,
+      label: `netto per maand (auto ${beste.naam})`,
+      uitleg: `goedkoopste van auto zakelijk (${eur0(zak.nettoPerMaand)}) en auto privé met €0,25 per zakelijke km (${eur0(pri.nettoPerMaand)}); effectief tarief ${nl(tarief * 100, 1)}% bij een winst van ${eur0(z.inkomen)}`,
+      posten: beste.v.posten,
+      varianten: [
+        { naam: "Auto zakelijk", perMaand: zak.nettoPerMaand, posten: zak.posten },
+        { naam: "Auto privé + km-vergoeding", perMaand: pri.nettoPerMaand, posten: pri.posten },
+      ],
+    };
+  }
+  return null;
 }
 
 /** Harde eisen: geven geen punten, maar sluiten uit. Lege lijst = voldoet. */
@@ -302,8 +405,8 @@ export function scoresVoor(m: ModelRdw, u: UitvoeringRdw, i: Intake, k: Kosten, 
   const veil = ncap ? { geldend: ncap, score: veiligheidsScore(ncap, i.startjaar) } : null;
   const s: Scores = {
     TCO: {
-      score: lineaireScore(k.tco.perMaand, ankers.tco.slecht * i.maandbudget, ankers.tco.goed * i.maandbudget),
-      waarde: `${eur0(k.tco.perMaand)} per maand`,
+      score: lineaireScore(kostenPerMaand(k), ankers.tco.slecht * i.maandbudget, ankers.tco.goed * i.maandbudget),
+      waarde: `${eur0(kostenPerMaand(k))} ${k.profiel ? k.profiel.label : "per maand"}`,
       uitleg: `0 punten bij ${eur0(ankers.tco.slecht * i.maandbudget)} (2× je budget), 100 bij ${eur0(ankers.tco.goed * i.maandbudget)} (½× je budget)`,
     },
     BETR: betr
@@ -373,8 +476,10 @@ export const modelNaam = (m: Pick<ModelRdw, "merk" | "model">) => `${merkNaam(m.
 /** Alle kandidaten van een model: nieuwe uitvoeringen en/of occasions per bouwjaar binnen de leeftijdsgrens. */
 function kandidaten(m: ModelRdw, i: Intake): { u: UitvoeringRdw; occ: Occasion | null }[] {
   const uit: { u: UitvoeringRdw; occ: Occasion | null }[] = [];
-  if (i.soort !== "occasion") for (const u of m.uitvoeringen) uit.push({ u, occ: null });
-  if (i.soort !== "nieuw")
+  // Zakelijke profielen in v1 alleen nieuw: de bijtellingsregels van eerdere jaren staan nog niet in het config.
+  const soort = i.profiel === "particulier" ? i.soort : "nieuw";
+  if (soort !== "occasion") for (const u of m.uitvoeringen) uit.push({ u, occ: null });
+  if (soort !== "nieuw")
     for (const j of occasionJaren(m.id)) {
       const leeftijd = i.startjaar - j.bouwjaar;
       if (leeftijd < 1 || leeftijd > i.maxLeeftijdJaar) continue;
@@ -410,7 +515,7 @@ export function rangschik(i: Intake, gewichten: Gewichten, modellen: ModelRdw[] 
         kosten: k,
         scores,
         eind: eindscore(scores, gewichten),
-        binnenBudget: k.tco.perMaand <= i.maandbudget,
+        binnenBudget: kostenPerMaand(k) <= i.maandbudget,
       };
       if (!beste || vergelijk(sleutel(r), sleutel(beste)) < 0) beste = r;
     }
@@ -418,7 +523,7 @@ export function rangschik(i: Intake, gewichten: Gewichten, modellen: ModelRdw[] 
   }
   const lijst = perModel.sort((a, b) => vergelijk(sleutel(a), sleutel(b)));
   const binnen = lijst.filter((r) => r.binnenBudget);
-  const erboven = lijst.filter((r) => !r.binnenBudget).sort((a, b) => a.kosten.tco.perMaand - b.kosten.tco.perMaand);
+  const erboven = lijst.filter((r) => !r.binnenBudget).sort((a, b) => kostenPerMaand(a.kosten) - kostenPerMaand(b.kosten));
   const top = [...binnen.slice(0, 3), ...erboven.slice(0, Math.max(0, 3 - binnen.length))];
   return { lijst, top, uitgesloten: [...uitgesloten.values()] };
 }
@@ -427,7 +532,7 @@ export function rangschik(i: Intake, gewichten: Gewichten, modellen: ModelRdw[] 
 const sleutel = (r: Resultaat) => ({
   naam: `${r.naam} ${r.uitvoering.aandrijving} ${r.occasion ? r.occasion.bouwjaar : "0000"}`,
   eindscore: r.eind.score,
-  tcoPerMaand: r.kosten.tco.perMaand,
+  tcoPerMaand: kostenPerMaand(r.kosten),
 });
 
 /** Korte omschrijving van wat je koopt: "nieuw" of "occasion 2021, ca. 75.000 km". */

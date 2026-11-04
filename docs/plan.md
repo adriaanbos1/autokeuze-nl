@@ -47,7 +47,7 @@ Alternatief bij krappe kosten: Cloudflare Pages (gratis, ook commercieel). Overs
   - **3a** ✅ gebouwd 4-11-2026: score-engine (alle criteria met vaste ankers, gewichten per profiel, schuifjes, herschaling bij ontbrekende data, merkneutrale tie-break) + intake → top 3 voor nieuwe auto's, particulier.
   - **3b** ✅ gebouwd 4-11-2026: occasions in de ranking (model + leeftijd + km, geschatte prijs).
   - **3c** ✅ gebouwd 4-11-2026: financieringsvergelijking met schuifjes: contant, lening, financial lease, private lease (offerte of eigen schatting).
-  - **3d** zakelijke basis in de intake (leaserijder, ZZP'er), mobiele afwerking, Vercel-testlink.
+  - **3d** ✅ gebouwd 4-11-2026 (behalve de testlink, die wacht op accounts van Adriaan): zakelijke basis in de intake (leaserijder, ZZP'er), mobiele afwerking, Vercel-testlink.
 - **Omvang:** ca. 2–3 weken (groot).
 
 ### Fase 4: Zakelijke module uitgediept
