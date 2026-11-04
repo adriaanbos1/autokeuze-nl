@@ -30,8 +30,9 @@ import {
   bijtellingPerJaar,
   nettoBijtellingWerknemer,
   pseudoEindheffing,
-  marginaalTarief2026,
-  effectiefTariefOndernemer,
+  belastingOndernemer2026,
+  belastingWerknemer2026,
+  effectiefTarief,
   zzpPrive,
   zzpZakelijk,
   type Post,
@@ -296,14 +297,16 @@ function profielKosten(u: UitvoeringRdw, i: Intake, b: AutoBezit): ProfielKosten
   const z = i.zakelijk;
   const aandrijving = u.aandrijving === "elektrisch" ? "batterij" : "brandstof";
   if (i.profiel === "leaserijder") {
-    const tarief = marginaalTarief2026(z.inkomen);
     const bij = bijtellingPerJaar({ cataloguswaarde: u.catalogusprijs!, aandrijving, jaarEersteToelating: z.jaarIngebruikname });
+    // Exacte inkomstenbelasting 2026 met en zonder bijtelling, dus inclusief afbouw van de heffingskortingen.
+    const belast = Math.max(0, bij.perJaar - z.eigenBijdragePerMaand * 12);
+    const tarief = effectiefTarief(belastingWerknemer2026, z.inkomen, belast);
     const netto = nettoBijtellingWerknemer(bij.perJaar, tarief, z.eigenBijdragePerMaand * 12);
     const pseudo = pseudoEindheffing(u.catalogusprijs!, aandrijving, z.jaarIngebruikname);
     return {
       perMaand: netto.perMaand,
       label: "netto bijtelling per maand",
-      uitleg: `bijtelling ${bij.uitleg} = ${eur0(bij.perJaar)} per jaar${z.eigenBijdragePerMaand ? ` − eigen bijdrage ${eur0(z.eigenBijdragePerMaand * 12)}` : ""}, × ${nl(tarief * 100, 2)}% (tarief bij ${eur0(z.inkomen)}, 2026) ${z.eigenBijdragePerMaand ? "+ eigen bijdrage" : ""} / 12`,
+      uitleg: `bijtelling ${bij.uitleg} = ${eur0(bij.perJaar)} per jaar${z.eigenBijdragePerMaand ? ` − eigen bijdrage ${eur0(z.eigenBijdragePerMaand * 12)}` : ""}, × ${nl(tarief * 100, 2)}% (extra inkomstenbelasting 2026 bij ${eur0(z.inkomen)} loon, inclusief minder heffingskortingen) ${z.eigenBijdragePerMaand ? "+ eigen bijdrage" : ""} / 12`,
       posten: [
         { label: "Bijtelling per jaar", bedrag: bij.perJaar, uitleg: bij.uitleg },
         { label: "Netto per jaar", bedrag: netto.perJaar, uitleg: `tegen ${nl(tarief * 100, 2)}%${z.eigenBijdragePerMaand ? ", inclusief eigen bijdrage" : ""}` },
@@ -312,7 +315,6 @@ function profielKosten(u: UitvoeringRdw, i: Intake, b: AutoBezit): ProfielKosten
     };
   }
   if (i.profiel === "zzp") {
-    const tarief = effectiefTariefOndernemer(marginaalTarief2026(z.inkomen));
     const zakelijkeKm = Math.round(i.kmPerJaar * z.zakelijkAandeel);
     const invoer = {
       aankoopprijsIncl: b.aankoopprijs,
@@ -327,16 +329,24 @@ function profielKosten(u: UitvoeringRdw, i: Intake, b: AutoBezit): ProfielKosten
       verzekering: rond2(b.lopend.verzekering * 12),
       zakelijkeKm,
       priveKm: i.kmPerJaar - zakelijkeKm,
-      tarief,
+      tarief: 1,
       btwPlichtig: z.btwPlichtig,
     };
-    const zak = zzpZakelijk(invoer);
-    const pri = zzpPrive(invoer);
+    // Met tarief 1 is het "belastingvoordeel" precies de aftrekpost; daarna het exacte tarief over die post
+    // (inkomstenbelasting 2026 na zelfstandigenaftrek, MKB-winstvrijstelling en heffingskortingen).
+    const metTarief = (v: (z: typeof invoer) => ReturnType<typeof zzpPrive>) => {
+      const aftrek = -(v(invoer).posten.find((p) => p.label.startsWith("Belastingvoordeel"))?.bedrag ?? 0);
+      const t = effectiefTarief(belastingOndernemer2026, z.inkomen - aftrek, aftrek);
+      return { ...v({ ...invoer, tarief: t }), tarief: t };
+    };
+    const zak = metTarief(zzpZakelijk);
+    const pri = metTarief(zzpPrive);
+    const tarief = (zak.nettoPerMaand <= pri.nettoPerMaand ? zak : pri).tarief;
     const beste = zak.nettoPerMaand <= pri.nettoPerMaand ? { naam: "zakelijk", v: zak } : { naam: "privé", v: pri };
     return {
       perMaand: beste.v.nettoPerMaand,
       label: `netto per maand (auto ${beste.naam})`,
-      uitleg: `goedkoopste van auto zakelijk (${eur0(zak.nettoPerMaand)}) en auto privé met €0,25 per zakelijke km (${eur0(pri.nettoPerMaand)}); effectief tarief ${nl(tarief * 100, 1)}% bij een winst van ${eur0(z.inkomen)}`,
+      uitleg: `goedkoopste van auto zakelijk (${eur0(zak.nettoPerMaand)}) en auto privé met €0,25 per zakelijke km (${eur0(pri.nettoPerMaand)}); effectief tarief ${nl(tarief * 100, 1)}% bij een winst van ${eur0(z.inkomen)} (inkomstenbelasting 2026 na zelfstandigenaftrek, MKB-winstvrijstelling en heffingskortingen)`,
       posten: beste.v.posten,
       varianten: [
         { naam: "Auto zakelijk", perMaand: zak.nettoPerMaand, posten: zak.posten },

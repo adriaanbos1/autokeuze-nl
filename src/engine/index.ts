@@ -15,3 +15,4 @@ export * from "./onderhoud";
 export * from "./restwaarde";
 export * from "./score";
 export * from "./scenario";
+export * from "./inkomstenbelasting";

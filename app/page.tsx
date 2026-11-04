@@ -46,7 +46,7 @@ const PROFIELEN: [Profiel, string][] = [
   ["zzp", "ZZP'er of eenmanszaak"],
   ["leaserijder", "Auto van de zaak (leaserijder)"],
 ];
-const STARTBUDGET: Record<Profiel, number> = { particulier: 750, zzp: 600, leaserijder: 250 };
+const STARTBUDGET: Record<Profiel, number> = { particulier: 750, zzp: 600, leaserijder: 300 };
 const BUDGETVRAAG: Record<Profiel, string> = {
   particulier: "Budget per maand, alles inbegrepen (€)",
   zzp: "Wat mag de auto je netto per maand kosten? (€)",

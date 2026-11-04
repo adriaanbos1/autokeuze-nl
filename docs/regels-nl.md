@@ -60,7 +60,8 @@ Statuslabels:
 | EV, eerste toelating 2027 | **20% tot €30.000**, 22% daarboven (max. voordeel €600/jr) | ✅ aangenomen | Athlon (21-10-2026) |
 | EV, eerste toelating vanaf 2028 | 22% over alles | ✅ | idem |
 | Waterstof / zonnecel-auto | 2026: 18% zonder cap; 2027: 20% zonder cap | ✅ | SRA |
-| 60-maandenregel | percentage ligt 60 maanden vast vanaf eerste toelating; daarna het dan geldende percentage | ✅ | SRA |
+| EV, eerdere jaren (begin periode van 60 mnd) | 2016–2018: 4% zonder cap · 2019: 4% tot €50.000 · 2020: 8% tot €45.000 · 2021: 12% tot €40.000 · 2022: 16% tot €35.000 · 2023–2024: 16% tot €30.000 · 2025: 17% tot €30.000; waterstof/zonnecel steeds zonder cap | ⚠ (wettelijk vastgesteld, maar door ons alleen uit twee consistente secundaire bronnen) | [Salaris van Morgen 12-2-2026](https://www.salarisvanmorgen.nl/2026/02/12/overzicht-bijtellingspercentages-auto-2011-2026/) (o.b.v. Forum Salaris), [SRA 2-2025](https://www.sra.nl/nieuws/004501/2025/02/nieuw-overzicht-bijtelling-privegebruik-auto-van-de-zaak) |
+| 60-maandenregel | percentage ligt 60 maanden vast vanaf eerste toelating; daarna "opnieuw vastgesteld op basis van de dan geldende regelgeving" (SRA) voor een nieuwe periode van 60 maanden. In de engine op jaarbasis (`periodeStartjaar`), niet per maand | ✅ | SRA |
 | Youngtimer (oude auto) | 2026: oude auto's: 35% van de dagwaarde (⚠ leeftijdsgrens: bronnen noemen 15 resp. 16 jaar). 2027: grens 17 jaar, 2028: 20 jaar (eerder plan van 25 jaar vervalt) | ✅ 2026 / 🟡 2027+ (SRA noemt nog 25 jaar, Athlon de nieuwere 17/20) | SRA, Athlon |
 | "Greentimer" | vanaf 2029: 14% voor EV's van 5–8 jaar oud, max. 3 jaar | 🟡 niet definitief | Athlon |
 | Eigen bijdrage werknemer | verlaagt de bijtelling euro voor euro (niet onder nul) | ✅ (⚠ bron in config nog toevoegen) | Belastingdienst |
@@ -85,10 +86,11 @@ Statuslabels:
 | Privé-auto, zakelijke km | **€0,25 per zakelijke km** aftrekbaar (2026; was €0,23) | ✅ (met terugwerkende kracht per 1-1-2026, via beleidsbesluit; wettelijk vastgelegd in Belastingplan 2027) |
 | Btw-correctie privégebruik (forfait) | **2,7%** van de catalogusprijs per jaar; **1,5%** vanaf het 5e jaar na ingebruikname, of als er geen btw is afgetrokken | ✅ |
 | Afschrijving | lineair over gebruiksduur tot restwaarde (meestal 5 jaar) | ✅ (gangbare praktijk; exacte termijn per situatie) |
-| KIA (kleinschaligheidsinvesteringsaftrek) | 2026: investeringen tussen ca. €2.901 en €392.230; **personenauto's zijn in principe uitgesloten**, behalve o.a. emissievrije personenauto's en taxi's; bestelauto's wél | ⚠ uitzondering voor emissievrije personenauto's te verifiëren · 2027 mogelijk versoberd 🟡 |
+| KIA (kleinschaligheidsinvesteringsaftrek) 2026 | tot €2.900: 0 · €2.901–71.683: 28% · €71.684–132.746: €20.072 · €132.747–398.236: €20.072 − 7,56% over het deel boven €132.746 · daarboven 0; minimaal €450 per bedrijfsmiddel ([Belastingdienst](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/veranderingen-inkomstenbelasting-2026/investeringsaftrek-2026/kleinschaligheidsinvesteringsaftrek-2026)). **Personenauto's die niet bestemd zijn voor beroepsvervoer zijn uitgesloten** (art. 3.45 lid 1 onderdeel d Wet IB 2001, wettekst 2026 gelezen). Bestelauto's wél | ✅ tabel · ⚠ secundaire bronnen noemen een uitzondering voor emissievrije personenauto's; niet in de wettekst gevonden, dus wij rekenen zonder KIA · 2027 mogelijk versoberd 🟡 |
 | MIA (milieu-investeringsaftrek) 2026 | alleen nog waterstofauto (45% over 90%, max €75.000) en zonnecel-auto (36% over 90%, max €100.000); gewone EV **niet** | ✅ (SRA) |
-| Ondernemersaftrek / MKB-winstvrijstelling | bepaalt het *effectieve* belastingvoordeel van elke aftrekpost | ⚠ bedragen 2026 nog op te nemen in config |
-| Box 1-tarieven 2026 | nodig voor het marginale tarief | ⚠ nog op te nemen in config (niet uit geheugen) |
+| Ondernemersaftrek / MKB-winstvrijstelling 2026 | zelfstandigenaftrek €1.200 (urencriterium 1.225 uur); MKB-winstvrijstelling 12,7%; aftrek werkt maximaal tegen 37,56% | ✅ ([KVK](https://www.kvk.nl/geldzaken/belastingtarieven-2026/)) |
+| Box 1-tarieven 2026 | 35,75% t/m €38.883 · 37,56% t/m €78.426 · 49,5% daarboven | ✅ ([Belastingdienst](https://www.belastingdienst.nl/wps/wcm/connect/nl/voorlopige-aanslag/content/voorlopige-aanslag-tarieven-en-heffingskortingen)) |
+| Heffingskortingen 2026 (tot AOW-leeftijd) | algemene heffingskorting €3.115, afbouw 6,398% vanaf €29.736, €0 vanaf €78.426 · arbeidskorting: 8,324% tot €11.965; €996 + 31,009% tot €25.845; €5.300 + 1,95% tot €45.592; €5.685 − 6,51% tot €132.920; daarna €0 | ✅ (Belastingdienst, idem) |
 
 Bronnen: [SRA advieswijzer 2026](https://www.sra.nl/nieuws/000000/advieswijzers/advieswijzer-auto-zakelijk-of-prive-2026), [Accountancy van Morgen, 27-5-2026](https://www.accountancyvanmorgen.nl/2026/05/27/belastingdienst-licht-verwerking-hogere-onbelaste-kilometervergoeding-in-loonaangifte-toe/), [Knab](https://bieb.knab.nl/ondernemen/zakelijk-rijden-dit-zijn-de-belastingregels?hsLang=nl), [MKB Servicedesk KIA](https://www.mkbservicedesk.nl/belastingen/aftrekposten/wat-is-de-kleinschaligheidsinvesteringsaftrek-kia).
 
@@ -100,7 +102,8 @@ Bronnen: [SRA advieswijzer 2026](https://www.sra.nl/nieuws/000000/advieswijzers/
 | Bv-auto privé maken | alleen door verkoop aan de DGA (tegen marktwaarde; btw-discussie loopt bij de Hoge Raad) | ✅ / ⚠ btw-punt |
 | DGA rijdt privéauto voor de bv | bv mag €0,25/km onbelast vergoeden | ✅ |
 | Pseudo-eindheffing vanaf 2027 | 12% per jaar voor nieuwe CO₂-auto's ter beschikking gesteld aan de DGA | ✅ aangenomen |
-| Vennootschapsbelasting-effect | autokosten aftrekbaar in de Vpb; netto voordeel hangt af van het Vpb-tarief + box 2-gevolgen | ⚠ tarieven in config |
+| Vennootschapsbelasting 2026 | 19% t/m €200.000, 25,8% daarboven | ✅ ([KVK](https://www.kvk.nl/geldzaken/belastingtarieven-2026/)) |
+| Box 2 2026 | 24,5% t/m €68.843, 31% daarboven (zonder partner) | ✅ (KVK) |
 
 **v1-advies:** DGA eerst als "light" scenario (bijtelling + pseudo-eindheffing + km-vergoeding). Een volledige Vpb/box 2-doorrekening pas in Fase 4.
 

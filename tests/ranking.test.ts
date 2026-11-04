@@ -171,11 +171,13 @@ describe("zakelijke profielen (basis)", () => {
   const ev = { ...benzine, aandrijving: "elektrisch" as const, verbruikWltp: 15, co2Wltp: 0, actieradiusWltpKm: 400 };
   const lease = { ...basis, profiel: "leaserijder" as const };
 
-  it("leaserijder, benzine €30.000, inkomen €60.000 (37,56%): 22% × 30.000 = 6.600 × 0,3756 / 12 = €206,58", () => {
-    expect(kostenNieuw(benzine, lease)!.profiel!.perMaand).toBe(206.58);
+  // Effectief tarief tussen €60.000 en €66.600 loon: 37,56% schijf + 6,398% minder algemene heffingskorting
+  // + 6,51% minder arbeidskorting = 50,468% (tests/inkomstenbelasting.test.ts).
+  it("leaserijder, benzine €30.000, loon €60.000: 22% × 30.000 = 6.600 × 50,468% / 12 = €277,57", () => {
+    expect(kostenNieuw(benzine, lease)!.profiel!.perMaand).toBe(277.57);
   });
-  it("leaserijder, EV €30.000 in 2026: 18% × 30.000 = 5.400 × 0,3756 / 12 = €169,02", () => {
-    expect(kostenNieuw(ev, lease)!.profiel!.perMaand).toBe(169.02);
+  it("leaserijder, EV €30.000 in 2026: 18% × 30.000 = 5.400 × 50,468% / 12 = €227,11", () => {
+    expect(kostenNieuw(ev, lease)!.profiel!.perMaand).toBe(227.11);
   });
   it("leaserijder in 2027: benzine geeft de werkgever 12% pseudo-eindheffing (€3.600 per jaar)", () => {
     const k = kostenNieuw(benzine, { ...lease, zakelijk: { ...STANDAARD_ZAKELIJK, jaarIngebruikname: 2027 } })!;

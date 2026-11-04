@@ -233,14 +233,26 @@ export const regels = {
      */
     emissievrij: {
       waarde: {
+        2016: { batterij: { percentage: 0.04, cap: null }, waterstof: { percentage: 0.04, cap: null } },
+        2017: { batterij: { percentage: 0.04, cap: null }, waterstof: { percentage: 0.04, cap: null } },
+        2018: { batterij: { percentage: 0.04, cap: null }, waterstof: { percentage: 0.04, cap: null } },
+        2019: { batterij: { percentage: 0.04, cap: 50000 }, waterstof: { percentage: 0.04, cap: null } },
+        2020: { batterij: { percentage: 0.08, cap: 45000 }, waterstof: { percentage: 0.08, cap: null } },
+        2021: { batterij: { percentage: 0.12, cap: 40000 }, waterstof: { percentage: 0.12, cap: null } },
+        2022: { batterij: { percentage: 0.16, cap: 35000 }, waterstof: { percentage: 0.16, cap: null } },
+        2023: { batterij: { percentage: 0.16, cap: 30000 }, waterstof: { percentage: 0.16, cap: null } },
+        2024: { batterij: { percentage: 0.16, cap: 30000 }, waterstof: { percentage: 0.16, cap: null } },
+        2025: { batterij: { percentage: 0.17, cap: 30000 }, waterstof: { percentage: 0.17, cap: null } },
         2026: { batterij: { percentage: 0.18, cap: 30000 }, waterstof: { percentage: 0.18, cap: null } },
         2027: { batterij: { percentage: 0.2, cap: 30000 }, waterstof: { percentage: 0.2, cap: null } },
       } as Record<number, Record<"batterij" | "waterstof", { percentage: number; cap: number | null }>>,
-      status: "vastgesteld",
-      bron: "https://www.athlon.com/nl/kennisbank/belastingplan-2027-autobelastingen-en-mobiliteit/ ; SRA advieswijzer 2026",
-      geldigVanaf: "2026-01-01",
-      peildatum: PEIL,
-      toelichting: "Vanaf eerste toelating 2028: geen korting meer, 22% over alles.",
+      // Wettelijk vastgesteld, maar door ons alleen uit (consistente) secundaire bronnen overgenomen.
+      status: "onzeker",
+      bron: "2016–2026: https://www.salarisvanmorgen.nl/2026/02/12/overzicht-bijtellingspercentages-auto-2011-2026/ (op basis van Forum Salaris) en https://www.sra.nl/nieuws/004501/2025/02/nieuw-overzicht-bijtelling-privegebruik-auto-van-de-zaak (caps 2020–2025 gelijk); 2027: https://www.athlon.com/nl/kennisbank/belastingplan-2027-autobelastingen-en-mobiliteit/",
+      geldigVanaf: "2016-01-01",
+      peildatum: "2026-11-04",
+      toelichting:
+        "Sleutel = jaar waarin de (lopende) periode van 60 maanden begon. Na 60 maanden gelden de regels van het jaar waarin de nieuwe periode begint. 2016: op basis van datum eerste tenaamstelling. Vanaf eerste toelating 2028: geen korting meer, 22% over alles. Geen primaire bron (Belastingdienst-tabel) gevonden; twee secundaire bronnen zijn consistent.",
     } as Regel<Record<number, Record<"batterij" | "waterstof", { percentage: number; cap: number | null }>>>,
 
     looptijdVastMaanden: {
@@ -326,6 +338,43 @@ export const regels = {
     } as Regel<number>,
 
     /** Maximaal tarief waartegen ondernemersaftrek en MKB-winstvrijstelling werken (aftrekbeperking). */
+    /** Algemene heffingskorting 2026, tot de AOW-leeftijd. Afbouw over het verzamelinkomen. */
+    algemeneHeffingskorting2026: {
+      waarde: { maximaal: 3115, afbouwVanaf: 29736, afbouwPercentage: 0.06398, nulVanaf: 78426 },
+      status: "vastgesteld",
+      bron: "https://www.belastingdienst.nl/wps/wcm/connect/nl/voorlopige-aanslag/content/voorlopige-aanslag-tarieven-en-heffingskortingen",
+      geldigVanaf: "2026-01-01",
+      peildatum: "2026-11-04",
+    } as Regel<{ maximaal: number; afbouwVanaf: number; afbouwPercentage: number; nulVanaf: number }>,
+
+    /**
+     * Arbeidskorting 2026, tot de AOW-leeftijd: [arbeidsinkomen vanaf, basisbedrag, percentage over (inkomen − vanaf)].
+     * Laatste regel: vanaf €132.920 is de korting €0.
+     */
+    arbeidskorting2026: {
+      waarde: [
+        [0, 0, 0.08324],
+        [11965, 996, 0.31009],
+        [25845, 5300, 0.0195],
+        [45592, 5685, -0.0651],
+        [132920, 0, 0],
+      ] as [number, number, number][],
+      status: "vastgesteld",
+      bron: "https://www.belastingdienst.nl/wps/wcm/connect/nl/voorlopige-aanslag/content/voorlopige-aanslag-tarieven-en-heffingskortingen",
+      geldigVanaf: "2026-01-01",
+      peildatum: "2026-11-04",
+      toelichting: "Het Belastingplan 2026 noemde een maximum van €5.712; de Belastingdienst-tabel gebruikt €5.685 en die sluit aan op de schijven.",
+    } as Regel<[number, number, number][]>,
+
+    zelfstandigenaftrek2026: {
+      waarde: 1200,
+      status: "vastgesteld",
+      bron: "https://www.kvk.nl/geldzaken/belastingtarieven-2026/",
+      geldigVanaf: "2026-01-01",
+      peildatum: "2026-11-04",
+      toelichting: "Alleen bij het urencriterium (1.225 uur per jaar). Startersaftrek niet opgenomen.",
+    } as Regel<number>,
+
     maxAftrektarief: {
       waarde: 0.3756,
       status: "vastgesteld",
@@ -334,6 +383,66 @@ export const regels = {
       peildatum: PEIL,
     } as Regel<number>,
   },
+  // ─────────────────── Vennootschapsbelasting en box 2 ───────────────────
+  vpb: {
+    /** [winst t/m, tarief]; laatste schijf zonder bovengrens. */
+    tarieven2026: {
+      waarde: [
+        [200000, 0.19],
+        [null, 0.258],
+      ] as [number | null, number][],
+      status: "vastgesteld",
+      bron: "https://www.kvk.nl/geldzaken/belastingtarieven-2026/",
+      geldigVanaf: "2026-01-01",
+      peildatum: "2026-11-04",
+    } as Regel<[number | null, number][]>,
+  },
+
+  box2: {
+    /** [uitkering t/m, tarief]; per belastingplichtige (zonder partnerverdeling). */
+    tarieven2026: {
+      waarde: [
+        [68843, 0.245],
+        [null, 0.31],
+      ] as [number | null, number][],
+      status: "vastgesteld",
+      bron: "https://www.kvk.nl/geldzaken/belastingtarieven-2026/",
+      geldigVanaf: "2026-01-01",
+      peildatum: "2026-11-04",
+      toelichting: "Of de schijfgrens met een fiscale partner verdubbelt, staat niet op de bronpagina; we rekenen zonder partner.",
+    } as Regel<[number | null, number][]>,
+  },
+
+  // ─────────────────────── Investeringsaftrek ───────────────────────
+  kia: {
+    /** KIA 2026: [investering vanaf (meer dan), vast bedrag, percentage, percentage geldt over deel boven]. */
+    tabel2026: {
+      waarde: [
+        [0, 0, 0, 0],
+        [2900, 0, 0.28, 0],
+        [71683, 20072, 0, 0],
+        [132746, 20072, -0.0756, 132746],
+        [398236, 0, 0, 0],
+      ] as [number, number, number, number][],
+      status: "vastgesteld",
+      bron: "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/veranderingen-inkomstenbelasting-2026/investeringsaftrek-2026/kleinschaligheidsinvesteringsaftrek-2026",
+      geldigVanaf: "2026-01-01",
+      peildatum: "2026-11-04",
+      toelichting: "Over het totaal van de investeringen in een jaar. Per bedrijfsmiddel minimaal €450 (art. 3.45 lid 2 Wet IB 2001).",
+    } as Regel<[number, number, number, number][]>,
+
+    /** Personenauto's die niet bestemd zijn voor beroepsvervoer over de weg zijn uitgesloten (art. 3.45 lid 1 onderdeel d Wet IB 2001). */
+    personenautoUitgesloten: {
+      waarde: true,
+      status: "onzeker",
+      bron: "https://wetten.overheid.nl/BWBR0011353/2026-01-01 (art. 3.45 lid 1 onderdeel d, gelezen 4-11-2026)",
+      geldigVanaf: "2026-01-01",
+      peildatum: "2026-11-04",
+      toelichting:
+        "Secundaire bronnen (o.a. Bridgefund, MKB Servicedesk) noemen een uitzondering voor emissievrije personenauto's; die staat niet in de wettekst en is niet gevonden in een primaire bron. We rekenen daarom zonder KIA voor personenauto's. Bestelauto's vallen er wel onder.",
+    } as Regel<boolean>,
+  },
+
   // ─────────────────────── Consumptief krediet ───────────────────────
   krediet: {
     /** Maximale kredietvergoeding (jaarrente) voor consumptief krediet: wettelijke rente 4% + 8 procentpunt. */
