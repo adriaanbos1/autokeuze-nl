@@ -15,7 +15,7 @@ Daarna, in deze map:
 ```bash
 npm install      # eenmalig
 npm test         # alle rekentests
-npm run dev      # rekenpagina op http://localhost:3000
+npm run dev      # autokeuze (intake → top 3) op http://localhost:3000
 ```
 
 ## Data verversen (RDW)
@@ -36,4 +36,4 @@ node scripts/haal-ncap.ts               # Euro NCAP-sterren uit de openbare uits
 - `src/data/` — datamodel, modelnormalisatie, kentekencheck
 - `data/` — gegenereerde dataset (met bron en peildatum)
 - `scripts/` — scripts die de dataset uit RDW opbouwen
-- `app/` — rekenpagina, `/modellen` en `/kenteken`
+- `app/` — autokeuze (`/`), `/kenteken`, `/modellen` en de rekenpagina (`/rekenpagina`)

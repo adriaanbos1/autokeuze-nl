@@ -180,6 +180,12 @@ Legenda kosten: 🟢 gratis · 🟡 gratis met voorwaarden / op aanvraag · 🔴
 - Niet gedaan: advertenties scrapen (gebruiksvoorwaarden/databankenrecht) en een handmatige steekproef van vraagprijzen (wacht op juridische check, zie §6).
 - Concept-offerteaanvraag voor Autotelex, Indicata en VWE: `docs/concepten/offerteaanvraag-restwaardedata.md` (niet verstuurd).
 
+### 5.9 Energieprijzen (Fase 3a)
+- **Benzine, diesel, lpg:** CBS-tabel 80416NED (pompprijzen per dag, OData-API `opendata.cbs.nl`), gemiddelde over de laatste 30 beschikbare dagen (27-9 t/m 26-10-2026): benzine €2,412, diesel €2,481, lpg €0,970 per liter, incl. btw en accijns. Licentie CBS: CC BY 4.0.
+- **Stroom thuis:** CBS-tabel 85592NED (gemiddelde energietarieven consumenten), september 2026, incl. btw: variabel leveringstarief €0,1487 + energiebelasting €0,11085 = **€0,26 per kWh**. Alleen het variabele deel, omdat vaste kosten niet veranderen door te laden.
+- **Publiek laden en snelladen:** geen officiële bron. Aannames €0,50 en €0,70 per kWh, binnen de bandbreedtes op athlon.com (€0,25–0,55 publiek, €0,50–0,70 snel). 🟡
+- Alles staat in `src/regels/aannames.ts` (sectie `energie`) met bron en peildatum. Bijwerken: elk kwartaal.
+
 ## 6. Open punten
 - ⚠ Licenties per RDW-dataset bevestigen (alles CC-0?).
 - ⚠ Euro NCAP: mag "5 sterren (2024)" als feit commercieel genoemd worden? Volgens de voorwaarden is commerciële reproductie niet toegestaan. **Toestemming vragen vóór livegang** (mail aan Euro NCAP, concept volgt bij Fase 5).

@@ -61,10 +61,37 @@ Voorbeelden van ankers (concept, worden openbaar gepubliceerd):
 Profieltweaks (automatisch, zichtbaar): gezin met kinderen → VEIL +5, FIT +5 (ten koste van COMF/DUUR); occasion → BETR +5, ONDH +5.
 
 ### 1.4 Schuifjes
-- De gebruiker zet elk criterium op 0–5 ("niet belangrijk" … "heel belangrijk"); wij herschalen dat naar procenten die optellen tot 100.
-- Eindscore = Σ (gewicht × score) / Σ gewichten.
-- Bij gelijke eindscore (verschil < 1 punt) beslist de **laagste TCO**, daarna **alfabetisch op modelnaam**, zodat de volgorde voorspelbaar en merkneutraal is.
+- De gebruiker zet elk criterium met een schuifje op 0–40 (stappen van 5), beginnend bij de startgewichten van §1.3. De app toont direct het aandeel in procenten. *(Fase 3a: afgeweken van het eerdere idee 0–5, zodat de startwaarden exact zichtbaar blijven.)*
+- Eindscore = Σ (gewicht × score) / Σ gewichten, alleen over criteria met data.
+- Bij **gelijke afgeronde eindscore** beslist de **laagste TCO**, daarna **alfabetisch op modelnaam**, zodat de volgorde voorspelbaar en merkneutraal is. *(Afronden in plaats van "verschil < 1 punt", omdat die regel niet eenduidig sorteert.)*
 - We tonen de top 3 met per auto de **3 sterkste en 2 zwakste punten**, en "wat moet er veranderen om nummer 1 te worden".
+
+---
+
+### 1.5 Hoe de ranglijst wordt gemaakt (gebouwd in Fase 3a)
+Code: `src/engine/score.ts` (rekenregels), `src/data/ranking.ts` (koppeling met de dataset), `src/regels/methodiek.ts` (gewichten en ankers).
+
+1. **Harde eisen** sluiten een uitvoering uit, zonder punten: gekozen aandrijving, genoeg zitplaatsen, genoeg trekgewicht, optionele maximale aankoopprijs, en *nieuw leverbaar*: het model is in het aankoopjaar nog nieuw geregistreerd (laatste jaar in de RDW-steekproef ≥ aankoopjaar).
+2. Per uitvoering rekenen we de **TCO** uit (contant gekocht, §3) en de scores per criterium:
+
+| Criterium | Waarde | 0 punten | 100 punten |
+|---|---|---|---|
+| TCO | € per maand bij jouw km en looptijd | 2× je budget | ½× je budget |
+| BETR | APK-gebreken t.o.v. leeftijdsgenoten (§2.2) | 2,0× | 0,5× |
+| ONDH | onderhoud + banden € per maand (§2.3) | €100 | €20 |
+| REST | — | telt niet mee (besluit 37) | |
+| FIT | gemiddelde van de deelscores die van toepassing zijn: **ruimte** (alleen bij 3+ personen of kinderen) op lengte, **bereik** (alleen elektrisch) = WLTP-actieradius × 0,8 gedeeld door je langste rit | ruimte 400 cm; bereik 1× de rit | ruimte 470 cm; bereik 2× de rit (heen en terug zonder laden) |
+| DUUR | CO₂ uit de uitlaat bij jouw gebruik: WLTP-opgave; elektrisch 0; plug-in hybride: CO₂ per liter van die auto × verbruik met lege accu × aandeel brandstof-km | 180 g/km | 0 g/km |
+| VEIL | Euro NCAP (§2.5) | 2 sterren | 5 sterren |
+| COMF | — | telt niet mee (geen objectieve bron) | |
+
+3. **Eindscore** volgens §1.4; per model telt de uitvoering met de hoogste score.
+4. **Top 3**: de hoogste drie binnen je budget (TCO ≤ maandbudget). Passen er minder dan drie, dan vullen we aan met de goedkoopste auto's erboven, met het label "boven je budget".
+5. Per auto tonen we de 3 sterkste en 2 zwakste criteria, en voor nummer 2 en 3 het criterium met de grootste gewogen achterstand op nummer 1.
+
+Plug-in hybride met thuisladen rijdt het officiële WLTP-aandeel elektrisch (= 1 − gewogen verbruik / verbruik met lege accu); praktijkonderzoek laat zien dat dit vaak te optimistisch is. Zonder thuisladen rekenen we 0% elektrisch (aanname).
+
+**Bekende beperkingen v1:** WLTP-verbruik zonder praktijkcorrectie; ruimte gemeten via lengte (geen bagageruimte in open data); Euro NCAP en betrouwbaarheid gelden per modelfamilie, niet per generatie of aandrijving (bijv. de elektrische Toyota C-HR+ valt in de RDW onder "C-HR" en krijgt de NCAP-uitslag van de C-HR).
 
 ---
 
@@ -166,9 +193,9 @@ TCO_maand = afschrijving + kosten_van_geld + energie + MRB + verzekering
 | Onderdeel | Formule | Toelichting |
 |---|---|---|
 | afschrijving | (aankoopprijs − restwaarde_einde) / maanden | §2.1 |
-| kosten van geld (contant) | gemiddeld vastgezet kapitaal × rendement / 12 | gemiddeld kapitaal = (aankoop + restwaarde)/2; rendement standaard **2,5%** netto (spaarrente-aanname, aanpasbaar) |
+| kosten van geld (contant) | gemiddeld vastgezet kapitaal × rendement / 12 | gemiddeld kapitaal = (aankoop + restwaarde)/2; rendement standaard **2,5%** netto (spaarrente-aanname, `aannames.geld.gemistRendement`, niet geverifieerd) |
 | kosten van geld (lening) | betaalde rente / maanden + eigen inbreng × rendement / 12 | annuïteit |
-| energie | km/jr × verbruik × prijs / 12 | EV: mix thuis/publiek/snel; verbruik inclusief laadverlies |
+| energie | km/jr × verbruik × prijs / 12 | WLTP-verbruik. Brandstof: CBS-pompprijs (30-daags gemiddelde). EV: laadmix thuis/publiek/snel (met thuisladen 80/10/10, zonder 0/80/20; aanname), thuis €0,26/kWh (CBS), publiek €0,50, snel €0,70 (aannames) |
 | MRB | tarief × gewichtsklasse × brandstof × (1 + opcenten) × (1 − EV-korting jaar) | per jaar van de looptijd (korting loopt af!) |
 | verzekering | gebruikersinvoer of bandbreedte per klasse | indicatief |
 | onderhoud, banden | §2.3, km-gebonden | |

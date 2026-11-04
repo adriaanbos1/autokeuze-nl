@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata = {
-  title: "AutoKeuze NL — rekenpagina",
-  description: "Testpagina voor de reken-engine (Fase 1). Geen financieel advies.",
+  title: "AutoKeuze NL",
+  description: "Onafhankelijk vergelijken welke auto bij je past en wat hij echt kost. Geen financieel advies.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

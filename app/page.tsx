@@ -1,267 +1,438 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
-import {
-  bijtellingPerJaar,
-  energiekostenPerJaar,
-  gemiddeldeLaadprijs,
-  mrbPersonenauto,
-  nettoBijtellingWerknemer,
-  pseudoEindheffing,
-  rond2,
-  tcoContant,
-  tcoFinancialLease,
-  tcoLening,
-  tcoPrivateLease,
-  zzpPrive,
-  zzpZakelijk,
-  type Aandrijving,
-  type AutoBezit,
-  type Brandstof,
-  type Post,
-} from "@/engine";
-import { regels, type Provincie } from "@/regels/regels-nl";
+import { useMemo, useRef, useState } from "react";
 import { Nav } from "./nav";
+import { alleModellen, datasetPeildatum, gezinsprofiel, nietGescoord, rangschik, toelichting, type Intake, type Resultaat } from "@/data/ranking";
+import type { Aandrijvingstype } from "@/data/types";
+import { ncapHerkomst, veiligheidModel } from "@/data/ncap-data";
+import { startGewichten, type Gewichten } from "@/engine";
+import { CRITERIA, criteriumNaam, VERSIE, type Criterium } from "@/regels/methodiek";
+import { regels, type Provincie } from "@/regels/regels-nl";
+import { aannames } from "@/regels/aannames";
 
-const eur = (x: number) => x.toLocaleString("nl-NL", { style: "currency", currency: "EUR" });
-const eurKm = (x: number) => x.toLocaleString("nl-NL", { style: "currency", currency: "EUR", minimumFractionDigits: 3 });
-
-function Getal({ label, waarde, zet, stap = 1 }: { label: string; waarde: number; zet: (n: number) => void; stap?: number }) {
-  return (
-    <label>
-      {label}
-      <input type="number" step={stap} value={waarde} onChange={(e) => zet(Number(e.target.value))} />
-    </label>
-  );
-}
-
-function Keuze<T extends string>({ label, waarde, zet, opties }: { label: string; waarde: T; zet: (v: T) => void; opties: [T, string][] }) {
-  return (
-    <label>
-      {label}
-      <select value={waarde} onChange={(e) => zet(e.target.value as T)}>
-        {opties.map(([v, t]) => (
-          <option key={v} value={v}>
-            {t}
-          </option>
-        ))}
-      </select>
-    </label>
-  );
-}
-
-function Kaart({ titel, bedrag, sub, posten, extra }: { titel: string; bedrag: number; sub?: string; posten?: Post[]; extra?: ReactNode }) {
-  return (
-    <div className="kaart">
-      <h3>{titel}</h3>
-      <div className="groot">{eur(bedrag)}</div>
-      {sub && <div className="uitleg">{sub}</div>}
-      {extra}
-      {posten && (
-        <details>
-          <summary>Hoe is dit berekend?</summary>
-          <table>
-            <tbody>
-              {posten.map((p) => (
-                <tr key={p.label}>
-                  <td>
-                    {p.label}
-                    {p.uitleg && <div className="uitleg">{p.uitleg}</div>}
-                  </td>
-                  <td className="b">{eur(p.bedrag)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </details>
-      )}
-    </div>
-  );
-}
-
+const eur = (x: number) => x.toLocaleString("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+const eur2 = (x: number) => x.toLocaleString("nl-NL", { style: "currency", currency: "EUR" });
 const provincies = Object.keys(regels.mrb.opcenten2026.waarde).map((p) => [p, p.replace(/(^|-)\w/g, (s) => s.toUpperCase())]) as [Provincie, string][];
+const AANDRIJVINGEN: [Aandrijvingstype, string][] = [
+  ["benzine", "Benzine"],
+  ["hybride", "Hybride"],
+  ["plug-in hybride", "Plug-in hybride"],
+  ["elektrisch", "Elektrisch"],
+];
+// Criteria zonder data per model in v1: schuifje uit, met uitleg.
+const ZONDER_DATA: Partial<Record<Criterium, string>> = {
+  REST: "telt nog niet mee: de restwaardecurve is voor elk model gelijk (wel in de kosten)",
+  COMF: "telt nog niet mee: geen objectieve bron",
+};
 
-export default function Rekenpagina() {
-  // ── Auto en gebruik
-  const [prijs, setPrijs] = useState(35000);
-  const [restPct, setRestPct] = useState(45);
-  const [maanden, setMaanden] = useState(60);
-  const [km, setKm] = useState(15000);
-  const [brandstof, setBrandstof] = useState<Brandstof>("elektrisch");
-  const [verbruik, setVerbruik] = useState(16);
-  const [prijsBenzine, setPrijsBenzine] = useState(2.3);
-  const [thuisPct, setThuisPct] = useState(80);
-  const [massa, setMassa] = useState(1650);
-  const [provincie, setProvincie] = useState<Provincie>("utrecht");
-  const [verzekering, setVerzekering] = useState(75);
-  const [onderhoud, setOnderhoud] = useState(45);
-  const [rendement, setRendement] = useState(2.5);
-  // ── Financiering
-  const [leenBedrag, setLeenBedrag] = useState(25000);
-  const [rente, setRente] = useState(7.5);
-  const [slot, setSlot] = useState(12000);
-  const [leaseprijs, setLeaseprijs] = useState(489);
-  const [eigenRisico, setEigenRisico] = useState(500);
-  // ── Zakelijk
-  const [jaarToelating, setJaarToelating] = useState(2026);
-  const [tarief, setTarief] = useState(49.5);
-  const [eigenBijdrage, setEigenBijdrage] = useState(0);
-  const [zakKm, setZakKm] = useState(10000);
-  const [zzpTarief, setZzpTarief] = useState(35);
+const STANDAARD: Intake = {
+  profiel: "particulier",
+  kmPerJaar: 15000,
+  langsteRitKm: 150,
+  maandbudget: 750,
+  maxAankoopprijs: null,
+  personen: 2,
+  kinderen: false,
+  thuisladen: true,
+  trekgewicht: 0,
+  provincie: "utrecht",
+  looptijdMaanden: 60,
+  aandrijvingen: ["benzine", "hybride", "plug-in hybride", "elektrisch"],
+  dekking: "allrisk",
+  eigenPremiePerMaand: null,
+  startjaar: new Date().getFullYear(),
+};
 
-  const isEv = brandstof === "elektrisch" || brandstof === "waterstof";
-  const eenheidsprijs = isEv
-    ? gemiddeldeLaadprijs({ thuis: thuisPct / 100, publiek: 1 - thuisPct / 100, snel: 0, prijsThuis: 0.27, prijsPubliek: 0.55, prijsSnel: 0 })
-    : prijsBenzine;
-  const energieJaar = energiekostenPerJaar(km, verbruik, eenheidsprijs);
-  const mrb = mrbPersonenauto({ massaRijklaar: massa, brandstof, provincie, jaar: 2026 });
-  const restwaarde = rond2((prijs * restPct) / 100);
+function Getal({ label, hulp, waarde, zet, min = 0, stap = 1 }: { label: string; hulp?: string; waarde: number; zet: (n: number) => void; min?: number; stap?: number }) {
+  return (
+    <label>
+      {label}
+      <input type="number" inputMode="numeric" min={min} step={stap} value={waarde} onChange={(e) => zet(Math.max(min, Number(e.target.value)))} />
+      {hulp && <span className="uitleg">{hulp}</span>}
+    </label>
+  );
+}
 
-  const auto: AutoBezit = {
-    aankoopprijs: prijs,
-    restwaardeEinde: restwaarde,
-    maanden,
-    kmPerJaar: km,
-    rendement: rendement / 100,
-    lopend: { energie: rond2(energieJaar / 12), mrb: rond2(mrb.perJaar / 12), verzekering, onderhoudEnBanden: onderhoud },
-  };
+function JaNee({ label, waarde, zet }: { label: string; waarde: boolean; zet: (b: boolean) => void }) {
+  return (
+    <fieldset className="janee">
+      <legend>{label}</legend>
+      <button type="button" className={waarde ? "gekozen" : ""} aria-pressed={waarde} onClick={() => zet(true)}>
+        Ja
+      </button>
+      <button type="button" className={!waarde ? "gekozen" : ""} aria-pressed={!waarde} onClick={() => zet(false)}>
+        Nee
+      </button>
+    </fieldset>
+  );
+}
 
-  const geldig = prijs > 0 && maanden > 0 && km > 0 && leenBedrag <= prijs;
-  const contant = tcoContant(auto);
-  const lening = geldig ? tcoLening(auto, { hoofdsom: leenBedrag, jaarrente: rente / 100, maanden }) : null;
-  const fl = geldig ? tcoFinancialLease(auto, { hoofdsom: leenBedrag, jaarrente: rente / 100, slottermijn: slot }) : null;
-  const pl = tcoPrivateLease({ leaseprijs, kmPerJaar: km, energie: auto.lopend.energie, eigenRisico, schadesPerJaar: 0.12 });
+function Intakeformulier({ intake, zet }: { intake: Intake; zet: (i: Intake) => void }) {
+  const z = <K extends keyof Intake>(k: K) => (v: Intake[K]) => zet({ ...intake, [k]: v });
+  return (
+    <>
+      <fieldset className="profiel">
+        <legend>Voor wie is de auto?</legend>
+        <label className="radio">
+          <input type="radio" checked readOnly /> Privé: ik kies en betaal zelf
+        </label>
+        <label className="radio dicht">
+          <input type="radio" disabled /> ZZP&apos;er of ondernemer <span className="uitleg">(volgt in stap 3d)</span>
+        </label>
+        <label className="radio dicht">
+          <input type="radio" disabled /> Auto van de zaak (lease) <span className="uitleg">(volgt in stap 3d)</span>
+        </label>
+      </fieldset>
 
-  const aandrijving: Aandrijving = brandstof === "elektrisch" ? "batterij" : brandstof === "waterstof" ? "waterstof" : "brandstof";
-  const bijt = bijtellingPerJaar({ cataloguswaarde: prijs, aandrijving, jaarEersteToelating: jaarToelating });
-  const netto = nettoBijtellingWerknemer(bijt.perJaar, tarief / 100, eigenBijdrage * 12);
-  const pseudo = pseudoEindheffing(prijs, aandrijving, jaarToelating);
+      <h2>Hoe rijd je?</h2>
+      <div className="velden">
+        <Getal label="Kilometers per jaar" waarde={intake.kmPerJaar} zet={z("kmPerJaar")} stap={1000} />
+        <Getal label="Langste rit die je regelmatig maakt (enkele reis, km)" waarde={intake.langsteRitKm} zet={z("langsteRitKm")} stap={10} />
+        <JaNee label="Kun je thuis laden (eigen oprit of laadpunt)?" waarde={intake.thuisladen} zet={z("thuisladen")} />
+        <Getal label="Trekgewicht nodig (kg, 0 = geen aanhanger)" waarde={intake.trekgewicht} zet={z("trekgewicht")} stap={100} />
+      </div>
 
-  const zzpInvoer = {
-    aankoopprijsIncl: prijs,
-    restwaardeEindeIncl: restwaarde,
-    looptijdJaren: maanden / 12,
-    cataloguswaarde: prijs,
-    aandrijving,
-    jaarEersteToelating: jaarToelating,
-    energieIncl: energieJaar,
-    onderhoudIncl: onderhoud * 12,
-    mrb: mrb.perJaar,
-    verzekering: verzekering * 12,
-    zakelijkeKm: Math.min(zakKm, km),
-    priveKm: Math.max(0, km - zakKm),
-    tarief: zzpTarief / 100,
-    btwPlichtig: true,
-  };
-  const zZak = zzpZakelijk(zzpInvoer);
-  const zPriv = zzpPrive(zzpInvoer);
+      <h2>Wie rijden er mee?</h2>
+      <div className="velden">
+        <Getal label="Aantal personen (meestal maximaal)" waarde={intake.personen} zet={z("personen")} min={1} />
+        <JaNee label="Kinderen in het gezin?" waarde={intake.kinderen} zet={z("kinderen")} />
+      </div>
+
+      <h2>Wat mag het kosten?</h2>
+      <div className="velden">
+        <Getal label="Budget per maand, alles inbegrepen (€)" hulp="Afschrijving, brandstof of laden, belasting, verzekering en onderhoud" waarde={intake.maandbudget} zet={z("maandbudget")} stap={50} min={50} />
+        <label>
+          Maximale aankoopprijs (€, optioneel)
+          <input
+            type="number"
+            inputMode="numeric"
+            step={1000}
+            value={intake.maxAankoopprijs ?? ""}
+            placeholder="geen maximum"
+            onChange={(e) => zet({ ...intake, maxAankoopprijs: e.target.value ? Number(e.target.value) : null })}
+          />
+        </label>
+        <label>
+          Hoe lang houd je de auto?
+          <select value={intake.looptijdMaanden} onChange={(e) => zet({ ...intake, looptijdMaanden: Number(e.target.value) })}>
+            {[3, 4, 5, 6, 7, 8].map((j) => (
+              <option key={j} value={j * 12}>
+                {j} jaar
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Provincie (voor de motorrijtuigenbelasting)
+          <select value={intake.provincie} onChange={(e) => zet({ ...intake, provincie: e.target.value as Provincie })}>
+            {provincies.map(([v, t]) => (
+              <option key={v} value={v}>
+                {t}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Verzekering
+          <select value={intake.dekking} onChange={(e) => zet({ ...intake, dekking: e.target.value as Intake["dekking"] })}>
+            <option value="allrisk">Allrisk</option>
+            <option value="waPlus">WA+ (beperkt casco)</option>
+            <option value="wa">WA</option>
+          </select>
+        </label>
+        <label>
+          Eigen premie per maand (€, optioneel)
+          <input
+            type="number"
+            inputMode="decimal"
+            value={intake.eigenPremiePerMaand ?? ""}
+            placeholder={`gemiddeld ${eur2(aannames.verzekering.gemiddeldePerMaand.waarde[intake.dekking])}`}
+            onChange={(e) => zet({ ...intake, eigenPremiePerMaand: e.target.value ? Number(e.target.value) : null })}
+          />
+        </label>
+      </div>
+
+      <fieldset className="aandrijving">
+        <legend>Welke aandrijving wil je overwegen?</legend>
+        {AANDRIJVINGEN.map(([a, t]) => (
+          <label key={a} className="radio">
+            <input
+              type="checkbox"
+              checked={intake.aandrijvingen.includes(a)}
+              onChange={(e) => zet({ ...intake, aandrijvingen: e.target.checked ? [...intake.aandrijvingen, a] : intake.aandrijvingen.filter((x) => x !== a) })}
+            />{" "}
+            {t}
+          </label>
+        ))}
+      </fieldset>
+    </>
+  );
+}
+
+function Schuifjes({ gewichten, zet, standaard }: { gewichten: Gewichten; zet: (g: Gewichten) => void; standaard: Gewichten }) {
+  const mee = CRITERIA.filter((c) => !ZONDER_DATA[c]);
+  const som = mee.reduce((s, c) => s + gewichten[c], 0) || 1;
+  return (
+    <details className="schuifjes">
+      <summary>Wat vind jij belangrijk? (gewichten aanpassen)</summary>
+      <p className="uitleg">
+        De startwaarden horen bij jouw profiel. Schuif om ze aan te passen; het percentage is het aandeel in de eindscore.
+      </p>
+      {CRITERIA.map((c) => (
+        <label key={c} className="schuif">
+          <span>
+            {criteriumNaam[c]} <b>{ZONDER_DATA[c] ? "—" : `${Math.round((100 * gewichten[c]) / som)}%`}</b>
+          </span>
+          <input
+            type="range"
+            min={0}
+            max={40}
+            step={5}
+            value={ZONDER_DATA[c] ? 0 : gewichten[c]}
+            disabled={!!ZONDER_DATA[c]}
+            onChange={(e) => zet({ ...gewichten, [c]: Number(e.target.value) })}
+          />
+          {ZONDER_DATA[c] && <span className="uitleg">{ZONDER_DATA[c]}</span>}
+        </label>
+      ))}
+      <button type="button" className="link" onClick={() => zet(standaard)}>
+        Terug naar de startwaarden
+      </button>
+    </details>
+  );
+}
+
+function AutoKaart({ r, plek, eerste, gewichten }: { r: Resultaat; plek: number; eerste: Resultaat; gewichten: Gewichten }) {
+  const t = toelichting(r, eerste, gewichten);
+  const veil = veiligheidModel(r.id);
+  return (
+    <article className="autokaart">
+      <div className="kop">
+        <span className="plek">{plek}</span>
+        <div>
+          <h3>{r.naam}</h3>
+          <div className="uitleg">
+            {r.uitvoering.aandrijving} · nieuw · catalogusprijs {eur(r.kosten.aankoopprijs)}
+          </div>
+        </div>
+        <div className="eindscore" title="Eindscore op 100">
+          {Math.round(r.eind.score)}
+          <span>/100</span>
+        </div>
+      </div>
+      <div className="groot">
+        {eur(r.kosten.tco.perMaand)} <span className="uitleg">per maand alles inbegrepen</span>
+      </div>
+      {!r.binnenBudget && <div className="melding">Boven je budget. Er passen te weinig auto&apos;s binnen je budget; dit is de goedkoopste daarboven.</div>}
+      <ul className="punten">
+        {t.sterk.map((c) => (
+          <li key={c} className="plus">
+            <b>{criteriumNaam[c]}:</b> {r.scores[c]!.waarde}
+          </li>
+        ))}
+        {t.zwak.map((c) => (
+          <li key={c} className="min">
+            <b>{criteriumNaam[c]}:</b> {r.scores[c]!.waarde}
+          </li>
+        ))}
+      </ul>
+      {t.achterstand && (
+        <p className="uitleg">
+          {t.verschil} punten achter op nummer 1, vooral door {criteriumNaam[t.achterstand.criterium].toLowerCase()} ({t.achterstand.punten} punten). Vind je dat minder belangrijk? Zet
+          het schuifje lager.
+        </p>
+      )}
+      <details>
+        <summary>Hoe is de score berekend?</summary>
+        <table>
+          <tbody>
+            {CRITERIA.map((c) => {
+              const s = r.scores[c];
+              const w = r.eind.effectieveGewichten[c];
+              return (
+                <tr key={c}>
+                  <td>
+                    {criteriumNaam[c]}
+                    <div className="uitleg">{s ? `${s.waarde}. ${s.uitleg}` : nietGescoord(r.scores).includes(c) ? (ZONDER_DATA[c] ?? "onvoldoende data of niet van toepassing; telt niet mee") : ""}</div>
+                  </td>
+                  <td className="b">{s ? `${Math.round(s.score)}` : "—"}</td>
+                  <td className="b uitleg">{w != null ? `× ${w}%` : ""}</td>
+                </tr>
+              );
+            })}
+            <tr>
+              <td>
+                <b>Eindscore</b>
+                <div className="uitleg">Gewogen gemiddelde over de criteria met data ({Math.round(r.eind.datadekking * 100)}% van het gewicht had data).</div>
+              </td>
+              <td className="b">
+                <b>{r.eind.score.toLocaleString("nl-NL")}</b>
+              </td>
+              <td />
+            </tr>
+          </tbody>
+        </table>
+        {veil && (
+          <p className="uitleg">
+            Euro NCAP-uitslag:{" "}
+            <a href={veil.geldend.url} target="_blank" rel="noreferrer">
+              euroncap.com
+            </a>
+          </p>
+        )}
+      </details>
+      <details>
+        <summary>Hoe zijn de kosten berekend?</summary>
+        <table>
+          <tbody>
+            {r.kosten.tco.posten.map((p) => (
+              <tr key={p.label}>
+                <td>
+                  {p.label}
+                  <div className="uitleg">{p.uitleg}</div>
+                </td>
+                <td className="b">{eur2(p.bedrag)}</td>
+              </tr>
+            ))}
+            <tr>
+              <td>
+                <b>Totaal per maand</b>
+                <div className="uitleg">
+                  Contant gekocht, {r.kosten.tco.perKm.toLocaleString("nl-NL", { style: "currency", currency: "EUR", minimumFractionDigits: 3 })} per km. Andere
+                  financieringsvormen volgen in stap 3c.
+                </div>
+              </td>
+              <td className="b">
+                <b>{eur2(r.kosten.tco.perMaand)}</b>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+    </article>
+  );
+}
+
+export default function Autokeuze() {
+  const [intake, setIntake] = useState<Intake>(STANDAARD);
+  const gezin = gezinsprofiel(intake);
+  const standaard = useMemo(() => startGewichten(intake.profiel, { gezin }), [intake.profiel, gezin]);
+  const [eigen, setEigen] = useState<Gewichten | null>(null);
+  const gewichten = eigen ?? standaard;
+  const [getoond, setGetoond] = useState(false);
+  const resultatenRef = useRef<HTMLDivElement>(null);
+
+  const ranglijst = useMemo(() => rangschik(intake, gewichten), [intake, gewichten]);
+  const eerste = ranglijst.top[0];
 
   return (
-    <main>
+    <main className="keuze">
       <Nav />
-      <h1>AutoKeuze NL: rekenpagina</h1>
-      <p className="sub">Testversie van de reken-engine (Fase 1). Vul waarden in en klap per bedrag de berekening open.</p>
+      <h1>Welke auto past bij jou?</h1>
+      <p className="sub">
+        Beantwoord een paar vragen. We rekenen de {alleModellen.length} meest geregistreerde modellen in Nederland door
+        en laten zien welke in jouw situatie het beste scoren, en waarom. Alles draait in je browser; we bewaren niets.
+      </p>
 
-      <h2>Auto en gebruik</h2>
-      <div className="velden">
-        <Getal label="Aankoopprijs / cataloguswaarde (€)" waarde={prijs} zet={setPrijs} stap={500} />
-        <Getal label="Restwaarde aan het eind (% van prijs)" waarde={restPct} zet={setRestPct} />
-        <Getal label="Looptijd (maanden)" waarde={maanden} zet={setMaanden} stap={12} />
-        <Getal label="Km per jaar" waarde={km} zet={setKm} stap={1000} />
-        <Keuze
-          label="Brandstof"
-          waarde={brandstof}
-          zet={setBrandstof}
-          opties={[
-            ["elektrisch", "Elektrisch"],
-            ["benzine", "Benzine / hybride"],
-            ["diesel", "Diesel"],
-            ["waterstof", "Waterstof"],
-            ["overig", "LPG / overig"],
-          ]}
-        />
-        <Getal label={isEv ? "Verbruik (kWh/100 km)" : "Verbruik (l/100 km)"} waarde={verbruik} zet={setVerbruik} stap={0.1} />
-        {isEv ? (
-          <Getal label="Thuisladen (%), rest publiek" waarde={thuisPct} zet={(n) => setThuisPct(Math.min(100, Math.max(0, n)))} />
-        ) : (
-          <Getal label="Brandstofprijs (€/l)" waarde={prijsBenzine} zet={setPrijsBenzine} stap={0.01} />
-        )}
-        <Getal label="Massa rijklaar (kg)" waarde={massa} zet={setMassa} stap={10} />
-        <Keuze label="Provincie" waarde={provincie} zet={setProvincie} opties={provincies} />
-        <Getal label="Verzekering (€/mnd)" waarde={verzekering} zet={setVerzekering} />
-        <Getal label="Onderhoud + banden (€/mnd)" waarde={onderhoud} zet={setOnderhoud} />
-        <Getal label="Gemist rendement spaargeld (%/jr)" waarde={rendement} zet={setRendement} stap={0.1} />
-      </div>
+      <Intakeformulier intake={intake} zet={setIntake} />
 
-      <div className="kaarten">
-        <Kaart
-          titel="Motorrijtuigenbelasting"
-          bedrag={mrb.perKwartaal}
-          sub={
-            `per kwartaal · ${eur(mrb.perJaar)} per jaar (2026)` +
-            (mrb.posten.kortingFactor < 1 ? ` · emissievrij: je betaalt ${Math.round(mrb.posten.kortingFactor * 100)}% van het totaal` : "")
-          }
-          posten={[
-            { label: "Rijksdeel", bedrag: mrb.posten.rijksdeel, uitleg: "art. 23 Wet MRB" },
-            { label: "Brandstoftoeslag", bedrag: mrb.posten.brandstoftoeslag, uitleg: "" },
-            { label: "Fijnstoftoeslag", bedrag: mrb.posten.fijnstoftoeslag, uitleg: "diesel zonder roetfilter" },
-            { label: "Provinciale opcenten", bedrag: mrb.posten.opcenten, uitleg: `${regels.mrb.opcenten2026.waarde[provincie]} opcenten` },
-          ]}
-        />
-        <Kaart titel="Energie" bedrag={auto.lopend.energie} sub={`per maand · ${eur(energieJaar)} per jaar · ${eenheidsprijs.toFixed(3)} per eenheid`} />
-      </div>
+      <button
+        type="button"
+        className="hoofdknop"
+        onClick={() => {
+          setGetoond(true);
+          setTimeout(() => resultatenRef.current?.scrollIntoView({ behavior: "smooth" }), 0);
+        }}
+      >
+        Toon mijn top 3
+      </button>
 
-      <h2>Financieringsvormen (totale kosten per maand)</h2>
-      <div className="velden">
-        <Getal label="Te lenen / financieren (€)" waarde={leenBedrag} zet={setLeenBedrag} stap={500} />
-        <Getal label="Rente (%/jr)" waarde={rente} zet={setRente} stap={0.1} />
-        <Getal label="Slottermijn financial lease (€)" waarde={slot} zet={setSlot} stap={500} />
-        <Getal label="Private-leaseprijs (€/mnd)" waarde={leaseprijs} zet={setLeaseprijs} />
-        <Getal label="Eigen risico lease (€)" waarde={eigenRisico} zet={setEigenRisico} stap={50} />
-      </div>
-      {!geldig && <p className="uitleg">Het te lenen bedrag mag niet hoger zijn dan de aankoopprijs.</p>}
-      <div className="kaarten">
-        <Kaart titel="Contant" bedrag={contant.perMaand} sub={`${eurKm(contant.perKm)} per km`} posten={contant.posten} />
-        {lening && (
-          <Kaart titel="Persoonlijke lening" bedrag={lening.perMaand} sub={`termijn ${eur(lening.maandtermijn)} · ${eurKm(lening.perKm)} per km`} posten={lening.posten} />
-        )}
-        {fl && (
-          <Kaart
-            titel="Financial lease (slottermijn)"
-            bedrag={fl.perMaand}
-            sub={`termijn ${eur(fl.maandtermijn)} + slottermijn ${eur(slot)}`}
-            posten={fl.posten}
-            extra={fl.restschuldRisico > 0 ? <div className="uitleg">Let op: slottermijn ligt {eur(fl.restschuldRisico)} boven de verwachte restwaarde.</div> : undefined}
-          />
-        )}
-        <Kaart titel="Private lease" bedrag={pl.perMaand} sub={`${eurKm(pl.perKm)} per km`} posten={pl.posten} />
-      </div>
+      {getoond && (
+        <div ref={resultatenRef}>
+          <h2>{ranglijst.top.length > 0 && ranglijst.top.length < 3 ? `Jouw top ${ranglijst.top.length}` : "Jouw top 3"}</h2>
+          {intake.aandrijvingen.length === 0 ? (
+            <p className="melding">Kies minstens één aandrijving.</p>
+          ) : !eerste ? (
+            <p className="melding">Geen enkele auto voldoet aan je eisen. Kijk hieronder waarom, en pas bijvoorbeeld het aantal personen of het trekgewicht aan.</p>
+          ) : (
+            <>
+              <p className="uitleg">
+                In dit scenario scoren deze auto&apos;s het hoogst. Dit is een vergelijking, geen advies: kijk ook zelf of de auto bij je past en maak een proefrit.
+                {gezin && " Omdat je met 3 of meer personen of met kinderen rijdt, tellen veiligheid en ruimte zwaarder mee."}
+              </p>
+              <Schuifjes gewichten={gewichten} zet={setEigen} standaard={standaard} />
+              <div className="top">
+                {ranglijst.top.map((r, n) => (
+                  <AutoKaart key={r.id} r={r} plek={n + 1} eerste={eerste} gewichten={gewichten} />
+                ))}
+              </div>
+            </>
+          )}
 
-      <h2>Auto van de zaak (leaserijder)</h2>
-      <div className="velden">
-        <Getal label="Jaar eerste toelating" waarde={jaarToelating} zet={setJaarToelating} />
-        <Getal label="Marginaal belastingtarief (%)" waarde={tarief} zet={setTarief} stap={0.01} />
-        <Getal label="Eigen bijdrage (€/mnd)" waarde={eigenBijdrage} zet={setEigenBijdrage} />
-      </div>
-      <div className="kaarten">
-        <Kaart titel="Bijtelling" bedrag={bijt.perJaar} sub={`per jaar · ${bijt.uitleg}`} />
-        <Kaart titel="Netto kosten voor jou" bedrag={netto.perMaand} sub={`per maand · ${eur(netto.perJaar)} per jaar`} />
-        <Kaart titel="Pseudo-eindheffing werkgever" bedrag={pseudo} sub="per jaar · vanaf 2027, alleen auto's met CO₂-uitstoot" />
-      </div>
+          {ranglijst.lijst.length > 0 && (
+            <details>
+              <summary>Bekijk de volledige ranglijst ({ranglijst.lijst.length} modellen)</summary>
+              <div className="tabel-scroll">
+                <table className="ranglijst">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Model</th>
+                      <th className="b">Score</th>
+                      <th className="b">Per maand</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {ranglijst.lijst.map((r, n) => (
+                      <tr key={r.id}>
+                        <td>{n + 1}</td>
+                        <td>
+                          {r.naam} <span className="uitleg">{r.uitvoering.aandrijving}</span>
+                        </td>
+                        <td className="b">{Math.round(r.eind.score)}</td>
+                        <td className="b">
+                          {eur(r.kosten.tco.perMaand)}
+                          {!r.binnenBudget && <span className="uitleg"> boven budget</span>}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="uitleg">Per model telt de uitvoering (aandrijving) die het hoogst scoort. Bij een gelijke afgeronde score staat de laagste maandprijs eerst, daarna alfabetisch.</p>
+            </details>
+          )}
 
-      <h2>ZZP'er: auto zakelijk of privé</h2>
-      <div className="velden">
-        <Getal label="Zakelijke km per jaar (rest = privé)" waarde={zakKm} zet={setZakKm} stap={1000} />
-        <Getal label="Effectief belastingtarief (%)" waarde={zzpTarief} zet={setZzpTarief} stap={0.1} />
-      </div>
-      <div className="kaarten">
-        <Kaart titel="Auto zakelijk" bedrag={zZak.nettoPerMaand} sub={`netto per maand · ${eur(zZak.nettoPerJaar)} per jaar`} posten={zZak.posten} />
-        <Kaart titel="Auto privé + €0,25/km" bedrag={zPriv.nettoPerMaand} sub={`netto per maand · ${eur(zPriv.nettoPerJaar)} per jaar`} posten={zPriv.posten} />
-      </div>
+          {ranglijst.uitgesloten.length > 0 && (
+            <details>
+              <summary>Niet meegenomen ({ranglijst.uitgesloten.length} uitvoeringen)</summary>
+              <ul className="uitleg">
+                {ranglijst.uitgesloten.map((u, n) => (
+                  <li key={n}>
+                    {u.naam} ({u.aandrijving}): {u.redenen.join(", ")}
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+
+          <details>
+            <summary>Wat zit er (nog) niet in?</summary>
+            <ul className="uitleg">
+              <li>Alleen nieuwe auto&apos;s, contant gekocht. Occasions (stap 3b) en financieringsvormen zoals private lease (stap 3c) volgen.</li>
+              <li>Prijzen zijn de mediane catalogusprijs van recent geregistreerde exemplaren (RDW, {datasetPeildatum}), inclusief opties en zonder kortingen.</li>
+              <li>Verbruik is de officiële WLTP-opgave. In de praktijk ligt het vaak hoger, vooral in de winter. Daar corrigeren we nog niet voor.</li>
+              <li>Restwaarde en onderhoud zijn rekenmodellen die niet per merk verschillen. Verzekering is voor elk model gelijk.</li>
+              <li>BPM voor brandstofauto&apos;s rekenen we niet apart; die zit in de catalogusprijs.</li>
+              <li>Euro NCAP: alleen sterren en testjaar, met link naar de bron ({ncapHerkomst.peildatum}).</li>
+            </ul>
+          </details>
+        </div>
+      )}
 
       <p className="disclaimer">
-        Testversie. Uitkomsten zijn scenario's op basis van jouw invoer en de aannames die bij elke berekening staan. Dit is geen financieel advies.
-        Fiscale waarden komen uit src/regels/regels-nl.ts (met bron en peildatum). BPM voor brandstofauto's is nog niet opgenomen.
+        AutoKeuze NL vergelijkt en rekent door op basis van jouw invoer, openbare data en de aannames die bij elke berekening staan. Dit is geen financieel advies en geen
+        bemiddeling. Er zijn geen commerciële partners die de volgorde beïnvloeden. Methodiek versie {VERSIE}.
       </p>
     </main>
   );

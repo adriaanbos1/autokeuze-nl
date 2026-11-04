@@ -5,6 +5,8 @@
   --rand: #d9d9d9;
   --vlak: #f5f5f4;
   --accent: #1f5f8b;
+  --plus: #2e7d32;
+  --min: #b3261e;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -14,6 +16,8 @@
     --rand: #3a3a3a;
     --vlak: #222222;
     --accent: #7fb6dd;
+    --plus: #81c784;
+    --min: #f28b82;
   }
 }
 * { box-sizing: border-box; }
@@ -59,3 +63,41 @@ table.dataset th { text-align: left; font-weight: 600; border-bottom: 1px solid 
 table.dataset th.b { text-align: right; }
 table.dataset td { padding: 3px 6px 3px 0; }
 tr.nieuw-model td { border-top: 1px solid var(--rand); }
+/* ── Autokeuze (Fase 3a), mobiel eerst */
+main.keuze { max-width: 720px; }
+fieldset { border: 0; padding: 0; margin: 16px 0 0; min-width: 0; }
+legend { font-size: 0.85rem; color: var(--muted); margin-bottom: 4px; padding: 0; }
+label.radio { flex-direction: row; align-items: center; gap: 8px; font-size: 1rem; color: var(--fg); padding: 6px 0; }
+label.radio.dicht { color: var(--muted); }
+fieldset.aandrijving { display: flex; flex-wrap: wrap; column-gap: 20px; }
+.janee { display: flex; flex-wrap: wrap; gap: 0; margin: 0; }
+.janee legend { width: 100%; }
+.janee button { background: var(--bg); color: var(--fg); border: 1px solid var(--rand); border-radius: 0; padding: 8px 20px; min-height: 40px; }
+.janee button:first-of-type { border-radius: 6px 0 0 6px; }
+.janee button:last-of-type { border-radius: 0 6px 6px 0; border-left: 0; }
+.janee button.gekozen { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+input, select { min-height: 40px; }
+.hoofdknop { display: block; width: 100%; margin: 28px 0 8px; padding: 12px; font-size: 1.05rem; font-weight: 600; }
+button.link { background: none; color: var(--accent); padding: 4px 0; text-decoration: underline; }
+.top { display: grid; gap: 16px; margin-top: 16px; }
+.autokaart { background: var(--vlak); border-radius: 10px; padding: 14px 16px; }
+.autokaart .kop { display: flex; align-items: flex-start; gap: 12px; }
+.autokaart .kop > div:nth-child(2) { flex: 1; min-width: 0; }
+.autokaart h3 { margin: 0; font-size: 1.1rem; }
+.plek { flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--bg); display: grid; place-items: center; font-weight: 700; }
+.eindscore { font-size: 1.6rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; text-align: right; }
+.eindscore span { font-size: 0.8rem; font-weight: 400; color: var(--muted); }
+.autokaart .groot { margin: 10px 0 6px; }
+.autokaart .groot .uitleg { font-weight: 400; }
+ul.punten { list-style: none; padding: 0; margin: 8px 0; font-size: 0.9rem; }
+ul.punten li { padding: 2px 0 2px 22px; position: relative; }
+ul.punten li::before { position: absolute; left: 2px; font-weight: 700; }
+ul.punten li.plus::before { content: "+"; color: var(--plus); }
+ul.punten li.min::before { content: "−"; color: var(--min); }
+.schuifjes { background: var(--vlak); border-radius: 10px; padding: 10px 16px; margin-top: 12px; }
+label.schuif { margin: 10px 0; color: var(--fg); font-size: 0.9rem; }
+label.schuif span:first-child { display: flex; justify-content: space-between; }
+input[type="range"] { width: 100%; accent-color: var(--accent); min-height: 28px; padding: 0; border: 0; background: none; }
+table.ranglijst { font-size: 0.88rem; }
+table.ranglijst th { text-align: left; border-bottom: 1px solid var(--rand); font-weight: 600; }
+table.ranglijst th.b { text-align: right; }
