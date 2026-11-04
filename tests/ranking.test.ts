@@ -183,11 +183,20 @@ describe("zakelijke profielen (basis)", () => {
     const k = kostenNieuw(benzine, { ...lease, zakelijk: { ...STANDAARD_ZAKELIJK, jaarIngebruikname: 2027 } })!;
     expect(k.profiel!.pseudoEindheffingWerkgever).toBe(3600);
   });
-  it("ZZP'er: de score rekent met de goedkoopste van zakelijk en privé", () => {
+  it("ZZP'er: vier varianten; de score rekent met de goedkoopste van kopen zakelijk en kopen privé", () => {
     const k = kostenNieuw(benzine, { ...basis, profiel: "zzp" })!;
-    const [zak, pri] = k.profiel!.varianten!;
-    expect(k.profiel!.perMaand).toBe(Math.min(zak.perMaand, pri.perMaand));
-    expect([zak.naam, pri.naam]).toEqual(["Auto zakelijk", "Auto privé + km-vergoeding"]);
+    const v = k.profiel!.varianten!;
+    expect(v.map((x) => x.naam)).toEqual(["Kopen, auto zakelijk", "Kopen, auto privé + km-vergoeding", "Financial lease zakelijk", "Operational lease"]);
+    expect(k.profiel!.perMaand).toBe(Math.min(v[0].perMaand, v[1].perMaand));
+  });
+  it("ZZP'er occasion: marge-auto (geen btw op de factuur) en bijtelling volgens het bouwjaar", () => {
+    const k = kosten(benzine, { ...basis, profiel: "zzp" }, occasionVan(2021, 2026))!;
+    expect(k.profiel!.zzp!.auto.btwOpFactuur).toBe(false);
+    expect(k.profiel!.zzp!.auto.jaarEersteToelating).toBe(2021);
+  });
+  it("ZZP'er met 'allebei': ook occasions in de ranglijst", () => {
+    const l = rangschik({ ...basis, profiel: "zzp", soort: "beide" }, startGewichten("zzp", { gezin: false })).lijst;
+    expect(l.some((r) => r.occasion !== null)).toBe(true);
   });
   it("zakelijke profielen: alleen nieuwe auto's, ook als 'allebei' is gekozen", () => {
     for (const r of rangschik({ ...lease, soort: "beide" }, startGewichten("leaserijder", { gezin: false })).lijst) expect(r.occasion).toBeNull();

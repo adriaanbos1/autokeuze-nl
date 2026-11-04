@@ -234,6 +234,28 @@ export const aannames = {
     } as Aanname<number>,
   },
 
+  zakelijk: {
+    /** Een zakelijk gekochte occasion is meestal een marge-auto: geen btw-aftrek op de aankoop. */
+    occasionMargeregeling: {
+      waarde: true,
+      soort: "aanname",
+      bron: EIGEN,
+      geldigVanaf: "2026-11-04",
+      peildatum: "2026-11-04",
+      toelichting: "Bij een marge-auto staat er geen btw op de factuur, dus is er geen aftrek en geldt de btw-correctie van 1,5%. Koop je een occasion met btw op de factuur, dan valt het voordeliger uit.",
+    } as Aanname<boolean>,
+
+    /** Operational lease: we passen dezelfde forfaitaire btw-correctie toe als bij een gekochte auto. */
+    btwCorrectieLeaseauto: {
+      waarde: true,
+      soort: "aanname",
+      bron: "eigen aanname; de SRA-advieswijzer noemt leaseauto's niet apart",
+      geldigVanaf: "2026-11-04",
+      peildatum: "2026-11-04",
+      toelichting: "Niet geverifieerd in een primaire bron. Laat dit bij een definitief besluit nakijken.",
+    } as Aanname<boolean>,
+  },
+
   privateLease: {
     /** Rente die een leasemaatschappij over het geld in de auto rekent. */
     kapitaalrente: {

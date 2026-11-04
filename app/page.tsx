@@ -14,6 +14,10 @@ import {
   toelichting,
   kostenPerMaand,
   type ProfielKosten,
+  type ZzpBasis,
+  standaardZzpLease,
+  zzpVariantenVoor,
+  ZZP_NAAM,
   type Intake,
   type Resultaat,
   type Soort,
@@ -173,13 +177,15 @@ function Intakeformulier({ intake, zet }: { intake: Intake; zet: (i: Intake) => 
             )}
           </div>
           <p className="uitleg">
-            Basisversie: alleen nieuwe auto&apos;s, gekocht (ZZP) of via de zaak (lease). Operational lease voor ondernemers, de DGA/bv en occasions met oudere
-            bijtellingsregels volgen in Fase 4.
+            {intake.profiel === "zzp"
+              ? "We vergelijken per auto kopen (zakelijk of privé), financial lease en operational lease. Een occasion rekenen we als auto zonder btw op de factuur."
+              : "Leaseauto's zijn nieuw; we rekenen met de bijtelling van het jaar waarin je de auto krijgt."}{" "}
+            Niet nagerekend door een fiscalist: laat je bij een definitief besluit adviseren.
           </p>
         </>
       )}
 
-      {intake.profiel === "particulier" && (
+      {intake.profiel !== "leaserijder" && (
         <>
           <fieldset className="keuzeknoppen">
             <legend>Nieuw of tweedehands?</legend>
@@ -383,28 +389,69 @@ function Posten({ posten }: { posten: { label: string; bedrag: number; uitleg: s
 
 /** Zakelijke profielen: hoe het nettobedrag tot stand komt (per jaar). */
 function ProfielBerekening({ p }: { p: ProfielKosten }) {
+  if (p.zzp) return <ZzpBerekening p={p} zzp={p.zzp} />;
   return (
     <details className="financiering">
-      <summary>{p.varianten ? "Zakelijk of privé?" : "Hoe is de netto bijtelling berekend?"}</summary>
+      <summary>Hoe is de netto bijtelling berekend?</summary>
       <p className="uitleg">{p.uitleg}. Bedragen per jaar.</p>
-      {p.varianten ? (
-        <div className="scenarios">
-          {p.varianten.map((v) => (
-            <div key={v.naam} className={`scenario${v.perMaand === p.perMaand ? " laagst" : ""}`}>
-              <h4>
-                {v.naam}: {eur(v.perMaand)} per maand
-              </h4>
-              <Posten posten={v.posten} />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <Posten posten={p.posten} />
-      )}
+      <Posten posten={p.posten} />
       <p className="uitleg">
-        {p.varianten
-          ? "In dit scenario is de variant met het blauwe kader het goedkoopst. Heffingskortingen en de afbouw daarvan zitten er nog niet in; kosten van geld laten we weg (gelijk in beide varianten). Laat je bij een definitief besluit adviseren."
-          : "Tarief zonder heffingskortingen. Brandstof of laden betaalt in deze berekening je werkgever. Het percentage ligt 60 maanden vast."}
+        Exacte inkomstenbelasting 2026 met en zonder bijtelling, inclusief minder heffingskortingen; zonder fiscale partner. Brandstof of laden betaalt in deze
+        berekening je werkgever. Het percentage ligt 60 maanden vast. Niet nagerekend door een fiscalist.
+      </p>
+    </details>
+  );
+}
+
+/** ZZP'er: vier varianten, met een leaseofferte en de financial-leaserente als invoer. */
+function ZzpBerekening({ p, zzp }: { p: ProfielKosten; zzp: ZzpBasis }) {
+  const [lease, setLease] = useState(() => standaardZzpLease(zzp));
+  const varianten = zzpVariantenVoor(zzp, lease);
+  const laagst = varianten.reduce((x, y) => (y.nettoPerMaand < x.nettoPerMaand ? y : x));
+  const ol = varianten.find((v) => v.vorm === "operationalLease")!;
+  return (
+    <details className="financiering">
+      <summary>Kopen of leasen, zakelijk of privé?</summary>
+      <p className="uitleg">{p.uitleg}. Bedragen per jaar.</p>
+      <div className="velden">
+        <label>
+          Rente financial lease (% per jaar)
+          <input
+            type="number"
+            inputMode="decimal"
+            step={0.1}
+            value={Math.round(lease.financialLease.jaarrente * 1000) / 10}
+            onChange={(e) => setLease({ ...lease, financialLease: { ...lease.financialLease, jaarrente: Number(e.target.value) / 100 } })}
+          />
+        </label>
+        <label>
+          Operational lease: offerte per maand excl. btw (optioneel)
+          <input
+            type="number"
+            inputMode="decimal"
+            value={lease.operationalLease.offerteExclBtw ?? ""}
+            placeholder={`onze schatting ${eur(ol.leaseprijsExcl ?? 0)}`}
+            onChange={(e) =>
+              setLease({ ...lease, operationalLease: { ...lease.operationalLease, offerteExclBtw: e.target.value ? Number(e.target.value) : null } })
+            }
+          />
+        </label>
+      </div>
+      <div className="scenarios">
+        {varianten.map((v) => (
+          <div key={v.vorm} className={`scenario${v === laagst ? " laagst" : ""}`}>
+            <h4>
+              {ZZP_NAAM[v.vorm]}: {eur(v.nettoPerMaand)} per maand
+            </h4>
+            <Posten posten={v.posten} />
+          </div>
+        ))}
+      </div>
+      <p className="uitleg">
+        In dit scenario is <b>{ZZP_NAAM[laagst.vorm].toLowerCase()}</b> het goedkoopst. De score rekent met kopen (zakelijk of privé), zodat de volgorde niet
+        afhangt van een leaseproduct.{ol.leaseprijsGeschat ? " De operational-leaseprijs is onze schatting op kostprijsbasis, geen aanbod." : ""} Woon-werk telt
+        voor de btw als privé; heb je zakelijk minder dan 500 km privé, dan vervallen bijtelling en btw-correctie. Geen fiscale partner, geen startersaftrek.
+        Niet nagerekend door een fiscalist: laat je bij een definitief besluit adviseren.
       </p>
     </details>
   );
@@ -549,7 +596,7 @@ function AutoKaart({ r, plek, eerste, gewichten }: { r: Resultaat; plek: number;
         </details>
       )}
       {r.kosten.profiel ? (
-        <ProfielBerekening p={r.kosten.profiel} />
+        <ProfielBerekening key={`${r.id}-${r.occasion?.bouwjaar ?? 0}-${r.kosten.profiel.perMaand}`} p={r.kosten.profiel} />
       ) : (
         <Financiering key={`${r.id}-${r.occasion?.bouwjaar ?? 0}-${r.kosten.tco.perMaand}`} bezit={r.kosten.bezit} naam={r.naam} />
       )}
@@ -560,7 +607,7 @@ function AutoKaart({ r, plek, eerste, gewichten }: { r: Resultaat; plek: number;
 export default function Autokeuze() {
   const [intake, setIntake] = useState<Intake>(STANDAARD);
   const gezin = gezinsprofiel(intake);
-  const occasion = intake.soort === "occasion";
+  const occasion = intake.profiel !== "leaserijder" && intake.soort === "occasion";
   const standaard = useMemo(() => startGewichten(intake.profiel, { gezin, occasion }), [intake.profiel, gezin, occasion]);
   const [eigen, setEigen] = useState<Gewichten | null>(null);
   const gewichten = eigen ?? standaard;

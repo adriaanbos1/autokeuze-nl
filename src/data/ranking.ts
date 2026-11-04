@@ -33,8 +33,10 @@ import {
   belastingOndernemer2026,
   belastingWerknemer2026,
   effectiefTarief,
-  zzpPrive,
-  zzpZakelijk,
+  zzpVarianten,
+  type ZzpAuto,
+  type ZzpLease,
+  type ZzpVorm,
   type Post,
   type CriteriumScore,
   type Dekking,
@@ -113,6 +115,8 @@ export interface ProfielKosten {
   varianten?: { naam: string; perMaand: number; posten: Post[] }[];
   /** Leaserijder: wat de werkgever extra betaalt aan pseudo-eindheffing (per jaar). */
   pseudoEindheffingWerkgever?: number;
+  /** ZZP'er: invoer om de varianten in de app opnieuw te berekenen. */
+  zzp?: ZzpBasis;
 }
 
 /** Het bedrag dat in de score en het budget telt: netto voor zakelijke profielen, anders de TCO. */
@@ -282,7 +286,7 @@ export function kosten(u: UitvoeringRdw, i: Intake, occ: Occasion | null): Koste
     aankoopprijs,
     prijsUitleg,
     bezit,
-    profiel: profielKosten(u, i, bezit),
+    profiel: profielKosten(u, i, bezit, occ),
     restwaardeEinde: rest.waardeEinde,
     energiePerJaar: e.perJaar,
     energieUitleg: e.uitleg,
@@ -293,7 +297,47 @@ export function kosten(u: UitvoeringRdw, i: Intake, occ: Occasion | null): Koste
 }
 
 /** Netto kosten per maand voor de leaserijder en de ZZP'er; null voor particulier. */
-function profielKosten(u: UitvoeringRdw, i: Intake, b: AutoBezit): ProfielKosten | null {
+export const ZZP_NAAM: Record<ZzpVorm, string> = {
+  koopZakelijk: "Kopen, auto zakelijk",
+  koopPrive: "Kopen, auto privé + km-vergoeding",
+  financialLeaseZakelijk: "Financial lease zakelijk",
+  operationalLease: "Operational lease",
+};
+
+/** Alles wat nodig is om de ZZP-varianten opnieuw te berekenen (bijv. met een leaseofferte uit de app). */
+export interface ZzpBasis {
+  auto: ZzpAuto;
+  zakelijkeKm: number;
+  priveKm: number;
+  btwPlichtig: boolean;
+  winst: number;
+}
+
+export function standaardZzpLease(zzp: ZzpBasis): ZzpLease {
+  const f = aannames.financiering;
+  const restExcl = zzp.btwPlichtig && zzp.auto.btwOpFactuur ? zzp.auto.restwaardeEinde / 1.21 : zzp.auto.restwaardeEinde;
+  return {
+    financialLease: { jaarrente: f.financialLeaseRente.waarde, slottermijn: Math.floor((restExcl * f.slottermijnAandeelRestwaarde.waarde) / 500) * 500 },
+    operationalLease: { offerteExclBtw: null, kapitaalrente: aannames.privateLease.kapitaalrente.waarde, opslag: aannames.privateLease.opslag.waarde },
+  };
+}
+
+/** Vier varianten met het exacte belastingvoordeel: inkomstenbelasting 2026 met en zonder de aftrekpost. */
+export function zzpVariantenVoor(zzp: ZzpBasis, lease: ZzpLease) {
+  return zzpVarianten(
+    zzp.auto,
+    {
+      zakelijkeKm: zzp.zakelijkeKm,
+      priveKm: zzp.priveKm,
+      btwPlichtig: zzp.btwPlichtig,
+      rendement: aannames.geld.gemistRendement.waarde,
+      belastingvoordeel: (aftrek) => belastingOndernemer2026(zzp.winst) - belastingOndernemer2026(zzp.winst - aftrek),
+    },
+    lease,
+  );
+}
+
+function profielKosten(u: UitvoeringRdw, i: Intake, b: AutoBezit, occ: Occasion | null): ProfielKosten | null {
   const z = i.zakelijk;
   const aandrijving = u.aandrijving === "elektrisch" ? "batterij" : "brandstof";
   if (i.profiel === "leaserijder") {
@@ -316,42 +360,38 @@ function profielKosten(u: UitvoeringRdw, i: Intake, b: AutoBezit): ProfielKosten
   }
   if (i.profiel === "zzp") {
     const zakelijkeKm = Math.round(i.kmPerJaar * z.zakelijkAandeel);
-    const invoer = {
-      aankoopprijsIncl: b.aankoopprijs,
-      restwaardeEindeIncl: b.restwaardeEinde,
-      looptijdJaren: b.maanden / 12,
-      cataloguswaarde: u.catalogusprijs!,
-      aandrijving: aandrijving as "batterij" | "brandstof",
-      jaarEersteToelating: i.startjaar,
-      energieIncl: rond2(b.lopend.energie * 12),
-      onderhoudIncl: rond2(b.lopend.onderhoudEnBanden * 12),
-      mrb: rond2(b.lopend.mrb * 12),
-      verzekering: rond2(b.lopend.verzekering * 12),
+    const zzp: ZzpBasis = {
+      auto: {
+        aankoopprijs: b.aankoopprijs,
+        // Occasion: meestal een marge-auto zonder btw op de factuur (aanname).
+        btwOpFactuur: occ ? !aannames.zakelijk.occasionMargeregeling.waarde : true,
+        restwaardeEinde: b.restwaardeEinde,
+        looptijdJaren: b.maanden / 12,
+        cataloguswaarde: u.catalogusprijs!,
+        aandrijving: aandrijving as "batterij" | "brandstof",
+        jaarEersteToelating: occ?.bouwjaar ?? i.startjaar,
+        startjaar: i.startjaar,
+        energie: rond2(b.lopend.energie * 12),
+        onderhoud: rond2(b.lopend.onderhoudEnBanden * 12),
+        mrb: rond2(b.lopend.mrb * 12),
+        verzekering: rond2(b.lopend.verzekering * 12),
+      },
       zakelijkeKm,
       priveKm: i.kmPerJaar - zakelijkeKm,
-      tarief: 1,
       btwPlichtig: z.btwPlichtig,
+      winst: z.inkomen,
     };
-    // Met tarief 1 is het "belastingvoordeel" precies de aftrekpost; daarna het exacte tarief over die post
-    // (inkomstenbelasting 2026 na zelfstandigenaftrek, MKB-winstvrijstelling en heffingskortingen).
-    const metTarief = (v: (z: typeof invoer) => ReturnType<typeof zzpPrive>) => {
-      const aftrek = -(v(invoer).posten.find((p) => p.label.startsWith("Belastingvoordeel"))?.bedrag ?? 0);
-      const t = effectiefTarief(belastingOndernemer2026, z.inkomen - aftrek, aftrek);
-      return { ...v({ ...invoer, tarief: t }), tarief: t };
-    };
-    const zak = metTarief(zzpZakelijk);
-    const pri = metTarief(zzpPrive);
-    const tarief = (zak.nettoPerMaand <= pri.nettoPerMaand ? zak : pri).tarief;
-    const beste = zak.nettoPerMaand <= pri.nettoPerMaand ? { naam: "zakelijk", v: zak } : { naam: "privé", v: pri };
+    const varianten = zzpVariantenVoor(zzp, standaardZzpLease(zzp));
+    // De score rekent met kopen (zakelijk of privé), net als de ranglijst voor particulieren contant rekent (besluit 44).
+    const koop = varianten.filter((v) => v.vorm === "koopZakelijk" || v.vorm === "koopPrive");
+    const beste = koop.reduce((x, y) => (y.nettoPerMaand < x.nettoPerMaand ? y : x));
     return {
-      perMaand: beste.v.nettoPerMaand,
-      label: `netto per maand (auto ${beste.naam})`,
-      uitleg: `goedkoopste van auto zakelijk (${eur0(zak.nettoPerMaand)}) en auto privé met €0,25 per zakelijke km (${eur0(pri.nettoPerMaand)}); effectief tarief ${nl(tarief * 100, 1)}% bij een winst van ${eur0(z.inkomen)} (inkomstenbelasting 2026 na zelfstandigenaftrek, MKB-winstvrijstelling en heffingskortingen)`,
-      posten: beste.v.posten,
-      varianten: [
-        { naam: "Auto zakelijk", perMaand: zak.nettoPerMaand, posten: zak.posten },
-        { naam: "Auto privé + km-vergoeding", perMaand: pri.nettoPerMaand, posten: pri.posten },
-      ],
+      perMaand: beste.nettoPerMaand,
+      label: `netto per maand (${ZZP_NAAM[beste.vorm].toLowerCase()})`,
+      uitleg: `de goedkoopste van kopen zakelijk (${eur0(koop[0].nettoPerMaand)}) en kopen privé met €0,25 per zakelijke km (${eur0(koop[1].nettoPerMaand)}) telt in de score. Belastingvoordeel exact: inkomstenbelasting 2026 bij een winst van ${eur0(z.inkomen)}, na zelfstandigenaftrek, MKB-winstvrijstelling en heffingskortingen`,
+      posten: beste.posten,
+      varianten: varianten.map((v) => ({ naam: ZZP_NAAM[v.vorm], perMaand: v.nettoPerMaand, posten: v.posten })),
+      zzp,
     };
   }
   return null;
@@ -486,8 +526,8 @@ export const modelNaam = (m: Pick<ModelRdw, "merk" | "model">) => `${merkNaam(m.
 /** Alle kandidaten van een model: nieuwe uitvoeringen en/of occasions per bouwjaar binnen de leeftijdsgrens. */
 function kandidaten(m: ModelRdw, i: Intake): { u: UitvoeringRdw; occ: Occasion | null }[] {
   const uit: { u: UitvoeringRdw; occ: Occasion | null }[] = [];
-  // Zakelijke profielen in v1 alleen nieuw: de bijtellingsregels van eerdere jaren staan nog niet in het config.
-  const soort = i.profiel === "particulier" ? i.soort : "nieuw";
+  // Leaserijder alleen nieuw (lease is nieuw); particulier en ZZP'er ook occasions (besluit 70).
+  const soort = i.profiel === "leaserijder" ? "nieuw" : i.soort;
   if (soort !== "occasion") for (const u of m.uitvoeringen) uit.push({ u, occ: null });
   if (soort !== "nieuw")
     for (const j of occasionJaren(m.id)) {

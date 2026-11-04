@@ -78,3 +78,7 @@ Format: datum · beslissing · waarom · door wie · status
 | 72 | 2026-11-04 | Bijtelling 2016–2025 en de 60-maandenregel op jaarbasis in config/engine; status "onzeker" omdat alleen secundaire (consistente) bronnen | nodig voor occasions (besluit 70); geen primaire tabel gevonden | Claude | uitgevoerd; open: Belastingdienst-tabel zoeken |
 | 73 | 2026-11-04 | KIA: geen aftrek voor personenauto's (wettekst art. 3.45), wel voor bestelauto's | primaire bron gaat voor; uitzondering voor EV's alleen in secundaire bronnen | Claude | uitgevoerd; ⚠ open |
 | 74 | 2026-11-04 | Vpb- en box 2-tarieven 2026 in het config voor de DGA (stap 4c) | bron KVK | Claude | uitgevoerd |
+| 75 | 2026-11-04 | ZZP'er: vier varianten (kopen zakelijk, kopen privé, financial lease zakelijk, operational lease); score rekent met de goedkoopste koopvariant | volledig beeld voor de ondernemer; ranking niet afhankelijk van leaseproducten | Claude | uitgevoerd |
+| 76 | 2026-11-04 | Gemist rendement nu ook in de ZZP-koopvarianten (niet aftrekbaar); bij financial lease de rente (wel aftrekbaar) | eerlijke vergelijking kopen vs. financieren | Claude | uitgevoerd |
+| 77 | 2026-11-04 | Zakelijke occasion = geen btw op de factuur (aanname), btw-correctie 1,5% | meeste occasions bij handelaren onder de bijzondere regeling; voorzichtige aanname | Claude | uitgevoerd; aanpasbaar in aannames.ts |
+| 78 | 2026-11-04 | Operational lease: zelfde forfaitaire btw-correctie als bij koop | SRA noemt leaseauto's niet apart; aanname gemarkeerd | Claude | uitgevoerd; ⚠ open |

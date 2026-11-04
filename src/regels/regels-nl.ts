@@ -301,6 +301,8 @@ export const regels = {
       bron: "https://www.sra.nl/nieuws/000000/advieswijzers/advieswijzer-auto-zakelijk-of-prive-2026",
       geldigVanaf: "2011-07-01",
       peildatum: PEIL,
+      toelichting:
+        "Forfait over de catalogusprijs incl. btw en BPM. 1,5% \"na het vierde jaar van aanschaf of ingeval bij de aanschaf geen recht op aftrek van btw bestond\" (SRA). Woon-werk telt voor de btw als privé.",
     } as Regel<{ standaard: number; naVierJaarOfZonderAftrek: number }>,
 
     btwTarief: {
