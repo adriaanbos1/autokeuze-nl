@@ -251,7 +251,13 @@ function Intakeformulier({ intake, zet }: { intake: Intake; zet: (i: Intake) => 
                 ["bestelauto", "Bestelauto"],
               ] as [Voertuig, string][]
             ).map(([v, t]) => (
-              <button key={v} type="button" className={intake.voertuig === v ? "gekozen" : ""} aria-pressed={intake.voertuig === v} onClick={() => zet({ ...intake, voertuig: v })}>
+              <button
+                key={v}
+                type="button"
+                className={intake.voertuig === v ? "gekozen" : ""}
+                aria-pressed={intake.voertuig === v}
+                onClick={() => zet({ ...intake, voertuig: v })}
+              >
                 {t}
               </button>
             ))}
@@ -264,11 +270,7 @@ function Intakeformulier({ intake, zet }: { intake: Intake; zet: (i: Intake) => 
                 zet={(n) => zz({ laadvermogenNodig: n })}
                 stap={100}
               />
-              <JaNee
-                label="Rijd je privé met de bestelauto?"
-                waarde={intake.zakelijk.bestelPriveGebruik}
-                zet={(b) => zz({ bestelPriveGebruik: b })}
-              />
+              <JaNee label="Rijd je privé met de bestelauto?" waarde={intake.zakelijk.bestelPriveGebruik} zet={(b) => zz({ bestelPriveGebruik: b })} />
               <JaNee
                 label="Moet je de hele looptijd in zero-emissiezones (binnensteden) kunnen komen?"
                 waarde={intake.zakelijk.zeZoneNodig}
@@ -889,7 +891,8 @@ export default function Autokeuze() {
 
       <p className="disclaimer">
         AutoKeuze NL vergelijkt en rekent door op basis van jouw invoer, openbare data en de aannames die bij elke berekening staan. Dit is geen financieel
-        advies en geen bemiddeling. Er zijn geen commerciële partners die de volgorde beïnvloeden. Methodiek versie {VERSIE}.
+        advies en geen bemiddeling. Er zijn geen commerciële partners die de volgorde beïnvloeden. Zie <a href="/methodiek">methodiek</a> (versie {VERSIE}) en{" "}
+        <a href="/over">disclaimer en privacy</a>.
       </p>
     </main>
   );

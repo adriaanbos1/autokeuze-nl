@@ -286,7 +286,7 @@ export const regels = {
     looptijdVastMaanden: {
       waarde: 60,
       status: "vastgesteld",
-      bron: "SRA advieswijzer 2026",
+      bron: "https://www.sra.nl/nieuws/000000/advieswijzers/advieswijzer-auto-zakelijk-of-prive-2026 (SRA advieswijzer 2026)",
       geldigVanaf: "2017-01-01",
       peildatum: PEIL,
     } as Regel<number>,

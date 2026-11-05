@@ -53,4 +53,4 @@ export const ankers = {
 };
 
 /** Bij een gelijke afgeronde eindscore beslist de laagste TCO, daarna de naam (methodiek §1.4). */
-export const VERSIE = "0.2 (Fase 3a, 2026-11-04)";
+export const VERSIE = "0.3 (Fase 5, 2026-11-05)";
