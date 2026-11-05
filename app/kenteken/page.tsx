@@ -49,7 +49,7 @@ export default function Kentekencheck() {
       : null;
 
   return (
-    <main>
+    <main id="inhoud">
       <Nav />
       <h1>Kentekencheck</h1>
       <p className="sub">

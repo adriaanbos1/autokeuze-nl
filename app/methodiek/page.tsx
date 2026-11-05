@@ -50,7 +50,7 @@ const onzeker = register.filter((r) => r.label === "onzeker" || r.label === "aan
 
 export default function Methodiek() {
   return (
-    <main>
+    <main id="inhoud">
       <Nav />
       <h1>Methodiek</h1>
       <p className="sub">Hoe AutoKeuze NL auto&apos;s rangschikt en kosten doorrekent. Versie {VERSIE}.</p>
@@ -108,7 +108,7 @@ export default function Methodiek() {
         die 100 punten oplevert, met een rechte lijn daartussen. Ontbreekt de data voor een criterium, dan telt dat criterium voor die auto niet mee en wegen de
         andere naar verhouding zwaarder. De kaart van de auto vermeldt dat.
       </p>
-      <div className="tabel-scroll">
+      <div className="tabel-scroll" tabIndex={0} role="region" aria-label="Tabel criteria">
         <table className="raster">
           <caption className="uitleg">Criteria en wat we meten</caption>
           <thead>
@@ -150,7 +150,7 @@ export default function Methodiek() {
 
       <h2 id="gewichten">Gewichten per profiel</h2>
       <p>Startwaarden; je past ze aan met de schuifjes. De gewichten zijn voor elk merk gelijk.</p>
-      <div className="tabel-scroll">
+      <div className="tabel-scroll" tabIndex={0} role="region" aria-label="Tabel startgewichten">
         <table className="raster">
           <caption className="uitleg">Startgewichten in procenten</caption>
           <thead>
@@ -259,7 +259,7 @@ export default function Methodiek() {
           <summary>
             {g} ({register.filter((r) => r.groep === g).length})
           </summary>
-          <div className="tabel-scroll">
+          <div className="tabel-scroll" tabIndex={0} role="region" aria-label={`Tabel ${g}`}>
             <table className="raster">
               <thead>
                 <tr>

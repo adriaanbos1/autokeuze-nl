@@ -762,7 +762,7 @@ export default function Autokeuze() {
   const eerste = ranglijst.top[0];
 
   return (
-    <main className="keuze">
+    <main id="inhoud" className="keuze">
       <Nav />
       <h1>Welke auto past bij jou?</h1>
       <p className="sub">
@@ -777,14 +777,19 @@ export default function Autokeuze() {
         className="hoofdknop"
         onClick={() => {
           setGetoond(true);
-          setTimeout(() => resultatenRef.current?.scrollIntoView({ behavior: "smooth" }), 0);
+          setTimeout(() => {
+            // Focus naar de resultaten, zodat een schermlezer ze voorleest; geen animatie als iemand minder beweging wil.
+            const el = resultatenRef.current;
+            el?.focus({ preventScroll: true });
+            el?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+          }, 0);
         }}
       >
         Toon mijn top 3
       </button>
 
       {getoond && (
-        <div ref={resultatenRef}>
+        <div ref={resultatenRef} tabIndex={-1} className="resultaten" role="region" aria-label="Resultaten">
           <h2>{ranglijst.top.length > 0 && ranglijst.top.length < 3 ? `Jouw top ${ranglijst.top.length}` : "Jouw top 3"}</h2>
           {intake.aandrijvingen.length === 0 ? (
             <p className="melding">Kies minstens één aandrijving.</p>
@@ -812,7 +817,7 @@ export default function Autokeuze() {
           {ranglijst.lijst.length > 0 && (
             <details>
               <summary>Bekijk de volledige ranglijst ({ranglijst.lijst.length} modellen)</summary>
-              <div className="tabel-scroll">
+              <div className="tabel-scroll" tabIndex={0} role="region" aria-label="Tabel volledige ranglijst">
                 <table className="ranglijst">
                   <thead>
                     <tr>

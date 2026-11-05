@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function Over() {
   return (
-    <main>
+    <main id="inhoud">
       <Nav />
       <h1>Over AutoKeuze NL</h1>
       <p className="sub">Wat deze site wel en niet is, hoe we met je gegevens omgaan en welke bronnen we gebruiken.</p>

@@ -17,7 +17,13 @@ function verbruik(u: UitvoeringRdw) {
   if (u.aandrijving === "elektrisch") return n(u.verbruikWltp, " kWh");
   if (u.aandrijving === "plug-in hybride")
     return (
-      <span title={u.verbruikLegeAccuHerkomst ? `accu leeg: ${u.verbruikLegeAccuHerkomst.afgeleid} kentekens afgeleid uit het gewogen verbruik, ${u.verbruikLegeAccuHerkomst.rdw} officieel (RDW)` : undefined}>
+      <span
+        title={
+          u.verbruikLegeAccuHerkomst
+            ? `accu leeg: ${u.verbruikLegeAccuHerkomst.afgeleid} kentekens afgeleid uit het gewogen verbruik, ${u.verbruikLegeAccuHerkomst.rdw} officieel (RDW)`
+            : undefined
+        }
+      >
         {n(u.elektrischVerbruikWltp, " kWh")} · accu leeg {n(u.verbruikWltp, " l")}
         {u.verbruikLegeAccuHerkomst && u.verbruikLegeAccuHerkomst.afgeleid > 0 ? "*" : ""}{" "}
         <span className="uitleg">(gewogen {n(u.verbruikGewogenWltp, " l")})</span>
@@ -40,13 +46,13 @@ const criteria: [string, string][] = [
 
 export default function Modellen() {
   return (
-    <main>
+    <main id="inhoud">
       <Nav />
       <h1>Dataset: {modellen.length} modellen</h1>
       <p className="sub">
-        Gekozen op aantal registraties sinds 2019 ({selectie.dekkingGekozen.toLocaleString("nl-NL")}% van {selectie.aantalRegistratiesGeteld.toLocaleString("nl-NL")}{" "}
-        personenauto&apos;s), zonder handmatige selectie. Specificaties: medianen van de meest recent geregistreerde exemplaren per aandrijving.
-        Bron: RDW Open Data, peildatum {rdw.peildatum}.
+        Gekozen op aantal registraties sinds 2019 ({selectie.dekkingGekozen.toLocaleString("nl-NL")}% van{" "}
+        {selectie.aantalRegistratiesGeteld.toLocaleString("nl-NL")} personenauto&apos;s), zonder handmatige selectie. Specificaties: medianen van de meest
+        recent geregistreerde exemplaren per aandrijving. Bron: RDW Open Data, peildatum {rdw.peildatum}.
       </p>
 
       <h2>Datadekking</h2>
@@ -55,14 +61,14 @@ export default function Modellen() {
           {criteria.map(([c, s]) => (
             <tr key={c}>
               <td>{c}</td>
-              <td className="b">{s}</td>
+              <td className="uitleg">{s}</td>
             </tr>
           ))}
         </tbody>
       </table>
 
       <h2>Modellen (volgorde: aantal registraties)</h2>
-      <div className="tabel-scroll">
+      <div className="tabel-scroll" tabIndex={0} role="region" aria-label="Tabel modellen">
         <table className="dataset">
           <thead>
             <tr>
@@ -98,16 +104,23 @@ export default function Modellen() {
                     {u.steekproef} · {u.periode[0] === u.periode[1] ? u.periode[0] : `${u.periode[0]}–${u.periode[1]}`}
                   </td>
                   <td className="b">
-                    {i > 0 ? "" : b ? (
+                    {i > 0 ? (
+                      ""
+                    ) : b ? (
                       <span title={`${b.werkelijk} keuringen met gebrek, ${b.verwacht} verwacht (${b.keuringen} keuringen)`}>
-                        {b.score} <span className="uitleg">({b.verhouding.toLocaleString("nl-NL")}× · {b.zekerheid})</span>
+                        {b.score}{" "}
+                        <span className="uitleg">
+                          ({b.verhouding.toLocaleString("nl-NL")}× · {b.zekerheid})
+                        </span>
                       </span>
                     ) : (
                       <span className="uitleg">onvoldoende data</span>
                     )}
                   </td>
                   <td className="b">
-                    {i > 0 ? "" : v ? (
+                    {i > 0 ? (
+                      ""
+                    ) : v ? (
                       <a href={v.geldend.url} title={`score ${v.score} · ${v.alle.map((x) => `${x.testjaar}: ${x.sterren}★`).join(", ")}`}>
                         {v.geldend.sterren}★ ({v.geldend.testjaar}){v.geldend.verlopen ? " verlopen" : ""}
                       </a>
@@ -130,21 +143,21 @@ export default function Modellen() {
         </table>
       </div>
       <p className="disclaimer">
-        Catalogusprijs is incl. btw en BPM en inclusief de fabrieksopties van de geregistreerde auto&apos;s, dus geen vanafprijs. WLTP-verbruik is
-        een laboratoriumwaarde; in de praktijk ligt het verbruik meestal hoger. &quot;Hybride&quot; omvat ook mild-hybrides (RDW-klasse NOVC-HEV).
-        Betrouwbaarheid: score 0–100 (50 = gemiddeld) uit APK-gebreken t.o.v. auto&apos;s van hetzelfde bouwjaar en dezelfde leeftijd; tussen haakjes
-        de verhouding (1× = gemiddeld) en de statistische zekerheid. APK-venster {apkHerkomst.venster.vanaf}–{apkHerkomst.venster.tot}; methode in
-        docs/methodiek.md §2.2. Score geldt per model, niet per aandrijving.
+        Catalogusprijs is incl. btw en BPM en inclusief de fabrieksopties van de geregistreerde auto&apos;s, dus geen vanafprijs. WLTP-verbruik is een
+        laboratoriumwaarde; in de praktijk ligt het verbruik meestal hoger. &quot;Hybride&quot; omvat ook mild-hybrides (RDW-klasse NOVC-HEV). Betrouwbaarheid:
+        score 0–100 (50 = gemiddeld) uit APK-gebreken t.o.v. auto&apos;s van hetzelfde bouwjaar en dezelfde leeftijd; tussen haakjes de verhouding (1× =
+        gemiddeld) en de statistische zekerheid. APK-venster {apkHerkomst.venster.vanaf}–{apkHerkomst.venster.tot}; methode in docs/methodiek.md §2.2. Score
+        geldt per model, niet per aandrijving.
         <br />
-        Euro NCAP: aantal sterren en testjaar van de nieuwste test, met link naar de uitslag (bron: euroncap.com, peildatum {ncapHerkomst.peildatum}).
-        Sterren uit verschillende jaren zijn niet goed vergelijkbaar, want de test wordt steeds strenger; &quot;verlopen&quot; betekent dat Euro NCAP de
-        uitslag na 6 jaar niet meer laat gelden.
+        Euro NCAP: aantal sterren en testjaar van de nieuwste test, met link naar de uitslag (bron: euroncap.com, peildatum {ncapHerkomst.peildatum}). Sterren
+        uit verschillende jaren zijn niet goed vergelijkbaar, want de test wordt steeds strenger; &quot;verlopen&quot; betekent dat Euro NCAP de uitslag na 6
+        jaar niet meer laat gelden.
         <br />
-        * Plug-in hybride met lege accu: RDW publiceert dit verbruik zelden; wij leiden het af uit het gewogen WLTP-verbruik en de elektrische
-        actieradius (methodiek §2.4, gecontroleerd tegen 2.178 auto&apos;s met een officiële waarde: mediane afwijking +1%).
+        * Plug-in hybride met lege accu: RDW publiceert dit verbruik zelden; wij leiden het af uit het gewogen WLTP-verbruik en de elektrische actieradius
+        (methodiek §2.4, gecontroleerd tegen 2.178 auto&apos;s met een officiële waarde: mediane afwijking +1%).
         <br />
-        Onderhoud + banden: indicatief rekenmodel voor een nieuwe auto bij {VOORBEELD_KM.toLocaleString("nl-NL")} km per jaar (uurtarief ANWB, verder
-        eigen aannames in src/regels/aannames.ts). Verschilt alleen naar aandrijving en gewicht, niet naar merk.
+        Onderhoud + banden: indicatief rekenmodel voor een nieuwe auto bij {VOORBEELD_KM.toLocaleString("nl-NL")} km per jaar (uurtarief ANWB, verder eigen
+        aannames in src/regels/aannames.ts). Verschilt alleen naar aandrijving en gewicht, niet naar merk.
       </p>
     </main>
   );

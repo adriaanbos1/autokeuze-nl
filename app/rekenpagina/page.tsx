@@ -157,7 +157,7 @@ export default function Rekenpagina() {
   const zPriv = zzpPrive(zzpInvoer);
 
   return (
-    <main>
+    <main id="inhoud">
       <Nav />
       <h1>AutoKeuze NL: rekenpagina</h1>
       <p className="sub">Testversie van de reken-engine (Fase 1). Vul waarden in en klap per bedrag de berekening open.</p>

@@ -9,7 +9,12 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="nl">
-      <body>{children}</body>
+      <body>
+        <a href="#inhoud" className="overslaan">
+          Naar de inhoud
+        </a>
+        {children}
+      </body>
     </html>
   );
 }
