@@ -1,6 +1,6 @@
 # Methodiek — hoe AutoKeuze NL rekent en rangschikt
 
-*Versie 0.1 (concept, Fase 0). Dit document wordt later de publieke methodiekpagina.*
+*Versie 0.3 (Fase 5, 5-11-2026). De publieke versie staat op de pagina `/methodiek` en wordt automatisch opgebouwd uit `src/regels/`; dit document is de uitgebreide toelichting met rekenvoorbeelden.*
 
 ## 0. In het kort
 1. Je vertelt hoe je rijdt en wat je belangrijk vindt.
@@ -414,9 +414,9 @@ Varianten:
                (geen partnerdata)                       krijgt ALLEEN: model-id's van de getoonde auto's
 ```
 
-1. **Aparte modules:** `engine/` (rekenen + rangschikken) importeert nooit iets uit `partners/`. Dat dwingen we af met een lint-regel en een test die de build laat falen.
+1. **Aparte modules:** `src/engine`, `src/data` en `src/regels` importeren nooit iets uit `src/partners/`. Een test (`tests/partners.test.ts`) laat dat falen; de app importeert de module nog helemaal niet (besluit 93).
 2. **Eenrichtingsverkeer:** het partnerblok krijgt alleen de uitkomst (welke modellen staan in de top 3) en kan die niet terugschrijven of herordenen.
-3. **Regressietest "ranking-invariantie":** dezelfde invoer met en zonder partner-config moet een byte-voor-byte identieke ranking geven.
+3. **Regressietest "ranking-invariantie"** (gebouwd, Fase 5c): voor zes profielen (particulier nieuw/occasion, ZZP'er, DGA, leaserijder, bestelauto) is de ranglijst met en zonder "agressieve" neppartners byte-voor-byte identiek. Het partnerblok draait op een bevroren ranglijst en krijgt alleen model-id's.
 4. **Presentatie:** partnerlinks staan pas ná de ranking en de berekening, met het label "Advertentie / partnerlink", en altijd met minstens één neutrale optie ("zelf zoeken").
 5. **Geen data naar partners:** gewone links, geen profieldata in de URL (ook vereist voor de Wft, zie `regels-nl.md` §8).
 6. **Openbaarheid:** methodiek, ankers, standaardgewichten en de broncode van de engine kunnen openbaar (bijv. open source). Dat is het sterkste bewijs van neutraliteit.

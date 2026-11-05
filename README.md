@@ -17,6 +17,7 @@ npm install      # eenmalig
 npm test         # alle rekentests
 npm run dev      # autokeuze (intake → top 3) op http://localhost:3000
 npm run build    # productieversie (volledig statisch), zie docs/testlink-vercel.md
+npm run regelcheck  # welke fiscale regels aandacht vragen, zie docs/checklist-regelupdate.md
 ```
 
 ## Data verversen (RDW)
@@ -30,6 +31,10 @@ npx vite-node --config vitest.config.ts scripts/haal-occasions.ts   # specs per 
 # Bestelauto's: dezelfde scripts met --bestel (selectie top 20, specs, occasions, APK):
 node scripts/selecteer-modellen.ts 20 --bestel
 ```
+
+## Pagina's
+
+`/` autokeuze · `/kenteken` kentekencheck · `/modellen` dataset · `/rekenpagina` losse berekening · `/methodiek` openbare methodiek met alle regels en bronnen · `/over` disclaimer, privacy, bronnen.
 
 ## Structuur
 

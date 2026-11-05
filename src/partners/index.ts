@@ -1,5 +1,5 @@
 /**
- * Partnerlinks (affiliate), voorbereid maar NIET actief (besluit 90).
+ * Partnerlinks (affiliate), voorbereid maar NIET actief (besluit 93).
  *
  * Borging van neutraliteit (docs/methodiek.md §7):
  * - Deze module staat los van de rekencode. Niets in src/engine, src/data of src/regels

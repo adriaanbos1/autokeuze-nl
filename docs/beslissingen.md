@@ -93,3 +93,11 @@ Format: datum · beslissing · waarom · door wie · status
 | 87 | 2026-11-04 | KIA voor bestelauto's met desinvesteringsbijtelling bij verkoop binnen 5 jaar; aanname: enige investering dat jaar | KIA hangt af van alle investeringen samen | Claude | uitgevoerd |
 | 88 | 2026-11-04 | ZE-zone als harde eis over de hele looptijd (optioneel); veiligheid telt niet mee bij bestelauto's | Euro NCAP geeft geen sterren voor bestelauto's | Claude | uitgevoerd |
 | 89 | 2026-11-04 | Verzekering bestelauto: personenauto-gemiddelde met waarschuwing | geen bron voor bestelauto-premies | Claude | uitgevoerd; ⚠ open |
+| 90 | 2026-11-05 | Nog geen eigen domein; site blijft op autokeuze-nl.vercel.app; stappenplan in `docs/eigen-domein.md` | keuze Adriaan | Adriaan | besloten |
+| 91 | 2026-11-05 | Code nog niet open source; alleen de methodiek is openbaar (pagina /methodiek) | keuze Adriaan; CLAUDE.md bevat persoonlijke context | Adriaan | besloten; opnieuw bekijken vóór lancering |
+| 92 | 2026-11-05 | Belangenvermelding als concept (`docs/belangenvermelding-concept.md`), nog niet live | keuze Adriaan; beslissen vóór publieke lancering | Adriaan | besloten; ⚠ open |
+| 93 | 2026-11-05 | Partnermodule `src/partners/` gebouwd maar leeg en niet in de app; invariantietest bewijst dat de ranglijst met en zonder (nep)partners identiek is | keuze Adriaan ("alleen techniek + test"); methodiek §7 | Adriaan | uitgevoerd |
+| 94 | 2026-11-05 | Methodiekpagina wordt automatisch opgebouwd uit dezelfde configbestanden als de rekencode (register van 64 parameters) | pagina en berekening kunnen niet uit elkaar lopen | Claude | uitgevoerd |
+| 95 | 2026-11-05 | Concept-disclaimer uit `regels-nl.md` §8 live op /over (zonder "Geld lenen kost geld": nog geen kredietpartners); plus privacy- en bronnensectie | kernprincipe 1 en 5 | Claude | uitgevoerd; Adriaan graag tekst nalezen |
+| 96 | 2026-11-05 | Toegankelijkheid: axe-core (WCAG 2.2 A/AA) op alle pagina's, licht/donker, 375 px: 0 fouten na reparaties; rapport in `docs/toegankelijkheid.md` | eis Fase 5 | Claude | uitgevoerd; open: test met echte schermlezer |
+| 97 | 2026-11-05 | Jaarlijkse regelupdate: checklist + `npm run regelcheck` (onzeker, aangekondigd, verouderd, oude jaartabellen) | risico "fiscale regels veranderen" uit het plan | Claude | uitgevoerd |

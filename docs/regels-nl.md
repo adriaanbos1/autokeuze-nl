@@ -142,7 +142,7 @@ Effect op hypotheek: geldverstrekkers rekenen een private-leasebedrag mee als ma
 3. Geen "aanvraag via ons" voor krediet of lease. Willen we later echte leads verkopen, dan is een **AFM-vergunning** (of een vergunde partner) nodig. Dat is een productbeslissing (zie vragen in `plan.md`).
 4. ⚠ Juridische toets door een Wft-jurist vóór livegang van de affiliatefunctie.
 
-**Concept-disclaimer (ter goedkeuring):**
+**Disclaimer (live op /over sinds 5-11-2026, besluit 95; Adriaan leest nog na):**
 > AutoKeuze NL is een onafhankelijke rekentool. De uitkomsten zijn scenario's op basis van jouw invoer, openbare gegevens en aannames die we bij elke berekening tonen. Dit is **geen financieel advies** en geen advies in de zin van de Wet op het financieel toezicht. Wij bemiddelen niet in krediet, lease of verzekeringen. Bedragen zijn indicatief; fiscale regels kunnen wijzigen. Laat je bij een definitief besluit adviseren door een erkend adviseur. Commerciële partners hebben geen invloed op de rangschikking; links naar partners zijn als zodanig gemarkeerd en verschijnen pas ná de vergelijking. Geld lenen kost geld.
 
 ("Geld lenen kost geld" is verplicht bij reclame voor krediet; we nemen het op zodra er kredietpartners zichtbaar zijn.)

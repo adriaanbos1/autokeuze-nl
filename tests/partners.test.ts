@@ -89,7 +89,7 @@ describe("partnerblok", () => {
     expect(() => controleerUrl("http://x.invalid/{model}")).toThrow();
     expect(() => partnerBlokken(["a"], [{ naam: "X", soort: "dealer", url: "https://x.invalid/{postcode}" }])).toThrow();
   });
-  it("er zijn nu geen echte partners (besluit 90)", () => {
+  it("er zijn nu geen echte partners (besluit 93)", () => {
     expect(partners).toEqual([]);
   });
 });
@@ -105,7 +105,7 @@ describe("scheiding van de code", () => {
   it.each(rekencode.map((p) => [path.relative(root, p)]))("%s importeert niets uit partners", (p) => {
     expect(readFileSync(path.join(root, p), "utf8")).not.toMatch(/from\s+["'][^"']*partners/);
   });
-  it("de app toont nog geen partnerlinks (besluit 90; aanpassen bij livegang)", () => {
+  it("de app toont nog geen partnerlinks (besluit 93; aanpassen bij livegang)", () => {
     for (const p of map(path.join(root, "app"))) expect(readFileSync(p, "utf8")).not.toMatch(/from\s+["'][^"']*partners/);
   });
 });

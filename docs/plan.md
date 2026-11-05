@@ -67,6 +67,23 @@ Alternatief bij krappe kosten: Cloudflare Pages (gratis, ook commercieel). Overs
 ### Fase 5: Afronding
 - **Doel:** publieke methodiekpagina, disclaimers, toegankelijkheid (WCAG 2.2 AA), voorbereiding op affiliates (aparte module + invariantietest), jaarlijkse regels-update-checklist, deploy op eigen domein.
 - **Wat jij kunt testen:** de live site; een toegankelijkheidsrapport; de invariantietest.
+- **Deelstappen (5-11-2026, besluiten 90–97):**
+  - **5a** ✅ openbare methodiekpagina (`/methodiek`, automatisch uit het config) en pagina Over (disclaimer, privacy, bronnen en licenties).
+  - **5b** ✅ toegankelijkheid WCAG 2.2 AA: automatische test 0 fouten, reparaties en rapport (`docs/toegankelijkheid.md`).
+  - **5c** ✅ partnermodule (leeg, niet zichtbaar) met ranking-invariantietest.
+  - **5d** ✅ checklist regelupdate + `npm run regelcheck`; stappenplan eigen domein; concept belangenvermelding.
+  - Niet gedaan op verzoek: eigen domein (besluit 90), open source (91), belangenvermelding live (92).
+  - **Fase 5 is hiermee afgerond.** Zie "Vóór de publieke lancering" hieronder.
+
+### Vóór de publieke lancering (open punten)
+1. Belangenvermelding kiezen en live zetten (`docs/belangenvermelding-concept.md`).
+2. Contactadres voor meldingen.
+3. Eigen domein (`docs/eigen-domein.md`).
+4. Euro NCAP: toestemming of juridische bevestiging voor het noemen van sterren.
+5. Regel over de werkgever uit CLAUDE.md halen als de repository openbaar wordt.
+6. Test met een echte schermlezer.
+7. Optioneel: fiscalist laat de zakelijke berekeningen nalezen; licentie op restwaardedata.
+8. Vóór partnerlinks: juridische toets (Wft) en het label "Geld lenen kost geld" bij krediet.
 - **Omvang:** ca. 1 week (klein–middel).
 
 Totaal: grofweg 7–11 weken doorlooptijd, afhankelijk van feedbackrondes en de dataset.
